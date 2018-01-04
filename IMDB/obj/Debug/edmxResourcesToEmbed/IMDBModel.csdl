@@ -1,0 +1,303 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="IMDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Actori">
+    <Key>
+      <PropertyRef Name="ID_Actor" />
+    </Key>
+    <Property Name="ID_Actor" Type="Int32" Nullable="false" />
+    <Property Name="Nume" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Prenume" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Anul_nasterii" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="Oras_natal" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Tara" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Nationalitate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Relatie_actor_film" Relationship="Self.FK_Relatie_actor_film_Actori" FromRole="Actori" ToRole="Relatie_actor_film" />
+    <NavigationProperty Name="Relatie_Actori_Premii" Relationship="Self.FK_Relatie_Actori_Premii_Actori" FromRole="Actori" ToRole="Relatie_Actori_Premii" />
+  </EntityType>
+  <EntityType Name="Filme">
+    <Key>
+      <PropertyRef Name="ID_Film" />
+    </Key>
+    <Property Name="ID_Film" Type="Int32" Nullable="false" />
+    <Property Name="Nume" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="An_aparitie" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="Nota" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <NavigationProperty Name="Relatie_actor_film" Relationship="Self.FK_Relatie_actor_film_Filme" FromRole="Filme" ToRole="Relatie_actor_film" />
+    <NavigationProperty Name="Relatie_Filme_Premii" Relationship="Self.FK_Relatie_Filme_Premii_Filme" FromRole="Filme" ToRole="Relatie_Filme_Premii" />
+    <NavigationProperty Name="Genuris" Relationship="Self.Relatie_Film_Gen" FromRole="Filme" ToRole="Genuri" />
+    <NavigationProperty Name="Regizoris" Relationship="Self.Relatie_Regizor_Film" FromRole="Filme" ToRole="Regizori" />
+  </EntityType>
+  <EntityType Name="Genuri">
+    <Key>
+      <PropertyRef Name="ID_Gen" />
+    </Key>
+    <Property Name="ID_Gen" Type="Int32" Nullable="false" />
+    <Property Name="Nume_Gen" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Filmes" Relationship="Self.Relatie_Film_Gen" FromRole="Genuri" ToRole="Filme" />
+    <NavigationProperty Name="Seriales" Relationship="Self.Relatie_Serial_Gen" FromRole="Genuri" ToRole="Seriale" />
+  </EntityType>
+  <EntityType Name="Premii">
+    <Key>
+      <PropertyRef Name="ID_Premiu" />
+    </Key>
+    <Property Name="ID_Premiu" Type="Int32" Nullable="false" />
+    <Property Name="Nume" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Relatie_Actori_Premii" Relationship="Self.FK_Relatie_Actori_Premii_Premii" FromRole="Premii" ToRole="Relatie_Actori_Premii" />
+    <NavigationProperty Name="Relatie_Filme_Premii" Relationship="Self.FK_Relatie_Filme_Premii_Premii" FromRole="Premii" ToRole="Relatie_Filme_Premii" />
+  </EntityType>
+  <EntityType Name="Regizori">
+    <Key>
+      <PropertyRef Name="ID_Regizor" />
+    </Key>
+    <Property Name="ID_Regizor" Type="Int32" Nullable="false" />
+    <Property Name="Nume" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Prenume" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Data_nasterii" Type="DateTime" Precision="3" />
+    <Property Name="Locul_nasterii" Type="String" MaxLength="90" FixedLength="false" Unicode="false" />
+    <Property Name="Tara" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Nationalitate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Nr_filme_regizate" Type="Int32" />
+    <NavigationProperty Name="Filmes" Relationship="Self.Relatie_Regizor_Film" FromRole="Regizori" ToRole="Filme" />
+  </EntityType>
+  <EntityType Name="Relatie_actor_film">
+    <Key>
+      <PropertyRef Name="ID_Actor" />
+      <PropertyRef Name="ID_Film" />
+    </Key>
+    <Property Name="ID_Relatie" Type="Int32" Nullable="false" />
+    <Property Name="ID_Actor" Type="Int32" Nullable="false" />
+    <Property Name="ID_Film" Type="Int32" Nullable="false" />
+    <Property Name="Nume_in_film" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Actori" Relationship="Self.FK_Relatie_actor_film_Actori" FromRole="Relatie_actor_film" ToRole="Actori" />
+    <NavigationProperty Name="Filme" Relationship="Self.FK_Relatie_actor_film_Filme" FromRole="Relatie_actor_film" ToRole="Filme" />
+  </EntityType>
+  <EntityType Name="Relatie_Actori_Premii">
+    <Key>
+      <PropertyRef Name="ID_Premiu" />
+      <PropertyRef Name="ID_Actor" />
+    </Key>
+    <Property Name="ID_Premiu" Type="Int32" Nullable="false" />
+    <Property Name="ID_Actor" Type="Int32" Nullable="false" />
+    <Property Name="Numar_premii" Type="Int32" />
+    <NavigationProperty Name="Actori" Relationship="Self.FK_Relatie_Actori_Premii_Actori" FromRole="Relatie_Actori_Premii" ToRole="Actori" />
+    <NavigationProperty Name="Premii" Relationship="Self.FK_Relatie_Actori_Premii_Premii" FromRole="Relatie_Actori_Premii" ToRole="Premii" />
+  </EntityType>
+  <EntityType Name="Relatie_Filme_Premii">
+    <Key>
+      <PropertyRef Name="ID_Premiu" />
+      <PropertyRef Name="ID_Film" />
+    </Key>
+    <Property Name="ID_Premiu" Type="Int32" Nullable="false" />
+    <Property Name="ID_Film" Type="Int32" Nullable="false" />
+    <Property Name="Numar_Premii" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <NavigationProperty Name="Filme" Relationship="Self.FK_Relatie_Filme_Premii_Filme" FromRole="Relatie_Filme_Premii" ToRole="Filme" />
+    <NavigationProperty Name="Premii" Relationship="Self.FK_Relatie_Filme_Premii_Premii" FromRole="Relatie_Filme_Premii" ToRole="Premii" />
+  </EntityType>
+  <EntityType Name="Seriale">
+    <Key>
+      <PropertyRef Name="ID_Serial" />
+    </Key>
+    <Property Name="ID_Serial" Type="Int32" Nullable="false" />
+    <Property Name="Nume" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="An_aparitie" Type="Int32" />
+    <Property Name="Numar_sezoane" Type="Int32" />
+    <Property Name="Total_episoade" Type="Int32" />
+    <Property Name="Nota" Type="Single" />
+    <NavigationProperty Name="Genuris" Relationship="Self.Relatie_Serial_Gen" FromRole="Seriale" ToRole="Genuri" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <Association Name="FK_Relatie_actor_film_Actori">
+    <End Role="Actori" Type="Self.Actori" Multiplicity="1" />
+    <End Role="Relatie_actor_film" Type="Self.Relatie_actor_film" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Actori">
+        <PropertyRef Name="ID_Actor" />
+      </Principal>
+      <Dependent Role="Relatie_actor_film">
+        <PropertyRef Name="ID_Actor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Relatie_Actori_Premii_Actori">
+    <End Role="Actori" Type="Self.Actori" Multiplicity="1" />
+    <End Role="Relatie_Actori_Premii" Type="Self.Relatie_Actori_Premii" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Actori">
+        <PropertyRef Name="ID_Actor" />
+      </Principal>
+      <Dependent Role="Relatie_Actori_Premii">
+        <PropertyRef Name="ID_Actor" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Relatie_actor_film_Filme">
+    <End Role="Filme" Type="Self.Filme" Multiplicity="1" />
+    <End Role="Relatie_actor_film" Type="Self.Relatie_actor_film" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Filme">
+        <PropertyRef Name="ID_Film" />
+      </Principal>
+      <Dependent Role="Relatie_actor_film">
+        <PropertyRef Name="ID_Film" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Relatie_Filme_Premii_Filme">
+    <End Role="Filme" Type="Self.Filme" Multiplicity="1" />
+    <End Role="Relatie_Filme_Premii" Type="Self.Relatie_Filme_Premii" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Filme">
+        <PropertyRef Name="ID_Film" />
+      </Principal>
+      <Dependent Role="Relatie_Filme_Premii">
+        <PropertyRef Name="ID_Film" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Relatie_Actori_Premii_Premii">
+    <End Role="Premii" Type="Self.Premii" Multiplicity="1" />
+    <End Role="Relatie_Actori_Premii" Type="Self.Relatie_Actori_Premii" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Premii">
+        <PropertyRef Name="ID_Premiu" />
+      </Principal>
+      <Dependent Role="Relatie_Actori_Premii">
+        <PropertyRef Name="ID_Premiu" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Relatie_Filme_Premii_Premii">
+    <End Role="Premii" Type="Self.Premii" Multiplicity="1" />
+    <End Role="Relatie_Filme_Premii" Type="Self.Relatie_Filme_Premii" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Premii">
+        <PropertyRef Name="ID_Premiu" />
+      </Principal>
+      <Dependent Role="Relatie_Filme_Premii">
+        <PropertyRef Name="ID_Premiu" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Relatie_Film_Gen">
+    <End Role="Filme" Type="Self.Filme" Multiplicity="*" />
+    <End Role="Genuri" Type="Self.Genuri" Multiplicity="*" />
+  </Association>
+  <Association Name="Relatie_Regizor_Film">
+    <End Role="Filme" Type="Self.Filme" Multiplicity="*" />
+    <End Role="Regizori" Type="Self.Regizori" Multiplicity="*" />
+  </Association>
+  <Association Name="Relatie_Serial_Gen">
+    <End Role="Genuri" Type="Self.Genuri" Multiplicity="*" />
+    <End Role="Seriale" Type="Self.Seriale" Multiplicity="*" />
+  </Association>
+  <EntityContainer Name="IMDBEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Actoris" EntityType="Self.Actori" />
+    <EntitySet Name="Filmes" EntityType="Self.Filme" />
+    <EntitySet Name="Genuris" EntityType="Self.Genuri" />
+    <EntitySet Name="Premiis" EntityType="Self.Premii" />
+    <EntitySet Name="Regizoris" EntityType="Self.Regizori" />
+    <EntitySet Name="Relatie_actor_film" EntityType="Self.Relatie_actor_film" />
+    <EntitySet Name="Relatie_Actori_Premii" EntityType="Self.Relatie_Actori_Premii" />
+    <EntitySet Name="Relatie_Filme_Premii" EntityType="Self.Relatie_Filme_Premii" />
+    <EntitySet Name="Seriales" EntityType="Self.Seriale" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <AssociationSet Name="FK_Relatie_actor_film_Actori" Association="Self.FK_Relatie_actor_film_Actori">
+      <End Role="Actori" EntitySet="Actoris" />
+      <End Role="Relatie_actor_film" EntitySet="Relatie_actor_film" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Relatie_Actori_Premii_Actori" Association="Self.FK_Relatie_Actori_Premii_Actori">
+      <End Role="Actori" EntitySet="Actoris" />
+      <End Role="Relatie_Actori_Premii" EntitySet="Relatie_Actori_Premii" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Relatie_actor_film_Filme" Association="Self.FK_Relatie_actor_film_Filme">
+      <End Role="Filme" EntitySet="Filmes" />
+      <End Role="Relatie_actor_film" EntitySet="Relatie_actor_film" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Relatie_Filme_Premii_Filme" Association="Self.FK_Relatie_Filme_Premii_Filme">
+      <End Role="Filme" EntitySet="Filmes" />
+      <End Role="Relatie_Filme_Premii" EntitySet="Relatie_Filme_Premii" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Relatie_Actori_Premii_Premii" Association="Self.FK_Relatie_Actori_Premii_Premii">
+      <End Role="Premii" EntitySet="Premiis" />
+      <End Role="Relatie_Actori_Premii" EntitySet="Relatie_Actori_Premii" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Relatie_Filme_Premii_Premii" Association="Self.FK_Relatie_Filme_Premii_Premii">
+      <End Role="Premii" EntitySet="Premiis" />
+      <End Role="Relatie_Filme_Premii" EntitySet="Relatie_Filme_Premii" />
+    </AssociationSet>
+    <AssociationSet Name="Relatie_Film_Gen" Association="Self.Relatie_Film_Gen">
+      <End Role="Filme" EntitySet="Filmes" />
+      <End Role="Genuri" EntitySet="Genuris" />
+    </AssociationSet>
+    <AssociationSet Name="Relatie_Regizor_Film" Association="Self.Relatie_Regizor_Film">
+      <End Role="Filme" EntitySet="Filmes" />
+      <End Role="Regizori" EntitySet="Regizoris" />
+    </AssociationSet>
+    <AssociationSet Name="Relatie_Serial_Gen" Association="Self.Relatie_Serial_Gen">
+      <End Role="Genuri" EntitySet="Genuris" />
+      <End Role="Seriale" EntitySet="Seriales" />
+    </AssociationSet>
+    <FunctionImport Name="sp_alterdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_creatediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_dropdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(IMDBModel.sp_helpdiagramdefinition_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(IMDBModel.sp_helpdiagrams_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_renamediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="new_diagramname" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_upgraddiagrams" />
+    <EntitySet Name="Users" EntityType="IMDBModel.User" />
+  </EntityContainer>
+  <ComplexType Name="sp_helpdiagramdefinition_Result">
+    <Property Type="Int32" Name="version" Nullable="true" />
+    <Property Type="Binary" Name="definition" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagrams_Result">
+    <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+    <Property Type="Int32" Name="OwnerID" Nullable="false" />
+  </ComplexType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="ID_User" />
+    </Key>
+    <Property Name="ID_User" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Username" Type="String" Nullable="false" MaxLength="50" FixedLength="true" Unicode="true" />
+    <Property Name="Password" Type="String" Nullable="false" MaxLength="20" FixedLength="true" Unicode="true" />
+    <Property Name="E_mail" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="Rights" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
+  </EntityType>
+</Schema>

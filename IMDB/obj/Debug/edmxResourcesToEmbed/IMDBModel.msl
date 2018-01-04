@@ -1,0 +1,169 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="IMDBModelStoreContainer" CdmEntityContainer="IMDBEntities">
+    <EntitySetMapping Name="Actoris">
+      <EntityTypeMapping TypeName="IMDBModel.Actori">
+        <MappingFragment StoreEntitySet="Actori">
+          <ScalarProperty Name="ID_Actor" ColumnName="ID_Actor" />
+          <ScalarProperty Name="Nume" ColumnName="Nume" />
+          <ScalarProperty Name="Prenume" ColumnName="Prenume" />
+          <ScalarProperty Name="Anul_nasterii" ColumnName="Anul_nasterii" />
+          <ScalarProperty Name="Oras_natal" ColumnName="Oras_natal" />
+          <ScalarProperty Name="Tara" ColumnName="Tara" />
+          <ScalarProperty Name="Nationalitate" ColumnName="Nationalitate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Filmes">
+      <EntityTypeMapping TypeName="IMDBModel.Filme">
+        <MappingFragment StoreEntitySet="Filme">
+          <ScalarProperty Name="ID_Film" ColumnName="ID_Film" />
+          <ScalarProperty Name="Nume" ColumnName="Nume" />
+          <ScalarProperty Name="An_aparitie" ColumnName="An_aparitie" />
+          <ScalarProperty Name="Nota" ColumnName="Nota" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Genuris">
+      <EntityTypeMapping TypeName="IMDBModel.Genuri">
+        <MappingFragment StoreEntitySet="Genuri">
+          <ScalarProperty Name="ID_Gen" ColumnName="ID_Gen" />
+          <ScalarProperty Name="Nume_Gen" ColumnName="Nume_Gen" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Premiis">
+      <EntityTypeMapping TypeName="IMDBModel.Premii">
+        <MappingFragment StoreEntitySet="Premii">
+          <ScalarProperty Name="ID_Premiu" ColumnName="ID_Premiu" />
+          <ScalarProperty Name="Nume" ColumnName="Nume" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Regizoris">
+      <EntityTypeMapping TypeName="IMDBModel.Regizori">
+        <MappingFragment StoreEntitySet="Regizori">
+          <ScalarProperty Name="ID_Regizor" ColumnName="ID_Regizor" />
+          <ScalarProperty Name="Nume" ColumnName="Nume" />
+          <ScalarProperty Name="Prenume" ColumnName="Prenume" />
+          <ScalarProperty Name="Data_nasterii" ColumnName="Data_nasterii" />
+          <ScalarProperty Name="Locul_nasterii" ColumnName="Locul_nasterii" />
+          <ScalarProperty Name="Tara" ColumnName="Tara" />
+          <ScalarProperty Name="Nationalitate" ColumnName="Nationalitate" />
+          <ScalarProperty Name="Nr_filme_regizate" ColumnName="Nr_filme_regizate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Relatie_actor_film">
+      <EntityTypeMapping TypeName="IMDBModel.Relatie_actor_film">
+        <MappingFragment StoreEntitySet="Relatie_actor_film">
+          <ScalarProperty Name="ID_Relatie" ColumnName="ID_Relatie" />
+          <ScalarProperty Name="ID_Actor" ColumnName="ID_Actor" />
+          <ScalarProperty Name="ID_Film" ColumnName="ID_Film" />
+          <ScalarProperty Name="Nume_in_film" ColumnName="Nume_in_film" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Relatie_Actori_Premii">
+      <EntityTypeMapping TypeName="IMDBModel.Relatie_Actori_Premii">
+        <MappingFragment StoreEntitySet="Relatie_Actori_Premii">
+          <ScalarProperty Name="ID_Premiu" ColumnName="ID_Premiu" />
+          <ScalarProperty Name="ID_Actor" ColumnName="ID_Actor" />
+          <ScalarProperty Name="Numar_premii" ColumnName="Numar_premii" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Relatie_Filme_Premii">
+      <EntityTypeMapping TypeName="IMDBModel.Relatie_Filme_Premii">
+        <MappingFragment StoreEntitySet="Relatie_Filme_Premii">
+          <ScalarProperty Name="ID_Premiu" ColumnName="ID_Premiu" />
+          <ScalarProperty Name="ID_Film" ColumnName="ID_Film" />
+          <ScalarProperty Name="Numar_Premii" ColumnName="Numar_Premii" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Seriales">
+      <EntityTypeMapping TypeName="IMDBModel.Seriale">
+        <MappingFragment StoreEntitySet="Seriale">
+          <ScalarProperty Name="ID_Serial" ColumnName="ID_Serial" />
+          <ScalarProperty Name="Nume" ColumnName="Nume" />
+          <ScalarProperty Name="An_aparitie" ColumnName="An_aparitie" />
+          <ScalarProperty Name="Numar_sezoane" ColumnName="Numar_sezoane" />
+          <ScalarProperty Name="Total_episoade" ColumnName="Total_episoade" />
+          <ScalarProperty Name="Nota" ColumnName="Nota" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="IMDBModel.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="Relatie_Film_Gen" TypeName="IMDBModel.Relatie_Film_Gen" StoreEntitySet="Relatie_Film_Gen">
+      <EndProperty Name="Filme">
+        <ScalarProperty Name="ID_Film" ColumnName="ID_Film" />
+      </EndProperty>
+      <EndProperty Name="Genuri">
+        <ScalarProperty Name="ID_Gen" ColumnName="ID_Gen" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="Relatie_Regizor_Film" TypeName="IMDBModel.Relatie_Regizor_Film" StoreEntitySet="Relatie_Regizor_Film">
+      <EndProperty Name="Filme">
+        <ScalarProperty Name="ID_Film" ColumnName="ID_Film" />
+      </EndProperty>
+      <EndProperty Name="Regizori">
+        <ScalarProperty Name="ID_Regizor" ColumnName="ID_Regizor" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <AssociationSetMapping Name="Relatie_Serial_Gen" TypeName="IMDBModel.Relatie_Serial_Gen" StoreEntitySet="Relatie_Serial_Gen">
+      <EndProperty Name="Genuri">
+        <ScalarProperty Name="ID_Gen" ColumnName="ID_Gen" />
+      </EndProperty>
+      <EndProperty Name="Seriale">
+        <ScalarProperty Name="ID_Serial" ColumnName="ID_Serial" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="IMDBModel.Store.sp_alterdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="IMDBModel.Store.sp_creatediagram" />
+    <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="IMDBModel.Store.sp_dropdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="IMDBModel.Store.sp_helpdiagramdefinition">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="IMDBModel.sp_helpdiagramdefinition_Result">
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="IMDBModel.Store.sp_helpdiagrams">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="IMDBModel.sp_helpdiagrams_Result">
+          <ScalarProperty Name="Database" ColumnName="Database" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Owner" ColumnName="Owner" />
+          <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="IMDBModel.Store.sp_renamediagram" />
+    <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="IMDBModel.Store.sp_upgraddiagrams" />
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="IMDBModel.User">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="Rights" ColumnName="Rights" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="E_mail" ColumnName="E-mail" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Username" ColumnName="Username" />
+          <ScalarProperty Name="ID_User" ColumnName="ID_User" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

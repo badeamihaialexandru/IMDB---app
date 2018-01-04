@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="7e6fdd59dbb249058a8659206a2b102e" Name="Diagram1" ZoomLevel="86">
+        <EntityTypeShape EntityType="IMDBModel.Actori" Width="1.5" PointX="3.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMDBModel.Filme" Width="1.5" PointX="0.75" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMDBModel.Genuri" Width="1.5" PointX="3" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMDBModel.Premii" Width="1.5" PointX="0.75" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMDBModel.Regizori" Width="1.5" PointX="3" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMDBModel.Relatie_actor_film" Width="1.5" PointX="6" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMDBModel.Relatie_Actori_Premii" Width="1.5" PointX="8" PointY="4.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMDBModel.Relatie_Filme_Premii" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMDBModel.Seriale" Width="1.5" PointX="5.25" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMDBModel.sysdiagram" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
+        <AssociationConnector Association="IMDBModel.FK_Relatie_actor_film_Actori" ManuallyRouted="false" />
+        <AssociationConnector Association="IMDBModel.FK_Relatie_Actori_Premii_Actori" ManuallyRouted="false" />
+        <AssociationConnector Association="IMDBModel.FK_Relatie_actor_film_Filme" ManuallyRouted="false" />
+        <AssociationConnector Association="IMDBModel.FK_Relatie_Filme_Premii_Filme" ManuallyRouted="false" />
+        <AssociationConnector Association="IMDBModel.FK_Relatie_Actori_Premii_Premii" ManuallyRouted="false" />
+        <AssociationConnector Association="IMDBModel.FK_Relatie_Filme_Premii_Premii" ManuallyRouted="false" />
+        <AssociationConnector Association="IMDBModel.Relatie_Film_Gen" ManuallyRouted="false" />
+        <AssociationConnector Association="IMDBModel.Relatie_Regizor_Film" ManuallyRouted="false" />
+        <AssociationConnector Association="IMDBModel.Relatie_Serial_Gen" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="IMDBModel.User" Width="1.5" PointX="8.375" PointY="0.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
