@@ -156,6 +156,7 @@
     <EntitySetMapping Name="Users">
       <EntityTypeMapping TypeName="IMDBModel.User">
         <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="DateofRegister" ColumnName="DateofRegister" />
           <ScalarProperty Name="Rights" ColumnName="Rights" />
           <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
           <ScalarProperty Name="E_mail" ColumnName="E-mail" />

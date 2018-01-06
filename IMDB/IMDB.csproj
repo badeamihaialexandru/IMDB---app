@@ -60,6 +60,12 @@
     <Compile Include="Actori.cs">
       <DependentUpon>IMDBModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Pages\AdminOrUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pages\AdminOrUser.Designer.cs">
+      <DependentUpon>AdminOrUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="Pages\MoviePage.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -99,6 +105,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>IMDBModel.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\UniversalPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pages\UniversalPage.Designer.cs">
+      <DependentUpon>UniversalPage.cs</DependentUpon>
+    </Compile>
     <Compile Include="Premii.cs">
       <DependentUpon>IMDBModel.tt</DependentUpon>
     </Compile>
@@ -119,10 +131,10 @@
     <Compile Include="Seriale.cs">
       <DependentUpon>IMDBModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="SignUp.cs">
+    <Compile Include="Pages\SignUp.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SignUp.Designer.cs">
+    <Compile Include="Pages\SignUp.Designer.cs">
       <DependentUpon>SignUp.cs</DependentUpon>
     </Compile>
     <Compile Include="sp_helpdiagramdefinition_Result.cs">
@@ -134,15 +146,24 @@
     <Compile Include="sysdiagram.cs">
       <DependentUpon>IMDBModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Pages\TopRatedMovies.cs">
+    <Compile Include="Pages\TopRatedMoviesUser.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Pages\TopRatedMovies.Designer.cs">
-      <DependentUpon>TopRatedMovies.cs</DependentUpon>
+    <Compile Include="Pages\TopRatedMoviesUser.Designer.cs">
+      <DependentUpon>TopRatedMoviesUser.cs</DependentUpon>
     </Compile>
     <Compile Include="User.cs">
       <DependentUpon>IMDBModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Pages\UserPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pages\UserPage.Designer.cs">
+      <DependentUpon>UserPage.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Pages\AdminOrUser.resx">
+      <DependentUpon>AdminOrUser.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Pages\MoviePage.resx">
       <DependentUpon>MoviePage.cs</DependentUpon>
     </EmbeddedResource>
@@ -151,6 +172,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Pages\StartPage.resx">
       <DependentUpon>StartPage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\UniversalPage.resx">
+      <DependentUpon>UniversalPage.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -161,11 +185,14 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Pages\TopRatedMovies.resx">
-      <DependentUpon>TopRatedMovies.cs</DependentUpon>
+    <EmbeddedResource Include="Pages\TopRatedMoviesUser.resx">
+      <DependentUpon>TopRatedMoviesUser.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SignUp.resx">
+    <EmbeddedResource Include="Pages\SignUp.resx">
       <DependentUpon>SignUp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\UserPage.resx">
+      <DependentUpon>UserPage.cs</DependentUpon>
     </EmbeddedResource>
     <EntityDeploy Include="IMDBModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>

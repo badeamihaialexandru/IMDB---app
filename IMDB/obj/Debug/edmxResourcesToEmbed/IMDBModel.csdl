@@ -299,5 +299,6 @@
     <Property Name="E_mail" Type="String" MaxLength="100" FixedLength="true" Unicode="true" />
     <Property Name="PhoneNumber" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
     <Property Name="Rights" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
+    <Property Name="DateofRegister" Type="DateTime" Precision="0" />
   </EntityType>
 </Schema>

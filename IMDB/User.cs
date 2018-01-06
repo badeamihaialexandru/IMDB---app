@@ -20,5 +20,6 @@ namespace IMDB
         public string E_mail { get; set; }
         public string PhoneNumber { get; set; }
         public string Rights { get; set; }
+        public Nullable<System.DateTime> DateofRegister { get; set; }
     }
 }

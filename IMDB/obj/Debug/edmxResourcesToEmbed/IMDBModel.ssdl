@@ -131,6 +131,7 @@
     <Property Name="E-mail" Type="nchar" MaxLength="100" />
     <Property Name="PhoneNumber" Type="nchar" MaxLength="10" />
     <Property Name="Rights" Type="char" MaxLength="20" />
+    <Property Name="DateofRegister" Type="date" />
   </EntityType>
   <Association Name="FK_Relatie_actor_film_Actori">
     <End Role="Actori" Type="Self.Actori" Multiplicity="1" />

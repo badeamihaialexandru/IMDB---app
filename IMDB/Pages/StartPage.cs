@@ -181,19 +181,29 @@ namespace IMDB
 
         private void labelLog_Click(object sender, EventArgs e)
         {
-            if(TextBoxUsername.Text.Equals("admin") && TextBoxPassword.Text.Equals("mosu"))
+            using (var context = new IMDBEntities())
             {
-                AdminPage admin = new AdminPage(TextBoxUsername.Text);
-                admin.Show();
-                SoundPlayer log = new SoundPlayer(@"C:\Users\Mosu\Desktop\proiect_utile\sound.wav");
-                log.Play();
+                var result = (from c in context.Users
+                              where c.Username.Equals(TextBoxUsername.Text)
+                              select c).FirstOrDefault();
+                if(result!=null)
+                {
+                    AdminOrUser aou = new AdminOrUser(TextBoxUsername.Text,this);
+                    aou.Show();
+                }
+            //if(TextBoxUsername.Text.Equals("admin") && TextBoxPassword.Text.Equals("mosu"))
+            //{
+            //    AdminPage admin = new AdminPage(TextBoxUsername.Text);
+            //    admin.Show();
+            //    SoundPlayer log = new SoundPlayer(@"C:\Users\Mosu\Desktop\proiect_utile\sound.wav");
+            //    log.Play();
+            //}
+                else
+                {
+                    SystemSounds.Exclamation.Play();
+                    MessageBox.Show("The password or username aren't correct!");
+                }
             }
-            else
-            {
-                SystemSounds.Exclamation.Play();
-                MessageBox.Show("The password or username aren't correct!");
-            }
-
         }
 
         private void topRatedMoviesToolStripMenuItem_Click(object sender, EventArgs e)

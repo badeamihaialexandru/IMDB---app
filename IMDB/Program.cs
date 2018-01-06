@@ -16,7 +16,7 @@ namespace IMDB
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new /*IMDProject*/ SignUp());
+            Application.Run(new IMDProject());
         }
     }
 }

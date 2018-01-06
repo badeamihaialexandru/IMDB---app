@@ -56,20 +56,24 @@ C:\Users\Mosu\Desktop\proiectbaze\IMDB - Copy - Copy\IMDB\obj\Debug\IMDB.csproj.
 C:\Users\Mosu\Desktop\proiectbaze\IMDB - Copy - Copy\IMDB\obj\Debug\IMDB.csproj.CoreCompileInputs.cache
 C:\Users\Mosu\Desktop\proiectbaze\IMDB - Copy - Copy\IMDB\obj\Debug\IMDB.exe
 C:\Users\Mosu\Desktop\proiectbaze\IMDB - Copy - Copy\IMDB\obj\Debug\IMDB.pdb
-C:\Users\Mihai\Test_repository\IMDB---app\IMDB\bin\Debug\IMDB.exe.config
-C:\Users\Mihai\Test_repository\IMDB---app\IMDB\bin\Debug\IMDB.exe
-C:\Users\Mihai\Test_repository\IMDB---app\IMDB\bin\Debug\IMDB.pdb
-C:\Users\Mihai\Test_repository\IMDB---app\IMDB\bin\Debug\EntityFramework.dll
-C:\Users\Mihai\Test_repository\IMDB---app\IMDB\bin\Debug\EntityFramework.SqlServer.dll
-C:\Users\Mihai\Test_repository\IMDB---app\IMDB\bin\Debug\EntityFramework.xml
-C:\Users\Mihai\Test_repository\IMDB---app\IMDB\bin\Debug\EntityFramework.SqlServer.xml
-C:\Users\Mihai\Test_repository\IMDB---app\IMDB\obj\Debug\IMDB.csprojResolveAssemblyReference.cache
-C:\Users\Mihai\Test_repository\IMDB---app\IMDB\obj\Debug\IMDB.MoviePage.resources
-C:\Users\Mihai\Test_repository\IMDB---app\IMDB\obj\Debug\IMDB.AdminPage.resources
-C:\Users\Mihai\Test_repository\IMDB---app\IMDB\obj\Debug\IMDB.IMDProject.resources
-C:\Users\Mihai\Test_repository\IMDB---app\IMDB\obj\Debug\IMDB.Properties.Resources.resources
-C:\Users\Mihai\Test_repository\IMDB---app\IMDB\obj\Debug\IMDB.TopRatedMovies.resources
-C:\Users\Mihai\Test_repository\IMDB---app\IMDB\obj\Debug\IMDB.SignUp.resources
-C:\Users\Mihai\Test_repository\IMDB---app\IMDB\obj\Debug\IMDB.csproj.GenerateResource.Cache
-C:\Users\Mihai\Test_repository\IMDB---app\IMDB\obj\Debug\IMDB.exe
-C:\Users\Mihai\Test_repository\IMDB---app\IMDB\obj\Debug\IMDB.pdb
+C:\Users\Mosu\Desktop\proiectbaze\IMDB - cu login - Copy\IMDB\bin\Debug\IMDB.exe.config
+C:\Users\Mosu\Desktop\proiectbaze\IMDB - cu login - Copy\IMDB\bin\Debug\IMDB.exe
+C:\Users\Mosu\Desktop\proiectbaze\IMDB - cu login - Copy\IMDB\bin\Debug\IMDB.pdb
+C:\Users\Mosu\Desktop\proiectbaze\IMDB - cu login - Copy\IMDB\bin\Debug\EntityFramework.dll
+C:\Users\Mosu\Desktop\proiectbaze\IMDB - cu login - Copy\IMDB\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Mosu\Desktop\proiectbaze\IMDB - cu login - Copy\IMDB\bin\Debug\EntityFramework.xml
+C:\Users\Mosu\Desktop\proiectbaze\IMDB - cu login - Copy\IMDB\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Mosu\Desktop\proiectbaze\IMDB - cu login - Copy\IMDB\obj\Debug\IMDB.csprojResolveAssemblyReference.cache
+C:\Users\Mosu\Desktop\proiectbaze\IMDB - cu login - Copy\IMDB\obj\Debug\IMDB.AdminOrUser.resources
+C:\Users\Mosu\Desktop\proiectbaze\IMDB - cu login - Copy\IMDB\obj\Debug\IMDB.MoviePage.resources
+C:\Users\Mosu\Desktop\proiectbaze\IMDB - cu login - Copy\IMDB\obj\Debug\IMDB.AdminPage.resources
+C:\Users\Mosu\Desktop\proiectbaze\IMDB - cu login - Copy\IMDB\obj\Debug\IMDB.IMDProject.resources
+C:\Users\Mosu\Desktop\proiectbaze\IMDB - cu login - Copy\IMDB\obj\Debug\IMDB.Properties.Resources.resources
+C:\Users\Mosu\Desktop\proiectbaze\IMDB - cu login - Copy\IMDB\obj\Debug\IMDB.TopRatedMovies.resources
+C:\Users\Mosu\Desktop\proiectbaze\IMDB - cu login - Copy\IMDB\obj\Debug\IMDB.SignUp.resources
+C:\Users\Mosu\Desktop\proiectbaze\IMDB - cu login - Copy\IMDB\obj\Debug\IMDB.csproj.GenerateResource.Cache
+C:\Users\Mosu\Desktop\proiectbaze\IMDB - cu login - Copy\IMDB\obj\Debug\IMDB.csproj.CoreCompileInputs.cache
+C:\Users\Mosu\Desktop\proiectbaze\IMDB - cu login - Copy\IMDB\obj\Debug\IMDB.exe
+C:\Users\Mosu\Desktop\proiectbaze\IMDB - cu login - Copy\IMDB\obj\Debug\IMDB.pdb
+C:\Users\Mosu\Desktop\proiectbaze\IMDB - cu login - Copy\IMDB\obj\Debug\IMDB.UserPage.resources
+C:\Users\Mosu\Desktop\proiectbaze\IMDB - cu login - Copy\IMDB\obj\Debug\IMDB.Pages.UniversalPage.resources

@@ -31,6 +31,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminPage));
             this.AdminNameLabel = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -57,6 +59,7 @@
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
+            this.label10 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -64,16 +67,19 @@
             // 
             // AdminNameLabel
             // 
-            this.AdminNameLabel.AutoSize = true;
-            this.AdminNameLabel.Location = new System.Drawing.Point(737, 60);
+            this.AdminNameLabel.Font = new System.Drawing.Font("Gill Sans Ultra Bold", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AdminNameLabel.Location = new System.Drawing.Point(675, 60);
             this.AdminNameLabel.Name = "AdminNameLabel";
-            this.AdminNameLabel.Size = new System.Drawing.Size(64, 13);
+            this.AdminNameLabel.Size = new System.Drawing.Size(139, 26);
             this.AdminNameLabel.TabIndex = 0;
             this.AdminNameLabel.Text = "AdminName";
+            this.AdminNameLabel.Click += new System.EventHandler(this.AdminNameLabel_Click);
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(34)))), ((int)(((byte)(58)))), ((int)(((byte)(94)))));
+            this.panel1.Controls.Add(this.label9);
+            this.panel1.Controls.Add(this.label8);
             this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.AdminNameLabel);
@@ -83,6 +89,27 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(819, 87);
             this.panel1.TabIndex = 1;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Gill Sans Ultra Bold", 11.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.ForeColor = System.Drawing.Color.Chocolate;
+            this.label9.Location = new System.Drawing.Point(94, 60);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(159, 20);
+            this.label9.TabIndex = 22;
+            this.label9.Text = "Go to User mode";
+            this.label9.Click += new System.EventHandler(this.label9_Click);
+            // 
+            // label8
+            // 
+            this.label8.Font = new System.Drawing.Font("Gill Sans Ultra Bold", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(604, 60);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(75, 26);
+            this.label8.TabIndex = 3;
+            this.label8.Text = "Welcome,";
             // 
             // button1
             // 
@@ -328,6 +355,7 @@
             this.InsertcheckBox.Text = "INSERT";
             this.InsertcheckBox.UseVisualStyleBackColor = true;
             this.InsertcheckBox.CheckedChanged += new System.EventHandler(this.InsertcheckBox_CheckedChanged);
+            this.InsertcheckBox.CheckStateChanged += new System.EventHandler(this.InsertcheckBox_CheckStateChanged);
             // 
             // UpdateCheckBox
             // 
@@ -341,6 +369,8 @@
             this.UpdateCheckBox.TabIndex = 17;
             this.UpdateCheckBox.Text = "UPDATE";
             this.UpdateCheckBox.UseVisualStyleBackColor = true;
+            this.UpdateCheckBox.CheckedChanged += new System.EventHandler(this.UpdateCheckBox_CheckedChanged);
+            this.UpdateCheckBox.CheckStateChanged += new System.EventHandler(this.UpdateCheckBox_CheckStateChanged);
             // 
             // DeletecheckBox
             // 
@@ -354,6 +384,8 @@
             this.DeletecheckBox.TabIndex = 18;
             this.DeletecheckBox.Text = "DELETE";
             this.DeletecheckBox.UseVisualStyleBackColor = true;
+            this.DeletecheckBox.CheckedChanged += new System.EventHandler(this.DeletecheckBox_CheckedChanged);
+            this.DeletecheckBox.CheckStateChanged += new System.EventHandler(this.DeletecheckBox_CheckStateChanged);
             // 
             // button3
             // 
@@ -382,10 +414,22 @@
             this.button5.TabIndex = 21;
             this.button5.UseVisualStyleBackColor = true;
             // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Gill Sans Ultra Bold", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.label10.Location = new System.Drawing.Point(703, 357);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(75, 18);
+            this.label10.TabIndex = 28;
+            this.label10.Text = "Follow us:";
+            // 
             // AdminPage
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(819, 433);
+            this.Controls.Add(this.label10);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
@@ -451,5 +495,8 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label10;
     }
 }

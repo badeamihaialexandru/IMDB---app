@@ -10,12 +10,18 @@ using System.Windows.Forms;
 
 namespace IMDB
 {
+    
+
     public partial class AdminPage : Form
     {
-        public AdminPage(string AdminName)
+        private IMDProject ParentPageAdminPage;
+        private string MemberUserName;
+        public AdminPage(string AdminName, IMDProject startpage)
         {
             InitializeComponent();
-            AdminNameLabel.Text = "Welcome, " + AdminName + " !";
+            AdminNameLabel.Text = AdminName;
+            ParentPageAdminPage = startpage;
+            MemberUserName = AdminName;
         }
 
         private void AdminPage_Load(object sender, EventArgs e)
@@ -31,6 +37,7 @@ namespace IMDB
         private void button1_Click(object sender, EventArgs e)
         {
             this.Close();
+            ParentPageAdminPage.Show();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -124,7 +131,50 @@ namespace IMDB
 
         private void InsertcheckBox_CheckedChanged(object sender, EventArgs e)
         {
+        //    DeletecheckBox.Checked = false;
+        //    UpdateCheckBox.Checked = false;
+        }
 
+        private void AdminNameLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label9_Click(object sender, EventArgs e)  //GO TO USER MODE
+        {
+            UserPage uspg = new UserPage(MemberUserName, ParentPageAdminPage);
+            uspg.Show();
+            this.Close();
+        }
+
+        private void UpdateCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+        //    InsertcheckBox.Checked = false;
+        //    DeletecheckBox.Checked = false;
+        }
+
+        private void DeletecheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+        //    InsertcheckBox.Checked = false;
+        //    UpdateCheckBox.Checked = false;
+        }
+
+        private void InsertcheckBox_CheckStateChanged(object sender, EventArgs e)
+        {
+            DeletecheckBox.Checked = false;
+            UpdateCheckBox.Checked = false;
+        }
+
+        private void UpdateCheckBox_CheckStateChanged(object sender, EventArgs e)
+        {
+            InsertcheckBox.Checked = false;
+            DeletecheckBox.Checked = false;
+        }
+
+        private void DeletecheckBox_CheckStateChanged(object sender, EventArgs e)
+        {
+            InsertcheckBox.Checked = false;
+            UpdateCheckBox.Checked = false;
         }
     }
 }
