@@ -29,9 +29,23 @@ namespace IMDB
                           {
                               c.ID_Film,
                               c.Nume,
-                              c.Nota
-                          };
+                              c.Nota 
+                          } ;
                 dataGridViewTOP.DataSource = aux.ToList();
+                //DataColumn note = new DataColumn("YourRating",typeof(int),"0");
+                DataTable dt = new DataTable();
+                dt.Columns.Add("Nota", typeof(System.Int32), "0");
+                
+
+                //DataGridViewColumn dgvc = new DataGridViewColumn();
+                //dgvc.HeaderText = "YourRatings";
+
+
+                //dataGridViewTOP.Columns.Add(dgvc);
+                //for (int i = 0; i < dataGridViewTOP.RowCount; i++)
+                //{
+                //    dataGridViewTOP.Rows.Add(new object[] { '0' } );
+                //}
 
             }
 
@@ -42,9 +56,8 @@ namespace IMDB
         {
             BindGrid();
             // dataGridViewTOP.RefreshEdit();
-            dataGridViewTOP.Update();
-            
-            dataGridViewTOP.RefreshEdit();
+            //dataGridViewTOP.Update();
+            //dataGridViewTOP.RefreshEdit();
         }
 
         private void buttonPowerOffTop_Click(object sender, EventArgs e)

@@ -30,6 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UniversalPage));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBoxDescending = new System.Windows.Forms.PictureBox();
+            this.pictureBoxAscending = new System.Windows.Forms.PictureBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -60,16 +62,22 @@
             this.comboBoxSearchBy = new System.Windows.Forms.ComboBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.dataGridViewTOP = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDescending)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAscending)).BeginInit();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SearchPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTOP)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(41)))), ((int)(((byte)(38)))));
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel1.Controls.Add(this.pictureBoxDescending);
+            this.panel1.Controls.Add(this.pictureBoxAscending);
             this.panel1.Controls.Add(this.comboBox1);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.label6);
@@ -88,9 +96,35 @@
             this.panel1.Size = new System.Drawing.Size(857, 122);
             this.panel1.TabIndex = 1;
             // 
+            // pictureBoxDescending
+            // 
+            this.pictureBoxDescending.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxDescending.Image")));
+            this.pictureBoxDescending.Location = new System.Drawing.Point(228, 87);
+            this.pictureBoxDescending.Name = "pictureBoxDescending";
+            this.pictureBoxDescending.Size = new System.Drawing.Size(29, 26);
+            this.pictureBoxDescending.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxDescending.TabIndex = 31;
+            this.pictureBoxDescending.TabStop = false;
+            this.pictureBoxDescending.Visible = false;
+            // 
+            // pictureBoxAscending
+            // 
+            this.pictureBoxAscending.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxAscending.Image")));
+            this.pictureBoxAscending.Location = new System.Drawing.Point(228, 87);
+            this.pictureBoxAscending.Name = "pictureBoxAscending";
+            this.pictureBoxAscending.Size = new System.Drawing.Size(29, 26);
+            this.pictureBoxAscending.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxAscending.TabIndex = 30;
+            this.pictureBoxAscending.TabStop = false;
+            // 
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "Date of release(Descending)",
+            "Date of release(Ascending)",
+            "Alphabetical",
+            "Rank"});
             this.comboBox1.Location = new System.Drawing.Point(80, 91);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(132, 21);
@@ -299,7 +333,6 @@
             this.buttonPowerOffTop.Size = new System.Drawing.Size(41, 47);
             this.buttonPowerOffTop.TabIndex = 14;
             this.buttonPowerOffTop.UseVisualStyleBackColor = true;
-            this.buttonPowerOffTop.Click += new System.EventHandler(this.buttonPowerOffTop_Click);
             // 
             // buttonInstagram
             // 
@@ -366,11 +399,22 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
+            // dataGridViewTOP
+            // 
+            this.dataGridViewTOP.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.dataGridViewTOP.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewTOP.Location = new System.Drawing.Point(0, 119);
+            this.dataGridViewTOP.Name = "dataGridViewTOP";
+            this.dataGridViewTOP.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridViewTOP.Size = new System.Drawing.Size(857, 324);
+            this.dataGridViewTOP.TabIndex = 32;
+            // 
             // UniversalPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(857, 422);
+            this.ClientSize = new System.Drawing.Size(857, 443);
+            this.Controls.Add(this.dataGridViewTOP);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "UniversalPage";
@@ -378,10 +422,13 @@
             this.Text = "UniversalPage";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDescending)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAscending)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SearchPictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTOP)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -389,6 +436,8 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.PictureBox pictureBoxDescending;
+        private System.Windows.Forms.PictureBox pictureBoxAscending;
         private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label6;
@@ -419,5 +468,6 @@
         private System.Windows.Forms.ComboBox comboBoxSearchBy;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.DataGridView dataGridViewTOP;
     }
 }

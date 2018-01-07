@@ -30,6 +30,11 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TopRatedMovies));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBoxDescending = new System.Windows.Forms.PictureBox();
+            this.pictureBoxAscending = new System.Windows.Forms.PictureBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.movieToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mOVIESToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -49,27 +54,26 @@
             this.newsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.nEWSToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.watchlistToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.buttonTwitter = new System.Windows.Forms.Button();
             this.buttonPowerOffTop = new System.Windows.Forms.Button();
+            this.buttonInstagram = new System.Windows.Forms.Button();
             this.SearchPictureBox = new System.Windows.Forms.PictureBox();
+            this.buttonFacebook = new System.Windows.Forms.Button();
             this.comboBoxSearchBy = new System.Windows.Forms.ComboBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.buttonYourRatings = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.dataGridViewTOP = new System.Windows.Forms.DataGridView();
-            this.label6 = new System.Windows.Forms.Label();
-            this.buttonTwitter = new System.Windows.Forms.Button();
-            this.buttonInstagram = new System.Windows.Forms.Button();
-            this.buttonFacebook = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.pictureBoxAscending = new System.Windows.Forms.PictureBox();
-            this.pictureBoxDescending = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDescending)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAscending)).BeginInit();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SearchPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTOP)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAscending)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDescending)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -95,6 +99,65 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(854, 122);
             this.panel1.TabIndex = 0;
+            // 
+            // pictureBoxDescending
+            // 
+            this.pictureBoxDescending.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxDescending.Image")));
+            this.pictureBoxDescending.Location = new System.Drawing.Point(228, 87);
+            this.pictureBoxDescending.Name = "pictureBoxDescending";
+            this.pictureBoxDescending.Size = new System.Drawing.Size(29, 26);
+            this.pictureBoxDescending.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxDescending.TabIndex = 31;
+            this.pictureBoxDescending.TabStop = false;
+            this.pictureBoxDescending.Visible = false;
+            this.pictureBoxDescending.Click += new System.EventHandler(this.pictureBoxDescending_Click);
+            // 
+            // pictureBoxAscending
+            // 
+            this.pictureBoxAscending.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxAscending.Image")));
+            this.pictureBoxAscending.Location = new System.Drawing.Point(228, 87);
+            this.pictureBoxAscending.Name = "pictureBoxAscending";
+            this.pictureBoxAscending.Size = new System.Drawing.Size(29, 26);
+            this.pictureBoxAscending.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxAscending.TabIndex = 30;
+            this.pictureBoxAscending.TabStop = false;
+            this.pictureBoxAscending.Click += new System.EventHandler(this.pictureBoxAscending_Click);
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "Date of release(Descending)",
+            "Date of release(Ascending)",
+            "Alphabetical",
+            "Rank"});
+            this.comboBox1.Location = new System.Drawing.Point(80, 91);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(132, 21);
+            this.comboBox1.TabIndex = 29;
+            this.comboBox1.Text = "ID";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Gill Sans Ultra Bold", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label1.Location = new System.Drawing.Point(12, 93);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(62, 18);
+            this.label1.TabIndex = 28;
+            this.label1.Text = "Sort by:";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Gill Sans Ultra Bold", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label6.Location = new System.Drawing.Point(627, 80);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(75, 18);
+            this.label6.TabIndex = 27;
+            this.label6.Text = "Follow us:";
             // 
             // menuStrip1
             // 
@@ -255,6 +318,17 @@
             this.watchlistToolStripMenuItem.Size = new System.Drawing.Size(68, 20);
             this.watchlistToolStripMenuItem.Text = "Watchlist";
             // 
+            // buttonTwitter
+            // 
+            this.buttonTwitter.FlatAppearance.BorderSize = 0;
+            this.buttonTwitter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonTwitter.Image = ((System.Drawing.Image)(resources.GetObject("buttonTwitter.Image")));
+            this.buttonTwitter.Location = new System.Drawing.Point(803, 66);
+            this.buttonTwitter.Name = "buttonTwitter";
+            this.buttonTwitter.Size = new System.Drawing.Size(42, 45);
+            this.buttonTwitter.TabIndex = 26;
+            this.buttonTwitter.UseVisualStyleBackColor = true;
+            // 
             // buttonPowerOffTop
             // 
             this.buttonPowerOffTop.FlatAppearance.BorderSize = 0;
@@ -267,6 +341,17 @@
             this.buttonPowerOffTop.UseVisualStyleBackColor = true;
             this.buttonPowerOffTop.Click += new System.EventHandler(this.buttonPowerOffTop_Click);
             // 
+            // buttonInstagram
+            // 
+            this.buttonInstagram.FlatAppearance.BorderSize = 0;
+            this.buttonInstagram.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonInstagram.Image = ((System.Drawing.Image)(resources.GetObject("buttonInstagram.Image")));
+            this.buttonInstagram.Location = new System.Drawing.Point(756, 66);
+            this.buttonInstagram.Name = "buttonInstagram";
+            this.buttonInstagram.Size = new System.Drawing.Size(42, 45);
+            this.buttonInstagram.TabIndex = 25;
+            this.buttonInstagram.UseVisualStyleBackColor = true;
+            // 
             // SearchPictureBox
             // 
             this.SearchPictureBox.BackColor = System.Drawing.Color.Transparent;
@@ -277,6 +362,17 @@
             this.SearchPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.SearchPictureBox.TabIndex = 12;
             this.SearchPictureBox.TabStop = false;
+            // 
+            // buttonFacebook
+            // 
+            this.buttonFacebook.FlatAppearance.BorderSize = 0;
+            this.buttonFacebook.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonFacebook.Image = ((System.Drawing.Image)(resources.GetObject("buttonFacebook.Image")));
+            this.buttonFacebook.Location = new System.Drawing.Point(708, 67);
+            this.buttonFacebook.Name = "buttonFacebook";
+            this.buttonFacebook.Size = new System.Drawing.Size(42, 45);
+            this.buttonFacebook.TabIndex = 24;
+            this.buttonFacebook.UseVisualStyleBackColor = true;
             // 
             // comboBoxSearchBy
             // 
@@ -310,6 +406,48 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(216)))), ((int)(((byte)(174)))), ((int)(((byte)(71)))));
+            this.panel2.Controls.Add(this.button1);
+            this.panel2.Controls.Add(this.buttonYourRatings);
+            this.panel2.Location = new System.Drawing.Point(701, 119);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(153, 324);
+            this.panel2.TabIndex = 2;
+            // 
+            // buttonYourRatings
+            // 
+            this.buttonYourRatings.FlatAppearance.BorderSize = 0;
+            this.buttonYourRatings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonYourRatings.Font = new System.Drawing.Font("Gill Sans Ultra Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonYourRatings.Image = ((System.Drawing.Image)(resources.GetObject("buttonYourRatings.Image")));
+            this.buttonYourRatings.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonYourRatings.Location = new System.Drawing.Point(3, 22);
+            this.buttonYourRatings.Name = "buttonYourRatings";
+            this.buttonYourRatings.Size = new System.Drawing.Size(138, 59);
+            this.buttonYourRatings.TabIndex = 1;
+            this.buttonYourRatings.Text = "Your       Ratings";
+            this.buttonYourRatings.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buttonYourRatings.UseCompatibleTextRendering = true;
+            this.buttonYourRatings.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Gill Sans Ultra Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.Location = new System.Drawing.Point(0, 171);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(150, 59);
+            this.button1.TabIndex = 2;
+            this.button1.Text = "Add to      Watchlist";
+            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button1.UseCompatibleTextRendering = true;
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // dataGridViewTOP
             // 
             this.dataGridViewTOP.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
@@ -317,109 +455,18 @@
             this.dataGridViewTOP.Location = new System.Drawing.Point(0, 119);
             this.dataGridViewTOP.Name = "dataGridViewTOP";
             this.dataGridViewTOP.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridViewTOP.Size = new System.Drawing.Size(854, 324);
+            this.dataGridViewTOP.Size = new System.Drawing.Size(702, 324);
             this.dataGridViewTOP.TabIndex = 1;
             this.dataGridViewTOP.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewTOP_CellClick);
             this.dataGridViewTOP.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewTOP_CellContentClick);
             this.dataGridViewTOP.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewTOP_CellDoubleClick);
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Gill Sans Ultra Bold", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label6.Location = new System.Drawing.Point(627, 80);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(75, 18);
-            this.label6.TabIndex = 27;
-            this.label6.Text = "Follow us:";
-            // 
-            // buttonTwitter
-            // 
-            this.buttonTwitter.FlatAppearance.BorderSize = 0;
-            this.buttonTwitter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonTwitter.Image = ((System.Drawing.Image)(resources.GetObject("buttonTwitter.Image")));
-            this.buttonTwitter.Location = new System.Drawing.Point(803, 66);
-            this.buttonTwitter.Name = "buttonTwitter";
-            this.buttonTwitter.Size = new System.Drawing.Size(42, 45);
-            this.buttonTwitter.TabIndex = 26;
-            this.buttonTwitter.UseVisualStyleBackColor = true;
-            // 
-            // buttonInstagram
-            // 
-            this.buttonInstagram.FlatAppearance.BorderSize = 0;
-            this.buttonInstagram.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonInstagram.Image = ((System.Drawing.Image)(resources.GetObject("buttonInstagram.Image")));
-            this.buttonInstagram.Location = new System.Drawing.Point(756, 66);
-            this.buttonInstagram.Name = "buttonInstagram";
-            this.buttonInstagram.Size = new System.Drawing.Size(42, 45);
-            this.buttonInstagram.TabIndex = 25;
-            this.buttonInstagram.UseVisualStyleBackColor = true;
-            // 
-            // buttonFacebook
-            // 
-            this.buttonFacebook.FlatAppearance.BorderSize = 0;
-            this.buttonFacebook.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonFacebook.Image = ((System.Drawing.Image)(resources.GetObject("buttonFacebook.Image")));
-            this.buttonFacebook.Location = new System.Drawing.Point(708, 67);
-            this.buttonFacebook.Name = "buttonFacebook";
-            this.buttonFacebook.Size = new System.Drawing.Size(42, 45);
-            this.buttonFacebook.TabIndex = 24;
-            this.buttonFacebook.UseVisualStyleBackColor = true;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Gill Sans Ultra Bold", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label1.Location = new System.Drawing.Point(12, 93);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(62, 18);
-            this.label1.TabIndex = 28;
-            this.label1.Text = "Sort by:";
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "Date of release(Descending)",
-            "Date of release(Ascending)",
-            "Alphabetical",
-            "Rank"});
-            this.comboBox1.Location = new System.Drawing.Point(80, 91);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(132, 21);
-            this.comboBox1.TabIndex = 29;
-            this.comboBox1.Text = "ID";
-            // 
-            // pictureBoxAscending
-            // 
-            this.pictureBoxAscending.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxAscending.Image")));
-            this.pictureBoxAscending.Location = new System.Drawing.Point(228, 87);
-            this.pictureBoxAscending.Name = "pictureBoxAscending";
-            this.pictureBoxAscending.Size = new System.Drawing.Size(29, 26);
-            this.pictureBoxAscending.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxAscending.TabIndex = 30;
-            this.pictureBoxAscending.TabStop = false;
-            this.pictureBoxAscending.Click += new System.EventHandler(this.pictureBoxAscending_Click);
-            // 
-            // pictureBoxDescending
-            // 
-            this.pictureBoxDescending.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxDescending.Image")));
-            this.pictureBoxDescending.Location = new System.Drawing.Point(228, 87);
-            this.pictureBoxDescending.Name = "pictureBoxDescending";
-            this.pictureBoxDescending.Size = new System.Drawing.Size(29, 26);
-            this.pictureBoxDescending.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxDescending.TabIndex = 31;
-            this.pictureBoxDescending.TabStop = false;
-            this.pictureBoxDescending.Visible = false;
-            this.pictureBoxDescending.Click += new System.EventHandler(this.pictureBoxDescending_Click);
             // 
             // TopRatedMovies
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(854, 439);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.dataGridViewTOP);
             this.ForeColor = System.Drawing.SystemColors.ControlLightLight;
@@ -430,13 +477,14 @@
             this.Load += new System.EventHandler(this.TopRatedMovies_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDescending)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAscending)).EndInit();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SearchPictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewTOP)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAscending)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDescending)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -449,7 +497,6 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox SearchPictureBox;
         private System.Windows.Forms.Button buttonPowerOffTop;
-        private System.Windows.Forms.DataGridView dataGridViewTOP;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem movieToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem mOVIESToolStripMenuItem;
@@ -477,5 +524,9 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBoxDescending;
         private System.Windows.Forms.PictureBox pictureBoxAscending;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button buttonYourRatings;
+        private System.Windows.Forms.DataGridView dataGridViewTOP;
     }
 }
