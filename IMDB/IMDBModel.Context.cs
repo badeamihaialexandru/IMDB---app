@@ -38,6 +38,28 @@ namespace IMDB
         public virtual DbSet<Seriale> Seriales { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<User> Users { get; set; }
+        //public virtual DbSet<AllActionMovies> AllActionMovies { get; set; }
+        //public virtual DbSet<AllAdventureMovies> AllAdventureMovies { get; set; }
+        //public virtual DbSet<AllAnimationMovy> AllAnimationMovies { get; set; }
+        //public virtual DbSet<AllBiographyMovy> AllBiographyMovies { get; set; }
+        //public virtual DbSet<AllComedyMovy> AllComedyMovies { get; set; }
+        //public virtual DbSet<AllCrimeMovy> AllCrimeMovies { get; set; }
+        //public virtual DbSet<AllDocumentaryMovy> AllDocumentaryMovies { get; set; }
+        //public virtual DbSet<AllDramaMovy> AllDramaMovies { get; set; }
+        //public virtual DbSet<AllFamilyMovy> AllFamilyMovies { get; set; }
+        //public virtual DbSet<AllFantasyMovy> AllFantasyMovies { get; set; }
+        //public virtual DbSet<AllFilmNoirMovy> AllFilmNoirMovies { get; set; }
+        //public virtual DbSet<AllHistoryMovy> AllHistoryMovies { get; set; }
+        //public virtual DbSet<AllHorrorMovy> AllHorrorMovies { get; set; }
+        //public virtual DbSet<AllMisteryMovy> AllMisteryMovies { get; set; }
+        //public virtual DbSet<AllMusicalMovy> AllMusicalMovies { get; set; }
+        //public virtual DbSet<AllMusicMovy> AllMusicMovies { get; set; }
+        //public virtual DbSet<AllRomanceMovy> AllRomanceMovies { get; set; }
+        //public virtual DbSet<AllSFMovy> AllSFMovies { get; set; }
+        //public virtual DbSet<AllSportMovy> AllSportMovies { get; set; }
+        //public virtual DbSet<AllThrillerMovy> AllThrillerMovies { get; set; }
+        //public virtual DbSet<AllWarMovy> AllWarMovies { get; set; }
+        //public virtual DbSet<AllWesternMovy> AllWesternMovies { get; set; }
     
         public virtual int sp_alterdiagram(string diagramname, Nullable<int> owner_id, Nullable<int> version, byte[] definition)
         {

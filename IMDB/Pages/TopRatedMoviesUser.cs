@@ -67,6 +67,7 @@ namespace IMDB
 
         private void newsToolStripMenuItem_Click(object sender, EventArgs e)
         {
+      
 
         }
 

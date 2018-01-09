@@ -19,9 +19,9 @@
       <PropertyRef Name="ID_Film" />
     </Key>
     <Property Name="ID_Film" Type="Int32" Nullable="false" />
-    <Property Name="Nume" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Nume" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
     <Property Name="An_aparitie" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-    <Property Name="Nota" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="Nota" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
     <NavigationProperty Name="Relatie_actor_film" Relationship="Self.FK_Relatie_actor_film_Filme" FromRole="Filme" ToRole="Relatie_actor_film" />
     <NavigationProperty Name="Relatie_Filme_Premii" Relationship="Self.FK_Relatie_Filme_Premii_Filme" FromRole="Filme" ToRole="Relatie_Filme_Premii" />
     <NavigationProperty Name="Genuris" Relationship="Self.Relatie_Film_Gen" FromRole="Filme" ToRole="Genuri" />
@@ -277,6 +277,28 @@
     </FunctionImport>
     <FunctionImport Name="sp_upgraddiagrams" />
     <EntitySet Name="Users" EntityType="IMDBModel.User" />
+    <EntitySet Name="AllActionMovies" EntityType="IMDBModel.AllActionMovy" />
+    <EntitySet Name="AllAdventureMovies" EntityType="IMDBModel.AllAdventureMovy" />
+    <EntitySet Name="AllAnimationMovies" EntityType="IMDBModel.AllAnimationMovy" />
+    <EntitySet Name="AllBiographyMovies" EntityType="IMDBModel.AllBiographyMovy" />
+    <EntitySet Name="AllComedyMovies" EntityType="IMDBModel.AllComedyMovy" />
+    <EntitySet Name="AllCrimeMovies" EntityType="IMDBModel.AllCrimeMovy" />
+    <EntitySet Name="AllDocumentaryMovies" EntityType="IMDBModel.AllDocumentaryMovy" />
+    <EntitySet Name="AllDramaMovies" EntityType="IMDBModel.AllDramaMovy" />
+    <EntitySet Name="AllFamilyMovies" EntityType="IMDBModel.AllFamilyMovy" />
+    <EntitySet Name="AllFantasyMovies" EntityType="IMDBModel.AllFantasyMovy" />
+    <EntitySet Name="AllFilmNoirMovies" EntityType="IMDBModel.AllFilmNoirMovy" />
+    <EntitySet Name="AllHistoryMovies" EntityType="IMDBModel.AllHistoryMovy" />
+    <EntitySet Name="AllHorrorMovies" EntityType="IMDBModel.AllHorrorMovy" />
+    <EntitySet Name="AllMisteryMovies" EntityType="IMDBModel.AllMisteryMovy" />
+    <EntitySet Name="AllMusicalMovies" EntityType="IMDBModel.AllMusicalMovy" />
+    <EntitySet Name="AllMusicMovies" EntityType="IMDBModel.AllMusicMovy" />
+    <EntitySet Name="AllRomanceMovies" EntityType="IMDBModel.AllRomanceMovy" />
+    <EntitySet Name="AllSFMovies" EntityType="IMDBModel.AllSFMovy" />
+    <EntitySet Name="AllSportMovies" EntityType="IMDBModel.AllSportMovy" />
+    <EntitySet Name="AllThrillerMovies" EntityType="IMDBModel.AllThrillerMovy" />
+    <EntitySet Name="AllWarMovies" EntityType="IMDBModel.AllWarMovy" />
+    <EntitySet Name="AllWesternMovies" EntityType="IMDBModel.AllWesternMovy" />
   </EntityContainer>
   <ComplexType Name="sp_helpdiagramdefinition_Result">
     <Property Type="Int32" Name="version" Nullable="true" />
@@ -300,5 +322,203 @@
     <Property Name="PhoneNumber" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
     <Property Name="Rights" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
     <Property Name="DateofRegister" Type="DateTime" Precision="0" />
+  </EntityType>
+  <EntityType Name="AllActionMovy">
+    <Key>
+      <PropertyRef Name="Nume" />
+      <PropertyRef Name="ID_Film" />
+    </Key>
+    <Property Name="Nume" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Nume_Gen" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ID_Film" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AllAdventureMovy">
+    <Key>
+      <PropertyRef Name="ID_Film" />
+      <PropertyRef Name="Nume" />
+    </Key>
+    <Property Name="ID_Film" Type="Int32" Nullable="false" />
+    <Property Name="Nume" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Nume_Gen" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="AllAnimationMovy">
+    <Key>
+      <PropertyRef Name="ID_Film" />
+      <PropertyRef Name="Nume" />
+    </Key>
+    <Property Name="ID_Film" Type="Int32" Nullable="false" />
+    <Property Name="Nume" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Nume_Gen" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="AllBiographyMovy">
+    <Key>
+      <PropertyRef Name="ID_Film" />
+      <PropertyRef Name="Nume" />
+    </Key>
+    <Property Name="ID_Film" Type="Int32" Nullable="false" />
+    <Property Name="Nume" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Nume_Gen" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="AllComedyMovy">
+    <Key>
+      <PropertyRef Name="Nume" />
+      <PropertyRef Name="ID_Film" />
+    </Key>
+    <Property Name="Nume" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Nume_Gen" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ID_Film" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AllCrimeMovy">
+    <Key>
+      <PropertyRef Name="ID_Film" />
+      <PropertyRef Name="Nume" />
+    </Key>
+    <Property Name="ID_Film" Type="Int32" Nullable="false" />
+    <Property Name="Nume" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Nume_Gen" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="AllDocumentaryMovy">
+    <Key>
+      <PropertyRef Name="ID_Film" />
+      <PropertyRef Name="Nume" />
+    </Key>
+    <Property Name="ID_Film" Type="Int32" Nullable="false" />
+    <Property Name="Nume" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Nume_Gen" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="AllDramaMovy">
+    <Key>
+      <PropertyRef Name="Nume" />
+      <PropertyRef Name="ID_Film" />
+    </Key>
+    <Property Name="Nume" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Nume_Gen" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ID_Film" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AllFamilyMovy">
+    <Key>
+      <PropertyRef Name="ID_Film" />
+      <PropertyRef Name="Nume" />
+    </Key>
+    <Property Name="ID_Film" Type="Int32" Nullable="false" />
+    <Property Name="Nume" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Nume_Gen" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="AllFantasyMovy">
+    <Key>
+      <PropertyRef Name="ID_Film" />
+      <PropertyRef Name="Nume" />
+    </Key>
+    <Property Name="ID_Film" Type="Int32" Nullable="false" />
+    <Property Name="Nume" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Nume_Gen" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="AllFilmNoirMovy">
+    <Key>
+      <PropertyRef Name="ID_Film" />
+      <PropertyRef Name="Nume" />
+    </Key>
+    <Property Name="ID_Film" Type="Int32" Nullable="false" />
+    <Property Name="Nume" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Nume_Gen" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="AllHistoryMovy">
+    <Key>
+      <PropertyRef Name="ID_Film" />
+      <PropertyRef Name="Nume" />
+    </Key>
+    <Property Name="ID_Film" Type="Int32" Nullable="false" />
+    <Property Name="Nume" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Nume_Gen" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="AllHorrorMovy">
+    <Key>
+      <PropertyRef Name="ID_Film" />
+      <PropertyRef Name="Nume" />
+    </Key>
+    <Property Name="ID_Film" Type="Int32" Nullable="false" />
+    <Property Name="Nume" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Nume_Gen" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="AllMisteryMovy">
+    <Key>
+      <PropertyRef Name="ID_Film" />
+      <PropertyRef Name="Nume" />
+    </Key>
+    <Property Name="ID_Film" Type="Int32" Nullable="false" />
+    <Property Name="Nume" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Nume_Gen" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="AllMusicalMovy">
+    <Key>
+      <PropertyRef Name="ID_Film" />
+      <PropertyRef Name="Nume" />
+    </Key>
+    <Property Name="ID_Film" Type="Int32" Nullable="false" />
+    <Property Name="Nume" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Nume_Gen" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="AllMusicMovy">
+    <Key>
+      <PropertyRef Name="ID_Film" />
+      <PropertyRef Name="Nume" />
+    </Key>
+    <Property Name="ID_Film" Type="Int32" Nullable="false" />
+    <Property Name="Nume" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Nume_Gen" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="AllRomanceMovy">
+    <Key>
+      <PropertyRef Name="ID_Film" />
+      <PropertyRef Name="Nume" />
+    </Key>
+    <Property Name="ID_Film" Type="Int32" Nullable="false" />
+    <Property Name="Nume" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Nume_Gen" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="AllSFMovy">
+    <Key>
+      <PropertyRef Name="ID_Film" />
+      <PropertyRef Name="Nume" />
+    </Key>
+    <Property Name="ID_Film" Type="Int32" Nullable="false" />
+    <Property Name="Nume" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Nume_Gen" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="AllSportMovy">
+    <Key>
+      <PropertyRef Name="ID_Film" />
+      <PropertyRef Name="Nume" />
+    </Key>
+    <Property Name="ID_Film" Type="Int32" Nullable="false" />
+    <Property Name="Nume" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Nume_Gen" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="AllThrillerMovy">
+    <Key>
+      <PropertyRef Name="ID_Film" />
+      <PropertyRef Name="Nume" />
+    </Key>
+    <Property Name="ID_Film" Type="Int32" Nullable="false" />
+    <Property Name="Nume" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Nume_Gen" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="AllWarMovy">
+    <Key>
+      <PropertyRef Name="ID_Film" />
+      <PropertyRef Name="Nume" />
+    </Key>
+    <Property Name="ID_Film" Type="Int32" Nullable="false" />
+    <Property Name="Nume" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Nume_Gen" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="AllWesternMovy">
+    <Key>
+      <PropertyRef Name="ID_Film" />
+      <PropertyRef Name="Nume" />
+    </Key>
+    <Property Name="ID_Film" Type="Int32" Nullable="false" />
+    <Property Name="Nume" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Nume_Gen" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
   </EntityType>
 </Schema>

@@ -166,5 +166,203 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
+    <EntitySetMapping Name="AllActionMovies">
+      <EntityTypeMapping TypeName="IMDBModel.AllActionMovy">
+        <MappingFragment StoreEntitySet="AllActionMovies">
+          <ScalarProperty Name="ID_Film" ColumnName="ID_Film" />
+          <ScalarProperty Name="Nume_Gen" ColumnName="Nume_Gen" />
+          <ScalarProperty Name="Nume" ColumnName="Nume" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AllAdventureMovies">
+      <EntityTypeMapping TypeName="IMDBModel.AllAdventureMovy">
+        <MappingFragment StoreEntitySet="AllAdventureMovies">
+          <ScalarProperty Name="Nume_Gen" ColumnName="Nume_Gen" />
+          <ScalarProperty Name="Nume" ColumnName="Nume" />
+          <ScalarProperty Name="ID_Film" ColumnName="ID_Film" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AllAnimationMovies">
+      <EntityTypeMapping TypeName="IMDBModel.AllAnimationMovy">
+        <MappingFragment StoreEntitySet="AllAnimationMovies">
+          <ScalarProperty Name="Nume_Gen" ColumnName="Nume_Gen" />
+          <ScalarProperty Name="Nume" ColumnName="Nume" />
+          <ScalarProperty Name="ID_Film" ColumnName="ID_Film" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AllBiographyMovies">
+      <EntityTypeMapping TypeName="IMDBModel.AllBiographyMovy">
+        <MappingFragment StoreEntitySet="AllBiographyMovies">
+          <ScalarProperty Name="Nume_Gen" ColumnName="Nume_Gen" />
+          <ScalarProperty Name="Nume" ColumnName="Nume" />
+          <ScalarProperty Name="ID_Film" ColumnName="ID_Film" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AllComedyMovies">
+      <EntityTypeMapping TypeName="IMDBModel.AllComedyMovy">
+        <MappingFragment StoreEntitySet="AllComedyMovies">
+          <ScalarProperty Name="ID_Film" ColumnName="ID_Film" />
+          <ScalarProperty Name="Nume_Gen" ColumnName="Nume_Gen" />
+          <ScalarProperty Name="Nume" ColumnName="Nume" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AllCrimeMovies">
+      <EntityTypeMapping TypeName="IMDBModel.AllCrimeMovy">
+        <MappingFragment StoreEntitySet="AllCrimeMovies">
+          <ScalarProperty Name="Nume_Gen" ColumnName="Nume_Gen" />
+          <ScalarProperty Name="Nume" ColumnName="Nume" />
+          <ScalarProperty Name="ID_Film" ColumnName="ID_Film" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AllDocumentaryMovies">
+      <EntityTypeMapping TypeName="IMDBModel.AllDocumentaryMovy">
+        <MappingFragment StoreEntitySet="AllDocumentaryMovies">
+          <ScalarProperty Name="Nume_Gen" ColumnName="Nume_Gen" />
+          <ScalarProperty Name="Nume" ColumnName="Nume" />
+          <ScalarProperty Name="ID_Film" ColumnName="ID_Film" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AllDramaMovies">
+      <EntityTypeMapping TypeName="IMDBModel.AllDramaMovy">
+        <MappingFragment StoreEntitySet="AllDramaMovies">
+          <ScalarProperty Name="ID_Film" ColumnName="ID_Film" />
+          <ScalarProperty Name="Nume_Gen" ColumnName="Nume_Gen" />
+          <ScalarProperty Name="Nume" ColumnName="Nume" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AllFamilyMovies">
+      <EntityTypeMapping TypeName="IMDBModel.AllFamilyMovy">
+        <MappingFragment StoreEntitySet="AllFamilyMovies">
+          <ScalarProperty Name="Nume_Gen" ColumnName="Nume_Gen" />
+          <ScalarProperty Name="Nume" ColumnName="Nume" />
+          <ScalarProperty Name="ID_Film" ColumnName="ID_Film" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AllFantasyMovies">
+      <EntityTypeMapping TypeName="IMDBModel.AllFantasyMovy">
+        <MappingFragment StoreEntitySet="AllFantasyMovies">
+          <ScalarProperty Name="Nume_Gen" ColumnName="Nume_Gen" />
+          <ScalarProperty Name="Nume" ColumnName="Nume" />
+          <ScalarProperty Name="ID_Film" ColumnName="ID_Film" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AllFilmNoirMovies">
+      <EntityTypeMapping TypeName="IMDBModel.AllFilmNoirMovy">
+        <MappingFragment StoreEntitySet="AllFilmNoirMovies">
+          <ScalarProperty Name="Nume_Gen" ColumnName="Nume_Gen" />
+          <ScalarProperty Name="Nume" ColumnName="Nume" />
+          <ScalarProperty Name="ID_Film" ColumnName="ID_Film" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AllHistoryMovies">
+      <EntityTypeMapping TypeName="IMDBModel.AllHistoryMovy">
+        <MappingFragment StoreEntitySet="AllHistoryMovies">
+          <ScalarProperty Name="Nume_Gen" ColumnName="Nume_Gen" />
+          <ScalarProperty Name="Nume" ColumnName="Nume" />
+          <ScalarProperty Name="ID_Film" ColumnName="ID_Film" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AllHorrorMovies">
+      <EntityTypeMapping TypeName="IMDBModel.AllHorrorMovy">
+        <MappingFragment StoreEntitySet="AllHorrorMovies">
+          <ScalarProperty Name="Nume_Gen" ColumnName="Nume_Gen" />
+          <ScalarProperty Name="Nume" ColumnName="Nume" />
+          <ScalarProperty Name="ID_Film" ColumnName="ID_Film" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AllMisteryMovies">
+      <EntityTypeMapping TypeName="IMDBModel.AllMisteryMovy">
+        <MappingFragment StoreEntitySet="AllMisteryMovies">
+          <ScalarProperty Name="Nume_Gen" ColumnName="Nume_Gen" />
+          <ScalarProperty Name="Nume" ColumnName="Nume" />
+          <ScalarProperty Name="ID_Film" ColumnName="ID_Film" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AllMusicalMovies">
+      <EntityTypeMapping TypeName="IMDBModel.AllMusicalMovy">
+        <MappingFragment StoreEntitySet="AllMusicalMovies">
+          <ScalarProperty Name="Nume_Gen" ColumnName="Nume_Gen" />
+          <ScalarProperty Name="Nume" ColumnName="Nume" />
+          <ScalarProperty Name="ID_Film" ColumnName="ID_Film" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AllMusicMovies">
+      <EntityTypeMapping TypeName="IMDBModel.AllMusicMovy">
+        <MappingFragment StoreEntitySet="AllMusicMovies">
+          <ScalarProperty Name="Nume_Gen" ColumnName="Nume_Gen" />
+          <ScalarProperty Name="Nume" ColumnName="Nume" />
+          <ScalarProperty Name="ID_Film" ColumnName="ID_Film" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AllRomanceMovies">
+      <EntityTypeMapping TypeName="IMDBModel.AllRomanceMovy">
+        <MappingFragment StoreEntitySet="AllRomanceMovies">
+          <ScalarProperty Name="Nume_Gen" ColumnName="Nume_Gen" />
+          <ScalarProperty Name="Nume" ColumnName="Nume" />
+          <ScalarProperty Name="ID_Film" ColumnName="ID_Film" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AllSFMovies">
+      <EntityTypeMapping TypeName="IMDBModel.AllSFMovy">
+        <MappingFragment StoreEntitySet="AllSFMovies">
+          <ScalarProperty Name="Nume_Gen" ColumnName="Nume_Gen" />
+          <ScalarProperty Name="Nume" ColumnName="Nume" />
+          <ScalarProperty Name="ID_Film" ColumnName="ID_Film" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AllSportMovies">
+      <EntityTypeMapping TypeName="IMDBModel.AllSportMovy">
+        <MappingFragment StoreEntitySet="AllSportMovies">
+          <ScalarProperty Name="Nume_Gen" ColumnName="Nume_Gen" />
+          <ScalarProperty Name="Nume" ColumnName="Nume" />
+          <ScalarProperty Name="ID_Film" ColumnName="ID_Film" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AllThrillerMovies">
+      <EntityTypeMapping TypeName="IMDBModel.AllThrillerMovy">
+        <MappingFragment StoreEntitySet="AllThrillerMovies">
+          <ScalarProperty Name="Nume_Gen" ColumnName="Nume_Gen" />
+          <ScalarProperty Name="Nume" ColumnName="Nume" />
+          <ScalarProperty Name="ID_Film" ColumnName="ID_Film" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AllWarMovies">
+      <EntityTypeMapping TypeName="IMDBModel.AllWarMovy">
+        <MappingFragment StoreEntitySet="AllWarMovies">
+          <ScalarProperty Name="Nume_Gen" ColumnName="Nume_Gen" />
+          <ScalarProperty Name="Nume" ColumnName="Nume" />
+          <ScalarProperty Name="ID_Film" ColumnName="ID_Film" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AllWesternMovies">
+      <EntityTypeMapping TypeName="IMDBModel.AllWesternMovy">
+        <MappingFragment StoreEntitySet="AllWesternMovies">
+          <ScalarProperty Name="Nume_Gen" ColumnName="Nume_Gen" />
+          <ScalarProperty Name="Nume" ColumnName="Nume" />
+          <ScalarProperty Name="ID_Film" ColumnName="ID_Film" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

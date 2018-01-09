@@ -22,9 +22,9 @@
             <PropertyRef Name="ID_Film" />
           </Key>
           <Property Name="ID_Film" Type="int" Nullable="false" />
-          <Property Name="Nume" Type="varchar" MaxLength="50" />
+          <Property Name="Nume" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="An_aparitie" Type="nchar" MaxLength="10" />
-          <Property Name="Nota" Type="nchar" MaxLength="10" />
+          <Property Name="Nota" Type="nchar" MaxLength="10" Nullable="false" />
         </EntityType>
         <EntityType Name="Genuri">
           <Key>
@@ -137,6 +137,248 @@
           <Property Name="PhoneNumber" Type="nchar" MaxLength="10" />
           <Property Name="Rights" Type="char" MaxLength="20" />
           <Property Name="DateofRegister" Type="date" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'IMDB.dbo.AllActionMovies' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="AllActionMovies">
+          <Key>
+            <PropertyRef Name="Nume" />
+            <PropertyRef Name="ID_Film" />
+          </Key>
+          <Property Name="Nume" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Nume_Gen" Type="varchar" MaxLength="50" />
+          <Property Name="ID_Film" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'IMDB.dbo.AllAdventureMovies' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="AllAdventureMovies">
+          <Key>
+            <PropertyRef Name="ID_Film" />
+            <PropertyRef Name="Nume" />
+          </Key>
+          <Property Name="ID_Film" Type="int" Nullable="false" />
+          <Property Name="Nume" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Nume_Gen" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'IMDB.dbo.AllAnimationMovies' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="AllAnimationMovies">
+          <Key>
+            <PropertyRef Name="ID_Film" />
+            <PropertyRef Name="Nume" />
+          </Key>
+          <Property Name="ID_Film" Type="int" Nullable="false" />
+          <Property Name="Nume" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Nume_Gen" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'IMDB.dbo.AllBiographyMovies' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="AllBiographyMovies">
+          <Key>
+            <PropertyRef Name="ID_Film" />
+            <PropertyRef Name="Nume" />
+          </Key>
+          <Property Name="ID_Film" Type="int" Nullable="false" />
+          <Property Name="Nume" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Nume_Gen" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'IMDB.dbo.AllComedyMovies' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="AllComedyMovies">
+          <Key>
+            <PropertyRef Name="Nume" />
+            <PropertyRef Name="ID_Film" />
+          </Key>
+          <Property Name="Nume" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Nume_Gen" Type="varchar" MaxLength="50" />
+          <Property Name="ID_Film" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'IMDB.dbo.AllCrimeMovies' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="AllCrimeMovies">
+          <Key>
+            <PropertyRef Name="ID_Film" />
+            <PropertyRef Name="Nume" />
+          </Key>
+          <Property Name="ID_Film" Type="int" Nullable="false" />
+          <Property Name="Nume" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Nume_Gen" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'IMDB.dbo.AllDocumentaryMovies' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="AllDocumentaryMovies">
+          <Key>
+            <PropertyRef Name="ID_Film" />
+            <PropertyRef Name="Nume" />
+          </Key>
+          <Property Name="ID_Film" Type="int" Nullable="false" />
+          <Property Name="Nume" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Nume_Gen" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'IMDB.dbo.AllDramaMovies' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="AllDramaMovies">
+          <Key>
+            <PropertyRef Name="Nume" />
+            <PropertyRef Name="ID_Film" />
+          </Key>
+          <Property Name="Nume" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Nume_Gen" Type="varchar" MaxLength="50" />
+          <Property Name="ID_Film" Type="int" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'IMDB.dbo.AllFamilyMovies' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="AllFamilyMovies">
+          <Key>
+            <PropertyRef Name="ID_Film" />
+            <PropertyRef Name="Nume" />
+          </Key>
+          <Property Name="ID_Film" Type="int" Nullable="false" />
+          <Property Name="Nume" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Nume_Gen" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'IMDB.dbo.AllFantasyMovies' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="AllFantasyMovies">
+          <Key>
+            <PropertyRef Name="ID_Film" />
+            <PropertyRef Name="Nume" />
+          </Key>
+          <Property Name="ID_Film" Type="int" Nullable="false" />
+          <Property Name="Nume" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Nume_Gen" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'IMDB.dbo.AllFilmNoirMovies' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="AllFilmNoirMovies">
+          <Key>
+            <PropertyRef Name="ID_Film" />
+            <PropertyRef Name="Nume" />
+          </Key>
+          <Property Name="ID_Film" Type="int" Nullable="false" />
+          <Property Name="Nume" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Nume_Gen" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'IMDB.dbo.AllHistoryMovies' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="AllHistoryMovies">
+          <Key>
+            <PropertyRef Name="ID_Film" />
+            <PropertyRef Name="Nume" />
+          </Key>
+          <Property Name="ID_Film" Type="int" Nullable="false" />
+          <Property Name="Nume" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Nume_Gen" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'IMDB.dbo.AllHorrorMovies' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="AllHorrorMovies">
+          <Key>
+            <PropertyRef Name="ID_Film" />
+            <PropertyRef Name="Nume" />
+          </Key>
+          <Property Name="ID_Film" Type="int" Nullable="false" />
+          <Property Name="Nume" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Nume_Gen" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'IMDB.dbo.AllMisteryMovies' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="AllMisteryMovies">
+          <Key>
+            <PropertyRef Name="ID_Film" />
+            <PropertyRef Name="Nume" />
+          </Key>
+          <Property Name="ID_Film" Type="int" Nullable="false" />
+          <Property Name="Nume" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Nume_Gen" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'IMDB.dbo.AllMusicalMovies' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="AllMusicalMovies">
+          <Key>
+            <PropertyRef Name="ID_Film" />
+            <PropertyRef Name="Nume" />
+          </Key>
+          <Property Name="ID_Film" Type="int" Nullable="false" />
+          <Property Name="Nume" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Nume_Gen" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'IMDB.dbo.AllMusicMovies' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="AllMusicMovies">
+          <Key>
+            <PropertyRef Name="ID_Film" />
+            <PropertyRef Name="Nume" />
+          </Key>
+          <Property Name="ID_Film" Type="int" Nullable="false" />
+          <Property Name="Nume" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Nume_Gen" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'IMDB.dbo.AllRomanceMovies' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="AllRomanceMovies">
+          <Key>
+            <PropertyRef Name="ID_Film" />
+            <PropertyRef Name="Nume" />
+          </Key>
+          <Property Name="ID_Film" Type="int" Nullable="false" />
+          <Property Name="Nume" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Nume_Gen" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'IMDB.dbo.AllSFMovies' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="AllSFMovies">
+          <Key>
+            <PropertyRef Name="ID_Film" />
+            <PropertyRef Name="Nume" />
+          </Key>
+          <Property Name="ID_Film" Type="int" Nullable="false" />
+          <Property Name="Nume" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Nume_Gen" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'IMDB.dbo.AllSportMovies' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="AllSportMovies">
+          <Key>
+            <PropertyRef Name="ID_Film" />
+            <PropertyRef Name="Nume" />
+          </Key>
+          <Property Name="ID_Film" Type="int" Nullable="false" />
+          <Property Name="Nume" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Nume_Gen" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'IMDB.dbo.AllThrillerMovies' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="AllThrillerMovies">
+          <Key>
+            <PropertyRef Name="ID_Film" />
+            <PropertyRef Name="Nume" />
+          </Key>
+          <Property Name="ID_Film" Type="int" Nullable="false" />
+          <Property Name="Nume" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Nume_Gen" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'IMDB.dbo.AllWarMovies' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="AllWarMovies">
+          <Key>
+            <PropertyRef Name="ID_Film" />
+            <PropertyRef Name="Nume" />
+          </Key>
+          <Property Name="ID_Film" Type="int" Nullable="false" />
+          <Property Name="Nume" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Nume_Gen" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'IMDB.dbo.AllWesternMovies' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="AllWesternMovies">
+          <Key>
+            <PropertyRef Name="ID_Film" />
+            <PropertyRef Name="Nume" />
+          </Key>
+          <Property Name="ID_Film" Type="int" Nullable="false" />
+          <Property Name="Nume" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Nume_Gen" Type="varchar" MaxLength="50" />
         </EntityType>
         <Association Name="FK_Relatie_actor_film_Actori">
           <End Role="Actori" Type="Self.Actori" Multiplicity="1" />
@@ -328,6 +570,160 @@
           <EntitySet Name="Seriale" EntityType="Self.Seriale" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AllActionMovies" EntityType="Self.AllActionMovies" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [AllActionMovies].[Nume] AS [Nume], 
+    [AllActionMovies].[Nume_Gen] AS [Nume_Gen], 
+    [AllActionMovies].[ID_Film] AS [ID_Film]
+    FROM [dbo].[AllActionMovies] AS [AllActionMovies]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="AllAdventureMovies" EntityType="Self.AllAdventureMovies" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [AllAdventureMovies].[ID_Film] AS [ID_Film], 
+    [AllAdventureMovies].[Nume] AS [Nume], 
+    [AllAdventureMovies].[Nume_Gen] AS [Nume_Gen]
+    FROM [dbo].[AllAdventureMovies] AS [AllAdventureMovies]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="AllAnimationMovies" EntityType="Self.AllAnimationMovies" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [AllAnimationMovies].[ID_Film] AS [ID_Film], 
+    [AllAnimationMovies].[Nume] AS [Nume], 
+    [AllAnimationMovies].[Nume_Gen] AS [Nume_Gen]
+    FROM [dbo].[AllAnimationMovies] AS [AllAnimationMovies]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="AllBiographyMovies" EntityType="Self.AllBiographyMovies" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [AllBiographyMovies].[ID_Film] AS [ID_Film], 
+    [AllBiographyMovies].[Nume] AS [Nume], 
+    [AllBiographyMovies].[Nume_Gen] AS [Nume_Gen]
+    FROM [dbo].[AllBiographyMovies] AS [AllBiographyMovies]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="AllComedyMovies" EntityType="Self.AllComedyMovies" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [AllComedyMovies].[Nume] AS [Nume], 
+    [AllComedyMovies].[Nume_Gen] AS [Nume_Gen], 
+    [AllComedyMovies].[ID_Film] AS [ID_Film]
+    FROM [dbo].[AllComedyMovies] AS [AllComedyMovies]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="AllCrimeMovies" EntityType="Self.AllCrimeMovies" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [AllCrimeMovies].[ID_Film] AS [ID_Film], 
+    [AllCrimeMovies].[Nume] AS [Nume], 
+    [AllCrimeMovies].[Nume_Gen] AS [Nume_Gen]
+    FROM [dbo].[AllCrimeMovies] AS [AllCrimeMovies]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="AllDocumentaryMovies" EntityType="Self.AllDocumentaryMovies" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [AllDocumentaryMovies].[ID_Film] AS [ID_Film], 
+    [AllDocumentaryMovies].[Nume] AS [Nume], 
+    [AllDocumentaryMovies].[Nume_Gen] AS [Nume_Gen]
+    FROM [dbo].[AllDocumentaryMovies] AS [AllDocumentaryMovies]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="AllDramaMovies" EntityType="Self.AllDramaMovies" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [AllDramaMovies].[Nume] AS [Nume], 
+    [AllDramaMovies].[Nume_Gen] AS [Nume_Gen], 
+    [AllDramaMovies].[ID_Film] AS [ID_Film]
+    FROM [dbo].[AllDramaMovies] AS [AllDramaMovies]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="AllFamilyMovies" EntityType="Self.AllFamilyMovies" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [AllFamilyMovies].[ID_Film] AS [ID_Film], 
+    [AllFamilyMovies].[Nume] AS [Nume], 
+    [AllFamilyMovies].[Nume_Gen] AS [Nume_Gen]
+    FROM [dbo].[AllFamilyMovies] AS [AllFamilyMovies]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="AllFantasyMovies" EntityType="Self.AllFantasyMovies" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [AllFantasyMovies].[ID_Film] AS [ID_Film], 
+    [AllFantasyMovies].[Nume] AS [Nume], 
+    [AllFantasyMovies].[Nume_Gen] AS [Nume_Gen]
+    FROM [dbo].[AllFantasyMovies] AS [AllFantasyMovies]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="AllFilmNoirMovies" EntityType="Self.AllFilmNoirMovies" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [AllFilmNoirMovies].[ID_Film] AS [ID_Film], 
+    [AllFilmNoirMovies].[Nume] AS [Nume], 
+    [AllFilmNoirMovies].[Nume_Gen] AS [Nume_Gen]
+    FROM [dbo].[AllFilmNoirMovies] AS [AllFilmNoirMovies]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="AllHistoryMovies" EntityType="Self.AllHistoryMovies" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [AllHistoryMovies].[ID_Film] AS [ID_Film], 
+    [AllHistoryMovies].[Nume] AS [Nume], 
+    [AllHistoryMovies].[Nume_Gen] AS [Nume_Gen]
+    FROM [dbo].[AllHistoryMovies] AS [AllHistoryMovies]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="AllHorrorMovies" EntityType="Self.AllHorrorMovies" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [AllHorrorMovies].[ID_Film] AS [ID_Film], 
+    [AllHorrorMovies].[Nume] AS [Nume], 
+    [AllHorrorMovies].[Nume_Gen] AS [Nume_Gen]
+    FROM [dbo].[AllHorrorMovies] AS [AllHorrorMovies]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="AllMisteryMovies" EntityType="Self.AllMisteryMovies" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [AllMisteryMovies].[ID_Film] AS [ID_Film], 
+    [AllMisteryMovies].[Nume] AS [Nume], 
+    [AllMisteryMovies].[Nume_Gen] AS [Nume_Gen]
+    FROM [dbo].[AllMisteryMovies] AS [AllMisteryMovies]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="AllMusicalMovies" EntityType="Self.AllMusicalMovies" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [AllMusicalMovies].[ID_Film] AS [ID_Film], 
+    [AllMusicalMovies].[Nume] AS [Nume], 
+    [AllMusicalMovies].[Nume_Gen] AS [Nume_Gen]
+    FROM [dbo].[AllMusicalMovies] AS [AllMusicalMovies]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="AllMusicMovies" EntityType="Self.AllMusicMovies" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [AllMusicMovies].[ID_Film] AS [ID_Film], 
+    [AllMusicMovies].[Nume] AS [Nume], 
+    [AllMusicMovies].[Nume_Gen] AS [Nume_Gen]
+    FROM [dbo].[AllMusicMovies] AS [AllMusicMovies]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="AllRomanceMovies" EntityType="Self.AllRomanceMovies" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [AllRomanceMovies].[ID_Film] AS [ID_Film], 
+    [AllRomanceMovies].[Nume] AS [Nume], 
+    [AllRomanceMovies].[Nume_Gen] AS [Nume_Gen]
+    FROM [dbo].[AllRomanceMovies] AS [AllRomanceMovies]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="AllSFMovies" EntityType="Self.AllSFMovies" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [AllSFMovies].[ID_Film] AS [ID_Film], 
+    [AllSFMovies].[Nume] AS [Nume], 
+    [AllSFMovies].[Nume_Gen] AS [Nume_Gen]
+    FROM [dbo].[AllSFMovies] AS [AllSFMovies]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="AllSportMovies" EntityType="Self.AllSportMovies" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [AllSportMovies].[ID_Film] AS [ID_Film], 
+    [AllSportMovies].[Nume] AS [Nume], 
+    [AllSportMovies].[Nume_Gen] AS [Nume_Gen]
+    FROM [dbo].[AllSportMovies] AS [AllSportMovies]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="AllThrillerMovies" EntityType="Self.AllThrillerMovies" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [AllThrillerMovies].[ID_Film] AS [ID_Film], 
+    [AllThrillerMovies].[Nume] AS [Nume], 
+    [AllThrillerMovies].[Nume_Gen] AS [Nume_Gen]
+    FROM [dbo].[AllThrillerMovies] AS [AllThrillerMovies]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="AllWarMovies" EntityType="Self.AllWarMovies" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [AllWarMovies].[ID_Film] AS [ID_Film], 
+    [AllWarMovies].[Nume] AS [Nume], 
+    [AllWarMovies].[Nume_Gen] AS [Nume_Gen]
+    FROM [dbo].[AllWarMovies] AS [AllWarMovies]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="AllWesternMovies" EntityType="Self.AllWesternMovies" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [AllWesternMovies].[ID_Film] AS [ID_Film], 
+    [AllWesternMovies].[Nume] AS [Nume], 
+    [AllWesternMovies].[Nume_Gen] AS [Nume_Gen]
+    FROM [dbo].[AllWesternMovies] AS [AllWesternMovies]</DefiningQuery>
+          </EntitySet>
           <AssociationSet Name="FK_Relatie_actor_film_Actori" Association="Self.FK_Relatie_actor_film_Actori">
             <End Role="Actori" EntitySet="Actori" />
             <End Role="Relatie_actor_film" EntitySet="Relatie_actor_film" />
@@ -400,9 +796,9 @@
             <PropertyRef Name="ID_Film" />
           </Key>
           <Property Name="ID_Film" Type="Int32" Nullable="false" />
-          <Property Name="Nume" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Nume" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="An_aparitie" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-          <Property Name="Nota" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Nota" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Relatie_actor_film" Relationship="Self.FK_Relatie_actor_film_Filme" FromRole="Filme" ToRole="Relatie_actor_film" />
           <NavigationProperty Name="Relatie_Filme_Premii" Relationship="Self.FK_Relatie_Filme_Premii_Filme" FromRole="Filme" ToRole="Relatie_Filme_Premii" />
           <NavigationProperty Name="Genuris" Relationship="Self.Relatie_Film_Gen" FromRole="Filme" ToRole="Genuri" />
@@ -658,6 +1054,28 @@
           </FunctionImport>
           <FunctionImport Name="sp_upgraddiagrams" />
           <EntitySet Name="Users" EntityType="IMDBModel.User" />
+          <EntitySet Name="AllActionMovies" EntityType="IMDBModel.AllActionMovy" />
+          <EntitySet Name="AllAdventureMovies" EntityType="IMDBModel.AllAdventureMovy" />
+          <EntitySet Name="AllAnimationMovies" EntityType="IMDBModel.AllAnimationMovy" />
+          <EntitySet Name="AllBiographyMovies" EntityType="IMDBModel.AllBiographyMovy" />
+          <EntitySet Name="AllComedyMovies" EntityType="IMDBModel.AllComedyMovy" />
+          <EntitySet Name="AllCrimeMovies" EntityType="IMDBModel.AllCrimeMovy" />
+          <EntitySet Name="AllDocumentaryMovies" EntityType="IMDBModel.AllDocumentaryMovy" />
+          <EntitySet Name="AllDramaMovies" EntityType="IMDBModel.AllDramaMovy" />
+          <EntitySet Name="AllFamilyMovies" EntityType="IMDBModel.AllFamilyMovy" />
+          <EntitySet Name="AllFantasyMovies" EntityType="IMDBModel.AllFantasyMovy" />
+          <EntitySet Name="AllFilmNoirMovies" EntityType="IMDBModel.AllFilmNoirMovy" />
+          <EntitySet Name="AllHistoryMovies" EntityType="IMDBModel.AllHistoryMovy" />
+          <EntitySet Name="AllHorrorMovies" EntityType="IMDBModel.AllHorrorMovy" />
+          <EntitySet Name="AllMisteryMovies" EntityType="IMDBModel.AllMisteryMovy" />
+          <EntitySet Name="AllMusicalMovies" EntityType="IMDBModel.AllMusicalMovy" />
+          <EntitySet Name="AllMusicMovies" EntityType="IMDBModel.AllMusicMovy" />
+          <EntitySet Name="AllRomanceMovies" EntityType="IMDBModel.AllRomanceMovy" />
+          <EntitySet Name="AllSFMovies" EntityType="IMDBModel.AllSFMovy" />
+          <EntitySet Name="AllSportMovies" EntityType="IMDBModel.AllSportMovy" />
+          <EntitySet Name="AllThrillerMovies" EntityType="IMDBModel.AllThrillerMovy" />
+          <EntitySet Name="AllWarMovies" EntityType="IMDBModel.AllWarMovy" />
+          <EntitySet Name="AllWesternMovies" EntityType="IMDBModel.AllWesternMovy" />
         </EntityContainer>
         <ComplexType Name="sp_helpdiagramdefinition_Result">
           <Property Type="Int32" Name="version" Nullable="true" />
@@ -681,6 +1099,204 @@
           <Property Name="PhoneNumber" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
           <Property Name="Rights" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
           <Property Name="DateofRegister" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="AllActionMovy">
+          <Key>
+            <PropertyRef Name="Nume" />
+            <PropertyRef Name="ID_Film" />
+          </Key>
+          <Property Name="Nume" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Nume_Gen" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ID_Film" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AllAdventureMovy">
+          <Key>
+            <PropertyRef Name="ID_Film" />
+            <PropertyRef Name="Nume" />
+          </Key>
+          <Property Name="ID_Film" Type="Int32" Nullable="false" />
+          <Property Name="Nume" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Nume_Gen" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="AllAnimationMovy">
+          <Key>
+            <PropertyRef Name="ID_Film" />
+            <PropertyRef Name="Nume" />
+          </Key>
+          <Property Name="ID_Film" Type="Int32" Nullable="false" />
+          <Property Name="Nume" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Nume_Gen" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="AllBiographyMovy">
+          <Key>
+            <PropertyRef Name="ID_Film" />
+            <PropertyRef Name="Nume" />
+          </Key>
+          <Property Name="ID_Film" Type="Int32" Nullable="false" />
+          <Property Name="Nume" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Nume_Gen" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="AllComedyMovy">
+          <Key>
+            <PropertyRef Name="Nume" />
+            <PropertyRef Name="ID_Film" />
+          </Key>
+          <Property Name="Nume" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Nume_Gen" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ID_Film" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AllCrimeMovy">
+          <Key>
+            <PropertyRef Name="ID_Film" />
+            <PropertyRef Name="Nume" />
+          </Key>
+          <Property Name="ID_Film" Type="Int32" Nullable="false" />
+          <Property Name="Nume" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Nume_Gen" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="AllDocumentaryMovy">
+          <Key>
+            <PropertyRef Name="ID_Film" />
+            <PropertyRef Name="Nume" />
+          </Key>
+          <Property Name="ID_Film" Type="Int32" Nullable="false" />
+          <Property Name="Nume" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Nume_Gen" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="AllDramaMovy">
+          <Key>
+            <PropertyRef Name="Nume" />
+            <PropertyRef Name="ID_Film" />
+          </Key>
+          <Property Name="Nume" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Nume_Gen" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ID_Film" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AllFamilyMovy">
+          <Key>
+            <PropertyRef Name="ID_Film" />
+            <PropertyRef Name="Nume" />
+          </Key>
+          <Property Name="ID_Film" Type="Int32" Nullable="false" />
+          <Property Name="Nume" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Nume_Gen" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="AllFantasyMovy">
+          <Key>
+            <PropertyRef Name="ID_Film" />
+            <PropertyRef Name="Nume" />
+          </Key>
+          <Property Name="ID_Film" Type="Int32" Nullable="false" />
+          <Property Name="Nume" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Nume_Gen" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="AllFilmNoirMovy">
+          <Key>
+            <PropertyRef Name="ID_Film" />
+            <PropertyRef Name="Nume" />
+          </Key>
+          <Property Name="ID_Film" Type="Int32" Nullable="false" />
+          <Property Name="Nume" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Nume_Gen" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="AllHistoryMovy">
+          <Key>
+            <PropertyRef Name="ID_Film" />
+            <PropertyRef Name="Nume" />
+          </Key>
+          <Property Name="ID_Film" Type="Int32" Nullable="false" />
+          <Property Name="Nume" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Nume_Gen" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="AllHorrorMovy">
+          <Key>
+            <PropertyRef Name="ID_Film" />
+            <PropertyRef Name="Nume" />
+          </Key>
+          <Property Name="ID_Film" Type="Int32" Nullable="false" />
+          <Property Name="Nume" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Nume_Gen" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="AllMisteryMovy">
+          <Key>
+            <PropertyRef Name="ID_Film" />
+            <PropertyRef Name="Nume" />
+          </Key>
+          <Property Name="ID_Film" Type="Int32" Nullable="false" />
+          <Property Name="Nume" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Nume_Gen" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="AllMusicalMovy">
+          <Key>
+            <PropertyRef Name="ID_Film" />
+            <PropertyRef Name="Nume" />
+          </Key>
+          <Property Name="ID_Film" Type="Int32" Nullable="false" />
+          <Property Name="Nume" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Nume_Gen" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="AllMusicMovy">
+          <Key>
+            <PropertyRef Name="ID_Film" />
+            <PropertyRef Name="Nume" />
+          </Key>
+          <Property Name="ID_Film" Type="Int32" Nullable="false" />
+          <Property Name="Nume" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Nume_Gen" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="AllRomanceMovy">
+          <Key>
+            <PropertyRef Name="ID_Film" />
+            <PropertyRef Name="Nume" />
+          </Key>
+          <Property Name="ID_Film" Type="Int32" Nullable="false" />
+          <Property Name="Nume" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Nume_Gen" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="AllSFMovy">
+          <Key>
+            <PropertyRef Name="ID_Film" />
+            <PropertyRef Name="Nume" />
+          </Key>
+          <Property Name="ID_Film" Type="Int32" Nullable="false" />
+          <Property Name="Nume" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Nume_Gen" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="AllSportMovy">
+          <Key>
+            <PropertyRef Name="ID_Film" />
+            <PropertyRef Name="Nume" />
+          </Key>
+          <Property Name="ID_Film" Type="Int32" Nullable="false" />
+          <Property Name="Nume" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Nume_Gen" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="AllThrillerMovy">
+          <Key>
+            <PropertyRef Name="ID_Film" />
+            <PropertyRef Name="Nume" />
+          </Key>
+          <Property Name="ID_Film" Type="Int32" Nullable="false" />
+          <Property Name="Nume" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Nume_Gen" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="AllWarMovy">
+          <Key>
+            <PropertyRef Name="ID_Film" />
+            <PropertyRef Name="Nume" />
+          </Key>
+          <Property Name="ID_Film" Type="Int32" Nullable="false" />
+          <Property Name="Nume" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Nume_Gen" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="AllWesternMovy">
+          <Key>
+            <PropertyRef Name="ID_Film" />
+            <PropertyRef Name="Nume" />
+          </Key>
+          <Property Name="ID_Film" Type="Int32" Nullable="false" />
+          <Property Name="Nume" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Nume_Gen" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -850,6 +1466,204 @@
                 <ScalarProperty Name="Password" ColumnName="Password" />
                 <ScalarProperty Name="Username" ColumnName="Username" />
                 <ScalarProperty Name="ID_User" ColumnName="ID_User" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AllActionMovies">
+            <EntityTypeMapping TypeName="IMDBModel.AllActionMovy">
+              <MappingFragment StoreEntitySet="AllActionMovies">
+                <ScalarProperty Name="ID_Film" ColumnName="ID_Film" />
+                <ScalarProperty Name="Nume_Gen" ColumnName="Nume_Gen" />
+                <ScalarProperty Name="Nume" ColumnName="Nume" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AllAdventureMovies">
+            <EntityTypeMapping TypeName="IMDBModel.AllAdventureMovy">
+              <MappingFragment StoreEntitySet="AllAdventureMovies">
+                <ScalarProperty Name="Nume_Gen" ColumnName="Nume_Gen" />
+                <ScalarProperty Name="Nume" ColumnName="Nume" />
+                <ScalarProperty Name="ID_Film" ColumnName="ID_Film" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AllAnimationMovies">
+            <EntityTypeMapping TypeName="IMDBModel.AllAnimationMovy">
+              <MappingFragment StoreEntitySet="AllAnimationMovies">
+                <ScalarProperty Name="Nume_Gen" ColumnName="Nume_Gen" />
+                <ScalarProperty Name="Nume" ColumnName="Nume" />
+                <ScalarProperty Name="ID_Film" ColumnName="ID_Film" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AllBiographyMovies">
+            <EntityTypeMapping TypeName="IMDBModel.AllBiographyMovy">
+              <MappingFragment StoreEntitySet="AllBiographyMovies">
+                <ScalarProperty Name="Nume_Gen" ColumnName="Nume_Gen" />
+                <ScalarProperty Name="Nume" ColumnName="Nume" />
+                <ScalarProperty Name="ID_Film" ColumnName="ID_Film" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AllComedyMovies">
+            <EntityTypeMapping TypeName="IMDBModel.AllComedyMovy">
+              <MappingFragment StoreEntitySet="AllComedyMovies">
+                <ScalarProperty Name="ID_Film" ColumnName="ID_Film" />
+                <ScalarProperty Name="Nume_Gen" ColumnName="Nume_Gen" />
+                <ScalarProperty Name="Nume" ColumnName="Nume" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AllCrimeMovies">
+            <EntityTypeMapping TypeName="IMDBModel.AllCrimeMovy">
+              <MappingFragment StoreEntitySet="AllCrimeMovies">
+                <ScalarProperty Name="Nume_Gen" ColumnName="Nume_Gen" />
+                <ScalarProperty Name="Nume" ColumnName="Nume" />
+                <ScalarProperty Name="ID_Film" ColumnName="ID_Film" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AllDocumentaryMovies">
+            <EntityTypeMapping TypeName="IMDBModel.AllDocumentaryMovy">
+              <MappingFragment StoreEntitySet="AllDocumentaryMovies">
+                <ScalarProperty Name="Nume_Gen" ColumnName="Nume_Gen" />
+                <ScalarProperty Name="Nume" ColumnName="Nume" />
+                <ScalarProperty Name="ID_Film" ColumnName="ID_Film" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AllDramaMovies">
+            <EntityTypeMapping TypeName="IMDBModel.AllDramaMovy">
+              <MappingFragment StoreEntitySet="AllDramaMovies">
+                <ScalarProperty Name="ID_Film" ColumnName="ID_Film" />
+                <ScalarProperty Name="Nume_Gen" ColumnName="Nume_Gen" />
+                <ScalarProperty Name="Nume" ColumnName="Nume" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AllFamilyMovies">
+            <EntityTypeMapping TypeName="IMDBModel.AllFamilyMovy">
+              <MappingFragment StoreEntitySet="AllFamilyMovies">
+                <ScalarProperty Name="Nume_Gen" ColumnName="Nume_Gen" />
+                <ScalarProperty Name="Nume" ColumnName="Nume" />
+                <ScalarProperty Name="ID_Film" ColumnName="ID_Film" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AllFantasyMovies">
+            <EntityTypeMapping TypeName="IMDBModel.AllFantasyMovy">
+              <MappingFragment StoreEntitySet="AllFantasyMovies">
+                <ScalarProperty Name="Nume_Gen" ColumnName="Nume_Gen" />
+                <ScalarProperty Name="Nume" ColumnName="Nume" />
+                <ScalarProperty Name="ID_Film" ColumnName="ID_Film" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AllFilmNoirMovies">
+            <EntityTypeMapping TypeName="IMDBModel.AllFilmNoirMovy">
+              <MappingFragment StoreEntitySet="AllFilmNoirMovies">
+                <ScalarProperty Name="Nume_Gen" ColumnName="Nume_Gen" />
+                <ScalarProperty Name="Nume" ColumnName="Nume" />
+                <ScalarProperty Name="ID_Film" ColumnName="ID_Film" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AllHistoryMovies">
+            <EntityTypeMapping TypeName="IMDBModel.AllHistoryMovy">
+              <MappingFragment StoreEntitySet="AllHistoryMovies">
+                <ScalarProperty Name="Nume_Gen" ColumnName="Nume_Gen" />
+                <ScalarProperty Name="Nume" ColumnName="Nume" />
+                <ScalarProperty Name="ID_Film" ColumnName="ID_Film" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AllHorrorMovies">
+            <EntityTypeMapping TypeName="IMDBModel.AllHorrorMovy">
+              <MappingFragment StoreEntitySet="AllHorrorMovies">
+                <ScalarProperty Name="Nume_Gen" ColumnName="Nume_Gen" />
+                <ScalarProperty Name="Nume" ColumnName="Nume" />
+                <ScalarProperty Name="ID_Film" ColumnName="ID_Film" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AllMisteryMovies">
+            <EntityTypeMapping TypeName="IMDBModel.AllMisteryMovy">
+              <MappingFragment StoreEntitySet="AllMisteryMovies">
+                <ScalarProperty Name="Nume_Gen" ColumnName="Nume_Gen" />
+                <ScalarProperty Name="Nume" ColumnName="Nume" />
+                <ScalarProperty Name="ID_Film" ColumnName="ID_Film" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AllMusicalMovies">
+            <EntityTypeMapping TypeName="IMDBModel.AllMusicalMovy">
+              <MappingFragment StoreEntitySet="AllMusicalMovies">
+                <ScalarProperty Name="Nume_Gen" ColumnName="Nume_Gen" />
+                <ScalarProperty Name="Nume" ColumnName="Nume" />
+                <ScalarProperty Name="ID_Film" ColumnName="ID_Film" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AllMusicMovies">
+            <EntityTypeMapping TypeName="IMDBModel.AllMusicMovy">
+              <MappingFragment StoreEntitySet="AllMusicMovies">
+                <ScalarProperty Name="Nume_Gen" ColumnName="Nume_Gen" />
+                <ScalarProperty Name="Nume" ColumnName="Nume" />
+                <ScalarProperty Name="ID_Film" ColumnName="ID_Film" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AllRomanceMovies">
+            <EntityTypeMapping TypeName="IMDBModel.AllRomanceMovy">
+              <MappingFragment StoreEntitySet="AllRomanceMovies">
+                <ScalarProperty Name="Nume_Gen" ColumnName="Nume_Gen" />
+                <ScalarProperty Name="Nume" ColumnName="Nume" />
+                <ScalarProperty Name="ID_Film" ColumnName="ID_Film" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AllSFMovies">
+            <EntityTypeMapping TypeName="IMDBModel.AllSFMovy">
+              <MappingFragment StoreEntitySet="AllSFMovies">
+                <ScalarProperty Name="Nume_Gen" ColumnName="Nume_Gen" />
+                <ScalarProperty Name="Nume" ColumnName="Nume" />
+                <ScalarProperty Name="ID_Film" ColumnName="ID_Film" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AllSportMovies">
+            <EntityTypeMapping TypeName="IMDBModel.AllSportMovy">
+              <MappingFragment StoreEntitySet="AllSportMovies">
+                <ScalarProperty Name="Nume_Gen" ColumnName="Nume_Gen" />
+                <ScalarProperty Name="Nume" ColumnName="Nume" />
+                <ScalarProperty Name="ID_Film" ColumnName="ID_Film" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AllThrillerMovies">
+            <EntityTypeMapping TypeName="IMDBModel.AllThrillerMovy">
+              <MappingFragment StoreEntitySet="AllThrillerMovies">
+                <ScalarProperty Name="Nume_Gen" ColumnName="Nume_Gen" />
+                <ScalarProperty Name="Nume" ColumnName="Nume" />
+                <ScalarProperty Name="ID_Film" ColumnName="ID_Film" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AllWarMovies">
+            <EntityTypeMapping TypeName="IMDBModel.AllWarMovy">
+              <MappingFragment StoreEntitySet="AllWarMovies">
+                <ScalarProperty Name="Nume_Gen" ColumnName="Nume_Gen" />
+                <ScalarProperty Name="Nume" ColumnName="Nume" />
+                <ScalarProperty Name="ID_Film" ColumnName="ID_Film" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AllWesternMovies">
+            <EntityTypeMapping TypeName="IMDBModel.AllWesternMovy">
+              <MappingFragment StoreEntitySet="AllWesternMovies">
+                <ScalarProperty Name="Nume_Gen" ColumnName="Nume_Gen" />
+                <ScalarProperty Name="Nume" ColumnName="Nume" />
+                <ScalarProperty Name="ID_Film" ColumnName="ID_Film" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -17,9 +17,9 @@
       <PropertyRef Name="ID_Film" />
     </Key>
     <Property Name="ID_Film" Type="int" Nullable="false" />
-    <Property Name="Nume" Type="varchar" MaxLength="50" />
+    <Property Name="Nume" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="An_aparitie" Type="nchar" MaxLength="10" />
-    <Property Name="Nota" Type="nchar" MaxLength="10" />
+    <Property Name="Nota" Type="nchar" MaxLength="10" Nullable="false" />
   </EntityType>
   <EntityType Name="Genuri">
     <Key>
@@ -132,6 +132,248 @@
     <Property Name="PhoneNumber" Type="nchar" MaxLength="10" />
     <Property Name="Rights" Type="char" MaxLength="20" />
     <Property Name="DateofRegister" Type="date" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'IMDB.dbo.AllActionMovies' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="AllActionMovies">
+    <Key>
+      <PropertyRef Name="Nume" />
+      <PropertyRef Name="ID_Film" />
+    </Key>
+    <Property Name="Nume" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Nume_Gen" Type="varchar" MaxLength="50" />
+    <Property Name="ID_Film" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'IMDB.dbo.AllAdventureMovies' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="AllAdventureMovies">
+    <Key>
+      <PropertyRef Name="ID_Film" />
+      <PropertyRef Name="Nume" />
+    </Key>
+    <Property Name="ID_Film" Type="int" Nullable="false" />
+    <Property Name="Nume" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Nume_Gen" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'IMDB.dbo.AllAnimationMovies' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="AllAnimationMovies">
+    <Key>
+      <PropertyRef Name="ID_Film" />
+      <PropertyRef Name="Nume" />
+    </Key>
+    <Property Name="ID_Film" Type="int" Nullable="false" />
+    <Property Name="Nume" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Nume_Gen" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'IMDB.dbo.AllBiographyMovies' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="AllBiographyMovies">
+    <Key>
+      <PropertyRef Name="ID_Film" />
+      <PropertyRef Name="Nume" />
+    </Key>
+    <Property Name="ID_Film" Type="int" Nullable="false" />
+    <Property Name="Nume" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Nume_Gen" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'IMDB.dbo.AllComedyMovies' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="AllComedyMovies">
+    <Key>
+      <PropertyRef Name="Nume" />
+      <PropertyRef Name="ID_Film" />
+    </Key>
+    <Property Name="Nume" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Nume_Gen" Type="varchar" MaxLength="50" />
+    <Property Name="ID_Film" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'IMDB.dbo.AllCrimeMovies' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="AllCrimeMovies">
+    <Key>
+      <PropertyRef Name="ID_Film" />
+      <PropertyRef Name="Nume" />
+    </Key>
+    <Property Name="ID_Film" Type="int" Nullable="false" />
+    <Property Name="Nume" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Nume_Gen" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'IMDB.dbo.AllDocumentaryMovies' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="AllDocumentaryMovies">
+    <Key>
+      <PropertyRef Name="ID_Film" />
+      <PropertyRef Name="Nume" />
+    </Key>
+    <Property Name="ID_Film" Type="int" Nullable="false" />
+    <Property Name="Nume" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Nume_Gen" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'IMDB.dbo.AllDramaMovies' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="AllDramaMovies">
+    <Key>
+      <PropertyRef Name="Nume" />
+      <PropertyRef Name="ID_Film" />
+    </Key>
+    <Property Name="Nume" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Nume_Gen" Type="varchar" MaxLength="50" />
+    <Property Name="ID_Film" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'IMDB.dbo.AllFamilyMovies' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="AllFamilyMovies">
+    <Key>
+      <PropertyRef Name="ID_Film" />
+      <PropertyRef Name="Nume" />
+    </Key>
+    <Property Name="ID_Film" Type="int" Nullable="false" />
+    <Property Name="Nume" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Nume_Gen" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'IMDB.dbo.AllFantasyMovies' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="AllFantasyMovies">
+    <Key>
+      <PropertyRef Name="ID_Film" />
+      <PropertyRef Name="Nume" />
+    </Key>
+    <Property Name="ID_Film" Type="int" Nullable="false" />
+    <Property Name="Nume" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Nume_Gen" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'IMDB.dbo.AllFilmNoirMovies' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="AllFilmNoirMovies">
+    <Key>
+      <PropertyRef Name="ID_Film" />
+      <PropertyRef Name="Nume" />
+    </Key>
+    <Property Name="ID_Film" Type="int" Nullable="false" />
+    <Property Name="Nume" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Nume_Gen" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'IMDB.dbo.AllHistoryMovies' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="AllHistoryMovies">
+    <Key>
+      <PropertyRef Name="ID_Film" />
+      <PropertyRef Name="Nume" />
+    </Key>
+    <Property Name="ID_Film" Type="int" Nullable="false" />
+    <Property Name="Nume" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Nume_Gen" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'IMDB.dbo.AllHorrorMovies' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="AllHorrorMovies">
+    <Key>
+      <PropertyRef Name="ID_Film" />
+      <PropertyRef Name="Nume" />
+    </Key>
+    <Property Name="ID_Film" Type="int" Nullable="false" />
+    <Property Name="Nume" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Nume_Gen" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'IMDB.dbo.AllMisteryMovies' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="AllMisteryMovies">
+    <Key>
+      <PropertyRef Name="ID_Film" />
+      <PropertyRef Name="Nume" />
+    </Key>
+    <Property Name="ID_Film" Type="int" Nullable="false" />
+    <Property Name="Nume" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Nume_Gen" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'IMDB.dbo.AllMusicalMovies' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="AllMusicalMovies">
+    <Key>
+      <PropertyRef Name="ID_Film" />
+      <PropertyRef Name="Nume" />
+    </Key>
+    <Property Name="ID_Film" Type="int" Nullable="false" />
+    <Property Name="Nume" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Nume_Gen" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'IMDB.dbo.AllMusicMovies' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="AllMusicMovies">
+    <Key>
+      <PropertyRef Name="ID_Film" />
+      <PropertyRef Name="Nume" />
+    </Key>
+    <Property Name="ID_Film" Type="int" Nullable="false" />
+    <Property Name="Nume" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Nume_Gen" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'IMDB.dbo.AllRomanceMovies' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="AllRomanceMovies">
+    <Key>
+      <PropertyRef Name="ID_Film" />
+      <PropertyRef Name="Nume" />
+    </Key>
+    <Property Name="ID_Film" Type="int" Nullable="false" />
+    <Property Name="Nume" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Nume_Gen" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'IMDB.dbo.AllSFMovies' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="AllSFMovies">
+    <Key>
+      <PropertyRef Name="ID_Film" />
+      <PropertyRef Name="Nume" />
+    </Key>
+    <Property Name="ID_Film" Type="int" Nullable="false" />
+    <Property Name="Nume" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Nume_Gen" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'IMDB.dbo.AllSportMovies' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="AllSportMovies">
+    <Key>
+      <PropertyRef Name="ID_Film" />
+      <PropertyRef Name="Nume" />
+    </Key>
+    <Property Name="ID_Film" Type="int" Nullable="false" />
+    <Property Name="Nume" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Nume_Gen" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'IMDB.dbo.AllThrillerMovies' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="AllThrillerMovies">
+    <Key>
+      <PropertyRef Name="ID_Film" />
+      <PropertyRef Name="Nume" />
+    </Key>
+    <Property Name="ID_Film" Type="int" Nullable="false" />
+    <Property Name="Nume" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Nume_Gen" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'IMDB.dbo.AllWarMovies' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="AllWarMovies">
+    <Key>
+      <PropertyRef Name="ID_Film" />
+      <PropertyRef Name="Nume" />
+    </Key>
+    <Property Name="ID_Film" Type="int" Nullable="false" />
+    <Property Name="Nume" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Nume_Gen" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'IMDB.dbo.AllWesternMovies' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="AllWesternMovies">
+    <Key>
+      <PropertyRef Name="ID_Film" />
+      <PropertyRef Name="Nume" />
+    </Key>
+    <Property Name="ID_Film" Type="int" Nullable="false" />
+    <Property Name="Nume" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Nume_Gen" Type="varchar" MaxLength="50" />
   </EntityType>
   <Association Name="FK_Relatie_actor_film_Actori">
     <End Role="Actori" Type="Self.Actori" Multiplicity="1" />
@@ -323,6 +565,160 @@
     <EntitySet Name="Seriale" EntityType="Self.Seriale" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AllActionMovies" EntityType="Self.AllActionMovies" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [AllActionMovies].[Nume] AS [Nume], 
+    [AllActionMovies].[Nume_Gen] AS [Nume_Gen], 
+    [AllActionMovies].[ID_Film] AS [ID_Film]
+    FROM [dbo].[AllActionMovies] AS [AllActionMovies]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="AllAdventureMovies" EntityType="Self.AllAdventureMovies" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [AllAdventureMovies].[ID_Film] AS [ID_Film], 
+    [AllAdventureMovies].[Nume] AS [Nume], 
+    [AllAdventureMovies].[Nume_Gen] AS [Nume_Gen]
+    FROM [dbo].[AllAdventureMovies] AS [AllAdventureMovies]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="AllAnimationMovies" EntityType="Self.AllAnimationMovies" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [AllAnimationMovies].[ID_Film] AS [ID_Film], 
+    [AllAnimationMovies].[Nume] AS [Nume], 
+    [AllAnimationMovies].[Nume_Gen] AS [Nume_Gen]
+    FROM [dbo].[AllAnimationMovies] AS [AllAnimationMovies]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="AllBiographyMovies" EntityType="Self.AllBiographyMovies" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [AllBiographyMovies].[ID_Film] AS [ID_Film], 
+    [AllBiographyMovies].[Nume] AS [Nume], 
+    [AllBiographyMovies].[Nume_Gen] AS [Nume_Gen]
+    FROM [dbo].[AllBiographyMovies] AS [AllBiographyMovies]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="AllComedyMovies" EntityType="Self.AllComedyMovies" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [AllComedyMovies].[Nume] AS [Nume], 
+    [AllComedyMovies].[Nume_Gen] AS [Nume_Gen], 
+    [AllComedyMovies].[ID_Film] AS [ID_Film]
+    FROM [dbo].[AllComedyMovies] AS [AllComedyMovies]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="AllCrimeMovies" EntityType="Self.AllCrimeMovies" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [AllCrimeMovies].[ID_Film] AS [ID_Film], 
+    [AllCrimeMovies].[Nume] AS [Nume], 
+    [AllCrimeMovies].[Nume_Gen] AS [Nume_Gen]
+    FROM [dbo].[AllCrimeMovies] AS [AllCrimeMovies]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="AllDocumentaryMovies" EntityType="Self.AllDocumentaryMovies" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [AllDocumentaryMovies].[ID_Film] AS [ID_Film], 
+    [AllDocumentaryMovies].[Nume] AS [Nume], 
+    [AllDocumentaryMovies].[Nume_Gen] AS [Nume_Gen]
+    FROM [dbo].[AllDocumentaryMovies] AS [AllDocumentaryMovies]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="AllDramaMovies" EntityType="Self.AllDramaMovies" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [AllDramaMovies].[Nume] AS [Nume], 
+    [AllDramaMovies].[Nume_Gen] AS [Nume_Gen], 
+    [AllDramaMovies].[ID_Film] AS [ID_Film]
+    FROM [dbo].[AllDramaMovies] AS [AllDramaMovies]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="AllFamilyMovies" EntityType="Self.AllFamilyMovies" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [AllFamilyMovies].[ID_Film] AS [ID_Film], 
+    [AllFamilyMovies].[Nume] AS [Nume], 
+    [AllFamilyMovies].[Nume_Gen] AS [Nume_Gen]
+    FROM [dbo].[AllFamilyMovies] AS [AllFamilyMovies]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="AllFantasyMovies" EntityType="Self.AllFantasyMovies" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [AllFantasyMovies].[ID_Film] AS [ID_Film], 
+    [AllFantasyMovies].[Nume] AS [Nume], 
+    [AllFantasyMovies].[Nume_Gen] AS [Nume_Gen]
+    FROM [dbo].[AllFantasyMovies] AS [AllFantasyMovies]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="AllFilmNoirMovies" EntityType="Self.AllFilmNoirMovies" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [AllFilmNoirMovies].[ID_Film] AS [ID_Film], 
+    [AllFilmNoirMovies].[Nume] AS [Nume], 
+    [AllFilmNoirMovies].[Nume_Gen] AS [Nume_Gen]
+    FROM [dbo].[AllFilmNoirMovies] AS [AllFilmNoirMovies]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="AllHistoryMovies" EntityType="Self.AllHistoryMovies" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [AllHistoryMovies].[ID_Film] AS [ID_Film], 
+    [AllHistoryMovies].[Nume] AS [Nume], 
+    [AllHistoryMovies].[Nume_Gen] AS [Nume_Gen]
+    FROM [dbo].[AllHistoryMovies] AS [AllHistoryMovies]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="AllHorrorMovies" EntityType="Self.AllHorrorMovies" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [AllHorrorMovies].[ID_Film] AS [ID_Film], 
+    [AllHorrorMovies].[Nume] AS [Nume], 
+    [AllHorrorMovies].[Nume_Gen] AS [Nume_Gen]
+    FROM [dbo].[AllHorrorMovies] AS [AllHorrorMovies]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="AllMisteryMovies" EntityType="Self.AllMisteryMovies" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [AllMisteryMovies].[ID_Film] AS [ID_Film], 
+    [AllMisteryMovies].[Nume] AS [Nume], 
+    [AllMisteryMovies].[Nume_Gen] AS [Nume_Gen]
+    FROM [dbo].[AllMisteryMovies] AS [AllMisteryMovies]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="AllMusicalMovies" EntityType="Self.AllMusicalMovies" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [AllMusicalMovies].[ID_Film] AS [ID_Film], 
+    [AllMusicalMovies].[Nume] AS [Nume], 
+    [AllMusicalMovies].[Nume_Gen] AS [Nume_Gen]
+    FROM [dbo].[AllMusicalMovies] AS [AllMusicalMovies]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="AllMusicMovies" EntityType="Self.AllMusicMovies" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [AllMusicMovies].[ID_Film] AS [ID_Film], 
+    [AllMusicMovies].[Nume] AS [Nume], 
+    [AllMusicMovies].[Nume_Gen] AS [Nume_Gen]
+    FROM [dbo].[AllMusicMovies] AS [AllMusicMovies]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="AllRomanceMovies" EntityType="Self.AllRomanceMovies" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [AllRomanceMovies].[ID_Film] AS [ID_Film], 
+    [AllRomanceMovies].[Nume] AS [Nume], 
+    [AllRomanceMovies].[Nume_Gen] AS [Nume_Gen]
+    FROM [dbo].[AllRomanceMovies] AS [AllRomanceMovies]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="AllSFMovies" EntityType="Self.AllSFMovies" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [AllSFMovies].[ID_Film] AS [ID_Film], 
+    [AllSFMovies].[Nume] AS [Nume], 
+    [AllSFMovies].[Nume_Gen] AS [Nume_Gen]
+    FROM [dbo].[AllSFMovies] AS [AllSFMovies]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="AllSportMovies" EntityType="Self.AllSportMovies" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [AllSportMovies].[ID_Film] AS [ID_Film], 
+    [AllSportMovies].[Nume] AS [Nume], 
+    [AllSportMovies].[Nume_Gen] AS [Nume_Gen]
+    FROM [dbo].[AllSportMovies] AS [AllSportMovies]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="AllThrillerMovies" EntityType="Self.AllThrillerMovies" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [AllThrillerMovies].[ID_Film] AS [ID_Film], 
+    [AllThrillerMovies].[Nume] AS [Nume], 
+    [AllThrillerMovies].[Nume_Gen] AS [Nume_Gen]
+    FROM [dbo].[AllThrillerMovies] AS [AllThrillerMovies]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="AllWarMovies" EntityType="Self.AllWarMovies" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [AllWarMovies].[ID_Film] AS [ID_Film], 
+    [AllWarMovies].[Nume] AS [Nume], 
+    [AllWarMovies].[Nume_Gen] AS [Nume_Gen]
+    FROM [dbo].[AllWarMovies] AS [AllWarMovies]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="AllWesternMovies" EntityType="Self.AllWesternMovies" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [AllWesternMovies].[ID_Film] AS [ID_Film], 
+    [AllWesternMovies].[Nume] AS [Nume], 
+    [AllWesternMovies].[Nume_Gen] AS [Nume_Gen]
+    FROM [dbo].[AllWesternMovies] AS [AllWesternMovies]</DefiningQuery>
+    </EntitySet>
     <AssociationSet Name="FK_Relatie_actor_film_Actori" Association="Self.FK_Relatie_actor_film_Actori">
       <End Role="Actori" EntitySet="Actori" />
       <End Role="Relatie_actor_film" EntitySet="Relatie_actor_film" />
