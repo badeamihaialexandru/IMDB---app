@@ -186,8 +186,16 @@ namespace IMDB
                               select c).FirstOrDefault();
                 if(result!=null)
                 {
-                    AdminOrUser aou = new AdminOrUser(TextBoxUsername.Text,this);
-                    aou.Show();
+                    if (result.Rights.Contains("admin"))
+                    {
+                        AdminOrUser aou = new AdminOrUser(TextBoxUsername.Text, this);
+                        aou.Show();
+                    }
+                    else
+                    {
+                        UserPage up = new UserPage(result.Username, this);
+                        up.Show();
+                    }
                     SoundPlayer log = new SoundPlayer(@"C:\Users\Mosu\Desktop\proiect_utile\sound.wav");
                     log.Play();
                 }

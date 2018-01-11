@@ -28,6 +28,7 @@
     <NavigationProperty Name="Regizoris" Relationship="Self.Relatie_Regizor_Film" FromRole="Filme" ToRole="Regizori" />
     <NavigationProperty Name="WatchLists" Relationship="IMDBModel.FK_WatchList_Filme" FromRole="Filme" ToRole="WatchList" />
     <NavigationProperty Name="YourRatings" Relationship="IMDBModel.FK_YourRatings_Filme" FromRole="Filme" ToRole="YourRating" />
+    <Property Name="Photo" Type="Binary" MaxLength="Max" FixedLength="false" />
   </EntityType>
   <EntityType Name="Genuri">
     <Key>

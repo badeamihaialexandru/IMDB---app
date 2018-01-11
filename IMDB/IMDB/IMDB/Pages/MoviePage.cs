@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace IMDB
 {
@@ -18,6 +19,17 @@ namespace IMDB
             GuestVisit(str1);
         }
 
+        private Image ConvertByteToImage(byte[] photo)
+        {
+            Image newImage;
+            using (MemoryStream ms=new MemoryStream(photo,0,photo.Length))
+            {
+                ms.Write(photo, 0, photo.Length);
+                newImage = Image.FromStream(ms, true);
+            }
+            return newImage;
+        }
+
         private void GuestVisit(string str1)
         {
             using (var context = new IMDBEntities())
@@ -25,16 +37,21 @@ namespace IMDB
                 IMDBEntities imen = new IMDBEntities();
                 var result = (from c in imen.Filmes
                               where c.Nume.Equals(str1)
-                              select c).First();
+                              select c).Single();
                 var result2 = from o in imen.Relatie_Filme_Premii
                               where o.Filme.Nume.Equals(str1)
-                              //join o in imen.Relatie_Filme_Premii
-                              //on c.ID_Film equals o.ID_Film
                               select o;
                 var result3 = from p in imen.Relatie_actor_film
                               where p.Filme.Nume.Equals(str1)
                               select p;
-
+                try
+                {
+                    pictureBoxPhoto.Image = ConvertByteToImage(result.Photo);
+                }
+                catch
+                {
+                    MessageBox.Show("Can't load this movie's photo!", "ErrorPhoto");
+                }
                 labelNameandYear.Text = result.Nume + " " + " ( " + result.An_aparitie.ToString() + ")";
                 labelGender.Text = "";
                 int count = result.Genuris.Count;

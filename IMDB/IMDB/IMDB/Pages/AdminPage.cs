@@ -60,6 +60,10 @@ namespace IMDB
             label3.Text = "Nationalitate";
             label3.Visible = true;
             textBox6.Visible = true;
+            labelpoza.Visible = true;
+            pictureBoxPoza.Visible = true;
+            buttonCauta.Visible = true;
+            buttonSalveaza.Visible = true;
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -87,6 +91,10 @@ namespace IMDB
             label3.Text = "Nationalitate";
             label3.Visible = true;
             textBox6.Visible = true;
+            labelpoza.Visible = true;
+            pictureBoxPoza.Visible = true;
+            buttonCauta.Visible = true;
+            buttonSalveaza.Visible = true;
         }
 
         private void AddMovieButton_Click(object sender, EventArgs e)
@@ -106,6 +114,10 @@ namespace IMDB
             textBox5.Visible = false;
             label3.Visible = false;
             textBox6.Visible = false;
+            labelpoza.Visible = true;
+            pictureBoxPoza.Visible = true;
+            buttonCauta.Visible = true;
+            buttonSalveaza.Visible = true;
         }
 
         private void AddTVSeriesButton_Click(object sender, EventArgs e)
@@ -127,6 +139,10 @@ namespace IMDB
             textBox5.Visible = true;            
             label3.Visible = false;
             textBox6.Visible = false;
+            labelpoza.Visible = true;
+            pictureBoxPoza.Visible = true;
+            buttonCauta.Visible = true;
+            buttonSalveaza.Visible = true;
         }
 
         private void InsertcheckBox_CheckedChanged(object sender, EventArgs e)
@@ -175,6 +191,39 @@ namespace IMDB
         {
             InsertcheckBox.Checked = false;
             UpdateCheckBox.Checked = false;
+        }
+
+        private void buttonUser_Click(object sender, EventArgs e)
+        {
+            label2.Text = "Username:";
+            label2.Visible = true;
+            textBox1.Visible = true;
+            label7.Text = "Password:";
+            label7.Visible = true;
+            textBox2.Visible = true;
+            textBox2.PasswordChar = '*';
+            label6.Text = "Re-typePassword:";
+            label6.Visible = true;
+            textBox3.Visible = true;
+            textBox3.PasswordChar = '*';
+            label5.Text = "E-mail:";
+            label5.Visible = true;
+            textBox4.Visible = true;
+            label4.Text = "PhoneNumber:";
+            label4.Visible = true;
+            textBox5.Visible = true;
+            labelpoza.Visible = true;
+            pictureBoxPoza.Visible = true;
+            buttonCauta.Visible = true;
+            buttonSalveaza.Visible = true;
+            checkBoxMakeAdmin.Visible = true;
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            AddOrChangePhoto aocp = new AddOrChangePhoto(this);
+            aocp.Show();
+            this.Hide();
         }
     }
 }

@@ -78,7 +78,7 @@ namespace IMDB
 
         private void BindByNews()
         {
-            DirectoryInfo dir = new DirectoryInfo(@"C:\Users\Mosu\Desktop\proiectbaze\IMDB - cu login - 21.12.17\IMDB\News");
+            DirectoryInfo dir = new DirectoryInfo(@"C:\Users\Mosu\Desktop\proiectbaze\IMDBbun\IMDB\News");
             FileInfo[] Files = dir.GetFiles("*.txt");
             int a = Files.ToList().Count;
             paths = new string[a]; 
@@ -86,9 +86,8 @@ namespace IMDB
             for(int i=0;i<a;i++)
             {
                 dataGridViewUniversal.Rows.Add(Path.GetFileNameWithoutExtension(Files[i].Name));
-                paths[i] = Path.GetFullPath(Files[i].Name);
+                paths[i] = Files[i].FullName;
             }
-
         }
 
         private void BindByTop(int limit) //gandeste-te la most popular bagi filme in aceeasi tabela dar de la id 101
@@ -314,7 +313,8 @@ namespace IMDB
             else if(MemberMoviesOrTVSeries.Equals("News"))
             {
                 string text = File.ReadAllText(paths[e.RowIndex]);
-                MessageBox.Show(text, dataGridViewUniversal.Rows[e.RowIndex].Cells[0].Value.ToString());
+                NewsPage np=new NewsPage( dataGridViewUniversal.Rows[e.RowIndex].Cells[0].Value.ToString(),text);
+                np.Show();
             }
         }
 

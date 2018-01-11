@@ -60,6 +60,12 @@
     <Compile Include="Actori.cs">
       <DependentUpon>IMDBModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="AddOrChangePhoto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddOrChangePhoto.Designer.cs">
+      <DependentUpon>AddOrChangePhoto.cs</DependentUpon>
+    </Compile>
     <Compile Include="AllActionMovy.cs">
       <DependentUpon>IMDBModel.tt</DependentUpon>
     </Compile>
@@ -125,6 +131,12 @@
     </Compile>
     <Compile Include="AllWesternMovy.cs">
       <DependentUpon>IMDBModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\NewsPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Pages\NewsPage.Designer.cs">
+      <DependentUpon>NewsPage.cs</DependentUpon>
     </Compile>
     <Compile Include="Pages\GenrePage.cs">
       <SubType>Form</SubType>
@@ -245,6 +257,12 @@
     <Compile Include="YourRating.cs">
       <DependentUpon>IMDBModel.tt</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="AddOrChangePhoto.resx">
+      <DependentUpon>AddOrChangePhoto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Pages\NewsPage.resx">
+      <DependentUpon>NewsPage.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Pages\GenrePage.resx">
       <DependentUpon>GenrePage.cs</DependentUpon>
     </EmbeddedResource>

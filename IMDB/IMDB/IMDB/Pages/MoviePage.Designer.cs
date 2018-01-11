@@ -70,11 +70,13 @@
             this.label4 = new System.Windows.Forms.Label();
             this.labelWins = new System.Windows.Forms.Label();
             this.labelActors = new System.Windows.Forms.Label();
+            this.pictureBoxPhoto = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SearchPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPhoto)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -415,17 +417,17 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Palatino Linotype", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(3, 473);
+            this.label1.Location = new System.Drawing.Point(3, 253);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(108, 37);
+            this.label1.Size = new System.Drawing.Size(96, 37);
             this.label1.TabIndex = 2;
-            this.label1.Text = "Photos:";
+            this.label1.Text = "Photo:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Palatino Linotype", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(4, 245);
+            this.label2.Location = new System.Drawing.Point(4, 390);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(121, 32);
             this.label2.TabIndex = 3;
@@ -445,7 +447,7 @@
             // 
             this.labelNameofDirector.AutoSize = true;
             this.labelNameofDirector.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelNameofDirector.Location = new System.Drawing.Point(131, 253);
+            this.labelNameofDirector.Location = new System.Drawing.Point(131, 398);
             this.labelNameofDirector.Name = "labelNameofDirector";
             this.labelNameofDirector.Size = new System.Drawing.Size(54, 22);
             this.labelNameofDirector.TabIndex = 2;
@@ -455,7 +457,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Palatino Linotype", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(4, 277);
+            this.label4.Location = new System.Drawing.Point(4, 422);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(66, 32);
             this.label4.TabIndex = 5;
@@ -464,7 +466,7 @@
             // labelWins
             // 
             this.labelWins.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelWins.Location = new System.Drawing.Point(71, 285);
+            this.labelWins.Location = new System.Drawing.Point(76, 430);
             this.labelWins.Name = "labelWins";
             this.labelWins.Size = new System.Drawing.Size(457, 188);
             this.labelWins.TabIndex = 6;
@@ -473,11 +475,19 @@
             // labelActors
             // 
             this.labelActors.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelActors.Location = new System.Drawing.Point(572, 302);
+            this.labelActors.Location = new System.Drawing.Point(522, 285);
             this.labelActors.Name = "labelActors";
             this.labelActors.Size = new System.Drawing.Size(426, 171);
             this.labelActors.TabIndex = 7;
             this.labelActors.Text = "label1";
+            // 
+            // pictureBoxPhoto
+            // 
+            this.pictureBoxPhoto.Location = new System.Drawing.Point(117, 253);
+            this.pictureBoxPhoto.Name = "pictureBoxPhoto";
+            this.pictureBoxPhoto.Size = new System.Drawing.Size(164, 134);
+            this.pictureBoxPhoto.TabIndex = 8;
+            this.pictureBoxPhoto.TabStop = false;
             // 
             // MoviePage
             // 
@@ -485,6 +495,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(207)))), ((int)(((byte)(190)))));
             this.ClientSize = new System.Drawing.Size(989, 621);
+            this.Controls.Add(this.pictureBoxPhoto);
             this.Controls.Add(this.labelActors);
             this.Controls.Add(this.labelWins);
             this.Controls.Add(this.label4);
@@ -505,6 +516,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPhoto)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -553,5 +565,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button buttonTwitter;
         private System.Windows.Forms.Button buttonInstagram;
+        private System.Windows.Forms.PictureBox pictureBoxPhoto;
     }
 }

@@ -17,6 +17,7 @@
     <EntitySetMapping Name="Filmes">
       <EntityTypeMapping TypeName="IMDBModel.Filme">
         <MappingFragment StoreEntitySet="Filme">
+          <ScalarProperty Name="Photo" ColumnName="Photo" />
           <ScalarProperty Name="ID_Film" ColumnName="ID_Film" />
           <ScalarProperty Name="Nume" ColumnName="Nume" />
           <ScalarProperty Name="An_aparitie" ColumnName="An_aparitie" />

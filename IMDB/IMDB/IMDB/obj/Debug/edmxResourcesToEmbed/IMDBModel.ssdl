@@ -16,10 +16,11 @@
     <Key>
       <PropertyRef Name="ID_Film" />
     </Key>
-    <Property Name="ID_Film" Type="int" Nullable="false" />
+    <Property Name="ID_Film" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
     <Property Name="Nume" Type="varchar" MaxLength="50" Nullable="false" />
     <Property Name="An_aparitie" Type="nchar" MaxLength="10" />
     <Property Name="Nota" Type="nchar" MaxLength="10" Nullable="false" />
+    <Property Name="Photo" Type="varbinary(max)" />
   </EntityType>
   <EntityType Name="Genuri">
     <Key>

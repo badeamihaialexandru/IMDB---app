@@ -21,10 +21,11 @@
           <Key>
             <PropertyRef Name="ID_Film" />
           </Key>
-          <Property Name="ID_Film" Type="int" Nullable="false" />
+          <Property Name="ID_Film" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Nume" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="An_aparitie" Type="nchar" MaxLength="10" />
           <Property Name="Nota" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="Photo" Type="varbinary(max)" />
         </EntityType>
         <EntityType Name="Genuri">
           <Key>
@@ -226,6 +227,7 @@ warning 6002: The table/view 'IMDB.dbo.AllCrimeMovies' does not have a primary k
 warning 6002: The table/view 'IMDB.dbo.AllDocumentaryMovies' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="AllDocumentaryMovies">
           <Key>
+            
             <PropertyRef Name="Nume" />
           </Key>
           <Property Name="ID_Film" Type="int" Nullable="false" />
@@ -258,6 +260,7 @@ warning 6002: The table/view 'IMDB.dbo.AllFamilyMovies' does not have a primary 
 warning 6002: The table/view 'IMDB.dbo.AllFantasyMovies' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="AllFantasyMovies">
           <Key>
+            
             <PropertyRef Name="Nume" />
           </Key>
           <Property Name="ID_Film" Type="int" Nullable="false" />
@@ -268,6 +271,7 @@ warning 6002: The table/view 'IMDB.dbo.AllFantasyMovies' does not have a primary
 warning 6002: The table/view 'IMDB.dbo.AllFilmNoirMovies' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="AllFilmNoirMovies">
           <Key>
+            
             <PropertyRef Name="Nume" />
           </Key>
           <Property Name="ID_Film" Type="int" Nullable="false" />
@@ -278,6 +282,7 @@ warning 6002: The table/view 'IMDB.dbo.AllFilmNoirMovies' does not have a primar
 warning 6002: The table/view 'IMDB.dbo.AllHistoryMovies' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="AllHistoryMovies">
           <Key>
+            
             <PropertyRef Name="Nume" />
           </Key>
           <Property Name="ID_Film" Type="int" Nullable="false" />
@@ -288,6 +293,7 @@ warning 6002: The table/view 'IMDB.dbo.AllHistoryMovies' does not have a primary
 warning 6002: The table/view 'IMDB.dbo.AllHorrorMovies' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="AllHorrorMovies">
           <Key>
+            
             <PropertyRef Name="Nume" />
           </Key>
           <Property Name="ID_Film" Type="int" Nullable="false" />
@@ -298,6 +304,7 @@ warning 6002: The table/view 'IMDB.dbo.AllHorrorMovies' does not have a primary 
 warning 6002: The table/view 'IMDB.dbo.AllMisteryMovies' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="AllMisteryMovies">
           <Key>
+            
             <PropertyRef Name="Nume" />
           </Key>
           <Property Name="ID_Film" Type="int" Nullable="false" />
@@ -308,6 +315,7 @@ warning 6002: The table/view 'IMDB.dbo.AllMisteryMovies' does not have a primary
 warning 6002: The table/view 'IMDB.dbo.AllMusicalMovies' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="AllMusicalMovies">
           <Key>
+            
             <PropertyRef Name="Nume" />
           </Key>
           <Property Name="ID_Film" Type="int" Nullable="false" />
@@ -318,6 +326,7 @@ warning 6002: The table/view 'IMDB.dbo.AllMusicalMovies' does not have a primary
 warning 6002: The table/view 'IMDB.dbo.AllMusicMovies' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="AllMusicMovies">
           <Key>
+            
             <PropertyRef Name="Nume" />
           </Key>
           <Property Name="ID_Film" Type="int" Nullable="false" />
@@ -328,6 +337,7 @@ warning 6002: The table/view 'IMDB.dbo.AllMusicMovies' does not have a primary k
 warning 6002: The table/view 'IMDB.dbo.AllRomanceMovies' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="AllRomanceMovies">
           <Key>
+            
             <PropertyRef Name="Nume" />
           </Key>
           <Property Name="ID_Film" Type="int" Nullable="false" />
@@ -338,6 +348,7 @@ warning 6002: The table/view 'IMDB.dbo.AllRomanceMovies' does not have a primary
 warning 6002: The table/view 'IMDB.dbo.AllSFMovies' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="AllSFMovies">
           <Key>
+            
             <PropertyRef Name="Nume" />
           </Key>
           <Property Name="ID_Film" Type="int" Nullable="false" />
@@ -348,6 +359,7 @@ warning 6002: The table/view 'IMDB.dbo.AllSFMovies' does not have a primary key 
 warning 6002: The table/view 'IMDB.dbo.AllSportMovies' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="AllSportMovies">
           <Key>
+            
             <PropertyRef Name="Nume" />
           </Key>
           <Property Name="ID_Film" Type="int" Nullable="false" />
@@ -358,6 +370,7 @@ warning 6002: The table/view 'IMDB.dbo.AllSportMovies' does not have a primary k
 warning 6002: The table/view 'IMDB.dbo.AllThrillerMovies' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="AllThrillerMovies">
           <Key>
+            
             <PropertyRef Name="Nume" />
           </Key>
           <Property Name="ID_Film" Type="int" Nullable="false" />
@@ -368,6 +381,7 @@ warning 6002: The table/view 'IMDB.dbo.AllThrillerMovies' does not have a primar
 warning 6002: The table/view 'IMDB.dbo.AllWarMovies' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="AllWarMovies">
           <Key>
+            
             <PropertyRef Name="Nume" />
           </Key>
           <Property Name="ID_Film" Type="int" Nullable="false" />
@@ -378,6 +392,7 @@ warning 6002: The table/view 'IMDB.dbo.AllWarMovies' does not have a primary key
 warning 6002: The table/view 'IMDB.dbo.AllWesternMovies' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="AllWesternMovies">
           <Key>
+            
             <PropertyRef Name="Nume" />
           </Key>
           <Property Name="ID_Film" Type="int" Nullable="false" />
@@ -875,6 +890,7 @@ warning 6002: The table/view 'IMDB.dbo.AllWesternMovies' does not have a primary
           <NavigationProperty Name="Regizoris" Relationship="Self.Relatie_Regizor_Film" FromRole="Filme" ToRole="Regizori" />
           <NavigationProperty Name="WatchLists" Relationship="IMDBModel.FK_WatchList_Filme" FromRole="Filme" ToRole="WatchList" />
           <NavigationProperty Name="YourRatings" Relationship="IMDBModel.FK_YourRatings_Filme" FromRole="Filme" ToRole="YourRating" />
+          <Property Name="Photo" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
         <EntityType Name="Genuri">
           <Key>
@@ -1460,6 +1476,7 @@ warning 6002: The table/view 'IMDB.dbo.AllWesternMovies' does not have a primary
           <EntitySetMapping Name="Filmes">
             <EntityTypeMapping TypeName="IMDBModel.Filme">
               <MappingFragment StoreEntitySet="Filme">
+                <ScalarProperty Name="Photo" ColumnName="Photo" />
                 <ScalarProperty Name="ID_Film" ColumnName="ID_Film" />
                 <ScalarProperty Name="Nume" ColumnName="Nume" />
                 <ScalarProperty Name="An_aparitie" ColumnName="An_aparitie" />
@@ -1846,57 +1863,6 @@ warning 6002: The table/view 'IMDB.dbo.AllWesternMovies' does not have a primary
       </DesignerInfoPropertySet>
     </Options>
     <!-- Diagram content (shape and connector positions) -->
-    <Diagrams>
-      <Diagram DiagramId="f2a9aab893e04ead8cc34f73f4412d6a" Name="Diagram1">
-        <EntityTypeShape EntityType="IMDBModel.Actori" Width="1.5" PointX="3.75" PointY="17.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="IMDBModel.Filme" Width="1.5" PointX="0.75" PointY="8.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="IMDBModel.Genuri" Width="1.5" PointX="3" PointY="7.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="IMDBModel.Premii" Width="1.5" PointX="0.75" PointY="4.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="IMDBModel.Regizori" Width="1.5" PointX="3" PointY="10.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="IMDBModel.Relatie_actor_film" Width="1.5" PointX="6" PointY="11.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="IMDBModel.Relatie_Actori_Premii" Width="1.5" PointX="6" PointY="14.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="IMDBModel.Relatie_Filme_Premii" Width="1.5" PointX="3" PointY="4.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="IMDBModel.Seriale" Width="1.5" PointX="5.25" PointY="7.25" IsExpanded="true" />
-        <EntityTypeShape EntityType="IMDBModel.sysdiagram" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="IMDBModel.User" Width="1.5" PointX="5.75" PointY="2.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="IMDBModel.WatchList" Width="1.5" PointX="3" PointY="14.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="IMDBModel.YourRating" Width="1.5" PointX="8" PointY="8.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="IMDBModel.AllActionMovy" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="IMDBModel.AllComedyMovy" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="IMDBModel.AllDramaMovy" Width="1.5" PointX="7.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="IMDBModel.AllAdventureMovy" Width="1.5" PointX="9.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="IMDBModel.AllAnimationMovy" Width="1.5" PointX="9.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="IMDBModel.AllBiographyMovy" Width="1.5" PointX="10.75" PointY="6.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="IMDBModel.AllCrimeMovy" Width="1.5" PointX="10.75" PointY="9.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="IMDBModel.AllDocumentaryMovy" Width="1.5" PointX="11.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="IMDBModel.AllFamilyMovy" Width="1.5" PointX="11.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="IMDBModel.AllFantasyMovy" Width="1.5" PointX="12.75" PointY="6.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="IMDBModel.AllFilmNoirMovy" Width="1.5" PointX="8.75" PointY="12.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="IMDBModel.AllHistoryMovy" Width="1.5" PointX="12.75" PointY="9.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="IMDBModel.AllHorrorMovy" Width="1.5" PointX="10.75" PointY="12.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="IMDBModel.AllMisteryMovy" Width="1.5" PointX="12.75" PointY="12.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="IMDBModel.AllMusicalMovy" Width="1.5" PointX="13.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="IMDBModel.AllMusicMovy" Width="1.5" PointX="13.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="IMDBModel.AllRomanceMovy" Width="1.5" PointX="14.75" PointY="6.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="IMDBModel.AllSFMovy" Width="1.5" PointX="14.75" PointY="9.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="IMDBModel.AllSportMovy" Width="1.5" PointX="14.75" PointY="12.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="IMDBModel.AllThrillerMovy" Width="1.5" PointX="15.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="IMDBModel.AllWarMovy" Width="1.5" PointX="15.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="IMDBModel.AllWesternMovy" Width="1.5" PointX="8.75" PointY="15.75" IsExpanded="true" />
-        <AssociationConnector Association="IMDBModel.FK_Relatie_actor_film_Actori" ManuallyRouted="false" />
-        <AssociationConnector Association="IMDBModel.FK_Relatie_Actori_Premii_Actori" ManuallyRouted="false" />
-        <AssociationConnector Association="IMDBModel.FK_Relatie_actor_film_Filme" ManuallyRouted="false" />
-        <AssociationConnector Association="IMDBModel.FK_Relatie_Filme_Premii_Filme" ManuallyRouted="false" />
-        <AssociationConnector Association="IMDBModel.FK_Relatie_Actori_Premii_Premii" ManuallyRouted="false" />
-        <AssociationConnector Association="IMDBModel.FK_Relatie_Filme_Premii_Premii" ManuallyRouted="false" />
-        <AssociationConnector Association="IMDBModel.Relatie_Film_Gen" ManuallyRouted="false" />
-        <AssociationConnector Association="IMDBModel.Relatie_Regizor_Film" ManuallyRouted="false" />
-        <AssociationConnector Association="IMDBModel.Relatie_Serial_Gen" ManuallyRouted="false" />
-        <AssociationConnector Association="IMDBModel.FK_WatchList_Filme" ManuallyRouted="false" />
-        <AssociationConnector Association="IMDBModel.FK_YourRatings_Filme" ManuallyRouted="false" />
-        <AssociationConnector Association="IMDBModel.FK_WatchList_Users" ManuallyRouted="false" />
-        <AssociationConnector Association="IMDBModel.FK_YourRatings_Users" ManuallyRouted="false" />
-      </Diagram>
-    </Diagrams>
+    <Diagrams></Diagrams>
   </Designer>
 </edmx:Edmx>
