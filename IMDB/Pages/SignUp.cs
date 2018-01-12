@@ -7,15 +7,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Diagnostics;
 
 namespace IMDB
 {
     public partial class SignUp : Form
     {
-        public SignUp()
+        private Form ParentForm;
+
+        public SignUp(Form ParentParameter)
         {
             InitializeComponent();
-            
+            ParentForm = ParentParameter;
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -33,11 +36,13 @@ namespace IMDB
         private void buttonPowerOffTop_Click(object sender, EventArgs e)
         {
             this.Close();
+            ParentForm.Show();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             this.Close();
+
         }
 
         private string verify(string username,string email,string phonenumeber)
@@ -121,6 +126,23 @@ namespace IMDB
 
             }
             else MessageBox.Show(verify(textBoxUserName.Text, textBoxEmail.Text, textBoxPhoneNR.Text));
+        }
+
+        private void buttonFacebook_Click(object sender, EventArgs e)
+        {
+            Process.Start("https://www.facebook.com/imdb");
+        }
+
+        private void buttonInstagram_Click(object sender, EventArgs e)
+        {
+            Process.Start("https://www.instagram.com/imdb/");
+          
+        }
+
+        private void buttonTwitter_Click(object sender, EventArgs e)
+        {
+             Process.Start("https://twitter.com/imdb");
+            
         }
     }
 }

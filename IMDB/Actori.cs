@@ -24,10 +24,11 @@ namespace IMDB
         public int ID_Actor { get; set; }
         public string Nume { get; set; }
         public string Prenume { get; set; }
-        public string Anul_nasterii { get; set; }
+        public Nullable<System.DateTime> DataNasterii { get; set; }
         public string Oras_natal { get; set; }
         public string Tara { get; set; }
         public string Nationalitate { get; set; }
+        public byte[] Photo { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Relatie_actor_film> Relatie_actor_film { get; set; }

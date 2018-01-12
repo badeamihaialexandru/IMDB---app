@@ -26,6 +26,7 @@ namespace IMDB
         public Nullable<int> Numar_sezoane { get; set; }
         public Nullable<int> Total_episoade { get; set; }
         public Nullable<float> Nota { get; set; }
+        public byte[] Photo { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Genuri> Genuris { get; set; }

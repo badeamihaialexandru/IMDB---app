@@ -152,7 +152,7 @@ namespace IMDB
 
         private void ExitMenu_Click(object sender, EventArgs e)
         {
-            // this.Close();
+            
             Application.Exit();
         }
 
@@ -171,13 +171,11 @@ namespace IMDB
             textBox1.Enabled = true;
             if (textBox1.Text.Equals(SearchStatus))
             { textBox1.Text = ""; }
+            textBox1.ForeColor = Color.Black;
             
         }
 
-        private void textBox1_CursorChanged(object sender, EventArgs e)
-        {
-            //textBox1.Text = "";
-        }
+       
 
         private void labelLog_Click(object sender, EventArgs e)
         {
@@ -188,16 +186,19 @@ namespace IMDB
                               select c).FirstOrDefault();
                 if(result!=null)
                 {
-                    AdminOrUser aou = new AdminOrUser(TextBoxUsername.Text,this);
-                    aou.Show();
+                    if (result.Rights.Contains("admin"))
+                    {
+                        AdminOrUser aou = new AdminOrUser(TextBoxUsername.Text, this);
+                        aou.Show();
+                    }
+                    else
+                    {
+                        UserPage up = new UserPage(result.Username, this);
+                        up.Show();
+                    }
+                    SoundPlayer log = new SoundPlayer(@"C:\Users\Mosu\Desktop\proiect_utile\sound.wav");
+                    log.Play();
                 }
-            //if(TextBoxUsername.Text.Equals("admin") && TextBoxPassword.Text.Equals("mosu"))
-            //{
-            //    AdminPage admin = new AdminPage(TextBoxUsername.Text);
-            //    admin.Show();
-            //    SoundPlayer log = new SoundPlayer(@"C:\Users\Mosu\Desktop\proiect_utile\sound.wav");
-            //    log.Play();
-            //}
                 else
                 {
                     SystemSounds.Exclamation.Play();
@@ -208,15 +209,87 @@ namespace IMDB
 
         private void topRatedMoviesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            TopRatedMovies form = new TopRatedMovies();
+            UniversalPage form = new UniversalPage("TopRatedMovies",this);
             form.Show();
+            this.Hide();
         }
 
         private void labelJoinUs_Click(object sender, EventArgs e)
         {
-            SignUp sgu = new SignUp();
+            SignUp sgu = new SignUp(this);
             sgu.Show();
+            this.Hide();
 
+        }
+
+        private void textBox1_CursorChanged_1(object sender, EventArgs e)
+        {
+            if(textBox1.Text.Equals(""))
+            {
+                textBox1.Text = SearchStatus;
+            }
+        }
+
+        private void topRatedTVSeriesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            UniversalPage form = new UniversalPage("TopRatedTVSeries",this);
+            form.Show();
+            this.Hide();
+        }
+
+        private void watchlistToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("You need an account if you want to add movies in your Watchlist!", "InfoMessage");
+        }
+
+        private void SearchPictureBox_Click(object sender, EventArgs e)
+        {
+            if(textBox1.Text.Equals(SearchStatus) || textBox1.Text.Equals(""))
+            {
+                MessageBox.Show("Please enter a keyword for search!","InfoMessage");
+            }
+        }
+
+        private void newsToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            UniversalPage form = new UniversalPage("News",this);
+            form.Show();
+            this.Hide();
+        }
+
+        private void mostRatedMoviesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            UniversalPage form = new UniversalPage("MostPopularMovies",this);
+            form.Show();
+            this.Hide();
+        }
+
+        private void mostPopularTVSeriesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            UniversalPage form = new UniversalPage("MostPopularTVSeries",this);
+            form.Show();
+            this.Hide();
+        }
+
+        private void celebrityNewsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            UniversalPage form = new UniversalPage("CelebrityNews",this);
+            form.Show();
+            this.Hide();
+        }
+
+        private void bornTodayToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            UniversalPage form = new UniversalPage("BornToday",this);
+            form.Show();
+            this.Hide();
+        }
+
+        private void mostPopularCelebsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            UniversalPage form = new UniversalPage("MostPopularCelebs",this);
+            form.Show();
+            this.Hide();
         }
     }
 

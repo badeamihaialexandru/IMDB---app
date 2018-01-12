@@ -27,39 +27,43 @@ namespace IMDB
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Actori> Actoris { get; set; }
-        public virtual DbSet<Filme> Filmes { get; set; }
         public virtual DbSet<Genuri> Genuris { get; set; }
         public virtual DbSet<Premii> Premiis { get; set; }
-        public virtual DbSet<Regizori> Regizoris { get; set; }
-        public virtual DbSet<Relatie_actor_film> Relatie_actor_film { get; set; }
         public virtual DbSet<Relatie_Actori_Premii> Relatie_Actori_Premii { get; set; }
         public virtual DbSet<Relatie_Filme_Premii> Relatie_Filme_Premii { get; set; }
         public virtual DbSet<Seriale> Seriales { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<User> Users { get; set; }
-        //public virtual DbSet<AllActionMovies> AllActionMovies { get; set; }
-        //public virtual DbSet<AllAdventureMovies> AllAdventureMovies { get; set; }
-        //public virtual DbSet<AllAnimationMovy> AllAnimationMovies { get; set; }
-        //public virtual DbSet<AllBiographyMovy> AllBiographyMovies { get; set; }
-        //public virtual DbSet<AllComedyMovy> AllComedyMovies { get; set; }
-        //public virtual DbSet<AllCrimeMovy> AllCrimeMovies { get; set; }
-        //public virtual DbSet<AllDocumentaryMovy> AllDocumentaryMovies { get; set; }
-        //public virtual DbSet<AllDramaMovy> AllDramaMovies { get; set; }
-        //public virtual DbSet<AllFamilyMovy> AllFamilyMovies { get; set; }
-        //public virtual DbSet<AllFantasyMovy> AllFantasyMovies { get; set; }
-        //public virtual DbSet<AllFilmNoirMovy> AllFilmNoirMovies { get; set; }
-        //public virtual DbSet<AllHistoryMovy> AllHistoryMovies { get; set; }
-        //public virtual DbSet<AllHorrorMovy> AllHorrorMovies { get; set; }
-        //public virtual DbSet<AllMisteryMovy> AllMisteryMovies { get; set; }
-        //public virtual DbSet<AllMusicalMovy> AllMusicalMovies { get; set; }
-        //public virtual DbSet<AllMusicMovy> AllMusicMovies { get; set; }
-        //public virtual DbSet<AllRomanceMovy> AllRomanceMovies { get; set; }
-        //public virtual DbSet<AllSFMovy> AllSFMovies { get; set; }
-        //public virtual DbSet<AllSportMovy> AllSportMovies { get; set; }
-        //public virtual DbSet<AllThrillerMovy> AllThrillerMovies { get; set; }
-        //public virtual DbSet<AllWarMovy> AllWarMovies { get; set; }
-        //public virtual DbSet<AllWesternMovy> AllWesternMovies { get; set; }
+        public virtual DbSet<WatchList> WatchLists { get; set; }
+        public virtual DbSet<YourRating> YourRatings { get; set; }
+        public virtual DbSet<AllActionMovy> AllActionMovies { get; set; }
+        public virtual DbSet<AllComedyMovy> AllComedyMovies { get; set; }
+        public virtual DbSet<AllDramaMovy> AllDramaMovies { get; set; }
+        public virtual DbSet<AllAdventureMovy> AllAdventureMovies { get; set; }
+        public virtual DbSet<AllAnimationMovy> AllAnimationMovies { get; set; }
+        public virtual DbSet<AllBiographyMovy> AllBiographyMovies { get; set; }
+        public virtual DbSet<AllCrimeMovy> AllCrimeMovies { get; set; }
+        public virtual DbSet<AllDocumentaryMovy> AllDocumentaryMovies { get; set; }
+        public virtual DbSet<AllFamilyMovy> AllFamilyMovies { get; set; }
+        public virtual DbSet<AllFantasyMovy> AllFantasyMovies { get; set; }
+        public virtual DbSet<AllFilmNoirMovy> AllFilmNoirMovies { get; set; }
+        public virtual DbSet<AllHistoryMovy> AllHistoryMovies { get; set; }
+        public virtual DbSet<AllHorrorMovy> AllHorrorMovies { get; set; }
+        public virtual DbSet<AllMisteryMovy> AllMisteryMovies { get; set; }
+        public virtual DbSet<AllMusicalMovy> AllMusicalMovies { get; set; }
+        public virtual DbSet<AllMusicMovy> AllMusicMovies { get; set; }
+        public virtual DbSet<AllRomanceMovy> AllRomanceMovies { get; set; }
+        public virtual DbSet<AllSFMovy> AllSFMovies { get; set; }
+        public virtual DbSet<AllSportMovy> AllSportMovies { get; set; }
+        public virtual DbSet<AllThrillerMovy> AllThrillerMovies { get; set; }
+        public virtual DbSet<AllWarMovy> AllWarMovies { get; set; }
+        public virtual DbSet<AllWesternMovy> AllWesternMovies { get; set; }
+        public virtual DbSet<Actori> Actoris { get; set; }
+        public virtual DbSet<Relatie_actor_film> Relatie_actor_film { get; set; }
+        public virtual DbSet<MostPopularMovy> MostPopularMovies { get; set; }
+        public virtual DbSet<Filme> Filmes { get; set; }
+        public virtual DbSet<Relatie_Actor_Serial> Relatie_Actor_Serial { get; set; }
+        public virtual DbSet<Regizori> Regizoris { get; set; }
     
         public virtual int sp_alterdiagram(string diagramname, Nullable<int> owner_id, Nullable<int> version, byte[] definition)
         {
@@ -162,6 +166,285 @@ namespace IMDB
         public virtual int sp_upgraddiagrams()
         {
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("sp_upgraddiagrams");
+        }
+    
+        public virtual int AddActorWithoutPhoto(string nume, string prenume, Nullable<System.DateTime> datanastere, string orasNatal, string tara, string nationalitate)
+        {
+            var numeParameter = nume != null ?
+                new ObjectParameter("Nume", nume) :
+                new ObjectParameter("Nume", typeof(string));
+    
+            var prenumeParameter = prenume != null ?
+                new ObjectParameter("Prenume", prenume) :
+                new ObjectParameter("Prenume", typeof(string));
+    
+            var datanastereParameter = datanastere.HasValue ?
+                new ObjectParameter("datanastere", datanastere) :
+                new ObjectParameter("datanastere", typeof(System.DateTime));
+    
+            var orasNatalParameter = orasNatal != null ?
+                new ObjectParameter("orasNatal", orasNatal) :
+                new ObjectParameter("orasNatal", typeof(string));
+    
+            var taraParameter = tara != null ?
+                new ObjectParameter("tara", tara) :
+                new ObjectParameter("tara", typeof(string));
+    
+            var nationalitateParameter = nationalitate != null ?
+                new ObjectParameter("nationalitate", nationalitate) :
+                new ObjectParameter("nationalitate", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("AddActorWithoutPhoto", numeParameter, prenumeParameter, datanastereParameter, orasNatalParameter, taraParameter, nationalitateParameter);
+        }
+    
+        public virtual int AddActorWithPhoto(string nume, string prenume, Nullable<System.DateTime> datanastere, string orasNatal, string tara, string nationalitate, byte[] photo)
+        {
+            var numeParameter = nume != null ?
+                new ObjectParameter("Nume", nume) :
+                new ObjectParameter("Nume", typeof(string));
+    
+            var prenumeParameter = prenume != null ?
+                new ObjectParameter("Prenume", prenume) :
+                new ObjectParameter("Prenume", typeof(string));
+    
+            var datanastereParameter = datanastere.HasValue ?
+                new ObjectParameter("datanastere", datanastere) :
+                new ObjectParameter("datanastere", typeof(System.DateTime));
+    
+            var orasNatalParameter = orasNatal != null ?
+                new ObjectParameter("orasNatal", orasNatal) :
+                new ObjectParameter("orasNatal", typeof(string));
+    
+            var taraParameter = tara != null ?
+                new ObjectParameter("tara", tara) :
+                new ObjectParameter("tara", typeof(string));
+    
+            var nationalitateParameter = nationalitate != null ?
+                new ObjectParameter("nationalitate", nationalitate) :
+                new ObjectParameter("nationalitate", typeof(string));
+    
+            var photoParameter = photo != null ?
+                new ObjectParameter("photo", photo) :
+                new ObjectParameter("photo", typeof(byte[]));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("AddActorWithPhoto", numeParameter, prenumeParameter, datanastereParameter, orasNatalParameter, taraParameter, nationalitateParameter, photoParameter);
+        }
+    
+        public virtual int UpdateActorWithPhoto(string numeVechi, string numeNou, string prenume, Nullable<System.DateTime> datanastere, string orasNatal, string tara, string nationalitate, byte[] photo)
+        {
+            var numeVechiParameter = numeVechi != null ?
+                new ObjectParameter("NumeVechi", numeVechi) :
+                new ObjectParameter("NumeVechi", typeof(string));
+    
+            var numeNouParameter = numeNou != null ?
+                new ObjectParameter("NumeNou", numeNou) :
+                new ObjectParameter("NumeNou", typeof(string));
+    
+            var prenumeParameter = prenume != null ?
+                new ObjectParameter("Prenume", prenume) :
+                new ObjectParameter("Prenume", typeof(string));
+    
+            var datanastereParameter = datanastere.HasValue ?
+                new ObjectParameter("datanastere", datanastere) :
+                new ObjectParameter("datanastere", typeof(System.DateTime));
+    
+            var orasNatalParameter = orasNatal != null ?
+                new ObjectParameter("orasNatal", orasNatal) :
+                new ObjectParameter("orasNatal", typeof(string));
+    
+            var taraParameter = tara != null ?
+                new ObjectParameter("tara", tara) :
+                new ObjectParameter("tara", typeof(string));
+    
+            var nationalitateParameter = nationalitate != null ?
+                new ObjectParameter("nationalitate", nationalitate) :
+                new ObjectParameter("nationalitate", typeof(string));
+    
+            var photoParameter = photo != null ?
+                new ObjectParameter("photo", photo) :
+                new ObjectParameter("photo", typeof(byte[]));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("UpdateActorWithPhoto", numeVechiParameter, numeNouParameter, prenumeParameter, datanastereParameter, orasNatalParameter, taraParameter, nationalitateParameter, photoParameter);
+        }
+    
+        public virtual int UpdateActoriDupaID(Nullable<int> iD, string numeNou, string prenume, Nullable<System.DateTime> datanastere, string orasNatal, string tara, string nationalitate, byte[] photo)
+        {
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(int));
+    
+            var numeNouParameter = numeNou != null ?
+                new ObjectParameter("NumeNou", numeNou) :
+                new ObjectParameter("NumeNou", typeof(string));
+    
+            var prenumeParameter = prenume != null ?
+                new ObjectParameter("Prenume", prenume) :
+                new ObjectParameter("Prenume", typeof(string));
+    
+            var datanastereParameter = datanastere.HasValue ?
+                new ObjectParameter("datanastere", datanastere) :
+                new ObjectParameter("datanastere", typeof(System.DateTime));
+    
+            var orasNatalParameter = orasNatal != null ?
+                new ObjectParameter("orasNatal", orasNatal) :
+                new ObjectParameter("orasNatal", typeof(string));
+    
+            var taraParameter = tara != null ?
+                new ObjectParameter("tara", tara) :
+                new ObjectParameter("tara", typeof(string));
+    
+            var nationalitateParameter = nationalitate != null ?
+                new ObjectParameter("nationalitate", nationalitate) :
+                new ObjectParameter("nationalitate", typeof(string));
+    
+            var photoParameter = photo != null ?
+                new ObjectParameter("photo", photo) :
+                new ObjectParameter("photo", typeof(byte[]));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("UpdateActoriDupaID", iDParameter, numeNouParameter, prenumeParameter, datanastereParameter, orasNatalParameter, taraParameter, nationalitateParameter, photoParameter);
+        }
+    
+        public virtual int DeleteActorbyID(Nullable<int> id)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("id", id) :
+                new ObjectParameter("id", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("DeleteActorbyID", idParameter);
+        }
+    
+        public virtual int DeleteActorbyName(string nume)
+        {
+            var numeParameter = nume != null ?
+                new ObjectParameter("nume", nume) :
+                new ObjectParameter("nume", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("DeleteActorbyName", numeParameter);
+        }
+    
+        public virtual int DeleteDirectorbyID(Nullable<int> id)
+        {
+            var idParameter = id.HasValue ?
+                new ObjectParameter("id", id) :
+                new ObjectParameter("id", typeof(int));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("DeleteDirectorbyID", idParameter);
+        }
+    
+        public virtual int DeleteDirectorbyName(string nume)
+        {
+            var numeParameter = nume != null ?
+                new ObjectParameter("nume", nume) :
+                new ObjectParameter("nume", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("DeleteDirectorbyName", numeParameter);
+        }
+    
+        public virtual int InsertDirectorWithPhoto(string nume, string prenume, Nullable<System.DateTime> datanastere, string orasNatal, string tara, string nationalitate, byte[] photo)
+        {
+            var numeParameter = nume != null ?
+                new ObjectParameter("Nume", nume) :
+                new ObjectParameter("Nume", typeof(string));
+    
+            var prenumeParameter = prenume != null ?
+                new ObjectParameter("Prenume", prenume) :
+                new ObjectParameter("Prenume", typeof(string));
+    
+            var datanastereParameter = datanastere.HasValue ?
+                new ObjectParameter("datanastere", datanastere) :
+                new ObjectParameter("datanastere", typeof(System.DateTime));
+    
+            var orasNatalParameter = orasNatal != null ?
+                new ObjectParameter("orasNatal", orasNatal) :
+                new ObjectParameter("orasNatal", typeof(string));
+    
+            var taraParameter = tara != null ?
+                new ObjectParameter("tara", tara) :
+                new ObjectParameter("tara", typeof(string));
+    
+            var nationalitateParameter = nationalitate != null ?
+                new ObjectParameter("nationalitate", nationalitate) :
+                new ObjectParameter("nationalitate", typeof(string));
+    
+            var photoParameter = photo != null ?
+                new ObjectParameter("photo", photo) :
+                new ObjectParameter("photo", typeof(byte[]));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("InsertDirectorWithPhoto", numeParameter, prenumeParameter, datanastereParameter, orasNatalParameter, taraParameter, nationalitateParameter, photoParameter);
+        }
+    
+        public virtual int UpdateDirectorbyID(Nullable<int> iD, string numeNou, string prenume, Nullable<System.DateTime> datanastere, string orasNatal, string tara, string nationalitate, byte[] photo)
+        {
+            var iDParameter = iD.HasValue ?
+                new ObjectParameter("ID", iD) :
+                new ObjectParameter("ID", typeof(int));
+    
+            var numeNouParameter = numeNou != null ?
+                new ObjectParameter("NumeNou", numeNou) :
+                new ObjectParameter("NumeNou", typeof(string));
+    
+            var prenumeParameter = prenume != null ?
+                new ObjectParameter("Prenume", prenume) :
+                new ObjectParameter("Prenume", typeof(string));
+    
+            var datanastereParameter = datanastere.HasValue ?
+                new ObjectParameter("datanastere", datanastere) :
+                new ObjectParameter("datanastere", typeof(System.DateTime));
+    
+            var orasNatalParameter = orasNatal != null ?
+                new ObjectParameter("orasNatal", orasNatal) :
+                new ObjectParameter("orasNatal", typeof(string));
+    
+            var taraParameter = tara != null ?
+                new ObjectParameter("tara", tara) :
+                new ObjectParameter("tara", typeof(string));
+    
+            var nationalitateParameter = nationalitate != null ?
+                new ObjectParameter("nationalitate", nationalitate) :
+                new ObjectParameter("nationalitate", typeof(string));
+    
+            var photoParameter = photo != null ?
+                new ObjectParameter("photo", photo) :
+                new ObjectParameter("photo", typeof(byte[]));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("UpdateDirectorbyID", iDParameter, numeNouParameter, prenumeParameter, datanastereParameter, orasNatalParameter, taraParameter, nationalitateParameter, photoParameter);
+        }
+    
+        public virtual int UpdateDirectorbyName(string numeVechi, string numeNou, string prenume, Nullable<System.DateTime> datanastere, string orasNatal, string tara, string nationalitate, byte[] photo)
+        {
+            var numeVechiParameter = numeVechi != null ?
+                new ObjectParameter("NumeVechi", numeVechi) :
+                new ObjectParameter("NumeVechi", typeof(string));
+    
+            var numeNouParameter = numeNou != null ?
+                new ObjectParameter("NumeNou", numeNou) :
+                new ObjectParameter("NumeNou", typeof(string));
+    
+            var prenumeParameter = prenume != null ?
+                new ObjectParameter("Prenume", prenume) :
+                new ObjectParameter("Prenume", typeof(string));
+    
+            var datanastereParameter = datanastere.HasValue ?
+                new ObjectParameter("datanastere", datanastere) :
+                new ObjectParameter("datanastere", typeof(System.DateTime));
+    
+            var orasNatalParameter = orasNatal != null ?
+                new ObjectParameter("orasNatal", orasNatal) :
+                new ObjectParameter("orasNatal", typeof(string));
+    
+            var taraParameter = tara != null ?
+                new ObjectParameter("tara", tara) :
+                new ObjectParameter("tara", typeof(string));
+    
+            var nationalitateParameter = nationalitate != null ?
+                new ObjectParameter("nationalitate", nationalitate) :
+                new ObjectParameter("nationalitate", typeof(string));
+    
+            var photoParameter = photo != null ?
+                new ObjectParameter("photo", photo) :
+                new ObjectParameter("photo", typeof(byte[]));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("UpdateDirectorbyName", numeVechiParameter, numeNouParameter, prenumeParameter, datanastereParameter, orasNatalParameter, taraParameter, nationalitateParameter, photoParameter);
         }
     }
 }

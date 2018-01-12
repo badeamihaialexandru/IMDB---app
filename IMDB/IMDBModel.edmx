@@ -9,22 +9,24 @@
           <Key>
             <PropertyRef Name="ID_Actor" />
           </Key>
-          <Property Name="ID_Actor" Type="int" Nullable="false" />
-          <Property Name="Nume" Type="varchar" MaxLength="50" />
-          <Property Name="Prenume" Type="varchar" MaxLength="50" />
-          <Property Name="Anul_nasterii" Type="nchar" MaxLength="10" />
+          <Property Name="ID_Actor" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nume" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Prenume" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="DataNasterii" Type="smalldatetime" />
           <Property Name="Oras_natal" Type="varchar" MaxLength="50" />
           <Property Name="Tara" Type="varchar" MaxLength="50" />
           <Property Name="Nationalitate" Type="varchar" MaxLength="50" />
+          <Property Name="Photo" Type="image" />
         </EntityType>
         <EntityType Name="Filme">
           <Key>
             <PropertyRef Name="ID_Film" />
           </Key>
-          <Property Name="ID_Film" Type="int" Nullable="false" />
+          <Property Name="ID_Film" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Nume" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="An_aparitie" Type="nchar" MaxLength="10" />
+          <Property Name="An_aparitie" Type="int" />
           <Property Name="Nota" Type="nchar" MaxLength="10" Nullable="false" />
+          <Property Name="Photo" Type="varbinary(max)" />
         </EntityType>
         <EntityType Name="Genuri">
           <Key>
@@ -44,24 +46,32 @@
           <Key>
             <PropertyRef Name="ID_Regizor" />
           </Key>
-          <Property Name="ID_Regizor" Type="int" Nullable="false" />
-          <Property Name="Nume" Type="varchar" MaxLength="50" />
-          <Property Name="Prenume" Type="varchar" MaxLength="50" />
+          <Property Name="ID_Regizor" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nume" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Prenume" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Data_nasterii" Type="datetime" />
           <Property Name="Locul_nasterii" Type="varchar" MaxLength="90" />
           <Property Name="Tara" Type="varchar" MaxLength="50" />
           <Property Name="Nationalitate" Type="varchar" MaxLength="50" />
-          <Property Name="Nr_filme_regizate" Type="int" />
+          <Property Name="Photo" Type="image" />
         </EntityType>
         <EntityType Name="Relatie_actor_film">
           <Key>
             <PropertyRef Name="ID_Actor" />
             <PropertyRef Name="ID_Film" />
           </Key>
-          <Property Name="ID_Relatie" Type="int" Nullable="false" />
           <Property Name="ID_Actor" Type="int" Nullable="false" />
           <Property Name="ID_Film" Type="int" Nullable="false" />
           <Property Name="Nume_in_film" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Relatie_Actor_Serial">
+          <Key>
+            <PropertyRef Name="ID_Actor" />
+            <PropertyRef Name="ID_Serial" />
+          </Key>
+          <Property Name="ID_Actor" Type="int" Nullable="false" />
+          <Property Name="ID_Serial" Type="int" Nullable="false" />
+          <Property Name="Nume_in_Serial" Type="nchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Relatie_Actori_Premii">
           <Key>
@@ -115,6 +125,7 @@
           <Property Name="Numar_sezoane" Type="int" />
           <Property Name="Total_episoade" Type="int" />
           <Property Name="Nota" Type="real" />
+          <Property Name="Photo" Type="image" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -137,13 +148,32 @@
           <Property Name="PhoneNumber" Type="nchar" MaxLength="10" />
           <Property Name="Rights" Type="char" MaxLength="20" />
           <Property Name="DateofRegister" Type="date" />
+          <Property Name="Photo" Type="image" />
+        </EntityType>
+        <EntityType Name="WatchList">
+          <Key>
+            <PropertyRef Name="ID_Film" />
+            <PropertyRef Name="ID_User" />
+          </Key>
+          <Property Name="ID_Film" Type="int" Nullable="false" />
+          <Property Name="ID_User" Type="int" Nullable="false" />
+          <Property Name="Watched" Type="int" />
+        </EntityType>
+        <EntityType Name="YourRatings">
+          <Key>
+            <PropertyRef Name="ID_Film" />
+            <PropertyRef Name="ID_User" />
+          </Key>
+          <Property Name="ID_Film" Type="int" Nullable="false" />
+          <Property Name="ID_User" Type="int" Nullable="false" />
+          <Property Name="Nota" Type="int" />
         </EntityType>
         <!--Errors Found During Generation:
 warning 6002: The table/view 'IMDB.dbo.AllActionMovies' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="AllActionMovies">
           <Key>
             <PropertyRef Name="Nume" />
-            <PropertyRef Name="ID_Film" />
+            
           </Key>
           <Property Name="Nume" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Nume_Gen" Type="varchar" MaxLength="50" />
@@ -153,7 +183,7 @@ warning 6002: The table/view 'IMDB.dbo.AllActionMovies' does not have a primary 
 warning 6002: The table/view 'IMDB.dbo.AllAdventureMovies' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="AllAdventureMovies">
           <Key>
-            <PropertyRef Name="ID_Film" />
+            
             <PropertyRef Name="Nume" />
           </Key>
           <Property Name="ID_Film" Type="int" Nullable="false" />
@@ -164,7 +194,7 @@ warning 6002: The table/view 'IMDB.dbo.AllAdventureMovies' does not have a prima
 warning 6002: The table/view 'IMDB.dbo.AllAnimationMovies' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="AllAnimationMovies">
           <Key>
-            <PropertyRef Name="ID_Film" />
+            
             <PropertyRef Name="Nume" />
           </Key>
           <Property Name="ID_Film" Type="int" Nullable="false" />
@@ -175,7 +205,7 @@ warning 6002: The table/view 'IMDB.dbo.AllAnimationMovies' does not have a prima
 warning 6002: The table/view 'IMDB.dbo.AllBiographyMovies' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="AllBiographyMovies">
           <Key>
-            <PropertyRef Name="ID_Film" />
+            
             <PropertyRef Name="Nume" />
           </Key>
           <Property Name="ID_Film" Type="int" Nullable="false" />
@@ -187,7 +217,7 @@ warning 6002: The table/view 'IMDB.dbo.AllComedyMovies' does not have a primary 
         <EntityType Name="AllComedyMovies">
           <Key>
             <PropertyRef Name="Nume" />
-            <PropertyRef Name="ID_Film" />
+            
           </Key>
           <Property Name="Nume" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Nume_Gen" Type="varchar" MaxLength="50" />
@@ -197,7 +227,7 @@ warning 6002: The table/view 'IMDB.dbo.AllComedyMovies' does not have a primary 
 warning 6002: The table/view 'IMDB.dbo.AllCrimeMovies' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="AllCrimeMovies">
           <Key>
-            <PropertyRef Name="ID_Film" />
+            
             <PropertyRef Name="Nume" />
           </Key>
           <Property Name="ID_Film" Type="int" Nullable="false" />
@@ -208,7 +238,7 @@ warning 6002: The table/view 'IMDB.dbo.AllCrimeMovies' does not have a primary k
 warning 6002: The table/view 'IMDB.dbo.AllDocumentaryMovies' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="AllDocumentaryMovies">
           <Key>
-            <PropertyRef Name="ID_Film" />
+            
             <PropertyRef Name="Nume" />
           </Key>
           <Property Name="ID_Film" Type="int" Nullable="false" />
@@ -220,7 +250,7 @@ warning 6002: The table/view 'IMDB.dbo.AllDramaMovies' does not have a primary k
         <EntityType Name="AllDramaMovies">
           <Key>
             <PropertyRef Name="Nume" />
-            <PropertyRef Name="ID_Film" />
+            
           </Key>
           <Property Name="Nume" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Nume_Gen" Type="varchar" MaxLength="50" />
@@ -230,7 +260,7 @@ warning 6002: The table/view 'IMDB.dbo.AllDramaMovies' does not have a primary k
 warning 6002: The table/view 'IMDB.dbo.AllFamilyMovies' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="AllFamilyMovies">
           <Key>
-            <PropertyRef Name="ID_Film" />
+            
             <PropertyRef Name="Nume" />
           </Key>
           <Property Name="ID_Film" Type="int" Nullable="false" />
@@ -241,7 +271,7 @@ warning 6002: The table/view 'IMDB.dbo.AllFamilyMovies' does not have a primary 
 warning 6002: The table/view 'IMDB.dbo.AllFantasyMovies' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="AllFantasyMovies">
           <Key>
-            <PropertyRef Name="ID_Film" />
+            
             <PropertyRef Name="Nume" />
           </Key>
           <Property Name="ID_Film" Type="int" Nullable="false" />
@@ -252,7 +282,7 @@ warning 6002: The table/view 'IMDB.dbo.AllFantasyMovies' does not have a primary
 warning 6002: The table/view 'IMDB.dbo.AllFilmNoirMovies' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="AllFilmNoirMovies">
           <Key>
-            <PropertyRef Name="ID_Film" />
+            
             <PropertyRef Name="Nume" />
           </Key>
           <Property Name="ID_Film" Type="int" Nullable="false" />
@@ -263,7 +293,7 @@ warning 6002: The table/view 'IMDB.dbo.AllFilmNoirMovies' does not have a primar
 warning 6002: The table/view 'IMDB.dbo.AllHistoryMovies' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="AllHistoryMovies">
           <Key>
-            <PropertyRef Name="ID_Film" />
+            
             <PropertyRef Name="Nume" />
           </Key>
           <Property Name="ID_Film" Type="int" Nullable="false" />
@@ -274,7 +304,7 @@ warning 6002: The table/view 'IMDB.dbo.AllHistoryMovies' does not have a primary
 warning 6002: The table/view 'IMDB.dbo.AllHorrorMovies' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="AllHorrorMovies">
           <Key>
-            <PropertyRef Name="ID_Film" />
+            
             <PropertyRef Name="Nume" />
           </Key>
           <Property Name="ID_Film" Type="int" Nullable="false" />
@@ -285,7 +315,7 @@ warning 6002: The table/view 'IMDB.dbo.AllHorrorMovies' does not have a primary 
 warning 6002: The table/view 'IMDB.dbo.AllMisteryMovies' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="AllMisteryMovies">
           <Key>
-            <PropertyRef Name="ID_Film" />
+            
             <PropertyRef Name="Nume" />
           </Key>
           <Property Name="ID_Film" Type="int" Nullable="false" />
@@ -296,7 +326,7 @@ warning 6002: The table/view 'IMDB.dbo.AllMisteryMovies' does not have a primary
 warning 6002: The table/view 'IMDB.dbo.AllMusicalMovies' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="AllMusicalMovies">
           <Key>
-            <PropertyRef Name="ID_Film" />
+            
             <PropertyRef Name="Nume" />
           </Key>
           <Property Name="ID_Film" Type="int" Nullable="false" />
@@ -307,7 +337,7 @@ warning 6002: The table/view 'IMDB.dbo.AllMusicalMovies' does not have a primary
 warning 6002: The table/view 'IMDB.dbo.AllMusicMovies' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="AllMusicMovies">
           <Key>
-            <PropertyRef Name="ID_Film" />
+            
             <PropertyRef Name="Nume" />
           </Key>
           <Property Name="ID_Film" Type="int" Nullable="false" />
@@ -318,7 +348,7 @@ warning 6002: The table/view 'IMDB.dbo.AllMusicMovies' does not have a primary k
 warning 6002: The table/view 'IMDB.dbo.AllRomanceMovies' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="AllRomanceMovies">
           <Key>
-            <PropertyRef Name="ID_Film" />
+            
             <PropertyRef Name="Nume" />
           </Key>
           <Property Name="ID_Film" Type="int" Nullable="false" />
@@ -329,7 +359,7 @@ warning 6002: The table/view 'IMDB.dbo.AllRomanceMovies' does not have a primary
 warning 6002: The table/view 'IMDB.dbo.AllSFMovies' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="AllSFMovies">
           <Key>
-            <PropertyRef Name="ID_Film" />
+            
             <PropertyRef Name="Nume" />
           </Key>
           <Property Name="ID_Film" Type="int" Nullable="false" />
@@ -340,7 +370,7 @@ warning 6002: The table/view 'IMDB.dbo.AllSFMovies' does not have a primary key 
 warning 6002: The table/view 'IMDB.dbo.AllSportMovies' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="AllSportMovies">
           <Key>
-            <PropertyRef Name="ID_Film" />
+            
             <PropertyRef Name="Nume" />
           </Key>
           <Property Name="ID_Film" Type="int" Nullable="false" />
@@ -351,7 +381,7 @@ warning 6002: The table/view 'IMDB.dbo.AllSportMovies' does not have a primary k
 warning 6002: The table/view 'IMDB.dbo.AllThrillerMovies' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="AllThrillerMovies">
           <Key>
-            <PropertyRef Name="ID_Film" />
+            
             <PropertyRef Name="Nume" />
           </Key>
           <Property Name="ID_Film" Type="int" Nullable="false" />
@@ -362,7 +392,7 @@ warning 6002: The table/view 'IMDB.dbo.AllThrillerMovies' does not have a primar
 warning 6002: The table/view 'IMDB.dbo.AllWarMovies' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="AllWarMovies">
           <Key>
-            <PropertyRef Name="ID_Film" />
+            
             <PropertyRef Name="Nume" />
           </Key>
           <Property Name="ID_Film" Type="int" Nullable="false" />
@@ -373,12 +403,24 @@ warning 6002: The table/view 'IMDB.dbo.AllWarMovies' does not have a primary key
 warning 6002: The table/view 'IMDB.dbo.AllWesternMovies' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="AllWesternMovies">
           <Key>
-            <PropertyRef Name="ID_Film" />
+            
             <PropertyRef Name="Nume" />
           </Key>
           <Property Name="ID_Film" Type="int" Nullable="false" />
           <Property Name="Nume" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Nume_Gen" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'IMDB.dbo.MostPopularMovies' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="MostPopularMovies">
+          <Key>
+            
+            <PropertyRef Name="Nume" />
+            
+          </Key>
+          <Property Name="ID_Film" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Nume" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Nota" Type="nchar" MaxLength="10" Nullable="false" />
         </EntityType>
         <Association Name="FK_Relatie_actor_film_Actori">
           <End Role="Actori" Type="Self.Actori" Multiplicity="1" />
@@ -524,7 +566,93 @@ warning 6002: The table/view 'IMDB.dbo.AllWesternMovies' does not have a primary
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_WatchList_Filme">
+          <End Role="Filme" Type="Self.Filme" Multiplicity="1" />
+          <End Role="WatchList" Type="Self.WatchList" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Filme">
+              <PropertyRef Name="ID_Film" />
+            </Principal>
+            <Dependent Role="WatchList">
+              <PropertyRef Name="ID_Film" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WatchList_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="WatchList" Type="Self.WatchList" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="ID_User" />
+            </Principal>
+            <Dependent Role="WatchList">
+              <PropertyRef Name="ID_User" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_YourRatings_Filme">
+          <End Role="Filme" Type="Self.Filme" Multiplicity="1" />
+          <End Role="YourRatings" Type="Self.YourRatings" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Filme">
+              <PropertyRef Name="ID_Film" />
+            </Principal>
+            <Dependent Role="YourRatings">
+              <PropertyRef Name="ID_Film" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_YourRatings_Users">
+          <End Role="Users" Type="Self.Users" Multiplicity="1" />
+          <End Role="YourRatings" Type="Self.YourRatings" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Users">
+              <PropertyRef Name="ID_User" />
+            </Principal>
+            <Dependent Role="YourRatings">
+              <PropertyRef Name="ID_User" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="AddActorWithoutPhoto" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Nume" Type="varchar" Mode="In" />
+          <Parameter Name="Prenume" Type="varchar" Mode="In" />
+          <Parameter Name="datanastere" Type="smalldatetime" Mode="In" />
+          <Parameter Name="orasNatal" Type="varchar" Mode="In" />
+          <Parameter Name="tara" Type="varchar" Mode="In" />
+          <Parameter Name="nationalitate" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="AddActorWithPhoto" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Nume" Type="varchar" Mode="In" />
+          <Parameter Name="Prenume" Type="varchar" Mode="In" />
+          <Parameter Name="datanastere" Type="smalldatetime" Mode="In" />
+          <Parameter Name="orasNatal" Type="varchar" Mode="In" />
+          <Parameter Name="tara" Type="varchar" Mode="In" />
+          <Parameter Name="nationalitate" Type="varchar" Mode="In" />
+          <Parameter Name="photo" Type="image" Mode="In" />
+        </Function>
+        <Function Name="DeleteActorbyID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="DeleteActorbyName" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="nume" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="DeleteDirectorbyID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="id" Type="int" Mode="In" />
+        </Function>
+        <Function Name="DeleteDirectorbyName" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="nume" Type="varchar" Mode="In" />
+        </Function>
         <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+        <Function Name="InsertDirectorWithPhoto" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Nume" Type="varchar" Mode="In" />
+          <Parameter Name="Prenume" Type="varchar" Mode="In" />
+          <Parameter Name="datanastere" Type="smalldatetime" Mode="In" />
+          <Parameter Name="orasNatal" Type="varchar" Mode="In" />
+          <Parameter Name="tara" Type="varchar" Mode="In" />
+          <Parameter Name="nationalitate" Type="varchar" Mode="In" />
+          <Parameter Name="photo" Type="image" Mode="In" />
+        </Function>
         <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
           <Parameter Name="owner_id" Type="int" Mode="In" />
@@ -555,6 +683,46 @@ warning 6002: The table/view 'IMDB.dbo.AllWesternMovies' does not have a primary
           <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
         </Function>
         <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="UpdateActoriDupaID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ID" Type="int" Mode="In" />
+          <Parameter Name="NumeNou" Type="varchar" Mode="In" />
+          <Parameter Name="Prenume" Type="varchar" Mode="In" />
+          <Parameter Name="datanastere" Type="smalldatetime" Mode="In" />
+          <Parameter Name="orasNatal" Type="varchar" Mode="In" />
+          <Parameter Name="tara" Type="varchar" Mode="In" />
+          <Parameter Name="nationalitate" Type="varchar" Mode="In" />
+          <Parameter Name="photo" Type="image" Mode="In" />
+        </Function>
+        <Function Name="UpdateActorWithPhoto" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="NumeVechi" Type="varchar" Mode="In" />
+          <Parameter Name="NumeNou" Type="varchar" Mode="In" />
+          <Parameter Name="Prenume" Type="varchar" Mode="In" />
+          <Parameter Name="datanastere" Type="smalldatetime" Mode="In" />
+          <Parameter Name="orasNatal" Type="varchar" Mode="In" />
+          <Parameter Name="tara" Type="varchar" Mode="In" />
+          <Parameter Name="nationalitate" Type="varchar" Mode="In" />
+          <Parameter Name="photo" Type="image" Mode="In" />
+        </Function>
+        <Function Name="UpdateDirectorbyID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="ID" Type="int" Mode="In" />
+          <Parameter Name="NumeNou" Type="varchar" Mode="In" />
+          <Parameter Name="Prenume" Type="varchar" Mode="In" />
+          <Parameter Name="datanastere" Type="smalldatetime" Mode="In" />
+          <Parameter Name="orasNatal" Type="varchar" Mode="In" />
+          <Parameter Name="tara" Type="varchar" Mode="In" />
+          <Parameter Name="nationalitate" Type="varchar" Mode="In" />
+          <Parameter Name="photo" Type="image" Mode="In" />
+        </Function>
+        <Function Name="UpdateDirectorbyName" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="NumeVechi" Type="varchar" Mode="In" />
+          <Parameter Name="NumeNou" Type="varchar" Mode="In" />
+          <Parameter Name="Prenume" Type="varchar" Mode="In" />
+          <Parameter Name="datanastere" Type="smalldatetime" Mode="In" />
+          <Parameter Name="orasNatal" Type="varchar" Mode="In" />
+          <Parameter Name="tara" Type="varchar" Mode="In" />
+          <Parameter Name="nationalitate" Type="varchar" Mode="In" />
+          <Parameter Name="photo" Type="image" Mode="In" />
+        </Function>
         <EntityContainer Name="IMDBModelStoreContainer">
           <EntitySet Name="Actori" EntityType="Self.Actori" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Filme" EntityType="Self.Filme" Schema="dbo" store:Type="Tables" />
@@ -562,6 +730,7 @@ warning 6002: The table/view 'IMDB.dbo.AllWesternMovies' does not have a primary
           <EntitySet Name="Premii" EntityType="Self.Premii" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Regizori" EntityType="Self.Regizori" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Relatie_actor_film" EntityType="Self.Relatie_actor_film" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Relatie_Actor_Serial" EntityType="Self.Relatie_Actor_Serial" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Relatie_Actori_Premii" EntityType="Self.Relatie_Actori_Premii" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Relatie_Film_Gen" EntityType="Self.Relatie_Film_Gen" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Relatie_Filme_Premii" EntityType="Self.Relatie_Filme_Premii" Schema="dbo" store:Type="Tables" />
@@ -570,6 +739,8 @@ warning 6002: The table/view 'IMDB.dbo.AllWesternMovies' does not have a primary
           <EntitySet Name="Seriale" EntityType="Self.Seriale" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="WatchList" EntityType="Self.WatchList" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="YourRatings" EntityType="Self.YourRatings" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AllActionMovies" EntityType="Self.AllActionMovies" store:Type="Views" store:Schema="dbo">
             <DefiningQuery>SELECT 
     [AllActionMovies].[Nume] AS [Nume], 
@@ -724,6 +895,13 @@ warning 6002: The table/view 'IMDB.dbo.AllWesternMovies' does not have a primary
     [AllWesternMovies].[Nume_Gen] AS [Nume_Gen]
     FROM [dbo].[AllWesternMovies] AS [AllWesternMovies]</DefiningQuery>
           </EntitySet>
+          <EntitySet Name="MostPopularMovies" EntityType="Self.MostPopularMovies" store:Type="Views" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [MostPopularMovies].[ID_Film] AS [ID_Film], 
+    [MostPopularMovies].[Nume] AS [Nume], 
+    [MostPopularMovies].[Nota] AS [Nota]
+    FROM [dbo].[MostPopularMovies] AS [MostPopularMovies]</DefiningQuery>
+          </EntitySet>
           <AssociationSet Name="FK_Relatie_actor_film_Actori" Association="Self.FK_Relatie_actor_film_Actori">
             <End Role="Actori" EntitySet="Actori" />
             <End Role="Relatie_actor_film" EntitySet="Relatie_actor_film" />
@@ -772,46 +950,35 @@ warning 6002: The table/view 'IMDB.dbo.AllWesternMovies' does not have a primary
             <End Role="Seriale" EntitySet="Seriale" />
             <End Role="Relatie_Serial_Gen" EntitySet="Relatie_Serial_Gen" />
           </AssociationSet>
+          <AssociationSet Name="FK_WatchList_Filme" Association="Self.FK_WatchList_Filme">
+            <End Role="Filme" EntitySet="Filme" />
+            <End Role="WatchList" EntitySet="WatchList" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WatchList_Users" Association="Self.FK_WatchList_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="WatchList" EntitySet="WatchList" />
+          </AssociationSet>
+          <AssociationSet Name="FK_YourRatings_Filme" Association="Self.FK_YourRatings_Filme">
+            <End Role="Filme" EntitySet="Filme" />
+            <End Role="YourRatings" EntitySet="YourRatings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_YourRatings_Users" Association="Self.FK_YourRatings_Users">
+            <End Role="Users" EntitySet="Users" />
+            <End Role="YourRatings" EntitySet="YourRatings" />
+          </AssociationSet>
         </EntityContainer>
       </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="IMDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="Actori">
-          <Key>
-            <PropertyRef Name="ID_Actor" />
-          </Key>
-          <Property Name="ID_Actor" Type="Int32" Nullable="false" />
-          <Property Name="Nume" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Prenume" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Anul_nasterii" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-          <Property Name="Oras_natal" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Tara" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Nationalitate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Relatie_actor_film" Relationship="Self.FK_Relatie_actor_film_Actori" FromRole="Actori" ToRole="Relatie_actor_film" />
-          <NavigationProperty Name="Relatie_Actori_Premii" Relationship="Self.FK_Relatie_Actori_Premii_Actori" FromRole="Actori" ToRole="Relatie_Actori_Premii" />
-        </EntityType>
-        <EntityType Name="Filme">
-          <Key>
-            <PropertyRef Name="ID_Film" />
-          </Key>
-          <Property Name="ID_Film" Type="Int32" Nullable="false" />
-          <Property Name="Nume" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="An_aparitie" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-          <Property Name="Nota" Type="String" MaxLength="10" FixedLength="true" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="Relatie_actor_film" Relationship="Self.FK_Relatie_actor_film_Filme" FromRole="Filme" ToRole="Relatie_actor_film" />
-          <NavigationProperty Name="Relatie_Filme_Premii" Relationship="Self.FK_Relatie_Filme_Premii_Filme" FromRole="Filme" ToRole="Relatie_Filme_Premii" />
-          <NavigationProperty Name="Genuris" Relationship="Self.Relatie_Film_Gen" FromRole="Filme" ToRole="Genuri" />
-          <NavigationProperty Name="Regizoris" Relationship="Self.Relatie_Regizor_Film" FromRole="Filme" ToRole="Regizori" />
-        </EntityType>
         <EntityType Name="Genuri">
           <Key>
             <PropertyRef Name="ID_Gen" />
           </Key>
           <Property Name="ID_Gen" Type="Int32" Nullable="false" />
           <Property Name="Nume_Gen" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Filmes" Relationship="Self.Relatie_Film_Gen" FromRole="Genuri" ToRole="Filme" />
           <NavigationProperty Name="Seriales" Relationship="Self.Relatie_Serial_Gen" FromRole="Genuri" ToRole="Seriale" />
+          <NavigationProperty Name="Filmes" Relationship="IMDBModel.Relatie_Film_Gen" FromRole="Genuri" ToRole="Filme" />
         </EntityType>
         <EntityType Name="Premii">
           <Key>
@@ -822,32 +989,6 @@ warning 6002: The table/view 'IMDB.dbo.AllWesternMovies' does not have a primary
           <NavigationProperty Name="Relatie_Actori_Premii" Relationship="Self.FK_Relatie_Actori_Premii_Premii" FromRole="Premii" ToRole="Relatie_Actori_Premii" />
           <NavigationProperty Name="Relatie_Filme_Premii" Relationship="Self.FK_Relatie_Filme_Premii_Premii" FromRole="Premii" ToRole="Relatie_Filme_Premii" />
         </EntityType>
-        <EntityType Name="Regizori">
-          <Key>
-            <PropertyRef Name="ID_Regizor" />
-          </Key>
-          <Property Name="ID_Regizor" Type="Int32" Nullable="false" />
-          <Property Name="Nume" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Prenume" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Data_nasterii" Type="DateTime" Precision="3" />
-          <Property Name="Locul_nasterii" Type="String" MaxLength="90" FixedLength="false" Unicode="false" />
-          <Property Name="Tara" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Nationalitate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Nr_filme_regizate" Type="Int32" />
-          <NavigationProperty Name="Filmes" Relationship="Self.Relatie_Regizor_Film" FromRole="Regizori" ToRole="Filme" />
-        </EntityType>
-        <EntityType Name="Relatie_actor_film">
-          <Key>
-            <PropertyRef Name="ID_Actor" />
-            <PropertyRef Name="ID_Film" />
-          </Key>
-          <Property Name="ID_Relatie" Type="Int32" Nullable="false" />
-          <Property Name="ID_Actor" Type="Int32" Nullable="false" />
-          <Property Name="ID_Film" Type="Int32" Nullable="false" />
-          <Property Name="Nume_in_film" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="Actori" Relationship="Self.FK_Relatie_actor_film_Actori" FromRole="Relatie_actor_film" ToRole="Actori" />
-          <NavigationProperty Name="Filme" Relationship="Self.FK_Relatie_actor_film_Filme" FromRole="Relatie_actor_film" ToRole="Filme" />
-        </EntityType>
         <EntityType Name="Relatie_Actori_Premii">
           <Key>
             <PropertyRef Name="ID_Premiu" />
@@ -856,8 +997,8 @@ warning 6002: The table/view 'IMDB.dbo.AllWesternMovies' does not have a primary
           <Property Name="ID_Premiu" Type="Int32" Nullable="false" />
           <Property Name="ID_Actor" Type="Int32" Nullable="false" />
           <Property Name="Numar_premii" Type="Int32" />
-          <NavigationProperty Name="Actori" Relationship="Self.FK_Relatie_Actori_Premii_Actori" FromRole="Relatie_Actori_Premii" ToRole="Actori" />
           <NavigationProperty Name="Premii" Relationship="Self.FK_Relatie_Actori_Premii_Premii" FromRole="Relatie_Actori_Premii" ToRole="Premii" />
+          <NavigationProperty Name="Actori" Relationship="IMDBModel.FK_Relatie_Actori_Premii_Actori" FromRole="Relatie_Actori_Premii" ToRole="Actori" />
         </EntityType>
         <EntityType Name="Relatie_Filme_Premii">
           <Key>
@@ -867,8 +1008,8 @@ warning 6002: The table/view 'IMDB.dbo.AllWesternMovies' does not have a primary
           <Property Name="ID_Premiu" Type="Int32" Nullable="false" />
           <Property Name="ID_Film" Type="Int32" Nullable="false" />
           <Property Name="Numar_Premii" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-          <NavigationProperty Name="Filme" Relationship="Self.FK_Relatie_Filme_Premii_Filme" FromRole="Relatie_Filme_Premii" ToRole="Filme" />
           <NavigationProperty Name="Premii" Relationship="Self.FK_Relatie_Filme_Premii_Premii" FromRole="Relatie_Filme_Premii" ToRole="Premii" />
+          <NavigationProperty Name="Filme" Relationship="IMDBModel.FK_Relatie_Filme_Premii_Filme" FromRole="Relatie_Filme_Premii" ToRole="Filme" />
         </EntityType>
         <EntityType Name="Seriale">
           <Key>
@@ -881,6 +1022,7 @@ warning 6002: The table/view 'IMDB.dbo.AllWesternMovies' does not have a primary
           <Property Name="Total_episoade" Type="Int32" />
           <Property Name="Nota" Type="Single" />
           <NavigationProperty Name="Genuris" Relationship="Self.Relatie_Serial_Gen" FromRole="Seriale" ToRole="Genuri" />
+          <Property Name="Photo" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
         <EntityType Name="sysdiagram">
           <Key>
@@ -892,54 +1034,6 @@ warning 6002: The table/view 'IMDB.dbo.AllWesternMovies' does not have a primary
           <Property Name="version" Type="Int32" />
           <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
-        <Association Name="FK_Relatie_actor_film_Actori">
-          <End Role="Actori" Type="Self.Actori" Multiplicity="1" />
-          <End Role="Relatie_actor_film" Type="Self.Relatie_actor_film" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Actori">
-              <PropertyRef Name="ID_Actor" />
-            </Principal>
-            <Dependent Role="Relatie_actor_film">
-              <PropertyRef Name="ID_Actor" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Relatie_Actori_Premii_Actori">
-          <End Role="Actori" Type="Self.Actori" Multiplicity="1" />
-          <End Role="Relatie_Actori_Premii" Type="Self.Relatie_Actori_Premii" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Actori">
-              <PropertyRef Name="ID_Actor" />
-            </Principal>
-            <Dependent Role="Relatie_Actori_Premii">
-              <PropertyRef Name="ID_Actor" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Relatie_actor_film_Filme">
-          <End Role="Filme" Type="Self.Filme" Multiplicity="1" />
-          <End Role="Relatie_actor_film" Type="Self.Relatie_actor_film" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Filme">
-              <PropertyRef Name="ID_Film" />
-            </Principal>
-            <Dependent Role="Relatie_actor_film">
-              <PropertyRef Name="ID_Film" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Relatie_Filme_Premii_Filme">
-          <End Role="Filme" Type="Self.Filme" Multiplicity="1" />
-          <End Role="Relatie_Filme_Premii" Type="Self.Relatie_Filme_Premii" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Filme">
-              <PropertyRef Name="ID_Film" />
-            </Principal>
-            <Dependent Role="Relatie_Filme_Premii">
-              <PropertyRef Name="ID_Film" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Relatie_Actori_Premii_Premii">
           <End Role="Premii" Type="Self.Premii" Multiplicity="1" />
           <End Role="Relatie_Actori_Premii" Type="Self.Relatie_Actori_Premii" Multiplicity="*" />
@@ -964,45 +1058,17 @@ warning 6002: The table/view 'IMDB.dbo.AllWesternMovies' does not have a primary
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="Relatie_Film_Gen">
-          <End Role="Filme" Type="Self.Filme" Multiplicity="*" />
-          <End Role="Genuri" Type="Self.Genuri" Multiplicity="*" />
-        </Association>
-        <Association Name="Relatie_Regizor_Film">
-          <End Role="Filme" Type="Self.Filme" Multiplicity="*" />
-          <End Role="Regizori" Type="Self.Regizori" Multiplicity="*" />
-        </Association>
         <Association Name="Relatie_Serial_Gen">
           <End Role="Genuri" Type="Self.Genuri" Multiplicity="*" />
           <End Role="Seriale" Type="Self.Seriale" Multiplicity="*" />
         </Association>
         <EntityContainer Name="IMDBEntities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Actoris" EntityType="Self.Actori" />
-          <EntitySet Name="Filmes" EntityType="Self.Filme" />
           <EntitySet Name="Genuris" EntityType="Self.Genuri" />
           <EntitySet Name="Premiis" EntityType="Self.Premii" />
-          <EntitySet Name="Regizoris" EntityType="Self.Regizori" />
-          <EntitySet Name="Relatie_actor_film" EntityType="Self.Relatie_actor_film" />
           <EntitySet Name="Relatie_Actori_Premii" EntityType="Self.Relatie_Actori_Premii" />
           <EntitySet Name="Relatie_Filme_Premii" EntityType="Self.Relatie_Filme_Premii" />
           <EntitySet Name="Seriales" EntityType="Self.Seriale" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
-          <AssociationSet Name="FK_Relatie_actor_film_Actori" Association="Self.FK_Relatie_actor_film_Actori">
-            <End Role="Actori" EntitySet="Actoris" />
-            <End Role="Relatie_actor_film" EntitySet="Relatie_actor_film" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Relatie_Actori_Premii_Actori" Association="Self.FK_Relatie_Actori_Premii_Actori">
-            <End Role="Actori" EntitySet="Actoris" />
-            <End Role="Relatie_Actori_Premii" EntitySet="Relatie_Actori_Premii" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Relatie_actor_film_Filme" Association="Self.FK_Relatie_actor_film_Filme">
-            <End Role="Filme" EntitySet="Filmes" />
-            <End Role="Relatie_actor_film" EntitySet="Relatie_actor_film" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Relatie_Filme_Premii_Filme" Association="Self.FK_Relatie_Filme_Premii_Filme">
-            <End Role="Filme" EntitySet="Filmes" />
-            <End Role="Relatie_Filme_Premii" EntitySet="Relatie_Filme_Premii" />
-          </AssociationSet>
           <AssociationSet Name="FK_Relatie_Actori_Premii_Premii" Association="Self.FK_Relatie_Actori_Premii_Premii">
             <End Role="Premii" EntitySet="Premiis" />
             <End Role="Relatie_Actori_Premii" EntitySet="Relatie_Actori_Premii" />
@@ -1010,14 +1076,6 @@ warning 6002: The table/view 'IMDB.dbo.AllWesternMovies' does not have a primary
           <AssociationSet Name="FK_Relatie_Filme_Premii_Premii" Association="Self.FK_Relatie_Filme_Premii_Premii">
             <End Role="Premii" EntitySet="Premiis" />
             <End Role="Relatie_Filme_Premii" EntitySet="Relatie_Filme_Premii" />
-          </AssociationSet>
-          <AssociationSet Name="Relatie_Film_Gen" Association="Self.Relatie_Film_Gen">
-            <End Role="Filme" EntitySet="Filmes" />
-            <End Role="Genuri" EntitySet="Genuris" />
-          </AssociationSet>
-          <AssociationSet Name="Relatie_Regizor_Film" Association="Self.Relatie_Regizor_Film">
-            <End Role="Filme" EntitySet="Filmes" />
-            <End Role="Regizori" EntitySet="Regizoris" />
           </AssociationSet>
           <AssociationSet Name="Relatie_Serial_Gen" Association="Self.Relatie_Serial_Gen">
             <End Role="Genuri" EntitySet="Genuris" />
@@ -1054,14 +1112,24 @@ warning 6002: The table/view 'IMDB.dbo.AllWesternMovies' does not have a primary
           </FunctionImport>
           <FunctionImport Name="sp_upgraddiagrams" />
           <EntitySet Name="Users" EntityType="IMDBModel.User" />
+          <EntitySet Name="WatchLists" EntityType="IMDBModel.WatchList" />
+          <EntitySet Name="YourRatings" EntityType="IMDBModel.YourRating" />
+          <AssociationSet Name="FK_WatchList_Users" Association="IMDBModel.FK_WatchList_Users">
+            <End Role="User" EntitySet="Users" />
+            <End Role="WatchList" EntitySet="WatchLists" />
+          </AssociationSet>
+          <AssociationSet Name="FK_YourRatings_Users" Association="IMDBModel.FK_YourRatings_Users">
+            <End Role="User" EntitySet="Users" />
+            <End Role="YourRating" EntitySet="YourRatings" />
+          </AssociationSet>
           <EntitySet Name="AllActionMovies" EntityType="IMDBModel.AllActionMovy" />
+          <EntitySet Name="AllComedyMovies" EntityType="IMDBModel.AllComedyMovy" />
+          <EntitySet Name="AllDramaMovies" EntityType="IMDBModel.AllDramaMovy" />
           <EntitySet Name="AllAdventureMovies" EntityType="IMDBModel.AllAdventureMovy" />
           <EntitySet Name="AllAnimationMovies" EntityType="IMDBModel.AllAnimationMovy" />
           <EntitySet Name="AllBiographyMovies" EntityType="IMDBModel.AllBiographyMovy" />
-          <EntitySet Name="AllComedyMovies" EntityType="IMDBModel.AllComedyMovy" />
           <EntitySet Name="AllCrimeMovies" EntityType="IMDBModel.AllCrimeMovy" />
           <EntitySet Name="AllDocumentaryMovies" EntityType="IMDBModel.AllDocumentaryMovy" />
-          <EntitySet Name="AllDramaMovies" EntityType="IMDBModel.AllDramaMovy" />
           <EntitySet Name="AllFamilyMovies" EntityType="IMDBModel.AllFamilyMovy" />
           <EntitySet Name="AllFantasyMovies" EntityType="IMDBModel.AllFantasyMovy" />
           <EntitySet Name="AllFilmNoirMovies" EntityType="IMDBModel.AllFilmNoirMovy" />
@@ -1076,6 +1144,122 @@ warning 6002: The table/view 'IMDB.dbo.AllWesternMovies' does not have a primary
           <EntitySet Name="AllThrillerMovies" EntityType="IMDBModel.AllThrillerMovy" />
           <EntitySet Name="AllWarMovies" EntityType="IMDBModel.AllWarMovy" />
           <EntitySet Name="AllWesternMovies" EntityType="IMDBModel.AllWesternMovy" />
+          <EntitySet Name="Actoris" EntityType="IMDBModel.Actori" />
+          <EntitySet Name="Relatie_actor_film" EntityType="IMDBModel.Relatie_actor_film" />
+          <AssociationSet Name="FK_Relatie_actor_film_Actori" Association="IMDBModel.FK_Relatie_actor_film_Actori">
+            <End Role="Actori" EntitySet="Actoris" />
+            <End Role="Relatie_actor_film" EntitySet="Relatie_actor_film" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Relatie_Actori_Premii_Actori" Association="IMDBModel.FK_Relatie_Actori_Premii_Actori">
+            <End Role="Actori" EntitySet="Actoris" />
+            <End Role="Relatie_Actori_Premii" EntitySet="Relatie_Actori_Premii" />
+          </AssociationSet>
+          <EntitySet Name="MostPopularMovies" EntityType="IMDBModel.MostPopularMovy" />
+          <EntitySet Name="Filmes" EntityType="IMDBModel.Filme" />
+          <AssociationSet Name="FK_Relatie_actor_film_Filme" Association="IMDBModel.FK_Relatie_actor_film_Filme">
+            <End Role="Filme" EntitySet="Filmes" />
+            <End Role="Relatie_actor_film" EntitySet="Relatie_actor_film" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Relatie_Filme_Premii_Filme" Association="IMDBModel.FK_Relatie_Filme_Premii_Filme">
+            <End Role="Filme" EntitySet="Filmes" />
+            <End Role="Relatie_Filme_Premii" EntitySet="Relatie_Filme_Premii" />
+          </AssociationSet>
+          <AssociationSet Name="FK_WatchList_Filme" Association="IMDBModel.FK_WatchList_Filme">
+            <End Role="Filme" EntitySet="Filmes" />
+            <End Role="WatchList" EntitySet="WatchLists" />
+          </AssociationSet>
+          <AssociationSet Name="FK_YourRatings_Filme" Association="IMDBModel.FK_YourRatings_Filme">
+            <End Role="Filme" EntitySet="Filmes" />
+            <End Role="YourRating" EntitySet="YourRatings" />
+          </AssociationSet>
+          <AssociationSet Name="Relatie_Film_Gen" Association="IMDBModel.Relatie_Film_Gen">
+            <End Role="Filme" EntitySet="Filmes" />
+            <End Role="Genuri" EntitySet="Genuris" />
+          </AssociationSet>
+          <EntitySet Name="Relatie_Actor_Serial" EntityType="IMDBModel.Relatie_Actor_Serial" />
+          <FunctionImport Name="AddActorWithoutPhoto">
+            <Parameter Name="Nume" Mode="In" Type="String" />
+            <Parameter Name="Prenume" Mode="In" Type="String" />
+            <Parameter Name="datanastere" Mode="In" Type="DateTime" />
+            <Parameter Name="orasNatal" Mode="In" Type="String" />
+            <Parameter Name="tara" Mode="In" Type="String" />
+            <Parameter Name="nationalitate" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="AddActorWithPhoto">
+            <Parameter Name="Nume" Mode="In" Type="String" />
+            <Parameter Name="Prenume" Mode="In" Type="String" />
+            <Parameter Name="datanastere" Mode="In" Type="DateTime" />
+            <Parameter Name="orasNatal" Mode="In" Type="String" />
+            <Parameter Name="tara" Mode="In" Type="String" />
+            <Parameter Name="nationalitate" Mode="In" Type="String" />
+            <Parameter Name="photo" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="UpdateActorWithPhoto">
+            <Parameter Name="NumeVechi" Mode="In" Type="String" />
+            <Parameter Name="NumeNou" Mode="In" Type="String" />
+            <Parameter Name="Prenume" Mode="In" Type="String" />
+            <Parameter Name="datanastere" Mode="In" Type="DateTime" />
+            <Parameter Name="orasNatal" Mode="In" Type="String" />
+            <Parameter Name="tara" Mode="In" Type="String" />
+            <Parameter Name="nationalitate" Mode="In" Type="String" />
+            <Parameter Name="photo" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="UpdateActoriDupaID">
+            <Parameter Name="ID" Mode="In" Type="Int32" />
+            <Parameter Name="NumeNou" Mode="In" Type="String" />
+            <Parameter Name="Prenume" Mode="In" Type="String" />
+            <Parameter Name="datanastere" Mode="In" Type="DateTime" />
+            <Parameter Name="orasNatal" Mode="In" Type="String" />
+            <Parameter Name="tara" Mode="In" Type="String" />
+            <Parameter Name="nationalitate" Mode="In" Type="String" />
+            <Parameter Name="photo" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="DeleteActorbyID">
+          <Parameter Name="id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="DeleteActorbyName">
+          <Parameter Name="nume" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="DeleteDirectorbyID">
+          <Parameter Name="id" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="DeleteDirectorbyName">
+          <Parameter Name="nume" Mode="In" Type="String" />
+          </FunctionImport>
+          <EntitySet Name="Regizoris" EntityType="IMDBModel.Regizori" />
+          <AssociationSet Name="Relatie_Regizor_Film" Association="IMDBModel.Relatie_Regizor_Film">
+            <End Role="Filme" EntitySet="Filmes" />
+            <End Role="Regizori" EntitySet="Regizoris" />
+          </AssociationSet>
+          <FunctionImport Name="InsertDirectorWithPhoto">
+            <Parameter Name="Nume" Mode="In" Type="String" />
+            <Parameter Name="Prenume" Mode="In" Type="String" />
+            <Parameter Name="datanastere" Mode="In" Type="DateTime" />
+            <Parameter Name="orasNatal" Mode="In" Type="String" />
+            <Parameter Name="tara" Mode="In" Type="String" />
+            <Parameter Name="nationalitate" Mode="In" Type="String" />
+            <Parameter Name="photo" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="UpdateDirectorbyID">
+            <Parameter Name="ID" Mode="In" Type="Int32" />
+            <Parameter Name="NumeNou" Mode="In" Type="String" />
+            <Parameter Name="Prenume" Mode="In" Type="String" />
+            <Parameter Name="datanastere" Mode="In" Type="DateTime" />
+            <Parameter Name="orasNatal" Mode="In" Type="String" />
+            <Parameter Name="tara" Mode="In" Type="String" />
+            <Parameter Name="nationalitate" Mode="In" Type="String" />
+            <Parameter Name="photo" Mode="In" Type="Binary" />
+          </FunctionImport>
+          <FunctionImport Name="UpdateDirectorbyName">
+            <Parameter Name="NumeVechi" Mode="In" Type="String" />
+            <Parameter Name="NumeNou" Mode="In" Type="String" />
+            <Parameter Name="Prenume" Mode="In" Type="String" />
+            <Parameter Name="datanastere" Mode="In" Type="DateTime" />
+            <Parameter Name="orasNatal" Mode="In" Type="String" />
+            <Parameter Name="tara" Mode="In" Type="String" />
+            <Parameter Name="nationalitate" Mode="In" Type="String" />
+            <Parameter Name="photo" Mode="In" Type="Binary" />
+          </FunctionImport>
         </EntityContainer>
         <ComplexType Name="sp_helpdiagramdefinition_Result">
           <Property Type="Int32" Name="version" Nullable="true" />
@@ -1099,11 +1283,75 @@ warning 6002: The table/view 'IMDB.dbo.AllWesternMovies' does not have a primary
           <Property Name="PhoneNumber" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
           <Property Name="Rights" Type="String" MaxLength="20" FixedLength="true" Unicode="false" />
           <Property Name="DateofRegister" Type="DateTime" Precision="0" />
+          <NavigationProperty Name="WatchLists" Relationship="IMDBModel.FK_WatchList_Users" FromRole="User" ToRole="WatchList" />
+          <NavigationProperty Name="YourRatings" Relationship="IMDBModel.FK_YourRatings_Users" FromRole="User" ToRole="YourRating" />
+          <Property Name="Photo" Type="Binary" MaxLength="Max" FixedLength="false" />
         </EntityType>
+        <EntityType Name="WatchList">
+          <Key>
+            <PropertyRef Name="ID_Film" />
+            <PropertyRef Name="ID_User" />
+          </Key>
+          <Property Name="ID_Film" Type="Int32" Nullable="false" />
+          <Property Name="ID_User" Type="Int32" Nullable="false" />
+          <Property Name="Watched" Type="Int32" />
+          <NavigationProperty Name="User" Relationship="IMDBModel.FK_WatchList_Users" FromRole="WatchList" ToRole="User" />
+          <NavigationProperty Name="Filme" Relationship="IMDBModel.FK_WatchList_Filme" FromRole="WatchList" ToRole="Filme" />
+        </EntityType>
+        <EntityType Name="YourRating">
+          <Key>
+            <PropertyRef Name="ID_Film" />
+            <PropertyRef Name="ID_User" />
+          </Key>
+          <Property Name="ID_Film" Type="Int32" Nullable="false" />
+          <Property Name="ID_User" Type="Int32" Nullable="false" />
+          <Property Name="Nota" Type="Int32" />
+          <NavigationProperty Name="User" Relationship="IMDBModel.FK_YourRatings_Users" FromRole="YourRating" ToRole="User" />
+          <NavigationProperty Name="Filme" Relationship="IMDBModel.FK_YourRatings_Filme" FromRole="YourRating" ToRole="Filme" />
+        </EntityType>
+        <Association Name="FK_WatchList_Users">
+          <End Type="IMDBModel.User" Role="User" Multiplicity="1" />
+          <End Type="IMDBModel.WatchList" Role="WatchList" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="ID_User" />
+            </Principal>
+            <Dependent Role="WatchList">
+              <PropertyRef Name="ID_User" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_YourRatings_Users">
+          <End Type="IMDBModel.User" Role="User" Multiplicity="1" />
+          <End Type="IMDBModel.YourRating" Role="YourRating" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="ID_User" />
+            </Principal>
+            <Dependent Role="YourRating">
+              <PropertyRef Name="ID_User" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityType Name="AllActionMovy">
           <Key>
             <PropertyRef Name="Nume" />
-            <PropertyRef Name="ID_Film" />
+          </Key>
+          <Property Name="Nume" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Nume_Gen" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ID_Film" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AllComedyMovy">
+          <Key>
+            <PropertyRef Name="Nume" />
+          </Key>
+          <Property Name="Nume" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Nume_Gen" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ID_Film" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AllDramaMovy">
+          <Key>
+            <PropertyRef Name="Nume" />
           </Key>
           <Property Name="Nume" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Nume_Gen" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
@@ -1111,7 +1359,6 @@ warning 6002: The table/view 'IMDB.dbo.AllWesternMovies' does not have a primary
         </EntityType>
         <EntityType Name="AllAdventureMovy">
           <Key>
-            <PropertyRef Name="ID_Film" />
             <PropertyRef Name="Nume" />
           </Key>
           <Property Name="ID_Film" Type="Int32" Nullable="false" />
@@ -1120,7 +1367,6 @@ warning 6002: The table/view 'IMDB.dbo.AllWesternMovies' does not have a primary
         </EntityType>
         <EntityType Name="AllAnimationMovy">
           <Key>
-            <PropertyRef Name="ID_Film" />
             <PropertyRef Name="Nume" />
           </Key>
           <Property Name="ID_Film" Type="Int32" Nullable="false" />
@@ -1129,25 +1375,14 @@ warning 6002: The table/view 'IMDB.dbo.AllWesternMovies' does not have a primary
         </EntityType>
         <EntityType Name="AllBiographyMovy">
           <Key>
-            <PropertyRef Name="ID_Film" />
             <PropertyRef Name="Nume" />
           </Key>
           <Property Name="ID_Film" Type="Int32" Nullable="false" />
           <Property Name="Nume" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Nume_Gen" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-        </EntityType>
-        <EntityType Name="AllComedyMovy">
-          <Key>
-            <PropertyRef Name="Nume" />
-            <PropertyRef Name="ID_Film" />
-          </Key>
-          <Property Name="Nume" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Nume_Gen" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="ID_Film" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="AllCrimeMovy">
           <Key>
-            <PropertyRef Name="ID_Film" />
             <PropertyRef Name="Nume" />
           </Key>
           <Property Name="ID_Film" Type="Int32" Nullable="false" />
@@ -1156,25 +1391,14 @@ warning 6002: The table/view 'IMDB.dbo.AllWesternMovies' does not have a primary
         </EntityType>
         <EntityType Name="AllDocumentaryMovy">
           <Key>
-            <PropertyRef Name="ID_Film" />
             <PropertyRef Name="Nume" />
           </Key>
           <Property Name="ID_Film" Type="Int32" Nullable="false" />
           <Property Name="Nume" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Nume_Gen" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-        </EntityType>
-        <EntityType Name="AllDramaMovy">
-          <Key>
-            <PropertyRef Name="Nume" />
-            <PropertyRef Name="ID_Film" />
-          </Key>
-          <Property Name="Nume" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Nume_Gen" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="ID_Film" Type="Int32" Nullable="false" />
         </EntityType>
         <EntityType Name="AllFamilyMovy">
           <Key>
-            <PropertyRef Name="ID_Film" />
             <PropertyRef Name="Nume" />
           </Key>
           <Property Name="ID_Film" Type="Int32" Nullable="false" />
@@ -1183,7 +1407,6 @@ warning 6002: The table/view 'IMDB.dbo.AllWesternMovies' does not have a primary
         </EntityType>
         <EntityType Name="AllFantasyMovy">
           <Key>
-            <PropertyRef Name="ID_Film" />
             <PropertyRef Name="Nume" />
           </Key>
           <Property Name="ID_Film" Type="Int32" Nullable="false" />
@@ -1192,7 +1415,6 @@ warning 6002: The table/view 'IMDB.dbo.AllWesternMovies' does not have a primary
         </EntityType>
         <EntityType Name="AllFilmNoirMovy">
           <Key>
-            <PropertyRef Name="ID_Film" />
             <PropertyRef Name="Nume" />
           </Key>
           <Property Name="ID_Film" Type="Int32" Nullable="false" />
@@ -1201,7 +1423,6 @@ warning 6002: The table/view 'IMDB.dbo.AllWesternMovies' does not have a primary
         </EntityType>
         <EntityType Name="AllHistoryMovy">
           <Key>
-            <PropertyRef Name="ID_Film" />
             <PropertyRef Name="Nume" />
           </Key>
           <Property Name="ID_Film" Type="Int32" Nullable="false" />
@@ -1210,7 +1431,6 @@ warning 6002: The table/view 'IMDB.dbo.AllWesternMovies' does not have a primary
         </EntityType>
         <EntityType Name="AllHorrorMovy">
           <Key>
-            <PropertyRef Name="ID_Film" />
             <PropertyRef Name="Nume" />
           </Key>
           <Property Name="ID_Film" Type="Int32" Nullable="false" />
@@ -1219,7 +1439,6 @@ warning 6002: The table/view 'IMDB.dbo.AllWesternMovies' does not have a primary
         </EntityType>
         <EntityType Name="AllMisteryMovy">
           <Key>
-            <PropertyRef Name="ID_Film" />
             <PropertyRef Name="Nume" />
           </Key>
           <Property Name="ID_Film" Type="Int32" Nullable="false" />
@@ -1228,7 +1447,6 @@ warning 6002: The table/view 'IMDB.dbo.AllWesternMovies' does not have a primary
         </EntityType>
         <EntityType Name="AllMusicalMovy">
           <Key>
-            <PropertyRef Name="ID_Film" />
             <PropertyRef Name="Nume" />
           </Key>
           <Property Name="ID_Film" Type="Int32" Nullable="false" />
@@ -1237,7 +1455,6 @@ warning 6002: The table/view 'IMDB.dbo.AllWesternMovies' does not have a primary
         </EntityType>
         <EntityType Name="AllMusicMovy">
           <Key>
-            <PropertyRef Name="ID_Film" />
             <PropertyRef Name="Nume" />
           </Key>
           <Property Name="ID_Film" Type="Int32" Nullable="false" />
@@ -1246,7 +1463,6 @@ warning 6002: The table/view 'IMDB.dbo.AllWesternMovies' does not have a primary
         </EntityType>
         <EntityType Name="AllRomanceMovy">
           <Key>
-            <PropertyRef Name="ID_Film" />
             <PropertyRef Name="Nume" />
           </Key>
           <Property Name="ID_Film" Type="Int32" Nullable="false" />
@@ -1255,7 +1471,6 @@ warning 6002: The table/view 'IMDB.dbo.AllWesternMovies' does not have a primary
         </EntityType>
         <EntityType Name="AllSFMovy">
           <Key>
-            <PropertyRef Name="ID_Film" />
             <PropertyRef Name="Nume" />
           </Key>
           <Property Name="ID_Film" Type="Int32" Nullable="false" />
@@ -1264,7 +1479,6 @@ warning 6002: The table/view 'IMDB.dbo.AllWesternMovies' does not have a primary
         </EntityType>
         <EntityType Name="AllSportMovy">
           <Key>
-            <PropertyRef Name="ID_Film" />
             <PropertyRef Name="Nume" />
           </Key>
           <Property Name="ID_Film" Type="Int32" Nullable="false" />
@@ -1273,7 +1487,6 @@ warning 6002: The table/view 'IMDB.dbo.AllWesternMovies' does not have a primary
         </EntityType>
         <EntityType Name="AllThrillerMovy">
           <Key>
-            <PropertyRef Name="ID_Film" />
             <PropertyRef Name="Nume" />
           </Key>
           <Property Name="ID_Film" Type="Int32" Nullable="false" />
@@ -1282,7 +1495,6 @@ warning 6002: The table/view 'IMDB.dbo.AllWesternMovies' does not have a primary
         </EntityType>
         <EntityType Name="AllWarMovy">
           <Key>
-            <PropertyRef Name="ID_Film" />
             <PropertyRef Name="Nume" />
           </Key>
           <Property Name="ID_Film" Type="Int32" Nullable="false" />
@@ -1291,42 +1503,171 @@ warning 6002: The table/view 'IMDB.dbo.AllWesternMovies' does not have a primary
         </EntityType>
         <EntityType Name="AllWesternMovy">
           <Key>
-            <PropertyRef Name="ID_Film" />
             <PropertyRef Name="Nume" />
           </Key>
           <Property Name="ID_Film" Type="Int32" Nullable="false" />
           <Property Name="Nume" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Nume_Gen" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
+        <EntityType Name="Actori">
+          <Key>
+            <PropertyRef Name="ID_Actor" />
+          </Key>
+          <Property Name="ID_Actor" Type="Int32" Nullable="false" />
+          <Property Name="Nume" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Prenume" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DataNasterii" Type="DateTime" Precision="0" />
+          <Property Name="Oras_natal" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Tara" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Nationalitate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Photo" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="Relatie_actor_film" Relationship="IMDBModel.FK_Relatie_actor_film_Actori" FromRole="Actori" ToRole="Relatie_actor_film" />
+          <NavigationProperty Name="Relatie_Actori_Premii" Relationship="IMDBModel.FK_Relatie_Actori_Premii_Actori" FromRole="Actori" ToRole="Relatie_Actori_Premii" />
+        </EntityType>
+        <EntityType Name="Relatie_actor_film">
+          <Key>
+            <PropertyRef Name="ID_Actor" />
+            <PropertyRef Name="ID_Film" />
+          </Key>
+          <Property Name="ID_Actor" Type="Int32" Nullable="false" />
+          <Property Name="ID_Film" Type="Int32" Nullable="false" />
+          <Property Name="Nume_in_film" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Actori" Relationship="IMDBModel.FK_Relatie_actor_film_Actori" FromRole="Relatie_actor_film" ToRole="Actori" />
+          <NavigationProperty Name="Filme" Relationship="IMDBModel.FK_Relatie_actor_film_Filme" FromRole="Relatie_actor_film" ToRole="Filme" />
+        </EntityType>
+        <Association Name="FK_Relatie_actor_film_Actori">
+          <End Type="IMDBModel.Actori" Role="Actori" Multiplicity="1" />
+          <End Type="IMDBModel.Relatie_actor_film" Role="Relatie_actor_film" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Actori">
+              <PropertyRef Name="ID_Actor" />
+            </Principal>
+            <Dependent Role="Relatie_actor_film">
+              <PropertyRef Name="ID_Actor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Relatie_Actori_Premii_Actori">
+          <End Type="IMDBModel.Actori" Role="Actori" Multiplicity="1" />
+          <End Type="IMDBModel.Relatie_Actori_Premii" Role="Relatie_Actori_Premii" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Actori">
+              <PropertyRef Name="ID_Actor" />
+            </Principal>
+            <Dependent Role="Relatie_Actori_Premii">
+              <PropertyRef Name="ID_Actor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="MostPopularMovy">
+          <Key>
+            <PropertyRef Name="Nume" />
+          </Key>
+          <Property Name="ID_Film" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nume" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Nota" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Filme">
+          <Key>
+            <PropertyRef Name="ID_Film" />
+          </Key>
+          <Property Name="ID_Film" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nume" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="An_aparitie" Type="Int32" />
+          <Property Name="Nota" Type="String" Nullable="false" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Photo" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="Relatie_actor_film" Relationship="IMDBModel.FK_Relatie_actor_film_Filme" FromRole="Filme" ToRole="Relatie_actor_film" />
+          <NavigationProperty Name="Relatie_Filme_Premii" Relationship="IMDBModel.FK_Relatie_Filme_Premii_Filme" FromRole="Filme" ToRole="Relatie_Filme_Premii" />
+          <NavigationProperty Name="WatchLists" Relationship="IMDBModel.FK_WatchList_Filme" FromRole="Filme" ToRole="WatchList" />
+          <NavigationProperty Name="YourRatings" Relationship="IMDBModel.FK_YourRatings_Filme" FromRole="Filme" ToRole="YourRating" />
+          <NavigationProperty Name="Genuris" Relationship="IMDBModel.Relatie_Film_Gen" FromRole="Filme" ToRole="Genuri" />
+          <NavigationProperty Name="Regizoris" Relationship="IMDBModel.Relatie_Regizor_Film" FromRole="Filme" ToRole="Regizori" />
+        </EntityType>
+        <Association Name="FK_Relatie_actor_film_Filme">
+          <End Type="IMDBModel.Filme" Role="Filme" Multiplicity="1" />
+          <End Type="IMDBModel.Relatie_actor_film" Role="Relatie_actor_film" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Filme">
+              <PropertyRef Name="ID_Film" />
+            </Principal>
+            <Dependent Role="Relatie_actor_film">
+              <PropertyRef Name="ID_Film" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Relatie_Filme_Premii_Filme">
+          <End Type="IMDBModel.Filme" Role="Filme" Multiplicity="1" />
+          <End Type="IMDBModel.Relatie_Filme_Premii" Role="Relatie_Filme_Premii" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Filme">
+              <PropertyRef Name="ID_Film" />
+            </Principal>
+            <Dependent Role="Relatie_Filme_Premii">
+              <PropertyRef Name="ID_Film" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_WatchList_Filme">
+          <End Type="IMDBModel.Filme" Role="Filme" Multiplicity="1" />
+          <End Type="IMDBModel.WatchList" Role="WatchList" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Filme">
+              <PropertyRef Name="ID_Film" />
+            </Principal>
+            <Dependent Role="WatchList">
+              <PropertyRef Name="ID_Film" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_YourRatings_Filme">
+          <End Type="IMDBModel.Filme" Role="Filme" Multiplicity="1" />
+          <End Type="IMDBModel.YourRating" Role="YourRating" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Filme">
+              <PropertyRef Name="ID_Film" />
+            </Principal>
+            <Dependent Role="YourRating">
+              <PropertyRef Name="ID_Film" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="Relatie_Film_Gen">
+          <End Type="IMDBModel.Filme" Role="Filme" Multiplicity="*" />
+          <End Type="IMDBModel.Genuri" Role="Genuri" Multiplicity="*" />
+        </Association>
+        <EntityType Name="Relatie_Actor_Serial">
+          <Key>
+            <PropertyRef Name="ID_Actor" />
+            <PropertyRef Name="ID_Serial" />
+          </Key>
+          <Property Name="ID_Actor" Type="Int32" Nullable="false" />
+          <Property Name="ID_Serial" Type="Int32" Nullable="false" />
+          <Property Name="Nume_in_Serial" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Regizori">
+          <Key>
+            <PropertyRef Name="ID_Regizor" />
+          </Key>
+          <Property Name="ID_Regizor" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Nume" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Prenume" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Data_nasterii" Type="DateTime" Precision="3" />
+          <Property Name="Locul_nasterii" Type="String" MaxLength="90" FixedLength="false" Unicode="false" />
+          <Property Name="Tara" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Nationalitate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Photo" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <NavigationProperty Name="Filmes" Relationship="IMDBModel.Relatie_Regizor_Film" FromRole="Regizori" ToRole="Filme" />
+        </EntityType>
+        <Association Name="Relatie_Regizor_Film">
+          <End Type="IMDBModel.Filme" Role="Filme" Multiplicity="*" />
+          <End Type="IMDBModel.Regizori" Role="Regizori" Multiplicity="*" />
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="IMDBModelStoreContainer" CdmEntityContainer="IMDBEntities">
-          <EntitySetMapping Name="Actoris">
-            <EntityTypeMapping TypeName="IMDBModel.Actori">
-              <MappingFragment StoreEntitySet="Actori">
-                <ScalarProperty Name="ID_Actor" ColumnName="ID_Actor" />
-                <ScalarProperty Name="Nume" ColumnName="Nume" />
-                <ScalarProperty Name="Prenume" ColumnName="Prenume" />
-                <ScalarProperty Name="Anul_nasterii" ColumnName="Anul_nasterii" />
-                <ScalarProperty Name="Oras_natal" ColumnName="Oras_natal" />
-                <ScalarProperty Name="Tara" ColumnName="Tara" />
-                <ScalarProperty Name="Nationalitate" ColumnName="Nationalitate" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Filmes">
-            <EntityTypeMapping TypeName="IMDBModel.Filme">
-              <MappingFragment StoreEntitySet="Filme">
-                <ScalarProperty Name="ID_Film" ColumnName="ID_Film" />
-                <ScalarProperty Name="Nume" ColumnName="Nume" />
-                <ScalarProperty Name="An_aparitie" ColumnName="An_aparitie" />
-                <ScalarProperty Name="Nota" ColumnName="Nota" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Genuris">
             <EntityTypeMapping TypeName="IMDBModel.Genuri">
               <MappingFragment StoreEntitySet="Genuri">
@@ -1340,30 +1681,6 @@ warning 6002: The table/view 'IMDB.dbo.AllWesternMovies' does not have a primary
               <MappingFragment StoreEntitySet="Premii">
                 <ScalarProperty Name="ID_Premiu" ColumnName="ID_Premiu" />
                 <ScalarProperty Name="Nume" ColumnName="Nume" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Regizoris">
-            <EntityTypeMapping TypeName="IMDBModel.Regizori">
-              <MappingFragment StoreEntitySet="Regizori">
-                <ScalarProperty Name="ID_Regizor" ColumnName="ID_Regizor" />
-                <ScalarProperty Name="Nume" ColumnName="Nume" />
-                <ScalarProperty Name="Prenume" ColumnName="Prenume" />
-                <ScalarProperty Name="Data_nasterii" ColumnName="Data_nasterii" />
-                <ScalarProperty Name="Locul_nasterii" ColumnName="Locul_nasterii" />
-                <ScalarProperty Name="Tara" ColumnName="Tara" />
-                <ScalarProperty Name="Nationalitate" ColumnName="Nationalitate" />
-                <ScalarProperty Name="Nr_filme_regizate" ColumnName="Nr_filme_regizate" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Relatie_actor_film">
-            <EntityTypeMapping TypeName="IMDBModel.Relatie_actor_film">
-              <MappingFragment StoreEntitySet="Relatie_actor_film">
-                <ScalarProperty Name="ID_Relatie" ColumnName="ID_Relatie" />
-                <ScalarProperty Name="ID_Actor" ColumnName="ID_Actor" />
-                <ScalarProperty Name="ID_Film" ColumnName="ID_Film" />
-                <ScalarProperty Name="Nume_in_film" ColumnName="Nume_in_film" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1388,6 +1705,7 @@ warning 6002: The table/view 'IMDB.dbo.AllWesternMovies' does not have a primary
           <EntitySetMapping Name="Seriales">
             <EntityTypeMapping TypeName="IMDBModel.Seriale">
               <MappingFragment StoreEntitySet="Seriale">
+                <ScalarProperty Name="Photo" ColumnName="Photo" />
                 <ScalarProperty Name="ID_Serial" ColumnName="ID_Serial" />
                 <ScalarProperty Name="Nume" ColumnName="Nume" />
                 <ScalarProperty Name="An_aparitie" ColumnName="An_aparitie" />
@@ -1408,22 +1726,6 @@ warning 6002: The table/view 'IMDB.dbo.AllWesternMovies' does not have a primary
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <AssociationSetMapping Name="Relatie_Film_Gen" TypeName="IMDBModel.Relatie_Film_Gen" StoreEntitySet="Relatie_Film_Gen">
-            <EndProperty Name="Filme">
-              <ScalarProperty Name="ID_Film" ColumnName="ID_Film" />
-            </EndProperty>
-            <EndProperty Name="Genuri">
-              <ScalarProperty Name="ID_Gen" ColumnName="ID_Gen" />
-            </EndProperty>
-          </AssociationSetMapping>
-          <AssociationSetMapping Name="Relatie_Regizor_Film" TypeName="IMDBModel.Relatie_Regizor_Film" StoreEntitySet="Relatie_Regizor_Film">
-            <EndProperty Name="Filme">
-              <ScalarProperty Name="ID_Film" ColumnName="ID_Film" />
-            </EndProperty>
-            <EndProperty Name="Regizori">
-              <ScalarProperty Name="ID_Regizor" ColumnName="ID_Regizor" />
-            </EndProperty>
-          </AssociationSetMapping>
           <AssociationSetMapping Name="Relatie_Serial_Gen" TypeName="IMDBModel.Relatie_Serial_Gen" StoreEntitySet="Relatie_Serial_Gen">
             <EndProperty Name="Genuri">
               <ScalarProperty Name="ID_Gen" ColumnName="ID_Gen" />
@@ -1459,6 +1761,7 @@ warning 6002: The table/view 'IMDB.dbo.AllWesternMovies' does not have a primary
           <EntitySetMapping Name="Users">
             <EntityTypeMapping TypeName="IMDBModel.User">
               <MappingFragment StoreEntitySet="Users">
+                <ScalarProperty Name="Photo" ColumnName="Photo" />
                 <ScalarProperty Name="DateofRegister" ColumnName="DateofRegister" />
                 <ScalarProperty Name="Rights" ColumnName="Rights" />
                 <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
@@ -1469,9 +1772,45 @@ warning 6002: The table/view 'IMDB.dbo.AllWesternMovies' does not have a primary
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="WatchLists">
+            <EntityTypeMapping TypeName="IMDBModel.WatchList">
+              <MappingFragment StoreEntitySet="WatchList">
+                <ScalarProperty Name="Watched" ColumnName="Watched" />
+                <ScalarProperty Name="ID_User" ColumnName="ID_User" />
+                <ScalarProperty Name="ID_Film" ColumnName="ID_Film" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="YourRatings">
+            <EntityTypeMapping TypeName="IMDBModel.YourRating">
+              <MappingFragment StoreEntitySet="YourRatings">
+                <ScalarProperty Name="Nota" ColumnName="Nota" />
+                <ScalarProperty Name="ID_User" ColumnName="ID_User" />
+                <ScalarProperty Name="ID_Film" ColumnName="ID_Film" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="AllActionMovies">
             <EntityTypeMapping TypeName="IMDBModel.AllActionMovy">
               <MappingFragment StoreEntitySet="AllActionMovies">
+                <ScalarProperty Name="ID_Film" ColumnName="ID_Film" />
+                <ScalarProperty Name="Nume_Gen" ColumnName="Nume_Gen" />
+                <ScalarProperty Name="Nume" ColumnName="Nume" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AllComedyMovies">
+            <EntityTypeMapping TypeName="IMDBModel.AllComedyMovy">
+              <MappingFragment StoreEntitySet="AllComedyMovies">
+                <ScalarProperty Name="ID_Film" ColumnName="ID_Film" />
+                <ScalarProperty Name="Nume_Gen" ColumnName="Nume_Gen" />
+                <ScalarProperty Name="Nume" ColumnName="Nume" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AllDramaMovies">
+            <EntityTypeMapping TypeName="IMDBModel.AllDramaMovy">
+              <MappingFragment StoreEntitySet="AllDramaMovies">
                 <ScalarProperty Name="ID_Film" ColumnName="ID_Film" />
                 <ScalarProperty Name="Nume_Gen" ColumnName="Nume_Gen" />
                 <ScalarProperty Name="Nume" ColumnName="Nume" />
@@ -1505,15 +1844,6 @@ warning 6002: The table/view 'IMDB.dbo.AllWesternMovies' does not have a primary
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="AllComedyMovies">
-            <EntityTypeMapping TypeName="IMDBModel.AllComedyMovy">
-              <MappingFragment StoreEntitySet="AllComedyMovies">
-                <ScalarProperty Name="ID_Film" ColumnName="ID_Film" />
-                <ScalarProperty Name="Nume_Gen" ColumnName="Nume_Gen" />
-                <ScalarProperty Name="Nume" ColumnName="Nume" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="AllCrimeMovies">
             <EntityTypeMapping TypeName="IMDBModel.AllCrimeMovy">
               <MappingFragment StoreEntitySet="AllCrimeMovies">
@@ -1529,15 +1859,6 @@ warning 6002: The table/view 'IMDB.dbo.AllWesternMovies' does not have a primary
                 <ScalarProperty Name="Nume_Gen" ColumnName="Nume_Gen" />
                 <ScalarProperty Name="Nume" ColumnName="Nume" />
                 <ScalarProperty Name="ID_Film" ColumnName="ID_Film" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="AllDramaMovies">
-            <EntityTypeMapping TypeName="IMDBModel.AllDramaMovy">
-              <MappingFragment StoreEntitySet="AllDramaMovies">
-                <ScalarProperty Name="ID_Film" ColumnName="ID_Film" />
-                <ScalarProperty Name="Nume_Gen" ColumnName="Nume_Gen" />
-                <ScalarProperty Name="Nume" ColumnName="Nume" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1667,6 +1988,99 @@ warning 6002: The table/view 'IMDB.dbo.AllWesternMovies' does not have a primary
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Actoris">
+            <EntityTypeMapping TypeName="IMDBModel.Actori">
+              <MappingFragment StoreEntitySet="Actori">
+                <ScalarProperty Name="Photo" ColumnName="Photo" />
+                <ScalarProperty Name="Nationalitate" ColumnName="Nationalitate" />
+                <ScalarProperty Name="Tara" ColumnName="Tara" />
+                <ScalarProperty Name="Oras_natal" ColumnName="Oras_natal" />
+                <ScalarProperty Name="DataNasterii" ColumnName="DataNasterii" />
+                <ScalarProperty Name="Prenume" ColumnName="Prenume" />
+                <ScalarProperty Name="Nume" ColumnName="Nume" />
+                <ScalarProperty Name="ID_Actor" ColumnName="ID_Actor" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Relatie_actor_film">
+            <EntityTypeMapping TypeName="IMDBModel.Relatie_actor_film">
+              <MappingFragment StoreEntitySet="Relatie_actor_film">
+                <ScalarProperty Name="Nume_in_film" ColumnName="Nume_in_film" />
+                <ScalarProperty Name="ID_Film" ColumnName="ID_Film" />
+                <ScalarProperty Name="ID_Actor" ColumnName="ID_Actor" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MostPopularMovies">
+            <EntityTypeMapping TypeName="IMDBModel.MostPopularMovy">
+              <MappingFragment StoreEntitySet="MostPopularMovies">
+                <ScalarProperty Name="Nota" ColumnName="Nota" />
+                <ScalarProperty Name="Nume" ColumnName="Nume" />
+                <ScalarProperty Name="ID_Film" ColumnName="ID_Film" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Filmes">
+            <EntityTypeMapping TypeName="IMDBModel.Filme">
+              <MappingFragment StoreEntitySet="Filme">
+                <ScalarProperty Name="Photo" ColumnName="Photo" />
+                <ScalarProperty Name="Nota" ColumnName="Nota" />
+                <ScalarProperty Name="An_aparitie" ColumnName="An_aparitie" />
+                <ScalarProperty Name="Nume" ColumnName="Nume" />
+                <ScalarProperty Name="ID_Film" ColumnName="ID_Film" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="Relatie_Film_Gen" TypeName="IMDBModel.Relatie_Film_Gen" StoreEntitySet="Relatie_Film_Gen">
+            <EndProperty Name="Genuri">
+              <ScalarProperty Name="ID_Gen" ColumnName="ID_Gen" />
+            </EndProperty>
+            <EndProperty Name="Filme">
+              <ScalarProperty Name="ID_Film" ColumnName="ID_Film" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <EntitySetMapping Name="Relatie_Actor_Serial">
+            <EntityTypeMapping TypeName="IMDBModel.Relatie_Actor_Serial">
+              <MappingFragment StoreEntitySet="Relatie_Actor_Serial">
+                <ScalarProperty Name="Nume_in_Serial" ColumnName="Nume_in_Serial" />
+                <ScalarProperty Name="ID_Serial" ColumnName="ID_Serial" />
+                <ScalarProperty Name="ID_Actor" ColumnName="ID_Actor" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="AddActorWithoutPhoto" FunctionName="IMDBModel.Store.AddActorWithoutPhoto" />
+          <FunctionImportMapping FunctionImportName="AddActorWithPhoto" FunctionName="IMDBModel.Store.AddActorWithPhoto" />
+          <FunctionImportMapping FunctionImportName="UpdateActorWithPhoto" FunctionName="IMDBModel.Store.UpdateActorWithPhoto" />
+          <FunctionImportMapping FunctionImportName="UpdateActoriDupaID" FunctionName="IMDBModel.Store.UpdateActoriDupaID" />
+          <FunctionImportMapping FunctionImportName="DeleteActorbyID" FunctionName="IMDBModel.Store.DeleteActorbyID" />
+          <FunctionImportMapping FunctionImportName="DeleteActorbyName" FunctionName="IMDBModel.Store.DeleteActorbyName" />
+          <FunctionImportMapping FunctionImportName="DeleteDirectorbyID" FunctionName="IMDBModel.Store.DeleteDirectorbyID" />
+          <FunctionImportMapping FunctionImportName="DeleteDirectorbyName" FunctionName="IMDBModel.Store.DeleteDirectorbyName" />
+          <EntitySetMapping Name="Regizoris">
+            <EntityTypeMapping TypeName="IMDBModel.Regizori">
+              <MappingFragment StoreEntitySet="Regizori">
+                <ScalarProperty Name="Photo" ColumnName="Photo" />
+                <ScalarProperty Name="Nationalitate" ColumnName="Nationalitate" />
+                <ScalarProperty Name="Tara" ColumnName="Tara" />
+                <ScalarProperty Name="Locul_nasterii" ColumnName="Locul_nasterii" />
+                <ScalarProperty Name="Data_nasterii" ColumnName="Data_nasterii" />
+                <ScalarProperty Name="Prenume" ColumnName="Prenume" />
+                <ScalarProperty Name="Nume" ColumnName="Nume" />
+                <ScalarProperty Name="ID_Regizor" ColumnName="ID_Regizor" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="Relatie_Regizor_Film" TypeName="IMDBModel.Relatie_Regizor_Film" StoreEntitySet="Relatie_Regizor_Film">
+            <EndProperty Name="Regizori">
+              <ScalarProperty Name="ID_Regizor" ColumnName="ID_Regizor" />
+            </EndProperty>
+            <EndProperty Name="Filme">
+              <ScalarProperty Name="ID_Film" ColumnName="ID_Film" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <FunctionImportMapping FunctionImportName="InsertDirectorWithPhoto" FunctionName="IMDBModel.Store.InsertDirectorWithPhoto" />
+          <FunctionImportMapping FunctionImportName="UpdateDirectorbyID" FunctionName="IMDBModel.Store.UpdateDirectorbyID" />
+          <FunctionImportMapping FunctionImportName="UpdateDirectorbyName" FunctionName="IMDBModel.Store.UpdateDirectorbyName" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

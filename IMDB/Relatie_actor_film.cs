@@ -14,7 +14,6 @@ namespace IMDB
     
     public partial class Relatie_actor_film
     {
-        public int ID_Relatie { get; set; }
         public int ID_Actor { get; set; }
         public int ID_Film { get; set; }
         public string Nume_in_film { get; set; }

@@ -18,7 +18,7 @@ namespace IMDB
         public int ID_Film { get; set; }
         public string Numar_Premii { get; set; }
     
-        public virtual Filme Filme { get; set; }
         public virtual Premii Premii { get; set; }
+        public virtual Filme Filme { get; set; }
     }
 }
