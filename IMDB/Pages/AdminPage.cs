@@ -20,7 +20,7 @@ namespace IMDB
     {
         private IMDProject ParentPageAdminPage;
         private string MemberUserName;
-        private string continutTextbox1;
+        private string drepturi;
 
         public AdminPage(string AdminName, IMDProject startpage)
         {
@@ -28,12 +28,22 @@ namespace IMDB
             AdminNameLabel.Text = AdminName;
             ParentPageAdminPage = startpage;
             MemberUserName = AdminName;
-            continutTextbox1 = textBox1.Text;
+            using (var context= new IMDBEntities())
+            {
+                var result = (from a in context.Users
+                              where a.Username.Contains(AdminName)
+                              select a).First();
+                drepturi = result.Rights;
+            }
         }
 
         private void AdminPage_Load(object sender, EventArgs e)
         {
-            
+            if(!drepturi.Contains("superadmin"))
+            {
+                buttonUser.Visible = false;
+                
+            }
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -71,6 +81,7 @@ namespace IMDB
             pictureBoxPoza.Visible = true;
             buttonCauta.Visible = true;
             buttonSalveaza.Visible = true;
+            checkBoxMakeAdmin.Visible = false;
         }  //actor button
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -103,7 +114,7 @@ namespace IMDB
             label6.Visible = true;
             textBox3.Visible = true;
             textBox3.Text = "";
-            label5.Text = "Nume";
+            label5.Text = "Oras Natal";
             label5.Visible = true;
             textBox4.Visible = true;
             textBox4.Text = "";
@@ -119,6 +130,7 @@ namespace IMDB
             pictureBoxPoza.Visible = true;
             buttonCauta.Visible = true;
             buttonSalveaza.Visible = true;
+            checkBoxMakeAdmin.Visible = false;
         } //director button
 
         private void AddMovieButton_Click(object sender, EventArgs e)
@@ -148,6 +160,7 @@ namespace IMDB
             pictureBoxPoza.Visible = true;
             buttonCauta.Visible = true;
             buttonSalveaza.Visible = true;
+            checkBoxMakeAdmin.Visible = false;
         } //movie button
 
         private void AddTVSeriesButton_Click(object sender, EventArgs e)
@@ -179,6 +192,7 @@ namespace IMDB
             pictureBoxPoza.Visible = true;
             buttonCauta.Visible = true;
             buttonSalveaza.Visible = true;
+            checkBoxMakeAdmin.Visible = false;
         }  //tvseries button
 
         private void InsertcheckBox_CheckedChanged(object sender, EventArgs e)
@@ -303,11 +317,11 @@ namespace IMDB
 
         private void buttonSalveaza_Click(object sender, EventArgs e)
         {
-            if(label2.Text == "Nume" &&  label7.Text == "Prenume" &&  label6.Text == "Data de Nastere")
+            if (label2.Text == "Nume" && label7.Text == "Prenume" && label6.Text == "Data de Nastere")
             {
-                if(DeletecheckBox.Checked==true)
+                if (DeletecheckBox.Checked == true)
                 {
-                    using (IMDBEntities con=new IMDBEntities())
+                    using (IMDBEntities con = new IMDBEntities())
                     {
                         if (label11.Text.Equals("ID*:"))
                         {
@@ -336,7 +350,7 @@ namespace IMDB
                                 MessageBox.Show("Nu exista nici o inregistrare care sa corespunda numelui tastat!");
                             }
                             else
-                            { 
+                            {
                                 con.DeleteActorbyName(textBox7.Text);
                                 con.SaveChanges();
                                 MessageBox.Show("Actor sters cu succes!");
@@ -346,57 +360,58 @@ namespace IMDB
 
                 }
 
-                    else if (!textBox1.Text.Equals(""))
+                else if (!textBox1.Text.Equals(""))
+                {
+                    if (!textBox2.Text.Equals(""))
                     {
-                        if (!textBox2.Text.Equals(""))
+                        if (!textBox3.Text.Equals(""))
                         {
-                            if (!textBox3.Text.Equals(""))
+                            if (!textBox4.Text.Equals(""))
                             {
-                                if (!textBox4.Text.Equals(""))
+                                if (!textBox5.Text.Equals(""))
                                 {
-                                    if (!textBox5.Text.Equals(""))
+                                    if (!textBox6.Text.Equals(""))
                                     {
-                                        if (!textBox6.Text.Equals(""))
+                                        using (IMDBEntities context = new IMDBEntities())
                                         {
-                                           using (IMDBEntities context=new IMDBEntities())
-                                           {
-                                                if (pictureBoxPoza.ImageLocation != null)
+                                            if (pictureBoxPoza.ImageLocation != null)
+                                            {
+                                                if (InsertcheckBox.Checked == true)
                                                 {
-                                                    if (InsertcheckBox.Checked == true)
+                                                    DateTime a = Convert.ToDateTime(textBox3.Text);
+                                                    context.AddActorWithPhoto(textBox1.Text, textBox2.Text, a, textBox4.Text, textBox5.Text, textBox6.Text, ConvertFiletoByte(pictureBoxPoza.ImageLocation));
+                                                    context.SaveChanges();
+                                                    MessageBox.Show("Actor adaugat cu succes (cu poza)!");
+                                                }
+                                                else if (UpdateCheckBox.Checked == true)
+                                                {
+                                                    if (!label11.Text.Equals("ID*:"))
                                                     {
-                                                        DateTime a = Convert.ToDateTime(textBox3.Text);
-                                                        context.AddActorWithPhoto(textBox1.Text, textBox2.Text, a, textBox4.Text, textBox5.Text, textBox6.Text, ConvertFiletoByte(pictureBoxPoza.ImageLocation));
-                                                        context.SaveChanges();
-                                                        MessageBox.Show("Actor adaugat cu succes (cu poza)!");
-                                                    }
-                                                    else if (UpdateCheckBox.Checked == true)
-                                                    {
-                                                        if (!label11.Text.Equals("ID*:"))
-                                                        {   var results = (from c in context.Actoris
-                                                                              where c.Nume == textBox7.Text
-                                                                              select c).FirstOrDefault();
-                                                             if (results == null)
-                                                             {
-                                                                MessageBox.Show("Nu exista nici o inregistrare care sa corespunda numelui tastat!");
-                                                             }
-                                                             else
-                                                             {
-                                                                 DateTime a = Convert.ToDateTime(textBox3.Text);
-                                                                 context.UpdateActorWithPhoto(textBox7.Text, textBox1.Text, textBox2.Text, a, textBox4.Text, textBox5.Text, textBox6.Text, ConvertFiletoByte(pictureBoxPoza.ImageLocation));
-                                                                 context.SaveChanges();
-                                                                 MessageBox.Show("Actor updatat cu succes!");
-                                                             }
+                                                        var results = (from c in context.Actoris
+                                                                       where c.Nume == textBox7.Text
+                                                                       select c).FirstOrDefault();
+                                                        if (results == null)
+                                                        {
+                                                            MessageBox.Show("Nu exista nici o inregistrare care sa corespunda numelui tastat!");
                                                         }
                                                         else
                                                         {
+                                                            DateTime a = Convert.ToDateTime(textBox3.Text);
+                                                            context.UpdateActorWithPhoto(textBox7.Text, textBox1.Text, textBox2.Text, a, textBox4.Text, textBox5.Text, textBox6.Text, ConvertFiletoByte(pictureBoxPoza.ImageLocation));
+                                                            context.SaveChanges();
+                                                            MessageBox.Show("Actor updatat cu succes!");
+                                                        }
+                                                    }
+                                                    else
+                                                    {
                                                         int b = Convert.ToInt32(textBox7.Text);
                                                         var results = (from c in context.Actoris
-                                                                       where c.ID_Actor ==b 
+                                                                       where c.ID_Actor == b
                                                                        select c).FirstOrDefault();
-                                                              if (results == null)
-                                                              {
-                                                                  MessageBox.Show("Nu exista nici o inregistrare care sa corespunda numelui tastat!");
-                                                              }
+                                                        if (results == null)
+                                                        {
+                                                            MessageBox.Show("Nu exista nici o inregistrare care sa corespunda numelui tastat!");
+                                                        }
                                                         else
                                                         {
                                                             DateTime a = Convert.ToDateTime(textBox3.Text);
@@ -405,41 +420,41 @@ namespace IMDB
                                                             MessageBox.Show("Actor updatat cu succes!");
                                                         }
                                                     }
-                                                    }
-                                                    else MessageBox.Show("Selecteaza ceea ce vrei sa faci! Insert, update, delete...");
                                                 }
-                                                else
+                                                else MessageBox.Show("Selecteaza ceea ce vrei sa faci! Insert, update, delete...");
+                                            }
+                                            else
+                                            {
+                                                if (InsertcheckBox.Checked == true)
                                                 {
-                                                     if (InsertcheckBox.Checked == true)
-                                                     {
-                                                         DateTime a = Convert.ToDateTime(textBox3.Text);
-                                                         context.AddActorWithoutPhoto(textBox1.Text, textBox2.Text, a, textBox4.Text, textBox5.Text, textBox6.Text);
-                                                         context.SaveChanges();
-                                                         MessageBox.Show("Actor adaugat cu succes (fara poza)!");
-                                                     }
-                                                     else if (UpdateCheckBox.Checked == true)
-                                                     {
-                                                         MessageBox.Show("Selecteaza o imagine mai intai!");
-                                                     }
-                                                     else MessageBox.Show("Alege o optiune!Update,Insert,Delete...");
+                                                    DateTime a = Convert.ToDateTime(textBox3.Text);
+                                                    context.AddActorWithoutPhoto(textBox1.Text, textBox2.Text, a, textBox4.Text, textBox5.Text, textBox6.Text);
+                                                    context.SaveChanges();
+                                                    MessageBox.Show("Actor adaugat cu succes (fara poza)!");
                                                 }
-                                           } 
+                                                else if (UpdateCheckBox.Checked == true)
+                                                {
+                                                    MessageBox.Show("Selecteaza o imagine mai intai!");
+                                                }
+                                                else MessageBox.Show("Alege o optiune!Update,Insert,Delete...");
+                                            }
                                         }
-                                        else MessageBox.Show("Trebuie sa introduci nationalitatea!");
                                     }
-                                    else MessageBox.Show("Trebuie sa introduci tara");
+                                    else MessageBox.Show("Trebuie sa introduci nationalitatea!");
                                 }
-                                else MessageBox.Show("Trebuie sa introduci orasul natal");
+                                else MessageBox.Show("Trebuie sa introduci tara");
                             }
-                            else MessageBox.Show("Trebuie sa introduci anul nasterii!");
+                            else MessageBox.Show("Trebuie sa introduci orasul natal");
                         }
-                        else MessageBox.Show("Trebuie sa introduci un prenume!");
+                        else MessageBox.Show("Trebuie sa introduci anul nasterii!");
                     }
-                    else MessageBox.Show("Trebuie sa introduci un nume!");
-                
-              
+                    else MessageBox.Show("Trebuie sa introduci un prenume!");
+                }
+                else MessageBox.Show("Trebuie sa introduci un nume!");
+
+
             }  //asta e pt actori
-            else if(label2.Text == "Nume" && label7.Text == "Prenume" && label6.Text == "Data Nasterii")
+            else if (label2.Text == "Nume" && label7.Text == "Prenume" && label6.Text == "Data Nasterii")
             {
                 if (DeletecheckBox.Checked == true)
                 {
@@ -561,8 +576,388 @@ namespace IMDB
                 }
                 else MessageBox.Show("Trebuie sa introduci un nume!");
 
-            }
+            } //asta e pt regizori
+            else if (label2.Text == "Nume" && label7.Text == "An aparitie" && label6.Text == "Nota")
+            {
+                if (DeletecheckBox.Checked == true)
+                {
+                    using (IMDBEntities con = new IMDBEntities())
+                    {
+                        if (label11.Text.Equals("ID*:"))
+                        {
+                            int b = Convert.ToInt32(textBox7.Text);
+                            var results = (from c in con.Filmes
+                                           where c.ID_Film == b
+                                           select c).FirstOrDefault();
+                            if (results == null)
+                            {
+                                MessageBox.Show("Nu exista nici o inregistrare care sa corespunda numelui tastat!");
+                            }
+                            else
+                            {
+                                con.DeleteMoviesbyID(b);
+                                con.SaveChanges();
+                                MessageBox.Show("Film sters cu succes!");
+                            }
+                        }
+                        else
+                        {
+                            var results = (from c in con.Filmes
+                                           where c.Nume == textBox7.Text
+                                           select c).FirstOrDefault();
+                            if (results == null)
+                            {
+                                MessageBox.Show("Nu exista nici o inregistrare care sa corespunda numelui tastat!");
+                            }
+                            else
+                            {
+                                con.DeleteMoviesByName(textBox7.Text);
+                                con.SaveChanges();
+                                MessageBox.Show("Film sters cu succes!");
+                            }
+                        }
+                    }
+                }
+                else if(!textBox1.Text.Equals(""))
+                {
+                    if(!textBox2.Text.Equals(""))
+                    {
+                        if (!textBox3.Text.Equals(""))
+                        {
+                            if (pictureBoxPoza.ImageLocation != null)
+                            {
+                                using (IMDBEntities context = new IMDBEntities())
+                                {
+                                    if (InsertcheckBox.Checked == true)
+                                    {
+                                        int a = Convert.ToInt32(textBox2.Text);
+                                        
+                                        context.InsertMovies(textBox1.Text, a,textBox3.Text, ConvertFiletoByte(pictureBoxPoza.ImageLocation));
+                                        context.SaveChanges();
+                                        MessageBox.Show("Film adaugat cu succes (cu poza)!");
+                                    }
+                                    else if (UpdateCheckBox.Checked == true)
+                                    {
+                                        if (!label11.Text.Equals("ID*:"))
+                                        {
+                                            var results = (from c in context.Filmes
+                                                           where c.Nume == textBox7.Text
+                                                           select c).FirstOrDefault();
+                                            if (results == null)
+                                            {
+                                                MessageBox.Show("Nu exista nici o inregistrare care sa corespunda numelui tastat!");
+                                            }
+                                            else
+                                            {
+                                                int a = Convert.ToInt32(textBox2.Text);
+                                                //double c = Convert.ToDouble(textBox3.Text);
+                                                context.UpdateMoviesbyName(textBox7.Text, textBox1.Text, a, textBox3.Text,  ConvertFiletoByte(pictureBoxPoza.ImageLocation));
+                                                context.SaveChanges();
+                                                MessageBox.Show("Film updatat cu succes!");
+                                            }
+                                        }
+                                        else
+                                        {
+                                            int b = Convert.ToInt32(textBox7.Text);
+                                            var results = (from c in context.Filmes
+                                                           where c.ID_Film == b
+                                                           select c).FirstOrDefault();
+                                            if (results == null)
+                                            {
+                                                MessageBox.Show("Nu exista nici o inregistrare care sa corespunda numelui tastat!");
+                                            }
+                                            else
+                                            {
+                                                int a = Convert.ToInt32(textBox2.Text);
+                                                //double c = Convert.ToDouble(textBox3.Text);
+                                                context.UpdateMoviesbyID(b, textBox1.Text, a, textBox3.Text,  ConvertFiletoByte(pictureBoxPoza.ImageLocation));
+                                                context.SaveChanges();
+                                                MessageBox.Show("Film updatat cu succes!");
+                                            }
+                                        }
+                                    }
+                                    else MessageBox.Show("Selecteaza ceea ce vrei sa faci! Insert, update, delete...");
+                                }
 
+                            }
+                            else MessageBox.Show("Trebuie sa introduceti o fotografie!");
+                        }
+                        else MessageBox.Show("Trebuie sa introduci o nota!");
+                    }
+                    else MessageBox.Show("Trebuie sa introduci anul aparitiei!");
+                }
+                else MessageBox.Show("Trebuie sa introduci un nume!");
+            }  //asta e pt filme
+            else if(label2.Text == "Nume" && label7.Text == "An aparitie" && label6.Text == "Numar sezoane")
+            {
+                if (DeletecheckBox.Checked == true)
+                {
+                    using (IMDBEntities con = new IMDBEntities())
+                    {
+                        if (label11.Text.Equals("ID*:"))
+                        {
+                            int b = Convert.ToInt32(textBox7.Text);
+                            var results = (from c in con.Seriales
+                                           where c.ID_Serial == b
+                                           select c).FirstOrDefault();
+                            if (results == null)
+                            {
+                                MessageBox.Show("Nu exista nici o inregistrare care sa corespunda numelui tastat!");
+                            }
+                            else
+                            {
+                                con.DeleteTVSeriesById(b);
+                                con.SaveChanges();
+                                MessageBox.Show("Serial sters cu succes!");
+                            }
+                        }
+                        else
+                        {
+                            var results = (from c in con.Seriales
+                                           where c.Nume == textBox7.Text
+                                           select c).FirstOrDefault();
+                            if (results == null)
+                            {
+                                MessageBox.Show("Nu exista nici o inregistrare care sa corespunda numelui tastat!");
+                            }
+                            else
+                            {
+                                con.DeleteTVSeriesByName(textBox7.Text);
+                                con.SaveChanges();
+                                MessageBox.Show("Serial sters cu succes!");
+                            }
+                        }
+                    }
+                }
+                else if (!textBox1.Text.Equals(""))
+                {
+                    if (!textBox2.Text.Equals(""))
+                    {
+                        if (!textBox3.Text.Equals(""))
+                        {
+                            if (!textBox4.Text.Equals(""))
+                            {
+                                if (!textBox5.Text.Equals(""))
+                                {
+                                    
+                                        if (pictureBoxPoza.ImageLocation != null)
+                                        {
+                                            using (IMDBEntities context = new IMDBEntities())
+                                            {
+                                                if (InsertcheckBox.Checked == true)
+                                                {
+                                                int a = Convert.ToInt32(textBox2.Text);
+                                                int c = Convert.ToInt32(textBox3.Text);
+                                                int d = Convert.ToInt32(textBox4.Text);
+                                                    context.InsertTVSeries(textBox1.Text, a, c, d, textBox5.Text, ConvertFiletoByte(pictureBoxPoza.ImageLocation));
+                                                    context.SaveChanges();
+                                                    MessageBox.Show("Seerial adaugat cu succes (cu poza)!");
+                                                }
+                                                else if (UpdateCheckBox.Checked == true)
+                                                {
+                                                    if (!label11.Text.Equals("ID*:"))
+                                                    {
+                                                        var results = (from c in context.Seriales
+                                                                       where c.Nume == textBox7.Text
+                                                                       select c).FirstOrDefault();
+                                                        if (results == null)
+                                                        {
+                                                            MessageBox.Show("Nu exista nici o inregistrare care sa corespunda numelui tastat!");
+                                                        }
+                                                        else
+                                                        {
+                                                        int a = Convert.ToInt32(textBox2.Text);
+                                                        int c = Convert.ToInt32(textBox3.Text);
+                                                        int d = Convert.ToInt32(textBox4.Text);
+                                                        context.UpdateTVSeriesbyName(textBox7.Text, textBox1.Text,a,c,d , textBox5.Text, ConvertFiletoByte(pictureBoxPoza.ImageLocation));
+                                                            context.SaveChanges();
+                                                            MessageBox.Show("Serial updatat cu succes!");
+                                                        }
+                                                    }
+                                                    else
+                                                    {
+                                                        int b = Convert.ToInt32(textBox7.Text);
+                                                        var results = (from c in context.Seriales
+                                                                       where c.ID_Serial == b
+                                                                       select c).FirstOrDefault();
+                                                        if (results == null)
+                                                        {
+                                                            MessageBox.Show("Nu exista nici o inregistrare care sa corespunda numelui tastat!");
+                                                        }
+                                                        else
+                                                        {
+                                                        int a = Convert.ToInt32(textBox2.Text);
+                                                        int c = Convert.ToInt32(textBox3.Text);
+                                                        int d = Convert.ToInt32(textBox4.Text);
+                                                        context.UpdateTVSeriesbyID(b, textBox1.Text, a, c, d, textBox5.Text, ConvertFiletoByte(pictureBoxPoza.ImageLocation));
+                                                        context.SaveChanges();
+                                                            MessageBox.Show("Serial updatat cu succes!");
+                                                        }
+                                                    }
+                                                }
+                                                else MessageBox.Show("Selecteaza ceea ce vrei sa faci! Insert, update, delete...");
+                                            }
+
+                                        }
+                                        else MessageBox.Show("Trebuie sa introduci si o poza!");
+                                    
+                                }
+                                else MessageBox.Show("Trebuie sa introduci nota!");
+                            }
+                            else MessageBox.Show("Trebuie sa introduci numarul total de episoade");
+                        }
+                        else MessageBox.Show("Trebuie sa introduci numarul de sezoane!");
+                    }
+                    else MessageBox.Show("Trebuie sa introduci anul aparitiei!");
+                }
+                else MessageBox.Show("Trebuie sa introduci un nume!");
+            } //asta e pt seriale
+            else if (label2.Text == "Username:" && label7.Text == "Password:" && label6.Text == "Re-typePassword:")
+            {
+                if (DeletecheckBox.Checked == true)
+                {
+                    using (IMDBEntities con = new IMDBEntities())
+                    {
+                        if (label11.Text.Equals("ID*:"))
+                        {
+                            int b = Convert.ToInt32(textBox7.Text);
+                            var results = (from c in con.Users
+                                           where c.ID_User == b
+                                           select c).FirstOrDefault();
+                            if (results == null)
+                            {
+                                MessageBox.Show("Nu exista nici o inregistrare care sa corespunda numelui tastat!");
+                            }
+                            else
+                            {
+                                con.DeleteUserById(b);
+                                con.SaveChanges();
+                                MessageBox.Show("User sters cu succes!");
+                            }
+                        }
+                        else
+                        {
+                            var results = (from c in con.Users
+                                           where c.Username == textBox7.Text
+                                           select c).FirstOrDefault();
+                            if (results == null)
+                            {
+                                MessageBox.Show("Nu exista nici o inregistrare care sa corespunda numelui tastat!");
+                            }
+                            else
+                            {
+                                con.DeleteUserByName(textBox7.Text);
+                                con.SaveChanges();
+                                MessageBox.Show("User sters cu succes!");
+                            }
+                        }
+                    }
+                }
+                else if (!textBox1.Text.Equals(""))
+                {
+                    using (var context = new IMDBEntities())
+                    {
+                        var ResultUsername = (from reus in context.Users
+                                              where reus.Username.Contains(textBox1.Text)
+                                              select reus).FirstOrDefault();
+                        if ((ResultUsername == null)  || UpdateCheckBox.Checked==true)
+                        {
+                            if (!textBox2.Text.Equals(""))
+                            {
+                                if (!textBox3.Text.Equals(""))
+                                {
+                                    if (textBox2.Text.Equals(textBox3.Text))
+                                    {
+                                        if (!textBox4.Text.Equals(""))
+                                        {
+                                            var ResultEmail = (from reem in context.Users
+                                                               where reem.E_mail.Contains(textBox4.Text)
+                                                               select reem).FirstOrDefault();
+                                            if (ResultEmail == null || UpdateCheckBox.Checked == true)
+                                            {
+                                                if (!textBox5.Text.Equals(""))
+                                                {
+                                                    var ResultPhoneNumber = (from rnp in context.Users
+                                                                             where rnp.PhoneNumber.Equals(textBox5.Text)
+                                                                             select rnp).FirstOrDefault();
+                                                    if (ResultPhoneNumber == null || UpdateCheckBox.Checked == true)
+                                                    {
+                                                        if (pictureBoxPoza.ImageLocation != null)
+                                                        {
+                                                            string rights;
+                                                            if (checkBoxMakeAdmin.Checked == true)
+                                                                rights = "admin";
+                                                            else rights = "user";
+                                                            if (InsertcheckBox.Checked == true)
+                                                            {
+                                                                context.InsertUser(textBox1.Text, textBox2.Text, textBox4.Text,textBox5.Text, rights, DateTime.Now, ConvertFiletoByte(pictureBoxPoza.ImageLocation));
+                                                                context.SaveChanges();
+                                                                MessageBox.Show("User adaugat cu succes (cu poza)!");
+                                                            }
+                                                            else if (UpdateCheckBox.Checked == true)
+                                                            {
+                                                                if (checkBoxMakeAdmin.Checked == true)
+                                                                    rights = "admin";
+                                                                else rights = "user";
+                                                                if (!label11.Text.Equals("ID*:"))
+                                                                {
+                                                                    var results = (from c in context.Users
+                                                                                   where c.Username == textBox7.Text
+                                                                                   select c).FirstOrDefault();
+                                                                    if (results == null)
+                                                                    {
+                                                                        MessageBox.Show("Nu exista nici o inregistrare care sa corespunda numelui tastat!");
+                                                                    }
+                                                                    else
+                                                                    {
+
+                                                                        context.UpdateUserbyName(textBox7.Text, textBox1.Text, textBox2.Text, textBox4.Text, textBox5.Text, rights, ConvertFiletoByte(pictureBoxPoza.ImageLocation));
+                                                                        context.SaveChanges();
+                                                                        MessageBox.Show("User updatat cu succes!");
+                                                                    }
+                                                                }
+                                                                else
+                                                                {
+                                                                    int b = Convert.ToInt32(textBox7.Text);
+                                                                    var results = (from c in context.Regizoris
+                                                                                   where c.ID_Regizor == b
+                                                                                   select c).FirstOrDefault();
+                                                                    if (results == null)
+                                                                    {
+                                                                        MessageBox.Show("Nu exista nici o inregistrare care sa corespunda numelui tastat!");
+                                                                    }
+                                                                    else
+                                                                    {
+
+                                                                        context.UpdateUserbyID(b, textBox1.Text, textBox2.Text, textBox4.Text,textBox5.Text, rights, ConvertFiletoByte(pictureBoxPoza.ImageLocation));
+                                                                        context.SaveChanges();
+                                                                        MessageBox.Show("User updatat cu succes!");
+                                                                    }
+                                                                }
+                                                            }
+                                                            else MessageBox.Show("Trebuie sa alegi o optiune: Insert,Update,Delete..");
+                                                        }
+                                                        else MessageBox.Show("Trebuie sa introduci si o poza!");
+                                                    }
+                                                    else MessageBox.Show("Acest numar de telefon a mai fost introdus! Te rugam sa introduci numarul tau de telefon!");
+                                                }
+                                                else MessageBox.Show("Trebuie sa introduci un numar de telefon!");
+                                            }
+                                            else MessageBox.Show("Aceasta adresa de E-mail a mai fost introdusa! Te rugam sa introduci alta adresa!");
+                                        }
+                                        else MessageBox.Show("Trebuie sa introduci o adresa de E-mail!");
+                                    }
+                                    else MessageBox.Show("Parola din cele doua campuri nu corespund! Te rugam sa introduci o parola valida in ambele campuri!");
+                                }
+                                else MessageBox.Show("Trebuie sa introduci parola din nou!");
+                            }
+                            else MessageBox.Show("Trebuie sa introduci o parola!");
+                        }
+                        else MessageBox.Show("Acest nume de user a mai fost folosit! Te rugam sa introduci alt nume!");
+                    }
+                }
+                else MessageBox.Show("Trebuie sa introduci un nume de user!");
+            } //asta e pt useri
 
         }
 

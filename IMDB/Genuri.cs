@@ -17,16 +17,16 @@ namespace IMDB
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Genuri()
         {
-            this.Seriales = new HashSet<Seriale>();
             this.Filmes = new HashSet<Filme>();
+            this.Seriales = new HashSet<Seriale>();
         }
     
         public int ID_Gen { get; set; }
         public string Nume_Gen { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Seriale> Seriales { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Filme> Filmes { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Seriale> Seriales { get; set; }
     }
 }

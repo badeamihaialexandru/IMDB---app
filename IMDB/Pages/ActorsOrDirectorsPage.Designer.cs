@@ -60,16 +60,25 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.buttonPowerOffTop = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.labelNameandYear = new System.Windows.Forms.Label();
+            this.labelName = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.labelCity = new System.Windows.Forms.Label();
-            this.labelDateofBirth = new System.Windows.Forms.Label();
+            this.labelCitystatic = new System.Windows.Forms.Label();
+            this.labeldob = new System.Windows.Forms.Label();
             this.labelAbout = new System.Windows.Forms.Label();
             this.pictureBoxPhoto = new System.Windows.Forms.PictureBox();
             this.labelPhoto = new System.Windows.Forms.Label();
+            this.labelDATEOFBIRTH = new System.Windows.Forms.Label();
+            this.labelCity = new System.Windows.Forms.Label();
+            this.labelCountry = new System.Windows.Forms.Label();
+            this.labelNationality = new System.Windows.Forms.Label();
+            this.labelMovies1 = new System.Windows.Forms.Label();
+            this.labelMovie3 = new System.Windows.Forms.Label();
+            this.labelMovie2 = new System.Windows.Forms.Label();
+            this.labelMovie4 = new System.Windows.Forms.Label();
+            this.labelActororDirector = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SearchPictureBox)).BeginInit();
@@ -368,30 +377,39 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(47)))), ((int)(((byte)(40)))));
-            this.panel2.Controls.Add(this.labelNameandYear);
+            this.panel2.Controls.Add(this.labelActororDirector);
+            this.panel2.Controls.Add(this.labelName);
             this.panel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(121)))), ((int)(((byte)(134)))));
             this.panel2.Location = new System.Drawing.Point(-3, 112);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1010, 98);
             this.panel2.TabIndex = 2;
             // 
-            // labelNameandYear
+            // labelName
             // 
-            this.labelNameandYear.Font = new System.Drawing.Font("Palatino Linotype", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelNameandYear.Location = new System.Drawing.Point(140, 0);
-            this.labelNameandYear.Name = "labelNameandYear";
-            this.labelNameandYear.Size = new System.Drawing.Size(660, 91);
-            this.labelNameandYear.TabIndex = 0;
-            this.labelNameandYear.Text = "label1";
+            this.labelName.Font = new System.Drawing.Font("Palatino Linotype", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelName.Location = new System.Drawing.Point(35, 0);
+            this.labelName.Name = "labelName";
+            this.labelName.Size = new System.Drawing.Size(765, 60);
+            this.labelName.TabIndex = 0;
+            this.labelName.Text = "label1";
             // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(207)))), ((int)(((byte)(190)))));
+            this.panel3.Controls.Add(this.labelMovie4);
+            this.panel3.Controls.Add(this.labelMovie2);
+            this.panel3.Controls.Add(this.labelMovie3);
+            this.panel3.Controls.Add(this.labelMovies1);
+            this.panel3.Controls.Add(this.labelNationality);
+            this.panel3.Controls.Add(this.labelCountry);
+            this.panel3.Controls.Add(this.labelCity);
+            this.panel3.Controls.Add(this.labelDATEOFBIRTH);
             this.panel3.Controls.Add(this.label3);
             this.panel3.Controls.Add(this.label2);
             this.panel3.Controls.Add(this.label1);
-            this.panel3.Controls.Add(this.labelCity);
-            this.panel3.Controls.Add(this.labelDateofBirth);
+            this.panel3.Controls.Add(this.labelCitystatic);
+            this.panel3.Controls.Add(this.labeldob);
             this.panel3.Controls.Add(this.labelAbout);
             this.panel3.Controls.Add(this.pictureBoxPhoto);
             this.panel3.Controls.Add(this.labelPhoto);
@@ -404,7 +422,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Palatino Linotype", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(787, 7);
+            this.label3.Location = new System.Drawing.Point(733, 10);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(188, 44);
             this.label3.TabIndex = 16;
@@ -430,25 +448,25 @@
             this.label1.TabIndex = 14;
             this.label1.Text = "Country:";
             // 
-            // labelCity
+            // labelCitystatic
             // 
-            this.labelCity.AutoSize = true;
-            this.labelCity.Font = new System.Drawing.Font("Palatino Linotype", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelCity.Location = new System.Drawing.Point(320, 189);
-            this.labelCity.Name = "labelCity";
-            this.labelCity.Size = new System.Drawing.Size(66, 32);
-            this.labelCity.TabIndex = 13;
-            this.labelCity.Text = "City:";
+            this.labelCitystatic.AutoSize = true;
+            this.labelCitystatic.Font = new System.Drawing.Font("Palatino Linotype", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelCitystatic.Location = new System.Drawing.Point(320, 189);
+            this.labelCitystatic.Name = "labelCitystatic";
+            this.labelCitystatic.Size = new System.Drawing.Size(66, 32);
+            this.labelCitystatic.TabIndex = 13;
+            this.labelCitystatic.Text = "City:";
             // 
-            // labelDateofBirth
+            // labeldob
             // 
-            this.labelDateofBirth.AutoSize = true;
-            this.labelDateofBirth.Font = new System.Drawing.Font("Palatino Linotype", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelDateofBirth.Location = new System.Drawing.Point(320, 157);
-            this.labelDateofBirth.Name = "labelDateofBirth";
-            this.labelDateofBirth.Size = new System.Drawing.Size(162, 32);
-            this.labelDateofBirth.TabIndex = 12;
-            this.labelDateofBirth.Text = "Date of Birth:";
+            this.labeldob.AutoSize = true;
+            this.labeldob.Font = new System.Drawing.Font("Palatino Linotype", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labeldob.Location = new System.Drawing.Point(320, 157);
+            this.labeldob.Name = "labeldob";
+            this.labeldob.Size = new System.Drawing.Size(162, 32);
+            this.labeldob.TabIndex = 12;
+            this.labeldob.Text = "Date of Birth:";
             // 
             // labelAbout
             // 
@@ -478,6 +496,96 @@
             this.labelPhoto.TabIndex = 9;
             this.labelPhoto.Text = "Photo:";
             // 
+            // labelDATEOFBIRTH
+            // 
+            this.labelDATEOFBIRTH.AutoSize = true;
+            this.labelDATEOFBIRTH.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelDATEOFBIRTH.Location = new System.Drawing.Point(488, 165);
+            this.labelDATEOFBIRTH.Name = "labelDATEOFBIRTH";
+            this.labelDATEOFBIRTH.Size = new System.Drawing.Size(54, 22);
+            this.labelDATEOFBIRTH.TabIndex = 4;
+            this.labelDATEOFBIRTH.Text = "label1";
+            // 
+            // labelCity
+            // 
+            this.labelCity.AutoSize = true;
+            this.labelCity.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelCity.Location = new System.Drawing.Point(488, 197);
+            this.labelCity.Name = "labelCity";
+            this.labelCity.Size = new System.Drawing.Size(54, 22);
+            this.labelCity.TabIndex = 17;
+            this.labelCity.Text = "label1";
+            // 
+            // labelCountry
+            // 
+            this.labelCountry.AutoSize = true;
+            this.labelCountry.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelCountry.Location = new System.Drawing.Point(488, 230);
+            this.labelCountry.Name = "labelCountry";
+            this.labelCountry.Size = new System.Drawing.Size(54, 22);
+            this.labelCountry.TabIndex = 18;
+            this.labelCountry.Text = "label1";
+            // 
+            // labelNationality
+            // 
+            this.labelNationality.AutoSize = true;
+            this.labelNationality.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelNationality.Location = new System.Drawing.Point(488, 262);
+            this.labelNationality.Name = "labelNationality";
+            this.labelNationality.Size = new System.Drawing.Size(54, 22);
+            this.labelNationality.TabIndex = 19;
+            this.labelNationality.Text = "label1";
+            // 
+            // labelMovies1
+            // 
+            this.labelMovies1.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelMovies1.Location = new System.Drawing.Point(620, 68);
+            this.labelMovies1.Name = "labelMovies1";
+            this.labelMovies1.Size = new System.Drawing.Size(381, 22);
+            this.labelMovies1.TabIndex = 20;
+            this.labelMovies1.Text = "label1";
+            this.labelMovies1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // labelMovie3
+            // 
+            this.labelMovie3.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelMovie3.Location = new System.Drawing.Point(620, 157);
+            this.labelMovie3.Name = "labelMovie3";
+            this.labelMovie3.Size = new System.Drawing.Size(381, 22);
+            this.labelMovie3.TabIndex = 21;
+            this.labelMovie3.Text = "label1";
+            this.labelMovie3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // labelMovie2
+            // 
+            this.labelMovie2.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelMovie2.Location = new System.Drawing.Point(620, 114);
+            this.labelMovie2.Name = "labelMovie2";
+            this.labelMovie2.Size = new System.Drawing.Size(381, 22);
+            this.labelMovie2.TabIndex = 22;
+            this.labelMovie2.Text = "label1";
+            this.labelMovie2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // labelMovie4
+            // 
+            this.labelMovie4.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelMovie4.Location = new System.Drawing.Point(623, 199);
+            this.labelMovie4.Name = "labelMovie4";
+            this.labelMovie4.Size = new System.Drawing.Size(381, 22);
+            this.labelMovie4.TabIndex = 23;
+            this.labelMovie4.Text = "label1";
+            this.labelMovie4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // labelActororDirector
+            // 
+            this.labelActororDirector.AutoSize = true;
+            this.labelActororDirector.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelActororDirector.Location = new System.Drawing.Point(39, 69);
+            this.labelActororDirector.Name = "labelActororDirector";
+            this.labelActororDirector.Size = new System.Drawing.Size(54, 22);
+            this.labelActororDirector.TabIndex = 2;
+            this.labelActororDirector.Text = "label1";
+            // 
             // ActorsOrDirectorsPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -497,6 +605,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.SearchPictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPhoto)).EndInit();
@@ -537,15 +646,24 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button buttonPowerOffTop;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Label labelNameandYear;
+        private System.Windows.Forms.Label labelName;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label labelAbout;
         private System.Windows.Forms.PictureBox pictureBoxPhoto;
         private System.Windows.Forms.Label labelPhoto;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label labelCity;
-        private System.Windows.Forms.Label labelDateofBirth;
+        private System.Windows.Forms.Label labelCitystatic;
+        private System.Windows.Forms.Label labeldob;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label labelMovie4;
+        private System.Windows.Forms.Label labelMovie2;
+        private System.Windows.Forms.Label labelMovie3;
+        private System.Windows.Forms.Label labelMovies1;
+        private System.Windows.Forms.Label labelNationality;
+        private System.Windows.Forms.Label labelCountry;
+        private System.Windows.Forms.Label labelCity;
+        private System.Windows.Forms.Label labelDATEOFBIRTH;
+        private System.Windows.Forms.Label labelActororDirector;
     }
 }

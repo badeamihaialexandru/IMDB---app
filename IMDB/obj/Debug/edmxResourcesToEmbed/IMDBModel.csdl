@@ -6,8 +6,8 @@
     </Key>
     <Property Name="ID_Gen" Type="Int32" Nullable="false" />
     <Property Name="Nume_Gen" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <NavigationProperty Name="Seriales" Relationship="Self.Relatie_Serial_Gen" FromRole="Genuri" ToRole="Seriale" />
     <NavigationProperty Name="Filmes" Relationship="IMDBModel.Relatie_Film_Gen" FromRole="Genuri" ToRole="Filme" />
+    <NavigationProperty Name="Seriales" Relationship="IMDBModel.Relatie_Serial_Gen" FromRole="Genuri" ToRole="Seriale" />
   </EntityType>
   <EntityType Name="Premii">
     <Key>
@@ -39,19 +39,6 @@
     <Property Name="Numar_Premii" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
     <NavigationProperty Name="Premii" Relationship="Self.FK_Relatie_Filme_Premii_Premii" FromRole="Relatie_Filme_Premii" ToRole="Premii" />
     <NavigationProperty Name="Filme" Relationship="IMDBModel.FK_Relatie_Filme_Premii_Filme" FromRole="Relatie_Filme_Premii" ToRole="Filme" />
-  </EntityType>
-  <EntityType Name="Seriale">
-    <Key>
-      <PropertyRef Name="ID_Serial" />
-    </Key>
-    <Property Name="ID_Serial" Type="Int32" Nullable="false" />
-    <Property Name="Nume" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-    <Property Name="An_aparitie" Type="Int32" />
-    <Property Name="Numar_sezoane" Type="Int32" />
-    <Property Name="Total_episoade" Type="Int32" />
-    <Property Name="Nota" Type="Single" />
-    <NavigationProperty Name="Genuris" Relationship="Self.Relatie_Serial_Gen" FromRole="Seriale" ToRole="Genuri" />
-    <Property Name="Photo" Type="Binary" MaxLength="Max" FixedLength="false" />
   </EntityType>
   <EntityType Name="sysdiagram">
     <Key>
@@ -87,16 +74,11 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
-  <Association Name="Relatie_Serial_Gen">
-    <End Role="Genuri" Type="Self.Genuri" Multiplicity="*" />
-    <End Role="Seriale" Type="Self.Seriale" Multiplicity="*" />
-  </Association>
   <EntityContainer Name="IMDBEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="Genuris" EntityType="Self.Genuri" />
     <EntitySet Name="Premiis" EntityType="Self.Premii" />
     <EntitySet Name="Relatie_Actori_Premii" EntityType="Self.Relatie_Actori_Premii" />
     <EntitySet Name="Relatie_Filme_Premii" EntityType="Self.Relatie_Filme_Premii" />
-    <EntitySet Name="Seriales" EntityType="Self.Seriale" />
     <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
     <AssociationSet Name="FK_Relatie_Actori_Premii_Premii" Association="Self.FK_Relatie_Actori_Premii_Premii">
       <End Role="Premii" EntitySet="Premiis" />
@@ -105,10 +87,6 @@
     <AssociationSet Name="FK_Relatie_Filme_Premii_Premii" Association="Self.FK_Relatie_Filme_Premii_Premii">
       <End Role="Premii" EntitySet="Premiis" />
       <End Role="Relatie_Filme_Premii" EntitySet="Relatie_Filme_Premii" />
-    </AssociationSet>
-    <AssociationSet Name="Relatie_Serial_Gen" Association="Self.Relatie_Serial_Gen">
-      <End Role="Genuri" EntitySet="Genuris" />
-      <End Role="Seriale" EntitySet="Seriales" />
     </AssociationSet>
     <FunctionImport Name="sp_alterdiagram">
       <Parameter Name="diagramname" Mode="In" Type="String" />
@@ -287,6 +265,102 @@
       <Parameter Name="orasNatal" Mode="In" Type="String" />
       <Parameter Name="tara" Mode="In" Type="String" />
       <Parameter Name="nationalitate" Mode="In" Type="String" />
+      <Parameter Name="photo" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="DeleteMoviesbyID">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="DeleteMoviesByName">
+      <Parameter Name="nume" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="DeleteTVSeriesById">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="DeleteTVSeriesByName">
+      <Parameter Name="nume" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="DeleteUserById">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="DeleteUserByName">
+      <Parameter Name="nume" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="InsertMovies">
+      <Parameter Name="Nume" Mode="In" Type="String" />
+      <Parameter Name="AnAparitie" Mode="In" Type="Int32" />
+      <Parameter Name="nota" Mode="In" Type="String" />
+      <Parameter Name="photo" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="UpdateMoviesbyID">
+      <Parameter Name="id" Mode="In" Type="Int32" />
+      <Parameter Name="NumeNou" Mode="In" Type="String" />
+      <Parameter Name="AnAparitie" Mode="In" Type="Int32" />
+      <Parameter Name="nota" Mode="In" Type="String" />
+      <Parameter Name="photo" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="UpdateMoviesbyName">
+      <Parameter Name="numevechi" Mode="In" Type="String" />
+      <Parameter Name="NumeNou" Mode="In" Type="String" />
+      <Parameter Name="AnAparitie" Mode="In" Type="Int32" />
+      <Parameter Name="nota" Mode="In" Type="String" />
+      <Parameter Name="photo" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="InsertTVSeries">
+      <Parameter Name="Nume" Mode="In" Type="String" />
+      <Parameter Name="AnAparitie" Mode="In" Type="Int32" />
+      <Parameter Name="NrSezoane" Mode="In" Type="Int32" />
+      <Parameter Name="TotalEpisoade" Mode="In" Type="Int32" />
+      <Parameter Name="nota" Mode="In" Type="String" />
+      <Parameter Name="photo" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="UpdateTVSeriesbyID">
+      <Parameter Name="ID" Mode="In" Type="Int32" />
+      <Parameter Name="NumeNou" Mode="In" Type="String" />
+      <Parameter Name="AnAparitie" Mode="In" Type="Int32" />
+      <Parameter Name="NrSezoane" Mode="In" Type="Int32" />
+      <Parameter Name="TotalEpisoade" Mode="In" Type="Int32" />
+      <Parameter Name="nota" Mode="In" Type="String" />
+      <Parameter Name="photo" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="UpdateTVSeriesbyName">
+      <Parameter Name="NumeVechi" Mode="In" Type="String" />
+      <Parameter Name="NumeNou" Mode="In" Type="String" />
+      <Parameter Name="AnAparitie" Mode="In" Type="Int32" />
+      <Parameter Name="NrSezoane" Mode="In" Type="Int32" />
+      <Parameter Name="TotalEpisoade" Mode="In" Type="Int32" />
+      <Parameter Name="nota" Mode="In" Type="String" />
+      <Parameter Name="photo" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <EntitySet Name="Seriales" EntityType="IMDBModel.Seriale" />
+    <AssociationSet Name="Relatie_Serial_Gen" Association="IMDBModel.Relatie_Serial_Gen">
+      <End Role="Genuri" EntitySet="Genuris" />
+      <End Role="Seriale" EntitySet="Seriales" />
+    </AssociationSet>
+    <FunctionImport Name="InsertUser">
+      <Parameter Name="Nume" Mode="In" Type="String" />
+      <Parameter Name="Parola" Mode="In" Type="String" />
+      <Parameter Name="Email" Mode="In" Type="String" />
+      <Parameter Name="NrTelefon" Mode="In" Type="String" />
+      <Parameter Name="drepturi" Mode="In" Type="String" />
+      <Parameter Name="dataInregistrarii" Mode="In" Type="DateTime" />
+      <Parameter Name="photo" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="UpdateUserbyID">
+      <Parameter Name="ID" Mode="In" Type="Int32" />
+      <Parameter Name="Nume" Mode="In" Type="String" />
+      <Parameter Name="Parola" Mode="In" Type="String" />
+      <Parameter Name="Email" Mode="In" Type="String" />
+      <Parameter Name="NrTelefon" Mode="In" Type="String" />
+      <Parameter Name="drepturi" Mode="In" Type="String" />
+      <Parameter Name="photo" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="UpdateUserbyName">
+      <Parameter Name="NumeVechi" Mode="In" Type="String" />
+      <Parameter Name="Nume" Mode="In" Type="String" />
+      <Parameter Name="Parola" Mode="In" Type="String" />
+      <Parameter Name="Email" Mode="In" Type="String" />
+      <Parameter Name="NrTelefon" Mode="In" Type="String" />
+      <Parameter Name="drepturi" Mode="In" Type="String" />
       <Parameter Name="photo" Mode="In" Type="Binary" />
     </FunctionImport>
   </EntityContainer>
@@ -690,5 +764,22 @@
   <Association Name="Relatie_Regizor_Film">
     <End Type="IMDBModel.Filme" Role="Filme" Multiplicity="*" />
     <End Type="IMDBModel.Regizori" Role="Regizori" Multiplicity="*" />
+  </Association>
+  <EntityType Name="Seriale">
+    <Key>
+      <PropertyRef Name="ID_Serial" />
+    </Key>
+    <Property Name="ID_Serial" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nume" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="An_aparitie" Type="Int32" />
+    <Property Name="Numar_sezoane" Type="Int32" />
+    <Property Name="Total_episoade" Type="Int32" />
+    <Property Name="Nota" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="Photo" Type="Binary" MaxLength="Max" FixedLength="false" />
+    <NavigationProperty Name="Genuris" Relationship="IMDBModel.Relatie_Serial_Gen" FromRole="Seriale" ToRole="Genuri" />
+  </EntityType>
+  <Association Name="Relatie_Serial_Gen">
+    <End Type="IMDBModel.Genuri" Role="Genuri" Multiplicity="*" />
+    <End Type="IMDBModel.Seriale" Role="Seriale" Multiplicity="*" />
   </Association>
 </Schema>
