@@ -122,5 +122,10 @@ namespace IMDB
             }
             else MessageBox.Show(verify(textBoxUserName.Text, textBoxEmail.Text, textBoxPhoneNR.Text));
         }
+
+        private void textBoxUserName_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
