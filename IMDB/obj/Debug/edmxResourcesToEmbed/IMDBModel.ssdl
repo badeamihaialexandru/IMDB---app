@@ -41,13 +41,14 @@
     <Key>
       <PropertyRef Name="ID_Regizor" />
     </Key>
-    <Property Name="ID_Regizor" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-    <Property Name="Nume" Type="varchar" MaxLength="50" Nullable="false" />
-    <Property Name="Prenume" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="ID_Regizor" Type="int" Nullable="false" />
+    <Property Name="Nume" Type="varchar" MaxLength="50" />
+    <Property Name="Prenume" Type="varchar" MaxLength="50" />
     <Property Name="Data_nasterii" Type="datetime" />
     <Property Name="Locul_nasterii" Type="varchar" MaxLength="90" />
     <Property Name="Tara" Type="varchar" MaxLength="50" />
     <Property Name="Nationalitate" Type="varchar" MaxLength="50" />
+    <Property Name="Nr_filme_regizate" Type="int" />
     <Property Name="Photo" Type="image" />
   </EntityType>
   <EntityType Name="Relatie_actor_film">
@@ -114,12 +115,12 @@
     <Key>
       <PropertyRef Name="ID_Serial" />
     </Key>
-    <Property Name="ID_Serial" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ID_Serial" Type="int" Nullable="false" />
     <Property Name="Nume" Type="varchar" MaxLength="50" />
     <Property Name="An_aparitie" Type="int" />
     <Property Name="Numar_sezoane" Type="int" />
     <Property Name="Total_episoade" Type="int" />
-    <Property Name="Nota" Type="nchar" MaxLength="10" />
+    <Property Name="Nota" Type="real" />
     <Property Name="Photo" Type="image" />
   </EntityType>
   <EntityType Name="sysdiagrams">
@@ -602,69 +603,7 @@ warning 6002: The table/view 'IMDB.dbo.MostPopularMovies' does not have a primar
     <Parameter Name="nationalitate" Type="varchar" Mode="In" />
     <Parameter Name="photo" Type="image" Mode="In" />
   </Function>
-  <Function Name="DeleteActorbyID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="id" Type="int" Mode="In" />
-  </Function>
-  <Function Name="DeleteActorbyName" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="nume" Type="varchar" Mode="In" />
-  </Function>
-  <Function Name="DeleteDirectorbyID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="id" Type="int" Mode="In" />
-  </Function>
-  <Function Name="DeleteDirectorbyName" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="nume" Type="varchar" Mode="In" />
-  </Function>
-  <Function Name="DeleteMoviesbyID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="id" Type="int" Mode="In" />
-  </Function>
-  <Function Name="DeleteMoviesByName" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="nume" Type="varchar" Mode="In" />
-  </Function>
-  <Function Name="DeleteTVSeriesById" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="id" Type="int" Mode="In" />
-  </Function>
-  <Function Name="DeleteTVSeriesByName" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="nume" Type="varchar" Mode="In" />
-  </Function>
-  <Function Name="DeleteUserById" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="id" Type="int" Mode="In" />
-  </Function>
-  <Function Name="DeleteUserByName" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="nume" Type="varchar" Mode="In" />
-  </Function>
   <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
-  <Function Name="InsertDirectorWithPhoto" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="Nume" Type="varchar" Mode="In" />
-    <Parameter Name="Prenume" Type="varchar" Mode="In" />
-    <Parameter Name="datanastere" Type="smalldatetime" Mode="In" />
-    <Parameter Name="orasNatal" Type="varchar" Mode="In" />
-    <Parameter Name="tara" Type="varchar" Mode="In" />
-    <Parameter Name="nationalitate" Type="varchar" Mode="In" />
-    <Parameter Name="photo" Type="image" Mode="In" />
-  </Function>
-  <Function Name="InsertMovies" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="Nume" Type="varchar" Mode="In" />
-    <Parameter Name="AnAparitie" Type="int" Mode="In" />
-    <Parameter Name="nota" Type="nchar" Mode="In" />
-    <Parameter Name="photo" Type="image" Mode="In" />
-  </Function>
-  <Function Name="InsertTVSeries" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="Nume" Type="varchar" Mode="In" />
-    <Parameter Name="AnAparitie" Type="int" Mode="In" />
-    <Parameter Name="NrSezoane" Type="int" Mode="In" />
-    <Parameter Name="TotalEpisoade" Type="int" Mode="In" />
-    <Parameter Name="nota" Type="nchar" Mode="In" />
-    <Parameter Name="photo" Type="image" Mode="In" />
-  </Function>
-  <Function Name="InsertUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="Nume" Type="varchar" Mode="In" />
-    <Parameter Name="Parola" Type="varchar" Mode="In" />
-    <Parameter Name="Email" Type="varchar" Mode="In" />
-    <Parameter Name="NrTelefon" Type="varchar" Mode="In" />
-    <Parameter Name="drepturi" Type="varchar" Mode="In" />
-    <Parameter Name="dataInregistrarii" Type="date" Mode="In" />
-    <Parameter Name="photo" Type="image" Mode="In" />
-  </Function>
   <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
     <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
     <Parameter Name="owner_id" Type="int" Mode="In" />
@@ -695,96 +634,6 @@ warning 6002: The table/view 'IMDB.dbo.MostPopularMovies' does not have a primar
     <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
   </Function>
   <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
-  <Function Name="UpdateActoriDupaID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="ID" Type="int" Mode="In" />
-    <Parameter Name="NumeNou" Type="varchar" Mode="In" />
-    <Parameter Name="Prenume" Type="varchar" Mode="In" />
-    <Parameter Name="datanastere" Type="smalldatetime" Mode="In" />
-    <Parameter Name="orasNatal" Type="varchar" Mode="In" />
-    <Parameter Name="tara" Type="varchar" Mode="In" />
-    <Parameter Name="nationalitate" Type="varchar" Mode="In" />
-    <Parameter Name="photo" Type="image" Mode="In" />
-  </Function>
-  <Function Name="UpdateActorWithPhoto" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="NumeVechi" Type="varchar" Mode="In" />
-    <Parameter Name="NumeNou" Type="varchar" Mode="In" />
-    <Parameter Name="Prenume" Type="varchar" Mode="In" />
-    <Parameter Name="datanastere" Type="smalldatetime" Mode="In" />
-    <Parameter Name="orasNatal" Type="varchar" Mode="In" />
-    <Parameter Name="tara" Type="varchar" Mode="In" />
-    <Parameter Name="nationalitate" Type="varchar" Mode="In" />
-    <Parameter Name="photo" Type="image" Mode="In" />
-  </Function>
-  <Function Name="UpdateDirectorbyID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="ID" Type="int" Mode="In" />
-    <Parameter Name="NumeNou" Type="varchar" Mode="In" />
-    <Parameter Name="Prenume" Type="varchar" Mode="In" />
-    <Parameter Name="datanastere" Type="smalldatetime" Mode="In" />
-    <Parameter Name="orasNatal" Type="varchar" Mode="In" />
-    <Parameter Name="tara" Type="varchar" Mode="In" />
-    <Parameter Name="nationalitate" Type="varchar" Mode="In" />
-    <Parameter Name="photo" Type="image" Mode="In" />
-  </Function>
-  <Function Name="UpdateDirectorbyName" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="NumeVechi" Type="varchar" Mode="In" />
-    <Parameter Name="NumeNou" Type="varchar" Mode="In" />
-    <Parameter Name="Prenume" Type="varchar" Mode="In" />
-    <Parameter Name="datanastere" Type="smalldatetime" Mode="In" />
-    <Parameter Name="orasNatal" Type="varchar" Mode="In" />
-    <Parameter Name="tara" Type="varchar" Mode="In" />
-    <Parameter Name="nationalitate" Type="varchar" Mode="In" />
-    <Parameter Name="photo" Type="image" Mode="In" />
-  </Function>
-  <Function Name="UpdateMoviesbyID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="id" Type="int" Mode="In" />
-    <Parameter Name="NumeNou" Type="varchar" Mode="In" />
-    <Parameter Name="AnAparitie" Type="int" Mode="In" />
-    <Parameter Name="nota" Type="nchar" Mode="In" />
-    <Parameter Name="photo" Type="image" Mode="In" />
-  </Function>
-  <Function Name="UpdateMoviesbyName" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="numevechi" Type="varchar" Mode="In" />
-    <Parameter Name="NumeNou" Type="varchar" Mode="In" />
-    <Parameter Name="AnAparitie" Type="int" Mode="In" />
-    <Parameter Name="nota" Type="nchar" Mode="In" />
-    <Parameter Name="photo" Type="image" Mode="In" />
-  </Function>
-  <Function Name="UpdateTVSeriesbyID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="ID" Type="int" Mode="In" />
-    <Parameter Name="NumeNou" Type="varchar" Mode="In" />
-    <Parameter Name="AnAparitie" Type="int" Mode="In" />
-    <Parameter Name="NrSezoane" Type="int" Mode="In" />
-    <Parameter Name="TotalEpisoade" Type="int" Mode="In" />
-    <Parameter Name="nota" Type="nchar" Mode="In" />
-    <Parameter Name="photo" Type="image" Mode="In" />
-  </Function>
-  <Function Name="UpdateTVSeriesbyName" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="NumeVechi" Type="varchar" Mode="In" />
-    <Parameter Name="NumeNou" Type="varchar" Mode="In" />
-    <Parameter Name="AnAparitie" Type="int" Mode="In" />
-    <Parameter Name="NrSezoane" Type="int" Mode="In" />
-    <Parameter Name="TotalEpisoade" Type="int" Mode="In" />
-    <Parameter Name="nota" Type="nchar" Mode="In" />
-    <Parameter Name="photo" Type="image" Mode="In" />
-  </Function>
-  <Function Name="UpdateUserbyID" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="ID" Type="int" Mode="In" />
-    <Parameter Name="Nume" Type="varchar" Mode="In" />
-    <Parameter Name="Parola" Type="varchar" Mode="In" />
-    <Parameter Name="Email" Type="varchar" Mode="In" />
-    <Parameter Name="NrTelefon" Type="varchar" Mode="In" />
-    <Parameter Name="drepturi" Type="varchar" Mode="In" />
-    <Parameter Name="photo" Type="image" Mode="In" />
-  </Function>
-  <Function Name="UpdateUserbyName" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-    <Parameter Name="NumeVechi" Type="varchar" Mode="In" />
-    <Parameter Name="Nume" Type="varchar" Mode="In" />
-    <Parameter Name="Parola" Type="varchar" Mode="In" />
-    <Parameter Name="Email" Type="varchar" Mode="In" />
-    <Parameter Name="NrTelefon" Type="varchar" Mode="In" />
-    <Parameter Name="drepturi" Type="varchar" Mode="In" />
-    <Parameter Name="photo" Type="image" Mode="In" />
-  </Function>
   <EntityContainer Name="IMDBModelStoreContainer">
     <EntitySet Name="Actori" EntityType="Self.Actori" Schema="dbo" store:Type="Tables" />
     <EntitySet Name="Filme" EntityType="Self.Filme" Schema="dbo" store:Type="Tables" />

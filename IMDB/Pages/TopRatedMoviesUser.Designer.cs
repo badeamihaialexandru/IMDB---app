@@ -431,7 +431,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(150, 59);
             this.button1.TabIndex = 2;
-            this.button1.Text = "Your      Watchlist";
+            this.button1.Text = "Add to      Watchlist";
             this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button1.UseCompatibleTextRendering = true;
             this.button1.UseVisualStyleBackColor = true;

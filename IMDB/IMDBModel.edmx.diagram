@@ -4,14 +4,17 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="7e6fdd59dbb249058a8659206a2b102e" Name="Diagram1" ZoomLevel="63" DisplayType="false">
+      <Diagram DiagramId="7e6fdd59dbb249058a8659206a2b102e" Name="Diagram1" ZoomLevel="84" DisplayType="false">
         <EntityTypeShape EntityType="IMDBModel.Genuri" Width="1.5" PointX="3" PointY="4.5" IsExpanded="true" />
         <EntityTypeShape EntityType="IMDBModel.Premii" Width="1.5" PointX="0.75" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMDBModel.Regizori" Width="1.5" PointX="3" PointY="7.375" IsExpanded="true" />
         <EntityTypeShape EntityType="IMDBModel.Relatie_Actori_Premii" Width="1.5" PointX="8" PointY="4.875" IsExpanded="true" />
         <EntityTypeShape EntityType="IMDBModel.Relatie_Filme_Premii" Width="1.5" PointX="3" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="IMDBModel.Seriale" Width="1.5" PointX="5.25" PointY="4.25" IsExpanded="true" />
         <EntityTypeShape EntityType="IMDBModel.sysdiagram" Width="1.5" PointX="5.75" PointY="0.75" IsExpanded="true" />
         <AssociationConnector Association="IMDBModel.FK_Relatie_Actori_Premii_Premii" ManuallyRouted="false" />
         <AssociationConnector Association="IMDBModel.FK_Relatie_Filme_Premii_Premii" ManuallyRouted="false" />
+        <AssociationConnector Association="IMDBModel.Relatie_Serial_Gen" ManuallyRouted="false" />
         <EntityTypeShape EntityType="IMDBModel.User" Width="1.5" PointX="8.375" PointY="0.75" />
         <EntityTypeShape EntityType="IMDBModel.WatchList" Width="1.5" PointX="10.625" PointY="0.75" />
         <EntityTypeShape EntityType="IMDBModel.YourRating" Width="1.5" PointX="10.625" PointY="3.75" />
@@ -50,11 +53,8 @@
         <AssociationConnector Association="IMDBModel.FK_WatchList_Filme" />
         <AssociationConnector Association="IMDBModel.FK_YourRatings_Filme" />
         <AssociationConnector Association="IMDBModel.Relatie_Film_Gen" />
-        <EntityTypeShape EntityType="IMDBModel.Relatie_Actor_Serial" Width="1.5" PointX="8.375" PointY="7.75" />
-        <EntityTypeShape EntityType="IMDBModel.Regizori" Width="1.5" PointX="3" PointY="7.25" />
         <AssociationConnector Association="IMDBModel.Relatie_Regizor_Film" />
-        <EntityTypeShape EntityType="IMDBModel.Seriale" Width="1.5" PointX="5.25" PointY="4.125" />
-        <AssociationConnector Association="IMDBModel.Relatie_Serial_Gen" />
+        <EntityTypeShape EntityType="IMDBModel.Relatie_Actor_Serial" Width="1.5" PointX="8.375" PointY="7.75" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>
