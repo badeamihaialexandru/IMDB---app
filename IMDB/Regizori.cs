@@ -28,6 +28,7 @@ namespace IMDB
         public string Tara { get; set; }
         public string Nationalitate { get; set; }
         public Nullable<int> Nr_filme_regizate { get; set; }
+        public byte[] Photo { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Filme> Filmes { get; set; }

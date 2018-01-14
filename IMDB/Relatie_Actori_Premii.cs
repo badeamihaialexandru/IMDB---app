@@ -18,7 +18,7 @@ namespace IMDB
         public int ID_Actor { get; set; }
         public Nullable<int> Numar_premii { get; set; }
     
-        public virtual Actori Actori { get; set; }
         public virtual Premii Premii { get; set; }
+        public virtual Actori Actori { get; set; }
     }
 }

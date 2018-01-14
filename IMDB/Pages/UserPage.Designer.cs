@@ -30,7 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserPage));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
+            this.labelGOTOADMINMODE = new System.Windows.Forms.Label();
             this.buttonPowerOffTop = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.movieToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -60,25 +60,33 @@
             this.labelUsername = new System.Windows.Forms.Label();
             this.labelRegister = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.pictureBoxUser = new System.Windows.Forms.PictureBox();
             this.button1 = new System.Windows.Forms.Button();
             this.UserRatingButton = new System.Windows.Forms.Button();
             this.labelRights = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.labelGOTOADMINMODE = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.buttonTwitter = new System.Windows.Forms.Button();
+            this.buttonInstagram = new System.Windows.Forms.Button();
+            this.buttonFacebook = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SearchPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxUser)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(45)))), ((int)(((byte)(41)))), ((int)(((byte)(38)))));
+            this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.labelGOTOADMINMODE);
-            this.panel1.Controls.Add(this.panel2);
+            this.panel1.Controls.Add(this.buttonTwitter);
             this.panel1.Controls.Add(this.buttonPowerOffTop);
+            this.panel1.Controls.Add(this.buttonInstagram);
+            this.panel1.Controls.Add(this.buttonFacebook);
             this.panel1.Controls.Add(this.menuStrip1);
             this.panel1.Controls.Add(this.SearchPictureBox);
             this.panel1.Controls.Add(this.comboBoxSearchBy);
@@ -87,23 +95,28 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(844, 100);
+            this.panel1.Size = new System.Drawing.Size(876, 139);
             this.panel1.TabIndex = 0;
             // 
-            // panel2
+            // labelGOTOADMINMODE
             // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(47)))), ((int)(((byte)(40)))));
-            this.panel2.Location = new System.Drawing.Point(0, 103);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(200, 55);
-            this.panel2.TabIndex = 1;
+            this.labelGOTOADMINMODE.AutoSize = true;
+            this.labelGOTOADMINMODE.Font = new System.Drawing.Font("Gill Sans Ultra Bold", 11.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelGOTOADMINMODE.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.labelGOTOADMINMODE.Location = new System.Drawing.Point(692, 49);
+            this.labelGOTOADMINMODE.Name = "labelGOTOADMINMODE";
+            this.labelGOTOADMINMODE.Size = new System.Drawing.Size(180, 20);
+            this.labelGOTOADMINMODE.TabIndex = 23;
+            this.labelGOTOADMINMODE.Text = "Go to Admin mode";
+            this.labelGOTOADMINMODE.Visible = false;
+            this.labelGOTOADMINMODE.Click += new System.EventHandler(this.labelGOTOADMINMODE_Click);
             // 
             // buttonPowerOffTop
             // 
             this.buttonPowerOffTop.FlatAppearance.BorderSize = 0;
             this.buttonPowerOffTop.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonPowerOffTop.Image = ((System.Drawing.Image)(resources.GetObject("buttonPowerOffTop.Image")));
-            this.buttonPowerOffTop.Location = new System.Drawing.Point(803, 3);
+            this.buttonPowerOffTop.Location = new System.Drawing.Point(834, -1);
             this.buttonPowerOffTop.Name = "buttonPowerOffTop";
             this.buttonPowerOffTop.Size = new System.Drawing.Size(41, 47);
             this.buttonPowerOffTop.TabIndex = 16;
@@ -120,7 +133,7 @@
             this.celebsEventPhotosToolStripMenuItem,
             this.newsToolStripMenuItem,
             this.watchlistToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(139, 59);
+            this.menuStrip1.Location = new System.Drawing.Point(139, 75);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(440, 24);
             this.menuStrip1.TabIndex = 24;
@@ -273,7 +286,7 @@
             // 
             this.SearchPictureBox.BackColor = System.Drawing.Color.Transparent;
             this.SearchPictureBox.Image = ((System.Drawing.Image)(resources.GetObject("SearchPictureBox.Image")));
-            this.SearchPictureBox.Location = new System.Drawing.Point(570, 25);
+            this.SearchPictureBox.Location = new System.Drawing.Point(570, 41);
             this.SearchPictureBox.Name = "SearchPictureBox";
             this.SearchPictureBox.Size = new System.Drawing.Size(23, 20);
             this.SearchPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -289,7 +302,7 @@
             "Actors",
             "Directors",
             "Gender"});
-            this.comboBoxSearchBy.Location = new System.Drawing.Point(457, 25);
+            this.comboBoxSearchBy.Location = new System.Drawing.Point(457, 41);
             this.comboBoxSearchBy.Name = "comboBoxSearchBy";
             this.comboBoxSearchBy.Size = new System.Drawing.Size(99, 21);
             this.comboBoxSearchBy.TabIndex = 22;
@@ -297,7 +310,7 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(139, 26);
+            this.textBox1.Location = new System.Drawing.Point(139, 42);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(300, 20);
             this.textBox1.TabIndex = 21;
@@ -305,7 +318,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(6, 9);
+            this.pictureBox1.Location = new System.Drawing.Point(6, 25);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(117, 53);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -317,9 +330,9 @@
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(47)))), ((int)(((byte)(40)))));
             this.panel3.Controls.Add(this.buttonLogOut);
             this.panel3.Controls.Add(this.labelUsername);
-            this.panel3.Location = new System.Drawing.Point(0, 99);
+            this.panel3.Location = new System.Drawing.Point(0, 139);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(844, 56);
+            this.panel3.Size = new System.Drawing.Size(876, 56);
             this.panel3.TabIndex = 1;
             // 
             // buttonLogOut
@@ -329,7 +342,7 @@
             this.buttonLogOut.Font = new System.Drawing.Font("Gill Sans Ultra Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonLogOut.Image = ((System.Drawing.Image)(resources.GetObject("buttonLogOut.Image")));
             this.buttonLogOut.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonLogOut.Location = new System.Drawing.Point(715, 3);
+            this.buttonLogOut.Location = new System.Drawing.Point(747, 3);
             this.buttonLogOut.Name = "buttonLogOut";
             this.buttonLogOut.Size = new System.Drawing.Size(129, 47);
             this.buttonLogOut.TabIndex = 6;
@@ -362,15 +375,25 @@
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.panel4.Controls.Add(this.pictureBoxUser);
             this.panel4.Controls.Add(this.button1);
             this.panel4.Controls.Add(this.UserRatingButton);
             this.panel4.Controls.Add(this.labelRights);
             this.panel4.Controls.Add(this.label2);
             this.panel4.Controls.Add(this.labelRegister);
-            this.panel4.Location = new System.Drawing.Point(0, 155);
+            this.panel4.Location = new System.Drawing.Point(0, 195);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(844, 200);
+            this.panel4.Size = new System.Drawing.Size(875, 220);
             this.panel4.TabIndex = 2;
+            // 
+            // pictureBoxUser
+            // 
+            this.pictureBoxUser.Location = new System.Drawing.Point(12, 38);
+            this.pictureBoxUser.Name = "pictureBoxUser";
+            this.pictureBoxUser.Size = new System.Drawing.Size(128, 126);
+            this.pictureBoxUser.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxUser.TabIndex = 6;
+            this.pictureBoxUser.TabStop = false;
             // 
             // button1
             // 
@@ -424,27 +447,61 @@
             this.label2.TabIndex = 2;
             this.label2.Text = "Photo:";
             // 
-            // labelGOTOADMINMODE
+            // label6
             // 
-            this.labelGOTOADMINMODE.AutoSize = true;
-            this.labelGOTOADMINMODE.Font = new System.Drawing.Font("Gill Sans Ultra Bold", 11.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelGOTOADMINMODE.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.labelGOTOADMINMODE.Location = new System.Drawing.Point(661, 76);
-            this.labelGOTOADMINMODE.Name = "labelGOTOADMINMODE";
-            this.labelGOTOADMINMODE.Size = new System.Drawing.Size(180, 20);
-            this.labelGOTOADMINMODE.TabIndex = 23;
-            this.labelGOTOADMINMODE.Text = "Go to Admin mode";
-            this.labelGOTOADMINMODE.Visible = false;
-            this.labelGOTOADMINMODE.Click += new System.EventHandler(this.labelGOTOADMINMODE_Click);
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Gill Sans Ultra Bold", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label6.Location = new System.Drawing.Point(654, 101);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(75, 18);
+            this.label6.TabIndex = 31;
+            this.label6.Text = "Follow us:";
+            // 
+            // buttonTwitter
+            // 
+            this.buttonTwitter.FlatAppearance.BorderSize = 0;
+            this.buttonTwitter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonTwitter.Image = ((System.Drawing.Image)(resources.GetObject("buttonTwitter.Image")));
+            this.buttonTwitter.Location = new System.Drawing.Point(830, 87);
+            this.buttonTwitter.Name = "buttonTwitter";
+            this.buttonTwitter.Size = new System.Drawing.Size(42, 45);
+            this.buttonTwitter.TabIndex = 30;
+            this.buttonTwitter.UseVisualStyleBackColor = true;
+            this.buttonTwitter.Click += new System.EventHandler(this.buttonTwitter_Click);
+            // 
+            // buttonInstagram
+            // 
+            this.buttonInstagram.FlatAppearance.BorderSize = 0;
+            this.buttonInstagram.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonInstagram.Image = ((System.Drawing.Image)(resources.GetObject("buttonInstagram.Image")));
+            this.buttonInstagram.Location = new System.Drawing.Point(783, 87);
+            this.buttonInstagram.Name = "buttonInstagram";
+            this.buttonInstagram.Size = new System.Drawing.Size(42, 45);
+            this.buttonInstagram.TabIndex = 29;
+            this.buttonInstagram.UseVisualStyleBackColor = true;
+            this.buttonInstagram.Click += new System.EventHandler(this.buttonInstagram_Click);
+            // 
+            // buttonFacebook
+            // 
+            this.buttonFacebook.FlatAppearance.BorderSize = 0;
+            this.buttonFacebook.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonFacebook.Image = ((System.Drawing.Image)(resources.GetObject("buttonFacebook.Image")));
+            this.buttonFacebook.Location = new System.Drawing.Point(735, 88);
+            this.buttonFacebook.Name = "buttonFacebook";
+            this.buttonFacebook.Size = new System.Drawing.Size(42, 45);
+            this.buttonFacebook.TabIndex = 28;
+            this.buttonFacebook.UseVisualStyleBackColor = true;
+            this.buttonFacebook.Click += new System.EventHandler(this.buttonFacebook_Click);
             // 
             // UserPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(844, 354);
+            this.ClientSize = new System.Drawing.Size(876, 410);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel3);
-            this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "UserPage";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -460,6 +517,7 @@
             this.panel3.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxUser)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -491,7 +549,6 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button buttonPowerOffTop;
-        private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label labelUsername;
         private System.Windows.Forms.Label labelRegister;
@@ -502,5 +559,10 @@
         private System.Windows.Forms.Button UserRatingButton;
         private System.Windows.Forms.Button buttonLogOut;
         private System.Windows.Forms.Label labelGOTOADMINMODE;
+        private System.Windows.Forms.PictureBox pictureBoxUser;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button buttonTwitter;
+        private System.Windows.Forms.Button buttonInstagram;
+        private System.Windows.Forms.Button buttonFacebook;
     }
 }

@@ -270,6 +270,7 @@
             this.buttonTwitter.Size = new System.Drawing.Size(42, 45);
             this.buttonTwitter.TabIndex = 26;
             this.buttonTwitter.UseVisualStyleBackColor = false;
+            this.buttonTwitter.Click += new System.EventHandler(this.buttonTwitter_Click);
             // 
             // buttonInstagram
             // 
@@ -282,6 +283,7 @@
             this.buttonInstagram.Size = new System.Drawing.Size(42, 45);
             this.buttonInstagram.TabIndex = 25;
             this.buttonInstagram.UseVisualStyleBackColor = false;
+            this.buttonInstagram.Click += new System.EventHandler(this.buttonInstagram_Click);
             // 
             // buttonFacebook
             // 
@@ -294,6 +296,7 @@
             this.buttonFacebook.Size = new System.Drawing.Size(42, 45);
             this.buttonFacebook.TabIndex = 24;
             this.buttonFacebook.UseVisualStyleBackColor = false;
+            this.buttonFacebook.Click += new System.EventHandler(this.buttonFacebook_Click);
             // 
             // panel2
             // 

@@ -63,8 +63,8 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.buttonYourRatings = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.buttonYourRatings = new System.Windows.Forms.Button();
             this.dataGridViewTOP = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxDescending)).BeginInit();
@@ -204,6 +204,7 @@
             this.topRatedMoviesToolStripMenuItem.Name = "topRatedMoviesToolStripMenuItem";
             this.topRatedMoviesToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
             this.topRatedMoviesToolStripMenuItem.Text = "Top Rated Movies";
+            this.topRatedMoviesToolStripMenuItem.Click += new System.EventHandler(this.topRatedMoviesToolStripMenuItem_Click);
             // 
             // mostRatedMoviesToolStripMenuItem
             // 
@@ -328,6 +329,7 @@
             this.buttonTwitter.Size = new System.Drawing.Size(42, 45);
             this.buttonTwitter.TabIndex = 26;
             this.buttonTwitter.UseVisualStyleBackColor = true;
+            this.buttonTwitter.Click += new System.EventHandler(this.buttonTwitter_Click);
             // 
             // buttonPowerOffTop
             // 
@@ -351,6 +353,7 @@
             this.buttonInstagram.Size = new System.Drawing.Size(42, 45);
             this.buttonInstagram.TabIndex = 25;
             this.buttonInstagram.UseVisualStyleBackColor = true;
+            this.buttonInstagram.Click += new System.EventHandler(this.buttonInstagram_Click);
             // 
             // SearchPictureBox
             // 
@@ -373,6 +376,7 @@
             this.buttonFacebook.Size = new System.Drawing.Size(42, 45);
             this.buttonFacebook.TabIndex = 24;
             this.buttonFacebook.UseVisualStyleBackColor = true;
+            this.buttonFacebook.Click += new System.EventHandler(this.buttonFacebook_Click);
             // 
             // comboBoxSearchBy
             // 
@@ -416,22 +420,6 @@
             this.panel2.Size = new System.Drawing.Size(153, 324);
             this.panel2.TabIndex = 2;
             // 
-            // buttonYourRatings
-            // 
-            this.buttonYourRatings.FlatAppearance.BorderSize = 0;
-            this.buttonYourRatings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonYourRatings.Font = new System.Drawing.Font("Gill Sans Ultra Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonYourRatings.Image = ((System.Drawing.Image)(resources.GetObject("buttonYourRatings.Image")));
-            this.buttonYourRatings.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonYourRatings.Location = new System.Drawing.Point(3, 22);
-            this.buttonYourRatings.Name = "buttonYourRatings";
-            this.buttonYourRatings.Size = new System.Drawing.Size(138, 59);
-            this.buttonYourRatings.TabIndex = 1;
-            this.buttonYourRatings.Text = "Your       Ratings";
-            this.buttonYourRatings.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.buttonYourRatings.UseCompatibleTextRendering = true;
-            this.buttonYourRatings.UseVisualStyleBackColor = true;
-            // 
             // button1
             // 
             this.button1.FlatAppearance.BorderSize = 0;
@@ -447,6 +435,22 @@
             this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button1.UseCompatibleTextRendering = true;
             this.button1.UseVisualStyleBackColor = true;
+            // 
+            // buttonYourRatings
+            // 
+            this.buttonYourRatings.FlatAppearance.BorderSize = 0;
+            this.buttonYourRatings.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonYourRatings.Font = new System.Drawing.Font("Gill Sans Ultra Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonYourRatings.Image = ((System.Drawing.Image)(resources.GetObject("buttonYourRatings.Image")));
+            this.buttonYourRatings.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonYourRatings.Location = new System.Drawing.Point(3, 22);
+            this.buttonYourRatings.Name = "buttonYourRatings";
+            this.buttonYourRatings.Size = new System.Drawing.Size(138, 59);
+            this.buttonYourRatings.TabIndex = 1;
+            this.buttonYourRatings.Text = "Your       Ratings";
+            this.buttonYourRatings.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buttonYourRatings.UseCompatibleTextRendering = true;
+            this.buttonYourRatings.UseVisualStyleBackColor = true;
             // 
             // dataGridViewTOP
             // 

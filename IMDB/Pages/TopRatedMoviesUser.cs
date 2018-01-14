@@ -7,14 +7,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Diagnostics;
 
 namespace IMDB
 {
     public partial class TopRatedMovies : Form
     {
-        public TopRatedMovies()
+        private Form FormParent;
+        
+        public TopRatedMovies(Form Parent)
         {
             InitializeComponent();
+            FormParent = Parent;
         }
 
 
@@ -32,20 +36,7 @@ namespace IMDB
                               c.Nota 
                           } ;
                 dataGridViewTOP.DataSource = aux.ToList();
-                //DataColumn note = new DataColumn("YourRating",typeof(int),"0");
-                DataTable dt = new DataTable();
-                dt.Columns.Add("Nota", typeof(System.Int32), "0");
                 
-
-                //DataGridViewColumn dgvc = new DataGridViewColumn();
-                //dgvc.HeaderText = "YourRatings";
-
-
-                //dataGridViewTOP.Columns.Add(dgvc);
-                //for (int i = 0; i < dataGridViewTOP.RowCount; i++)
-                //{
-                //    dataGridViewTOP.Rows.Add(new object[] { '0' } );
-                //}
 
             }
 
@@ -83,8 +74,9 @@ namespace IMDB
         private void dataGridViewTOP_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             int a = e.RowIndex;
-            MoviePage moviepage = new MoviePage(dataGridViewTOP.Rows[e.RowIndex].Cells[1].Value.ToString());
+            MoviePage moviepage = new MoviePage(dataGridViewTOP.Rows[e.RowIndex].Cells[1].Value.ToString(),this);
             moviepage.Show();
+            this.Close();
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)
@@ -132,6 +124,27 @@ namespace IMDB
 
             }
 
+        }
+
+        private void topRatedMoviesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void buttonFacebook_Click(object sender, EventArgs e)
+        {
+            Process.Start("https://www.facebook.com/imdb");
+        }
+
+        private void buttonInstagram_Click(object sender, EventArgs e)
+        {
+             Process.Start("https://www.instagram.com/imdb/");
+           
+        }
+
+        private void buttonTwitter_Click(object sender, EventArgs e)
+        {
+             Process.Start("https://twitter.com/imdb");
         }
     }
 

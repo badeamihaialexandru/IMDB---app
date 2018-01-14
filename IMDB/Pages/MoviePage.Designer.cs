@@ -30,6 +30,10 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MoviePage));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label6 = new System.Windows.Forms.Label();
+            this.buttonTwitter = new System.Windows.Forms.Button();
+            this.buttonInstagram = new System.Windows.Forms.Button();
+            this.buttonFacebook = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.movieToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mOVIESToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -48,6 +52,7 @@
             this.eVENTSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.nEWSToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.newsToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.watchlistToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.SearchPictureBox = new System.Windows.Forms.PictureBox();
             this.comboBoxSearchBy = new System.Windows.Forms.ComboBox();
@@ -66,15 +71,13 @@
             this.label4 = new System.Windows.Forms.Label();
             this.labelWins = new System.Windows.Forms.Label();
             this.labelActors = new System.Windows.Forms.Label();
-            this.buttonFacebook = new System.Windows.Forms.Button();
-            this.buttonInstagram = new System.Windows.Forms.Button();
-            this.buttonTwitter = new System.Windows.Forms.Button();
-            this.label6 = new System.Windows.Forms.Label();
+            this.pictureBoxPhoto = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SearchPictureBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPhoto)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -93,8 +96,55 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(989, 112);
+            this.panel1.Size = new System.Drawing.Size(990, 112);
             this.panel1.TabIndex = 0;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Gill Sans Ultra Bold", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label6.Location = new System.Drawing.Point(767, 73);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(75, 18);
+            this.label6.TabIndex = 23;
+            this.label6.Text = "Follow us:";
+            // 
+            // buttonTwitter
+            // 
+            this.buttonTwitter.FlatAppearance.BorderSize = 0;
+            this.buttonTwitter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonTwitter.Image = ((System.Drawing.Image)(resources.GetObject("buttonTwitter.Image")));
+            this.buttonTwitter.Location = new System.Drawing.Point(943, 57);
+            this.buttonTwitter.Name = "buttonTwitter";
+            this.buttonTwitter.Size = new System.Drawing.Size(42, 45);
+            this.buttonTwitter.TabIndex = 22;
+            this.buttonTwitter.UseVisualStyleBackColor = true;
+            this.buttonTwitter.Click += new System.EventHandler(this.buttonTwitter_Click);
+            // 
+            // buttonInstagram
+            // 
+            this.buttonInstagram.FlatAppearance.BorderSize = 0;
+            this.buttonInstagram.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonInstagram.Image = ((System.Drawing.Image)(resources.GetObject("buttonInstagram.Image")));
+            this.buttonInstagram.Location = new System.Drawing.Point(896, 57);
+            this.buttonInstagram.Name = "buttonInstagram";
+            this.buttonInstagram.Size = new System.Drawing.Size(42, 45);
+            this.buttonInstagram.TabIndex = 21;
+            this.buttonInstagram.UseVisualStyleBackColor = true;
+            this.buttonInstagram.Click += new System.EventHandler(this.buttonInstagram_Click);
+            // 
+            // buttonFacebook
+            // 
+            this.buttonFacebook.FlatAppearance.BorderSize = 0;
+            this.buttonFacebook.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonFacebook.Image = ((System.Drawing.Image)(resources.GetObject("buttonFacebook.Image")));
+            this.buttonFacebook.Location = new System.Drawing.Point(848, 58);
+            this.buttonFacebook.Name = "buttonFacebook";
+            this.buttonFacebook.Size = new System.Drawing.Size(42, 45);
+            this.buttonFacebook.TabIndex = 20;
+            this.buttonFacebook.UseVisualStyleBackColor = true;
+            this.buttonFacebook.Click += new System.EventHandler(this.buttonFacebook_Click);
             // 
             // menuStrip1
             // 
@@ -127,6 +177,7 @@
             this.movieToolStripMenuItem.Size = new System.Drawing.Size(117, 20);
             this.movieToolStripMenuItem.Text = "Movies, TV & Shows";
             this.movieToolStripMenuItem.TextImageRelation = System.Windows.Forms.TextImageRelation.TextBeforeImage;
+            this.movieToolStripMenuItem.Click += new System.EventHandler(this.movieToolStripMenuItem_Click);
             // 
             // mOVIESToolStripMenuItem
             // 
@@ -141,12 +192,14 @@
             this.topRatedMoviesToolStripMenuItem.Name = "topRatedMoviesToolStripMenuItem";
             this.topRatedMoviesToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
             this.topRatedMoviesToolStripMenuItem.Text = "Top Rated Movies";
+            this.topRatedMoviesToolStripMenuItem.Click += new System.EventHandler(this.topRatedMoviesToolStripMenuItem_Click);
             // 
             // mostRatedMoviesToolStripMenuItem
             // 
             this.mostRatedMoviesToolStripMenuItem.Name = "mostRatedMoviesToolStripMenuItem";
             this.mostRatedMoviesToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
             this.mostRatedMoviesToolStripMenuItem.Text = "Most Popular Movies";
+            this.mostRatedMoviesToolStripMenuItem.Click += new System.EventHandler(this.mostRatedMoviesToolStripMenuItem_Click);
             // 
             // tVSERIESToolStripMenuItem
             // 
@@ -161,18 +214,21 @@
             this.topRatedTVSeriesToolStripMenuItem.Name = "topRatedTVSeriesToolStripMenuItem";
             this.topRatedTVSeriesToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
             this.topRatedTVSeriesToolStripMenuItem.Text = "Top Rated TV Series";
+            this.topRatedTVSeriesToolStripMenuItem.Click += new System.EventHandler(this.topRatedTVSeriesToolStripMenuItem_Click);
             // 
             // mostPopularTVSeriesToolStripMenuItem
             // 
             this.mostPopularTVSeriesToolStripMenuItem.Name = "mostPopularTVSeriesToolStripMenuItem";
             this.mostPopularTVSeriesToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
             this.mostPopularTVSeriesToolStripMenuItem.Text = "Most Popular TV Series";
+            this.mostPopularTVSeriesToolStripMenuItem.Click += new System.EventHandler(this.mostPopularTVSeriesToolStripMenuItem_Click);
             // 
             // ExitMenu
             // 
             this.ExitMenu.Name = "ExitMenu";
             this.ExitMenu.Size = new System.Drawing.Size(195, 22);
             this.ExitMenu.Text = "EXIT";
+            this.ExitMenu.Click += new System.EventHandler(this.ExitMenu_Click);
             // 
             // celebsEventPhotosToolStripMenuItem
             // 
@@ -208,12 +264,14 @@
             this.celebrityNewsToolStripMenuItem.Name = "celebrityNewsToolStripMenuItem";
             this.celebrityNewsToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
             this.celebrityNewsToolStripMenuItem.Text = "Celebrity News";
+            this.celebrityNewsToolStripMenuItem.Click += new System.EventHandler(this.celebrityNewsToolStripMenuItem_Click);
             // 
             // mostPopularCelebsToolStripMenuItem
             // 
             this.mostPopularCelebsToolStripMenuItem.Name = "mostPopularCelebsToolStripMenuItem";
             this.mostPopularCelebsToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
             this.mostPopularCelebsToolStripMenuItem.Text = "Most Popular Celebs";
+            this.mostPopularCelebsToolStripMenuItem.Click += new System.EventHandler(this.mostPopularCelebsToolStripMenuItem_Click);
             // 
             // pHOTOToolStripMenuItem
             // 
@@ -234,11 +292,13 @@
             // newsToolStripMenuItem
             // 
             this.newsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.nEWSToolStripMenuItem1});
+            this.nEWSToolStripMenuItem1,
+            this.newsToolStripMenuItem2});
             this.newsToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.newsToolStripMenuItem.Name = "newsToolStripMenuItem";
             this.newsToolStripMenuItem.Size = new System.Drawing.Size(118, 20);
             this.newsToolStripMenuItem.Text = "News & Community";
+            this.newsToolStripMenuItem.Click += new System.EventHandler(this.newsToolStripMenuItem2_Click);
             // 
             // nEWSToolStripMenuItem1
             // 
@@ -247,6 +307,12 @@
             this.nEWSToolStripMenuItem1.Name = "nEWSToolStripMenuItem1";
             this.nEWSToolStripMenuItem1.Size = new System.Drawing.Size(119, 22);
             this.nEWSToolStripMenuItem1.Text = "NEWS";
+            // 
+            // newsToolStripMenuItem2
+            // 
+            this.newsToolStripMenuItem2.Name = "newsToolStripMenuItem2";
+            this.newsToolStripMenuItem2.Size = new System.Drawing.Size(119, 22);
+            this.newsToolStripMenuItem2.Text = "News";
             // 
             // watchlistToolStripMenuItem
             // 
@@ -353,6 +419,9 @@
             this.labelGender.Size = new System.Drawing.Size(54, 22);
             this.labelGender.TabIndex = 1;
             this.labelGender.Text = "label1";
+            this.labelGender.Click += new System.EventHandler(this.labelGender_Click);
+            this.labelGender.MouseLeave += new System.EventHandler(this.labelGender_MouseLeave);
+            this.labelGender.MouseHover += new System.EventHandler(this.labelGender_MouseHover);
             // 
             // labelNameandYear
             // 
@@ -362,22 +431,23 @@
             this.labelNameandYear.Size = new System.Drawing.Size(660, 91);
             this.labelNameandYear.TabIndex = 0;
             this.labelNameandYear.Text = "label1";
+            this.labelNameandYear.Click += new System.EventHandler(this.labelNameandYear_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Palatino Linotype", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(3, 473);
+            this.label1.Location = new System.Drawing.Point(3, 253);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(108, 37);
+            this.label1.Size = new System.Drawing.Size(96, 37);
             this.label1.TabIndex = 2;
-            this.label1.Text = "Photos:";
+            this.label1.Text = "Photo:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Palatino Linotype", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(4, 245);
+            this.label2.Location = new System.Drawing.Point(4, 390);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(121, 32);
             this.label2.TabIndex = 3;
@@ -397,7 +467,7 @@
             // 
             this.labelNameofDirector.AutoSize = true;
             this.labelNameofDirector.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelNameofDirector.Location = new System.Drawing.Point(131, 253);
+            this.labelNameofDirector.Location = new System.Drawing.Point(131, 398);
             this.labelNameofDirector.Name = "labelNameofDirector";
             this.labelNameofDirector.Size = new System.Drawing.Size(54, 22);
             this.labelNameofDirector.TabIndex = 2;
@@ -407,7 +477,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Palatino Linotype", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(4, 277);
+            this.label4.Location = new System.Drawing.Point(4, 422);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(66, 32);
             this.label4.TabIndex = 5;
@@ -416,7 +486,7 @@
             // labelWins
             // 
             this.labelWins.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelWins.Location = new System.Drawing.Point(71, 285);
+            this.labelWins.Location = new System.Drawing.Point(76, 430);
             this.labelWins.Name = "labelWins";
             this.labelWins.Size = new System.Drawing.Size(457, 188);
             this.labelWins.TabIndex = 6;
@@ -425,63 +495,28 @@
             // labelActors
             // 
             this.labelActors.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelActors.Location = new System.Drawing.Point(572, 302);
+            this.labelActors.Location = new System.Drawing.Point(727, 285);
             this.labelActors.Name = "labelActors";
-            this.labelActors.Size = new System.Drawing.Size(426, 171);
+            this.labelActors.Size = new System.Drawing.Size(251, 210);
             this.labelActors.TabIndex = 7;
             this.labelActors.Text = "label1";
+            this.labelActors.Click += new System.EventHandler(this.labelActors_Click);
             // 
-            // buttonFacebook
+            // pictureBoxPhoto
             // 
-            this.buttonFacebook.FlatAppearance.BorderSize = 0;
-            this.buttonFacebook.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonFacebook.Image = ((System.Drawing.Image)(resources.GetObject("buttonFacebook.Image")));
-            this.buttonFacebook.Location = new System.Drawing.Point(848, 58);
-            this.buttonFacebook.Name = "buttonFacebook";
-            this.buttonFacebook.Size = new System.Drawing.Size(42, 45);
-            this.buttonFacebook.TabIndex = 20;
-            this.buttonFacebook.UseVisualStyleBackColor = true;
-            this.buttonFacebook.Click += new System.EventHandler(this.buttonFacebook_Click);
-            // 
-            // buttonInstagram
-            // 
-            this.buttonInstagram.FlatAppearance.BorderSize = 0;
-            this.buttonInstagram.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonInstagram.Image = ((System.Drawing.Image)(resources.GetObject("buttonInstagram.Image")));
-            this.buttonInstagram.Location = new System.Drawing.Point(896, 57);
-            this.buttonInstagram.Name = "buttonInstagram";
-            this.buttonInstagram.Size = new System.Drawing.Size(42, 45);
-            this.buttonInstagram.TabIndex = 21;
-            this.buttonInstagram.UseVisualStyleBackColor = true;
-            // 
-            // buttonTwitter
-            // 
-            this.buttonTwitter.FlatAppearance.BorderSize = 0;
-            this.buttonTwitter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonTwitter.Image = ((System.Drawing.Image)(resources.GetObject("buttonTwitter.Image")));
-            this.buttonTwitter.Location = new System.Drawing.Point(943, 57);
-            this.buttonTwitter.Name = "buttonTwitter";
-            this.buttonTwitter.Size = new System.Drawing.Size(42, 45);
-            this.buttonTwitter.TabIndex = 22;
-            this.buttonTwitter.UseVisualStyleBackColor = true;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Gill Sans Ultra Bold", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label6.Location = new System.Drawing.Point(767, 73);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(75, 18);
-            this.label6.TabIndex = 23;
-            this.label6.Text = "Follow us:";
+            this.pictureBoxPhoto.Location = new System.Drawing.Point(117, 253);
+            this.pictureBoxPhoto.Name = "pictureBoxPhoto";
+            this.pictureBoxPhoto.Size = new System.Drawing.Size(164, 134);
+            this.pictureBoxPhoto.TabIndex = 8;
+            this.pictureBoxPhoto.TabStop = false;
             // 
             // MoviePage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(207)))), ((int)(((byte)(190)))));
-            this.ClientSize = new System.Drawing.Size(989, 621);
+            this.ClientSize = new System.Drawing.Size(990, 555);
+            this.Controls.Add(this.pictureBoxPhoto);
             this.Controls.Add(this.labelActors);
             this.Controls.Add(this.labelWins);
             this.Controls.Add(this.label4);
@@ -494,6 +529,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "MoviePage";
             this.Text = "MoviePage";
+            this.Load += new System.EventHandler(this.MoviePage_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
@@ -502,6 +538,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPhoto)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -550,5 +587,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button buttonTwitter;
         private System.Windows.Forms.Button buttonInstagram;
+        private System.Windows.Forms.PictureBox pictureBoxPhoto;
+        private System.Windows.Forms.ToolStripMenuItem newsToolStripMenuItem2;
     }
 }

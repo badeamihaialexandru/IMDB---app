@@ -50,7 +50,7 @@
             this.eVENTSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.nEWSToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.watchlistToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.newsToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.Status = new System.Windows.Forms.StatusStrip();
             this.AppStatus = new System.Windows.Forms.ToolStripStatusLabel();
             this.label1 = new System.Windows.Forms.Label();
@@ -104,8 +104,7 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.movieToolStripMenuItem,
             this.celebsEventPhotosToolStripMenuItem,
-            this.newsToolStripMenuItem,
-            this.watchlistToolStripMenuItem});
+            this.newsToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(863, 24);
@@ -151,6 +150,7 @@
             this.mostRatedMoviesToolStripMenuItem.Name = "mostRatedMoviesToolStripMenuItem";
             this.mostRatedMoviesToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
             this.mostRatedMoviesToolStripMenuItem.Text = "Most Popular Movies";
+            this.mostRatedMoviesToolStripMenuItem.Click += new System.EventHandler(this.mostRatedMoviesToolStripMenuItem_Click);
             // 
             // tVSERIESToolStripMenuItem
             // 
@@ -165,12 +165,14 @@
             this.topRatedTVSeriesToolStripMenuItem.Name = "topRatedTVSeriesToolStripMenuItem";
             this.topRatedTVSeriesToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
             this.topRatedTVSeriesToolStripMenuItem.Text = "Top Rated TV Series";
+            this.topRatedTVSeriesToolStripMenuItem.Click += new System.EventHandler(this.topRatedTVSeriesToolStripMenuItem_Click);
             // 
             // mostPopularTVSeriesToolStripMenuItem
             // 
             this.mostPopularTVSeriesToolStripMenuItem.Name = "mostPopularTVSeriesToolStripMenuItem";
             this.mostPopularTVSeriesToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
             this.mostPopularTVSeriesToolStripMenuItem.Text = "Most Popular TV Series";
+            this.mostPopularTVSeriesToolStripMenuItem.Click += new System.EventHandler(this.mostPopularTVSeriesToolStripMenuItem_Click);
             // 
             // ExitMenu
             // 
@@ -210,18 +212,21 @@
             this.bornTodayToolStripMenuItem.Name = "bornTodayToolStripMenuItem";
             this.bornTodayToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
             this.bornTodayToolStripMenuItem.Text = "Born Today";
+            this.bornTodayToolStripMenuItem.Click += new System.EventHandler(this.bornTodayToolStripMenuItem_Click);
             // 
             // celebrityNewsToolStripMenuItem
             // 
             this.celebrityNewsToolStripMenuItem.Name = "celebrityNewsToolStripMenuItem";
             this.celebrityNewsToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
             this.celebrityNewsToolStripMenuItem.Text = "Celebrity News";
+            this.celebrityNewsToolStripMenuItem.Click += new System.EventHandler(this.celebrityNewsToolStripMenuItem_Click);
             // 
             // mostPopularCelebsToolStripMenuItem
             // 
             this.mostPopularCelebsToolStripMenuItem.Name = "mostPopularCelebsToolStripMenuItem";
             this.mostPopularCelebsToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
             this.mostPopularCelebsToolStripMenuItem.Text = "Most Popular Celebs";
+            this.mostPopularCelebsToolStripMenuItem.Click += new System.EventHandler(this.mostPopularCelebsToolStripMenuItem_Click);
             // 
             // pHOTOToolStripMenuItem
             // 
@@ -242,10 +247,11 @@
             // newsToolStripMenuItem
             // 
             this.newsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.nEWSToolStripMenuItem1});
+            this.nEWSToolStripMenuItem1,
+            this.newsToolStripMenuItem2});
             this.newsToolStripMenuItem.Name = "newsToolStripMenuItem";
-            this.newsToolStripMenuItem.Size = new System.Drawing.Size(118, 20);
-            this.newsToolStripMenuItem.Text = "News & Community";
+            this.newsToolStripMenuItem.Size = new System.Drawing.Size(51, 20);
+            this.newsToolStripMenuItem.Text = "News ";
             this.newsToolStripMenuItem.MouseLeave += new System.EventHandler(this.newsToolStripMenuItem_MouseLeave);
             this.newsToolStripMenuItem.MouseHover += new System.EventHandler(this.newsToolStripMenuItem_MouseHover);
             // 
@@ -257,13 +263,12 @@
             this.nEWSToolStripMenuItem1.Size = new System.Drawing.Size(119, 22);
             this.nEWSToolStripMenuItem1.Text = "NEWS";
             // 
-            // watchlistToolStripMenuItem
+            // newsToolStripMenuItem2
             // 
-            this.watchlistToolStripMenuItem.Name = "watchlistToolStripMenuItem";
-            this.watchlistToolStripMenuItem.Size = new System.Drawing.Size(68, 20);
-            this.watchlistToolStripMenuItem.Text = "Watchlist";
-            this.watchlistToolStripMenuItem.MouseLeave += new System.EventHandler(this.watchlistToolStripMenuItem_MouseLeave);
-            this.watchlistToolStripMenuItem.MouseHover += new System.EventHandler(this.watchlistToolStripMenuItem_MouseHover);
+            this.newsToolStripMenuItem2.Name = "newsToolStripMenuItem2";
+            this.newsToolStripMenuItem2.Size = new System.Drawing.Size(119, 22);
+            this.newsToolStripMenuItem2.Text = "News";
+            this.newsToolStripMenuItem2.Click += new System.EventHandler(this.newsToolStripMenuItem2_Click);
             // 
             // Status
             // 
@@ -364,6 +369,7 @@
             this.textBox1.Size = new System.Drawing.Size(320, 20);
             this.textBox1.TabIndex = 0;
             this.textBox1.Click += new System.EventHandler(this.textBox1_Click);
+            this.textBox1.CursorChanged += new System.EventHandler(this.textBox1_CursorChanged_1);
             this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // SeacrhcontextMenuStrip
@@ -416,6 +422,7 @@
             this.SearchPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.SearchPictureBox.TabIndex = 11;
             this.SearchPictureBox.TabStop = false;
+            this.SearchPictureBox.Click += new System.EventHandler(this.SearchPictureBox_Click);
             // 
             // SearchBy
             // 
@@ -523,7 +530,6 @@
         private System.Windows.Forms.ToolStripMenuItem movieToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem celebsEventPhotosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem newsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem watchlistToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem topRatedMoviesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem mostRatedMoviesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem topRatedTVSeriesToolStripMenuItem;
@@ -558,6 +564,7 @@
         private System.Windows.Forms.Label labelLog;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label labelJoinUs;
+        private System.Windows.Forms.ToolStripMenuItem newsToolStripMenuItem2;
     }
 }
 
