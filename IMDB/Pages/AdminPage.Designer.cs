@@ -38,7 +38,6 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.button8 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.buttonUser = new System.Windows.Forms.Button();
             this.AddTVSeriesButton = new System.Windows.Forms.Button();
@@ -69,6 +68,9 @@
             this.buttonCauta = new System.Windows.Forms.Button();
             this.buttonSalveaza = new System.Windows.Forms.Button();
             this.checkBoxMakeAdmin = new System.Windows.Forms.CheckBox();
+            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
@@ -160,7 +162,6 @@
             // 
             this.panel2.BackColor = System.Drawing.Color.Chocolate;
             this.panel2.Controls.Add(this.button8);
-            this.panel2.Controls.Add(this.button7);
             this.panel2.Controls.Add(this.button6);
             this.panel2.Controls.Add(this.buttonUser);
             this.panel2.Controls.Add(this.AddTVSeriesButton);
@@ -180,7 +181,7 @@
             this.button8.Font = new System.Drawing.Font("Gill Sans Ultra Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button8.Image = ((System.Drawing.Image)(resources.GetObject("button8.Image")));
             this.button8.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button8.Location = new System.Drawing.Point(3, 400);
+            this.button8.Location = new System.Drawing.Point(3, 282);
             this.button8.Name = "button8";
             this.button8.Size = new System.Drawing.Size(129, 59);
             this.button8.TabIndex = 7;
@@ -188,22 +189,6 @@
             this.button8.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button8.UseCompatibleTextRendering = true;
             this.button8.UseVisualStyleBackColor = true;
-            // 
-            // button7
-            // 
-            this.button7.FlatAppearance.BorderSize = 0;
-            this.button7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button7.Font = new System.Drawing.Font("Gill Sans Ultra Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button7.Image = ((System.Drawing.Image)(resources.GetObject("button7.Image")));
-            this.button7.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button7.Location = new System.Drawing.Point(12, 340);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(118, 59);
-            this.button7.TabIndex = 6;
-            this.button7.Text = "News   ";
-            this.button7.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button7.UseCompatibleTextRendering = true;
-            this.button7.UseVisualStyleBackColor = true;
             // 
             // button6
             // 
@@ -229,7 +214,7 @@
             this.buttonUser.Font = new System.Drawing.Font("Gill Sans Ultra Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonUser.Image = ((System.Drawing.Image)(resources.GetObject("buttonUser.Image")));
             this.buttonUser.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonUser.Location = new System.Drawing.Point(3, 275);
+            this.buttonUser.Location = new System.Drawing.Point(3, 347);
             this.buttonUser.Name = "buttonUser";
             this.buttonUser.Size = new System.Drawing.Size(143, 59);
             this.buttonUser.TabIndex = 4;
@@ -311,7 +296,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Gill Sans Ultra Bold", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(188, 103);
+            this.label2.Location = new System.Drawing.Point(188, 146);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(77, 20);
             this.label2.TabIndex = 3;
@@ -320,7 +305,7 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(355, 102);
+            this.textBox1.Location = new System.Drawing.Point(365, 145);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(235, 20);
             this.textBox1.TabIndex = 4;
@@ -331,7 +316,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Gill Sans Ultra Bold", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(181, 355);
+            this.label3.Location = new System.Drawing.Point(181, 398);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(77, 20);
             this.label3.TabIndex = 5;
@@ -343,7 +328,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Gill Sans Ultra Bold", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(188, 307);
+            this.label4.Location = new System.Drawing.Point(188, 350);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(77, 20);
             this.label4.TabIndex = 6;
@@ -354,7 +339,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Gill Sans Ultra Bold", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(188, 251);
+            this.label5.Location = new System.Drawing.Point(188, 294);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(83, 20);
             this.label5.TabIndex = 7;
@@ -365,7 +350,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Gill Sans Ultra Bold", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(188, 196);
+            this.label6.Location = new System.Drawing.Point(188, 239);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(83, 20);
             this.label6.TabIndex = 8;
@@ -376,7 +361,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Gill Sans Ultra Bold", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(188, 151);
+            this.label7.Location = new System.Drawing.Point(188, 194);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(77, 20);
             this.label7.TabIndex = 9;
@@ -385,7 +370,7 @@
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(355, 151);
+            this.textBox2.Location = new System.Drawing.Point(365, 194);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(235, 20);
             this.textBox2.TabIndex = 10;
@@ -393,7 +378,7 @@
             // 
             // textBox4
             // 
-            this.textBox4.Location = new System.Drawing.Point(355, 251);
+            this.textBox4.Location = new System.Drawing.Point(365, 294);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(235, 20);
             this.textBox4.TabIndex = 12;
@@ -401,7 +386,7 @@
             // 
             // textBox5
             // 
-            this.textBox5.Location = new System.Drawing.Point(355, 307);
+            this.textBox5.Location = new System.Drawing.Point(365, 350);
             this.textBox5.Name = "textBox5";
             this.textBox5.Size = new System.Drawing.Size(235, 20);
             this.textBox5.TabIndex = 13;
@@ -409,7 +394,7 @@
             // 
             // textBox6
             // 
-            this.textBox6.Location = new System.Drawing.Point(355, 355);
+            this.textBox6.Location = new System.Drawing.Point(365, 398);
             this.textBox6.Name = "textBox6";
             this.textBox6.Size = new System.Drawing.Size(235, 20);
             this.textBox6.TabIndex = 14;
@@ -417,7 +402,7 @@
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(355, 196);
+            this.textBox3.Location = new System.Drawing.Point(365, 239);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(235, 20);
             this.textBox3.TabIndex = 15;
@@ -429,7 +414,7 @@
             this.InsertcheckBox.Font = new System.Drawing.Font("Gill Sans Ultra Bold", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.InsertcheckBox.Image = ((System.Drawing.Image)(resources.GetObject("InsertcheckBox.Image")));
             this.InsertcheckBox.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.InsertcheckBox.Location = new System.Drawing.Point(662, 89);
+            this.InsertcheckBox.Location = new System.Drawing.Point(662, 139);
             this.InsertcheckBox.Name = "InsertcheckBox";
             this.InsertcheckBox.Size = new System.Drawing.Size(142, 42);
             this.InsertcheckBox.TabIndex = 16;
@@ -444,7 +429,7 @@
             this.UpdateCheckBox.Font = new System.Drawing.Font("Gill Sans Ultra Bold", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.UpdateCheckBox.Image = ((System.Drawing.Image)(resources.GetObject("UpdateCheckBox.Image")));
             this.UpdateCheckBox.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.UpdateCheckBox.Location = new System.Drawing.Point(662, 137);
+            this.UpdateCheckBox.Location = new System.Drawing.Point(662, 187);
             this.UpdateCheckBox.Name = "UpdateCheckBox";
             this.UpdateCheckBox.Size = new System.Drawing.Size(142, 42);
             this.UpdateCheckBox.TabIndex = 17;
@@ -459,7 +444,7 @@
             this.DeletecheckBox.Font = new System.Drawing.Font("Gill Sans Ultra Bold", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.DeletecheckBox.Image = ((System.Drawing.Image)(resources.GetObject("DeletecheckBox.Image")));
             this.DeletecheckBox.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.DeletecheckBox.Location = new System.Drawing.Point(662, 185);
+            this.DeletecheckBox.Location = new System.Drawing.Point(662, 235);
             this.DeletecheckBox.Name = "DeletecheckBox";
             this.DeletecheckBox.Size = new System.Drawing.Size(142, 42);
             this.DeletecheckBox.TabIndex = 18;
@@ -513,7 +498,7 @@
             // 
             this.labelpoza.AutoSize = true;
             this.labelpoza.Font = new System.Drawing.Font("Gill Sans Ultra Bold", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelpoza.Location = new System.Drawing.Point(188, 396);
+            this.labelpoza.Location = new System.Drawing.Point(188, 439);
             this.labelpoza.Name = "labelpoza";
             this.labelpoza.Size = new System.Drawing.Size(60, 20);
             this.labelpoza.TabIndex = 29;
@@ -524,7 +509,7 @@
             // 
             this.pictureBoxPoza.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureBoxPoza.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxPoza.Image")));
-            this.pictureBoxPoza.Location = new System.Drawing.Point(355, 396);
+            this.pictureBoxPoza.Location = new System.Drawing.Point(355, 439);
             this.pictureBoxPoza.Name = "pictureBoxPoza";
             this.pictureBoxPoza.Size = new System.Drawing.Size(145, 116);
             this.pictureBoxPoza.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -539,7 +524,7 @@
             this.buttonCauta.Font = new System.Drawing.Font("Gill Sans Ultra Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonCauta.Image = ((System.Drawing.Image)(resources.GetObject("buttonCauta.Image")));
             this.buttonCauta.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonCauta.Location = new System.Drawing.Point(506, 396);
+            this.buttonCauta.Location = new System.Drawing.Point(506, 439);
             this.buttonCauta.Name = "buttonCauta";
             this.buttonCauta.Size = new System.Drawing.Size(129, 59);
             this.buttonCauta.TabIndex = 4;
@@ -557,7 +542,7 @@
             this.buttonSalveaza.Font = new System.Drawing.Font("Gill Sans Ultra Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonSalveaza.Image = ((System.Drawing.Image)(resources.GetObject("buttonSalveaza.Image")));
             this.buttonSalveaza.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonSalveaza.Location = new System.Drawing.Point(659, 297);
+            this.buttonSalveaza.Location = new System.Drawing.Point(659, 347);
             this.buttonSalveaza.Name = "buttonSalveaza";
             this.buttonSalveaza.Size = new System.Drawing.Size(145, 59);
             this.buttonSalveaza.TabIndex = 31;
@@ -574,18 +559,54 @@
             this.checkBoxMakeAdmin.Font = new System.Drawing.Font("Gill Sans Ultra Bold", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.checkBoxMakeAdmin.Image = ((System.Drawing.Image)(resources.GetObject("checkBoxMakeAdmin.Image")));
             this.checkBoxMakeAdmin.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.checkBoxMakeAdmin.Location = new System.Drawing.Point(662, 232);
+            this.checkBoxMakeAdmin.Location = new System.Drawing.Point(662, 282);
             this.checkBoxMakeAdmin.Name = "checkBoxMakeAdmin";
-            this.checkBoxMakeAdmin.Size = new System.Drawing.Size(142, 47);
+            this.checkBoxMakeAdmin.Size = new System.Drawing.Size(153, 47);
             this.checkBoxMakeAdmin.TabIndex = 32;
             this.checkBoxMakeAdmin.Text = "Make       Admin";
             this.checkBoxMakeAdmin.UseVisualStyleBackColor = true;
             this.checkBoxMakeAdmin.Visible = false;
             // 
+            // textBox7
+            // 
+            this.textBox7.Location = new System.Drawing.Point(383, 103);
+            this.textBox7.Name = "textBox7";
+            this.textBox7.Size = new System.Drawing.Size(235, 20);
+            this.textBox7.TabIndex = 34;
+            this.textBox7.Visible = false;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Gill Sans Ultra Bold", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(188, 102);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(90, 20);
+            this.label11.TabIndex = 33;
+            this.label11.Text = "Label11:";
+            this.label11.Visible = false;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Gill Sans Ultra Bold", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.Location = new System.Drawing.Point(658, 102);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(141, 20);
+            this.label12.TabIndex = 35;
+            this.label12.Text = "Nume Identic?";
+            this.label12.Visible = false;
+            this.label12.Click += new System.EventHandler(this.label12_Click);
+            this.label12.MouseLeave += new System.EventHandler(this.label12_MouseLeave);
+            this.label12.MouseHover += new System.EventHandler(this.label12_MouseHover);
+            // 
             // AdminPage
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(827, 619);
+            this.Controls.Add(this.label12);
+            this.Controls.Add(this.textBox7);
+            this.Controls.Add(this.label11);
             this.Controls.Add(this.checkBoxMakeAdmin);
             this.Controls.Add(this.buttonSalveaza);
             this.Controls.Add(this.buttonCauta);
@@ -668,7 +689,9 @@
         private System.Windows.Forms.Button buttonUser;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.CheckBox checkBoxMakeAdmin;
-        private System.Windows.Forms.Button button7;
         private System.Windows.Forms.Button button8;
+        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label12;
     }
 }

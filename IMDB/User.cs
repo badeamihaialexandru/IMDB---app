@@ -18,7 +18,9 @@ namespace IMDB
         public User()
         {
             this.WatchLists = new HashSet<WatchList>();
+            this.WatchlistSeriales = new HashSet<WatchlistSeriale>();
             this.YourRatings = new HashSet<YourRating>();
+            this.YourRatingsSerials = new HashSet<YourRatingsSerial>();
         }
     
         public int ID_User { get; set; }
@@ -33,6 +35,10 @@ namespace IMDB
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<WatchList> WatchLists { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<WatchlistSeriale> WatchlistSeriales { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<YourRating> YourRatings { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<YourRatingsSerial> YourRatingsSerials { get; set; }
     }
 }

@@ -17,5 +17,8 @@ namespace IMDB
         public int ID_Actor { get; set; }
         public int ID_Serial { get; set; }
         public string Nume_in_Serial { get; set; }
+    
+        public virtual Actori Actori { get; set; }
+        public virtual Seriale Seriale { get; set; }
     }
 }

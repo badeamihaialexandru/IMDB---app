@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Media;
-
+using System.Security.Cryptography;
 
 namespace IMDB
 {
@@ -20,18 +20,69 @@ namespace IMDB
         public IMDProject()
         {
             InitializeComponent();
+        
         }
 
-        
+        public string CalculateMD5Hash(string input)
+
+        {
+
+            // step 1, calculate MD5 hash from input
+
+            MD5 md5 = System.Security.Cryptography.MD5.Create();
+
+            byte[] inputBytes = System.Text.Encoding.ASCII.GetBytes(input);
+
+            byte[] hash = md5.ComputeHash(inputBytes);
+
+
+            // step 2, convert byte array to hex string
+
+            StringBuilder sb = new StringBuilder();
+
+            for (int i = 0; i < hash.Length; i++)
+
+            {
+
+                sb.Append(hash[i].ToString("x2"));
+
+            }
+
+            return sb.ToString();
+
+        }
+
+        public void schimba_parole()
+        {
+            using (var context = new IMDBEntities())
+            {
+                var users = (from a in context.Users
+                             where a.ID_User==2
+                            select a).First();
+                ////  int count = users.Count();
+                // // var item = users.ToList();
+
+                //   //for(int i= 0;i<count;i++)
+                //  //{
+                //      item[i].Password = CalculateMD5Hash(item[i].Password);
+
+                //  }
+
+                users.Password = CalculateMD5Hash(users.Password);
+                context.SaveChanges();
+            }
+
+        }
 
         private void Form1_Load(object sender, EventArgs e)
         {
           //  Image image = Image.FromFile(@"C:\Users\Mosu\Desktop\imdb_pictures\images.png");
-            pictureBox1.ImageLocation = @"C:\Users\Mosu\Desktop\proiect_utile\imdb_pictures\imdb2.png";
-            SearchPictureBox.ImageLocation = @"C:\Users\Mosu\Desktop\proiect_utile\imdb_pictures\src.png";
+            pictureBox1.ImageLocation = @"proiect_utile\imdb_pictures\imdb2.png";
+            SearchPictureBox.ImageLocation = @"proiect_utile\imdb_pictures\src.png";
             AppStatus.Text = "IMDB Project";
-            textBox1.Text = SearchStatus;
-            SoundPlayer p = new SoundPlayer(@"C:\Users\Mosu\Desktop\proiect_utile\start.wav");
+            textBoxSearch.Text = SearchStatus;
+            
+            SoundPlayer p = new SoundPlayer(@"proiect_utile\start.wav");
             p.Play();
         }
 
@@ -118,6 +169,7 @@ namespace IMDB
 
         private void label1_Click(object sender, EventArgs e) //SIGN IN
         {
+           //schimba_parole();
             label1.Visible = false;
             ContinueAsGuest.Visible = true;
             Username.Visible = true;
@@ -168,10 +220,10 @@ namespace IMDB
 
         private void textBox1_Click(object sender, EventArgs e)
         {
-            textBox1.Enabled = true;
-            if (textBox1.Text.Equals(SearchStatus))
-            { textBox1.Text = ""; }
-            textBox1.ForeColor = Color.Black;
+            textBoxSearch.Enabled = true;
+            if (textBoxSearch.Text.Equals(SearchStatus))
+            { textBoxSearch.Text = ""; }
+            textBoxSearch.ForeColor = Color.Black;
             
         }
 
@@ -186,23 +238,37 @@ namespace IMDB
                               select c).FirstOrDefault();
                 if(result!=null)
                 {
-                    if (result.Rights.Contains("admin"))
+                    
+                    string parola = result.Password;
+                    parola=parola.Replace(" ", string.Empty);
+                    string parola2 = CalculateMD5Hash(TextBoxPassword.Text);
+
+                    if (!parola2.Equals(parola))
                     {
-                        AdminOrUser aou = new AdminOrUser(TextBoxUsername.Text, this);
-                        aou.Show();
+                        MessageBox.Show("The password isn't correct!", "Sign in Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                     else
                     {
-                        UserPage up = new UserPage(result.Username, this);
-                        up.Show();
+                        if (result.Rights.Contains("admin"))
+                        {
+                            AdminOrUser aou = new AdminOrUser(TextBoxUsername.Text, this);
+                            aou.Show();
+                        }
+                        else
+                        {
+                            UserPage up = new UserPage(result.Username, this);
+                            up.Show();
+                        }
+                        SoundPlayer log = new SoundPlayer(@"C:\Users\Mosu\Desktop\proiect_utile\sound.wav");
+                        log.Play();
+                        TextBoxUsername.Text = "";
+                        TextBoxPassword.Text = "";
                     }
-                    SoundPlayer log = new SoundPlayer(@"C:\Users\Mosu\Desktop\proiect_utile\sound.wav");
-                    log.Play();
                 }
                 else
                 {
                     SystemSounds.Exclamation.Play();
-                    MessageBox.Show("The password or username aren't correct!");
+                    MessageBox.Show("The password or username isn't correct!");
                 }
             }
         }
@@ -224,9 +290,9 @@ namespace IMDB
 
         private void textBox1_CursorChanged_1(object sender, EventArgs e)
         {
-            if(textBox1.Text.Equals(""))
+            if(textBoxSearch.Text.Equals(""))
             {
-                textBox1.Text = SearchStatus;
+                textBoxSearch.Text = SearchStatus;
             }
         }
 
@@ -244,9 +310,80 @@ namespace IMDB
 
         private void SearchPictureBox_Click(object sender, EventArgs e)
         {
-            if(textBox1.Text.Equals(SearchStatus) || textBox1.Text.Equals(""))
+            if(textBoxSearch.Text.Equals(SearchStatus) || textBoxSearch.Text.Equals(""))
             {
                 MessageBox.Show("Please enter a keyword for search!","InfoMessage");
+            }
+            else {
+                using (var context = new IMDBEntities())
+                {
+                    var ResultMovies = (from rmov in context.Filmes
+                                       where rmov.Nume.Contains(textBoxSearch.Text)
+                                       select rmov).FirstOrDefault();
+                    var ResultTVSeries = (from rtv in context.Seriales
+                                          where rtv.Nume.Contains(textBoxSearch.Text)
+                                          select rtv).FirstOrDefault();
+                    var ResultActors = (from ra in context.Actoris
+                                        where ra.Nume.Contains(textBoxSearch.Text) || ra.Prenume.Equals(textBoxSearch.Text)
+                                        select ra).FirstOrDefault();
+                    var ResultDirectors = (from rd in context.Regizoris
+                                           where rd.Nume.Contains(textBoxSearch.Text) || rd.Prenume.Equals(textBoxSearch.Text)
+                                           select rd).FirstOrDefault();
+                    var ResultGender = (from rg in context.Genuris
+                                        where rg.Nume_Gen.Contains(textBoxSearch.Text)
+                                        select rg).FirstOrDefault();
+                    if (SearchBy.Text.Equals("Movies"))
+                    {
+                        if(ResultMovies!=null)
+                        {
+                            UniversalPage searchbymovies = new UniversalPage("SearchByMovies", textBoxSearch.Text, this);
+                            searchbymovies.Show();
+                            this.Hide();
+                        }
+                        else { MessageBox.Show("Nu exista nici o inregistrare care sa corespunda textului introdus!"); }
+                    }
+                    else if(SearchBy.Text.Equals("TV Series"))
+                    {
+                        if(ResultTVSeries!=null)
+                        {
+                            UniversalPage searchbytvseries = new UniversalPage("SearchByTVSeries", textBoxSearch.Text, this);
+                            searchbytvseries.Show();
+                            this.Hide();
+                        }
+                        else { MessageBox.Show("Nu exista nici o inregistrare care sa corepunda textului introdus!"); }
+                    }
+                    else if(SearchBy.Text.Equals("Actors"))
+                    {
+                        if(ResultActors!=null)
+                        {
+                            UniversalPage searchbyactors = new UniversalPage("SearchByActors", textBoxSearch.Text, this);
+                            searchbyactors.Show();
+                            this.Hide();
+                        }
+                        else { MessageBox.Show("Nu exista nici o inregistrare care sa corepunda textului introdus!"); }
+                    }                    
+                    else if(SearchBy.Text.Equals("Directors"))
+                    {
+                        if(ResultDirectors!=null)
+                        {
+                            UniversalPage searchbydirectors = new UniversalPage("SearchByDirectors", textBoxSearch.Text, this);
+                            searchbydirectors.Show();
+                            this.Hide();
+                        }
+                        else { MessageBox.Show("Nu exista nici o inregistrare care sa corepunda textului introdus!"); }
+                    }
+                    else if(SearchBy.Text.Equals("Gender"))
+                    {
+                        if (ResultGender != null)
+                        {
+                            UniversalPage searchbygender = new UniversalPage("SearchByGender", textBoxSearch.Text, this);
+                            searchbygender.Show();
+                            this.Hide();
+
+                        }
+                        else { MessageBox.Show("Nu exista nici o inregistrare care sa corepunda textului introdus!"); }
+                    }
+                }  
             }
         }
 
@@ -290,6 +427,18 @@ namespace IMDB
             UniversalPage form = new UniversalPage("MostPopularCelebs",this);
             form.Show();
             this.Hide();
+        }
+
+        private void allActorsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            UniversalPage form = new UniversalPage("AllActorsCelebs", this);
+            form.Show();
+            this.Hide();
+        }
+
+        private void SearchBy_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 

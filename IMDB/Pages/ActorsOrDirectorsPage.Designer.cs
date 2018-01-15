@@ -60,16 +60,26 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.buttonPowerOffTop = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.labelNameandYear = new System.Windows.Forms.Label();
+            this.labelActororDirector = new System.Windows.Forms.Label();
+            this.labelName = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.labelMovie4 = new System.Windows.Forms.Label();
+            this.labelMovie2 = new System.Windows.Forms.Label();
+            this.labelMovie3 = new System.Windows.Forms.Label();
+            this.labelMovie1 = new System.Windows.Forms.Label();
+            this.labelNationality = new System.Windows.Forms.Label();
+            this.labelCountry = new System.Windows.Forms.Label();
+            this.labelCity = new System.Windows.Forms.Label();
+            this.labelDATEOFBIRTH = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.labelCity = new System.Windows.Forms.Label();
-            this.labelDateofBirth = new System.Windows.Forms.Label();
+            this.labelCitystatic = new System.Windows.Forms.Label();
+            this.labeldob = new System.Windows.Forms.Label();
             this.labelAbout = new System.Windows.Forms.Label();
             this.pictureBoxPhoto = new System.Windows.Forms.PictureBox();
             this.labelPhoto = new System.Windows.Forms.Label();
+            this.allActorsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SearchPictureBox)).BeginInit();
@@ -157,7 +167,7 @@
             this.watchlistToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(145, 73);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(440, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(532, 24);
             this.menuStrip1.TabIndex = 19;
             this.menuStrip1.Text = "Menu";
             // 
@@ -222,6 +232,7 @@
             this.ExitMenu.Name = "ExitMenu";
             this.ExitMenu.Size = new System.Drawing.Size(195, 22);
             this.ExitMenu.Text = "EXIT";
+            this.ExitMenu.Click += new System.EventHandler(this.ExitMenu_Click);
             // 
             // celebsEventPhotosToolStripMenuItem
             // 
@@ -230,6 +241,7 @@
             this.bornTodayToolStripMenuItem,
             this.celebrityNewsToolStripMenuItem,
             this.mostPopularCelebsToolStripMenuItem,
+            this.allActorsToolStripMenuItem,
             this.pHOTOToolStripMenuItem,
             this.eVENTSToolStripMenuItem});
             this.celebsEventPhotosToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlLightLight;
@@ -251,6 +263,7 @@
             this.bornTodayToolStripMenuItem.Name = "bornTodayToolStripMenuItem";
             this.bornTodayToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
             this.bornTodayToolStripMenuItem.Text = "Born Today";
+            this.bornTodayToolStripMenuItem.Click += new System.EventHandler(this.bornTodayToolStripMenuItem_Click);
             // 
             // celebrityNewsToolStripMenuItem
             // 
@@ -364,34 +377,55 @@
             this.buttonPowerOffTop.Size = new System.Drawing.Size(41, 47);
             this.buttonPowerOffTop.TabIndex = 15;
             this.buttonPowerOffTop.UseVisualStyleBackColor = true;
+            this.buttonPowerOffTop.Click += new System.EventHandler(this.buttonPowerOffTop_Click);
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(47)))), ((int)(((byte)(40)))));
-            this.panel2.Controls.Add(this.labelNameandYear);
+            this.panel2.Controls.Add(this.labelActororDirector);
+            this.panel2.Controls.Add(this.labelName);
             this.panel2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(121)))), ((int)(((byte)(134)))));
             this.panel2.Location = new System.Drawing.Point(-3, 112);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1010, 98);
             this.panel2.TabIndex = 2;
             // 
-            // labelNameandYear
+            // labelActororDirector
             // 
-            this.labelNameandYear.Font = new System.Drawing.Font("Palatino Linotype", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelNameandYear.Location = new System.Drawing.Point(140, 0);
-            this.labelNameandYear.Name = "labelNameandYear";
-            this.labelNameandYear.Size = new System.Drawing.Size(660, 91);
-            this.labelNameandYear.TabIndex = 0;
-            this.labelNameandYear.Text = "label1";
+            this.labelActororDirector.AutoSize = true;
+            this.labelActororDirector.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelActororDirector.Location = new System.Drawing.Point(39, 69);
+            this.labelActororDirector.Name = "labelActororDirector";
+            this.labelActororDirector.Size = new System.Drawing.Size(54, 22);
+            this.labelActororDirector.TabIndex = 2;
+            this.labelActororDirector.Text = "label1";
+            // 
+            // labelName
+            // 
+            this.labelName.Font = new System.Drawing.Font("Palatino Linotype", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelName.Location = new System.Drawing.Point(35, 0);
+            this.labelName.Name = "labelName";
+            this.labelName.Size = new System.Drawing.Size(765, 60);
+            this.labelName.TabIndex = 0;
+            this.labelName.Text = "label1";
+            this.labelName.Click += new System.EventHandler(this.labelName_Click);
             // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(223)))), ((int)(((byte)(207)))), ((int)(((byte)(190)))));
+            this.panel3.Controls.Add(this.labelMovie4);
+            this.panel3.Controls.Add(this.labelMovie2);
+            this.panel3.Controls.Add(this.labelMovie3);
+            this.panel3.Controls.Add(this.labelMovie1);
+            this.panel3.Controls.Add(this.labelNationality);
+            this.panel3.Controls.Add(this.labelCountry);
+            this.panel3.Controls.Add(this.labelCity);
+            this.panel3.Controls.Add(this.labelDATEOFBIRTH);
             this.panel3.Controls.Add(this.label3);
             this.panel3.Controls.Add(this.label2);
             this.panel3.Controls.Add(this.label1);
-            this.panel3.Controls.Add(this.labelCity);
-            this.panel3.Controls.Add(this.labelDateofBirth);
+            this.panel3.Controls.Add(this.labelCitystatic);
+            this.panel3.Controls.Add(this.labeldob);
             this.panel3.Controls.Add(this.labelAbout);
             this.panel3.Controls.Add(this.pictureBoxPhoto);
             this.panel3.Controls.Add(this.labelPhoto);
@@ -400,11 +434,103 @@
             this.panel3.Size = new System.Drawing.Size(1004, 295);
             this.panel3.TabIndex = 3;
             // 
+            // labelMovie4
+            // 
+            this.labelMovie4.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelMovie4.Location = new System.Drawing.Point(623, 199);
+            this.labelMovie4.Name = "labelMovie4";
+            this.labelMovie4.Size = new System.Drawing.Size(381, 22);
+            this.labelMovie4.TabIndex = 23;
+            this.labelMovie4.Text = "label1";
+            this.labelMovie4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelMovie4.Click += new System.EventHandler(this.label_click);
+            this.labelMovie4.MouseLeave += new System.EventHandler(this.label_MouseLeave);
+            this.labelMovie4.MouseHover += new System.EventHandler(this.label_MouseHover);
+            // 
+            // labelMovie2
+            // 
+            this.labelMovie2.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelMovie2.Location = new System.Drawing.Point(620, 114);
+            this.labelMovie2.Name = "labelMovie2";
+            this.labelMovie2.Size = new System.Drawing.Size(381, 22);
+            this.labelMovie2.TabIndex = 22;
+            this.labelMovie2.Text = "label1";
+            this.labelMovie2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelMovie2.Click += new System.EventHandler(this.label_click);
+            this.labelMovie2.MouseLeave += new System.EventHandler(this.label_MouseLeave);
+            this.labelMovie2.MouseHover += new System.EventHandler(this.label_MouseHover);
+            // 
+            // labelMovie3
+            // 
+            this.labelMovie3.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelMovie3.Location = new System.Drawing.Point(620, 157);
+            this.labelMovie3.Name = "labelMovie3";
+            this.labelMovie3.Size = new System.Drawing.Size(381, 22);
+            this.labelMovie3.TabIndex = 21;
+            this.labelMovie3.Text = "label1";
+            this.labelMovie3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelMovie3.Click += new System.EventHandler(this.label_click);
+            this.labelMovie3.MouseLeave += new System.EventHandler(this.label_MouseLeave);
+            this.labelMovie3.MouseHover += new System.EventHandler(this.label_MouseHover);
+            // 
+            // labelMovie1
+            // 
+            this.labelMovie1.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelMovie1.Location = new System.Drawing.Point(620, 68);
+            this.labelMovie1.Name = "labelMovie1";
+            this.labelMovie1.Size = new System.Drawing.Size(381, 22);
+            this.labelMovie1.TabIndex = 20;
+            this.labelMovie1.Text = "label1";
+            this.labelMovie1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelMovie1.Click += new System.EventHandler(this.label_click);
+            this.labelMovie1.MouseLeave += new System.EventHandler(this.label_MouseLeave);
+            this.labelMovie1.MouseHover += new System.EventHandler(this.label_MouseHover);
+            // 
+            // labelNationality
+            // 
+            this.labelNationality.AutoSize = true;
+            this.labelNationality.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelNationality.Location = new System.Drawing.Point(488, 262);
+            this.labelNationality.Name = "labelNationality";
+            this.labelNationality.Size = new System.Drawing.Size(54, 22);
+            this.labelNationality.TabIndex = 19;
+            this.labelNationality.Text = "label1";
+            // 
+            // labelCountry
+            // 
+            this.labelCountry.AutoSize = true;
+            this.labelCountry.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelCountry.Location = new System.Drawing.Point(488, 230);
+            this.labelCountry.Name = "labelCountry";
+            this.labelCountry.Size = new System.Drawing.Size(54, 22);
+            this.labelCountry.TabIndex = 18;
+            this.labelCountry.Text = "label1";
+            // 
+            // labelCity
+            // 
+            this.labelCity.AutoSize = true;
+            this.labelCity.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelCity.Location = new System.Drawing.Point(488, 197);
+            this.labelCity.Name = "labelCity";
+            this.labelCity.Size = new System.Drawing.Size(54, 22);
+            this.labelCity.TabIndex = 17;
+            this.labelCity.Text = "label1";
+            // 
+            // labelDATEOFBIRTH
+            // 
+            this.labelDATEOFBIRTH.AutoSize = true;
+            this.labelDATEOFBIRTH.Font = new System.Drawing.Font("Palatino Linotype", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelDATEOFBIRTH.Location = new System.Drawing.Point(488, 165);
+            this.labelDATEOFBIRTH.Name = "labelDATEOFBIRTH";
+            this.labelDATEOFBIRTH.Size = new System.Drawing.Size(54, 22);
+            this.labelDATEOFBIRTH.TabIndex = 4;
+            this.labelDATEOFBIRTH.Text = "label1";
+            // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Palatino Linotype", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(787, 7);
+            this.label3.Location = new System.Drawing.Point(733, 10);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(188, 44);
             this.label3.TabIndex = 16;
@@ -430,25 +556,25 @@
             this.label1.TabIndex = 14;
             this.label1.Text = "Country:";
             // 
-            // labelCity
+            // labelCitystatic
             // 
-            this.labelCity.AutoSize = true;
-            this.labelCity.Font = new System.Drawing.Font("Palatino Linotype", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelCity.Location = new System.Drawing.Point(320, 189);
-            this.labelCity.Name = "labelCity";
-            this.labelCity.Size = new System.Drawing.Size(66, 32);
-            this.labelCity.TabIndex = 13;
-            this.labelCity.Text = "City:";
+            this.labelCitystatic.AutoSize = true;
+            this.labelCitystatic.Font = new System.Drawing.Font("Palatino Linotype", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelCitystatic.Location = new System.Drawing.Point(320, 189);
+            this.labelCitystatic.Name = "labelCitystatic";
+            this.labelCitystatic.Size = new System.Drawing.Size(66, 32);
+            this.labelCitystatic.TabIndex = 13;
+            this.labelCitystatic.Text = "City:";
             // 
-            // labelDateofBirth
+            // labeldob
             // 
-            this.labelDateofBirth.AutoSize = true;
-            this.labelDateofBirth.Font = new System.Drawing.Font("Palatino Linotype", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelDateofBirth.Location = new System.Drawing.Point(320, 157);
-            this.labelDateofBirth.Name = "labelDateofBirth";
-            this.labelDateofBirth.Size = new System.Drawing.Size(162, 32);
-            this.labelDateofBirth.TabIndex = 12;
-            this.labelDateofBirth.Text = "Date of Birth:";
+            this.labeldob.AutoSize = true;
+            this.labeldob.Font = new System.Drawing.Font("Palatino Linotype", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labeldob.Location = new System.Drawing.Point(320, 157);
+            this.labeldob.Name = "labeldob";
+            this.labeldob.Size = new System.Drawing.Size(162, 32);
+            this.labeldob.TabIndex = 12;
+            this.labeldob.Text = "Date of Birth:";
             // 
             // labelAbout
             // 
@@ -465,6 +591,7 @@
             this.pictureBoxPhoto.Location = new System.Drawing.Point(119, 10);
             this.pictureBoxPhoto.Name = "pictureBoxPhoto";
             this.pictureBoxPhoto.Size = new System.Drawing.Size(164, 177);
+            this.pictureBoxPhoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxPhoto.TabIndex = 10;
             this.pictureBoxPhoto.TabStop = false;
             // 
@@ -478,6 +605,13 @@
             this.labelPhoto.TabIndex = 9;
             this.labelPhoto.Text = "Photo:";
             // 
+            // allActorsToolStripMenuItem
+            // 
+            this.allActorsToolStripMenuItem.Name = "allActorsToolStripMenuItem";
+            this.allActorsToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
+            this.allActorsToolStripMenuItem.Text = "All Actors";
+            this.allActorsToolStripMenuItem.Click += new System.EventHandler(this.allActorsToolStripMenuItem_Click);
+            // 
             // ActorsOrDirectorsPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -490,6 +624,7 @@
             this.Name = "ActorsOrDirectorsPage";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ActorsOrDirectorsPage";
+            this.Load += new System.EventHandler(this.ActorsOrDirectorsPage_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
@@ -497,6 +632,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.SearchPictureBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPhoto)).EndInit();
@@ -537,15 +673,25 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button buttonPowerOffTop;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Label labelNameandYear;
+        private System.Windows.Forms.Label labelName;
         private System.Windows.Forms.Panel panel3;
         private System.Windows.Forms.Label labelAbout;
         private System.Windows.Forms.PictureBox pictureBoxPhoto;
         private System.Windows.Forms.Label labelPhoto;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label labelCity;
-        private System.Windows.Forms.Label labelDateofBirth;
+        private System.Windows.Forms.Label labelCitystatic;
+        private System.Windows.Forms.Label labeldob;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label labelMovie4;
+        private System.Windows.Forms.Label labelMovie2;
+        private System.Windows.Forms.Label labelMovie3;
+        private System.Windows.Forms.Label labelMovie1;
+        private System.Windows.Forms.Label labelNationality;
+        private System.Windows.Forms.Label labelCountry;
+        private System.Windows.Forms.Label labelCity;
+        private System.Windows.Forms.Label labelDATEOFBIRTH;
+        private System.Windows.Forms.Label labelActororDirector;
+        private System.Windows.Forms.ToolStripMenuItem allActorsToolStripMenuItem;
     }
 }

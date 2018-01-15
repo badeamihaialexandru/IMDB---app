@@ -34,6 +34,7 @@
             this.labelTitle = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.labelNews = new System.Windows.Forms.Label();
+            this.NameOfUser = new System.Windows.Forms.Label();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -41,6 +42,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(49)))), ((int)(((byte)(47)))), ((int)(((byte)(40)))));
+            this.panel2.Controls.Add(this.NameOfUser);
             this.panel2.Controls.Add(this.buttonPowerOffTop);
             this.panel2.Controls.Add(this.labelTitle);
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
@@ -65,12 +67,13 @@
             // 
             this.labelTitle.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.labelTitle.Font = new System.Drawing.Font("Gill Sans Ultra Bold", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelTitle.Location = new System.Drawing.Point(32, 9);
+            this.labelTitle.Location = new System.Drawing.Point(19, 4);
             this.labelTitle.Name = "labelTitle";
-            this.labelTitle.Size = new System.Drawing.Size(563, 78);
+            this.labelTitle.Size = new System.Drawing.Size(519, 78);
             this.labelTitle.TabIndex = 0;
             this.labelTitle.Text = "Title";
             this.labelTitle.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelTitle.Click += new System.EventHandler(this.labelTitle_Click);
             // 
             // panel1
             // 
@@ -90,6 +93,18 @@
             this.labelNews.TabIndex = 0;
             this.labelNews.Text = "News";
             this.labelNews.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // NameOfUser
+            // 
+            this.NameOfUser.Font = new System.Drawing.Font("Palatino Linotype", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NameOfUser.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(121)))), ((int)(((byte)(134)))));
+            this.NameOfUser.Location = new System.Drawing.Point(402, 66);
+            this.NameOfUser.Name = "NameOfUser";
+            this.NameOfUser.Size = new System.Drawing.Size(270, 32);
+            this.NameOfUser.TabIndex = 9;
+            this.NameOfUser.Text = "UserName";
+            this.NameOfUser.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.NameOfUser.Visible = false;
             // 
             // NewsPage
             // 
@@ -115,5 +130,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button buttonPowerOffTop;
         private System.Windows.Forms.Label labelNews;
+        private System.Windows.Forms.Label NameOfUser;
     }
 }

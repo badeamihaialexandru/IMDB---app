@@ -29,10 +29,11 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UniversalPage));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBoxDescending = new System.Windows.Forms.PictureBox();
             this.pictureBoxAscending = new System.Windows.Forms.PictureBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.comboBoxSortBy = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
@@ -49,19 +50,19 @@
             this.bornTodayToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.celebrityNewsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mostPopularCelebsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.allActorsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pHOTOToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.eVENTSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.nEWSToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.newsToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
-            this.watchlistToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.buttonTwitter = new System.Windows.Forms.Button();
             this.buttonPowerOffTop = new System.Windows.Forms.Button();
             this.buttonInstagram = new System.Windows.Forms.Button();
             this.SearchPictureBox = new System.Windows.Forms.PictureBox();
             this.buttonFacebook = new System.Windows.Forms.Button();
-            this.comboBoxSearchBy = new System.Windows.Forms.ComboBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.SearchBy = new System.Windows.Forms.ComboBox();
+            this.textBoxSearch = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.dataGridViewUniversal = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
@@ -79,7 +80,7 @@
             this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panel1.Controls.Add(this.pictureBoxDescending);
             this.panel1.Controls.Add(this.pictureBoxAscending);
-            this.panel1.Controls.Add(this.comboBox1);
+            this.panel1.Controls.Add(this.comboBoxSortBy);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.label6);
             this.panel1.Controls.Add(this.menuStrip1);
@@ -88,8 +89,8 @@
             this.panel1.Controls.Add(this.buttonInstagram);
             this.panel1.Controls.Add(this.SearchPictureBox);
             this.panel1.Controls.Add(this.buttonFacebook);
-            this.panel1.Controls.Add(this.comboBoxSearchBy);
-            this.panel1.Controls.Add(this.textBox1);
+            this.panel1.Controls.Add(this.SearchBy);
+            this.panel1.Controls.Add(this.textBoxSearch);
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -100,7 +101,7 @@
             // pictureBoxDescending
             // 
             this.pictureBoxDescending.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxDescending.Image")));
-            this.pictureBoxDescending.Location = new System.Drawing.Point(253, 87);
+            this.pictureBoxDescending.Location = new System.Drawing.Point(253, 85);
             this.pictureBoxDescending.Name = "pictureBoxDescending";
             this.pictureBoxDescending.Size = new System.Drawing.Size(29, 26);
             this.pictureBoxDescending.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -117,19 +118,20 @@
             this.pictureBoxAscending.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxAscending.TabIndex = 32;
             this.pictureBoxAscending.TabStop = false;
+            this.pictureBoxAscending.Click += new System.EventHandler(this.pictureBoxAscending_Click);
             // 
-            // comboBox1
+            // comboBoxSortBy
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.comboBoxSortBy.FormattingEnabled = true;
+            this.comboBoxSortBy.Items.AddRange(new object[] {
             "Date of release",
             "Alphabetical",
             "Rank"});
-            this.comboBox1.Location = new System.Drawing.Point(80, 91);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(132, 21);
-            this.comboBox1.TabIndex = 29;
-            this.comboBox1.Text = "ID";
+            this.comboBoxSortBy.Location = new System.Drawing.Point(80, 91);
+            this.comboBoxSortBy.Name = "comboBoxSortBy";
+            this.comboBoxSortBy.Size = new System.Drawing.Size(132, 21);
+            this.comboBoxSortBy.TabIndex = 29;
+            this.comboBoxSortBy.Text = "ID";
             // 
             // label1
             // 
@@ -161,11 +163,10 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.movieToolStripMenuItem,
             this.celebsEventPhotosToolStripMenuItem,
-            this.newsToolStripMenuItem,
-            this.watchlistToolStripMenuItem});
+            this.newsToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(148, 59);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(373, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(305, 24);
             this.menuStrip1.TabIndex = 20;
             this.menuStrip1.Text = "Menu";
             // 
@@ -243,6 +244,7 @@
             this.bornTodayToolStripMenuItem,
             this.celebrityNewsToolStripMenuItem,
             this.mostPopularCelebsToolStripMenuItem,
+            this.allActorsToolStripMenuItem,
             this.pHOTOToolStripMenuItem,
             this.eVENTSToolStripMenuItem});
             this.celebsEventPhotosToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlLightLight;
@@ -264,6 +266,7 @@
             this.bornTodayToolStripMenuItem.Name = "bornTodayToolStripMenuItem";
             this.bornTodayToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
             this.bornTodayToolStripMenuItem.Text = "Born Today";
+            this.bornTodayToolStripMenuItem.Click += new System.EventHandler(this.bornTodayToolStripMenuItem_Click);
             // 
             // celebrityNewsToolStripMenuItem
             // 
@@ -278,6 +281,13 @@
             this.mostPopularCelebsToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
             this.mostPopularCelebsToolStripMenuItem.Text = "Most Popular Celebs";
             this.mostPopularCelebsToolStripMenuItem.Click += new System.EventHandler(this.mostPopularCelebsToolStripMenuItem_Click);
+            // 
+            // allActorsToolStripMenuItem
+            // 
+            this.allActorsToolStripMenuItem.Name = "allActorsToolStripMenuItem";
+            this.allActorsToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
+            this.allActorsToolStripMenuItem.Text = "All Actors";
+            this.allActorsToolStripMenuItem.Click += new System.EventHandler(this.allActorsToolStripMenuItem_Click);
             // 
             // pHOTOToolStripMenuItem
             // 
@@ -319,13 +329,6 @@
             this.newsToolStripMenuItem2.Size = new System.Drawing.Size(119, 22);
             this.newsToolStripMenuItem2.Text = "News";
             this.newsToolStripMenuItem2.Click += new System.EventHandler(this.newsToolStripMenuItem2_Click);
-            // 
-            // watchlistToolStripMenuItem
-            // 
-            this.watchlistToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.watchlistToolStripMenuItem.Name = "watchlistToolStripMenuItem";
-            this.watchlistToolStripMenuItem.Size = new System.Drawing.Size(68, 20);
-            this.watchlistToolStripMenuItem.Text = "Watchlist";
             // 
             // buttonTwitter
             // 
@@ -373,6 +376,7 @@
             this.SearchPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.SearchPictureBox.TabIndex = 12;
             this.SearchPictureBox.TabStop = false;
+            this.SearchPictureBox.Click += new System.EventHandler(this.SearchPictureBox_Click);
             // 
             // buttonFacebook
             // 
@@ -386,27 +390,27 @@
             this.buttonFacebook.UseVisualStyleBackColor = true;
             this.buttonFacebook.Click += new System.EventHandler(this.buttonFacebook_Click);
             // 
-            // comboBoxSearchBy
+            // SearchBy
             // 
-            this.comboBoxSearchBy.FormattingEnabled = true;
-            this.comboBoxSearchBy.Items.AddRange(new object[] {
+            this.SearchBy.FormattingEnabled = true;
+            this.SearchBy.Items.AddRange(new object[] {
             "Movies",
             "TV Series",
             "Actors",
             "Directors",
             "Gender"});
-            this.comboBoxSearchBy.Location = new System.Drawing.Point(464, 36);
-            this.comboBoxSearchBy.Name = "comboBoxSearchBy";
-            this.comboBoxSearchBy.Size = new System.Drawing.Size(99, 21);
-            this.comboBoxSearchBy.TabIndex = 2;
-            this.comboBoxSearchBy.Text = "All";
+            this.SearchBy.Location = new System.Drawing.Point(464, 36);
+            this.SearchBy.Name = "SearchBy";
+            this.SearchBy.Size = new System.Drawing.Size(99, 21);
+            this.SearchBy.TabIndex = 2;
+            this.SearchBy.Text = "All";
             // 
-            // textBox1
+            // textBoxSearch
             // 
-            this.textBox1.Location = new System.Drawing.Point(148, 37);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(300, 20);
-            this.textBox1.TabIndex = 1;
+            this.textBoxSearch.Location = new System.Drawing.Point(148, 37);
+            this.textBoxSearch.Name = "textBoxSearch";
+            this.textBoxSearch.Size = new System.Drawing.Size(300, 20);
+            this.textBoxSearch.TabIndex = 1;
             // 
             // pictureBox1
             // 
@@ -422,11 +426,22 @@
             // 
             this.dataGridViewUniversal.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridViewUniversal.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewUniversal.DefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewUniversal.Location = new System.Drawing.Point(0, 119);
             this.dataGridViewUniversal.Name = "dataGridViewUniversal";
+            this.dataGridViewUniversal.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Palatino Linotype", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dataGridViewUniversal.RowTemplate.DefaultCellStyle.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(0)))));
             this.dataGridViewUniversal.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridViewUniversal.Size = new System.Drawing.Size(857, 324);
             this.dataGridViewUniversal.TabIndex = 32;
+            this.dataGridViewUniversal.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewUniversal_CellContentClick);
             this.dataGridViewUniversal.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewUniversal_CellDoubleClick);
             // 
             // UniversalPage
@@ -457,7 +472,7 @@
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox comboBoxSortBy;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.MenuStrip menuStrip1;
@@ -478,18 +493,18 @@
         private System.Windows.Forms.ToolStripMenuItem eVENTSToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem newsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem nEWSToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem watchlistToolStripMenuItem;
         private System.Windows.Forms.Button buttonTwitter;
         private System.Windows.Forms.Button buttonPowerOffTop;
         private System.Windows.Forms.Button buttonInstagram;
         private System.Windows.Forms.PictureBox SearchPictureBox;
         private System.Windows.Forms.Button buttonFacebook;
-        private System.Windows.Forms.ComboBox comboBoxSearchBy;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.ComboBox SearchBy;
+        private System.Windows.Forms.TextBox textBoxSearch;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.DataGridView dataGridViewUniversal;
         private System.Windows.Forms.ToolStripMenuItem newsToolStripMenuItem2;
         private System.Windows.Forms.PictureBox pictureBoxDescending;
         private System.Windows.Forms.PictureBox pictureBoxAscending;
+        private System.Windows.Forms.ToolStripMenuItem allActorsToolStripMenuItem;
     }
 }

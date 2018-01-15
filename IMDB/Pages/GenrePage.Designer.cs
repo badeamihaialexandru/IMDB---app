@@ -48,6 +48,7 @@
             this.bornTodayToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.celebrityNewsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mostPopularCelebsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.allActorsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pHOTOToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.eVENTSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -55,7 +56,7 @@
             this.newsToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.watchlistToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.SearchPictureBox = new System.Windows.Forms.PictureBox();
-            this.comboBoxSearchBy = new System.Windows.Forms.ComboBox();
+            this.SearchBy = new System.Windows.Forms.ComboBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.buttonPowerOffTop = new System.Windows.Forms.Button();
@@ -101,7 +102,7 @@
             this.panel1.Controls.Add(this.buttonFacebook);
             this.panel1.Controls.Add(this.menuStrip1);
             this.panel1.Controls.Add(this.SearchPictureBox);
-            this.panel1.Controls.Add(this.comboBoxSearchBy);
+            this.panel1.Controls.Add(this.SearchBy);
             this.panel1.Controls.Add(this.textBox1);
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Controls.Add(this.buttonPowerOffTop);
@@ -247,6 +248,7 @@
             this.bornTodayToolStripMenuItem,
             this.celebrityNewsToolStripMenuItem,
             this.mostPopularCelebsToolStripMenuItem,
+            this.allActorsToolStripMenuItem,
             this.pHOTOToolStripMenuItem,
             this.eVENTSToolStripMenuItem});
             this.celebsEventPhotosToolStripMenuItem.ForeColor = System.Drawing.SystemColors.ControlLightLight;
@@ -268,6 +270,7 @@
             this.bornTodayToolStripMenuItem.Name = "bornTodayToolStripMenuItem";
             this.bornTodayToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
             this.bornTodayToolStripMenuItem.Text = "Born Today";
+            this.bornTodayToolStripMenuItem.Click += new System.EventHandler(this.bornTodayToolStripMenuItem_Click);
             // 
             // celebrityNewsToolStripMenuItem
             // 
@@ -282,6 +285,13 @@
             this.mostPopularCelebsToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
             this.mostPopularCelebsToolStripMenuItem.Text = "Most Popular Celebs";
             this.mostPopularCelebsToolStripMenuItem.Click += new System.EventHandler(this.mostPopularCelebsToolStripMenuItem_Click);
+            // 
+            // allActorsToolStripMenuItem
+            // 
+            this.allActorsToolStripMenuItem.Name = "allActorsToolStripMenuItem";
+            this.allActorsToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
+            this.allActorsToolStripMenuItem.Text = "All Actors";
+            this.allActorsToolStripMenuItem.Click += new System.EventHandler(this.allActorsToolStripMenuItem_Click);
             // 
             // pHOTOToolStripMenuItem
             // 
@@ -341,21 +351,22 @@
             this.SearchPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.SearchPictureBox.TabIndex = 18;
             this.SearchPictureBox.TabStop = false;
+            this.SearchPictureBox.Click += new System.EventHandler(this.SearchPictureBox_Click);
             // 
-            // comboBoxSearchBy
+            // SearchBy
             // 
-            this.comboBoxSearchBy.FormattingEnabled = true;
-            this.comboBoxSearchBy.Items.AddRange(new object[] {
+            this.SearchBy.FormattingEnabled = true;
+            this.SearchBy.Items.AddRange(new object[] {
             "Movies",
             "TV Series",
             "Actors",
             "Directors",
             "Gender"});
-            this.comboBoxSearchBy.Location = new System.Drawing.Point(463, 39);
-            this.comboBoxSearchBy.Name = "comboBoxSearchBy";
-            this.comboBoxSearchBy.Size = new System.Drawing.Size(99, 21);
-            this.comboBoxSearchBy.TabIndex = 17;
-            this.comboBoxSearchBy.Text = "All";
+            this.SearchBy.Location = new System.Drawing.Point(463, 39);
+            this.SearchBy.Name = "SearchBy";
+            this.SearchBy.Size = new System.Drawing.Size(99, 21);
+            this.SearchBy.TabIndex = 17;
+            this.SearchBy.Text = "All";
             // 
             // textBox1
             // 
@@ -363,6 +374,7 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(300, 20);
             this.textBox1.TabIndex = 16;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // pictureBox1
             // 
@@ -798,7 +810,7 @@
         private System.Windows.Forms.ToolStripMenuItem nEWSToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem watchlistToolStripMenuItem;
         private System.Windows.Forms.PictureBox SearchPictureBox;
-        private System.Windows.Forms.ComboBox comboBoxSearchBy;
+        private System.Windows.Forms.ComboBox SearchBy;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button buttonPowerOffTop;
@@ -828,5 +840,6 @@
         private System.Windows.Forms.Button buttonAdventure;
         private System.Windows.Forms.Button buttonAction;
         private System.Windows.Forms.ToolStripMenuItem newsToolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem allActorsToolStripMenuItem;
     }
 }

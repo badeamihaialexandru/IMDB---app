@@ -30,6 +30,7 @@ namespace IMDB
         public Nullable<int> An_aparitie { get; set; }
         public string Nota { get; set; }
         public byte[] Photo { get; set; }
+        public Nullable<double> Nota_finala { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Relatie_actor_film> Relatie_actor_film { get; set; }

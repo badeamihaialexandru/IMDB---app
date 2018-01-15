@@ -30,16 +30,20 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminOrUser));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.buttonMovie = new System.Windows.Forms.Button();
+            this.buttonTVSeries = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.UserModeButton = new System.Windows.Forms.Button();
             this.AdminModeButton = new System.Windows.Forms.Button();
             this.labelWelcomeUserName = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(89)))), ((int)(((byte)(96)))));
+            this.panel1.Controls.Add(this.buttonMovie);
+            this.panel1.Controls.Add(this.buttonTVSeries);
             this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.UserModeButton);
             this.panel1.Controls.Add(this.AdminModeButton);
@@ -49,6 +53,54 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(411, 231);
             this.panel1.TabIndex = 0;
+            // 
+            // buttonMovie
+            // 
+            this.buttonMovie.FlatAppearance.BorderSize = 0;
+            this.buttonMovie.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonMovie.Font = new System.Drawing.Font("Gill Sans Ultra Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonMovie.Image = ((System.Drawing.Image)(resources.GetObject("buttonMovie.Image")));
+            this.buttonMovie.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonMovie.Location = new System.Drawing.Point(241, 82);
+            this.buttonMovie.Name = "buttonMovie";
+            this.buttonMovie.Size = new System.Drawing.Size(130, 59);
+            this.buttonMovie.TabIndex = 6;
+            this.buttonMovie.Text = "Movie";
+            this.buttonMovie.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buttonMovie.UseCompatibleTextRendering = true;
+            this.buttonMovie.UseVisualStyleBackColor = true;
+            this.buttonMovie.Visible = false;
+            this.buttonMovie.Click += new System.EventHandler(this.buttonMovie_Click);
+            // 
+            // buttonTVSeries
+            // 
+            this.buttonTVSeries.FlatAppearance.BorderSize = 0;
+            this.buttonTVSeries.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonTVSeries.Font = new System.Drawing.Font("Gill Sans Ultra Bold", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonTVSeries.Image = ((System.Drawing.Image)(resources.GetObject("buttonTVSeries.Image")));
+            this.buttonTVSeries.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonTVSeries.Location = new System.Drawing.Point(34, 82);
+            this.buttonTVSeries.Name = "buttonTVSeries";
+            this.buttonTVSeries.Size = new System.Drawing.Size(130, 59);
+            this.buttonTVSeries.TabIndex = 5;
+            this.buttonTVSeries.Text = "TV       Series";
+            this.buttonTVSeries.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buttonTVSeries.UseCompatibleTextRendering = true;
+            this.buttonTVSeries.UseVisualStyleBackColor = true;
+            this.buttonTVSeries.Visible = false;
+            this.buttonTVSeries.Click += new System.EventHandler(this.buttonTVSeries_Click);
+            // 
+            // button1
+            // 
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
+            this.button1.Location = new System.Drawing.Point(377, 0);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(34, 29);
+            this.button1.TabIndex = 4;
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // UserModeButton
             // 
@@ -96,18 +148,6 @@
             this.labelWelcomeUserName.Text = "Welcome,";
             this.labelWelcomeUserName.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // button1
-            // 
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.Location = new System.Drawing.Point(377, 0);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(34, 29);
-            this.button1.TabIndex = 4;
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // AdminOrUser
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -130,5 +170,7 @@
         public System.Windows.Forms.Label labelWelcomeUserName;
         private System.Windows.Forms.Button UserModeButton;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button buttonMovie;
+        private System.Windows.Forms.Button buttonTVSeries;
     }
 }

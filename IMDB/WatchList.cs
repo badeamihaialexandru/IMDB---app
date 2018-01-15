@@ -18,7 +18,7 @@ namespace IMDB
         public int ID_User { get; set; }
         public Nullable<int> Watched { get; set; }
     
-        public virtual User User { get; set; }
         public virtual Filme Filme { get; set; }
+        public virtual User User { get; set; }
     }
 }

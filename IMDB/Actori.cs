@@ -19,6 +19,7 @@ namespace IMDB
         {
             this.Relatie_actor_film = new HashSet<Relatie_actor_film>();
             this.Relatie_Actori_Premii = new HashSet<Relatie_Actori_Premii>();
+            this.Relatie_Actor_Serial = new HashSet<Relatie_Actor_Serial>();
         }
     
         public int ID_Actor { get; set; }
@@ -34,5 +35,7 @@ namespace IMDB
         public virtual ICollection<Relatie_actor_film> Relatie_actor_film { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Relatie_Actori_Premii> Relatie_Actori_Premii { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Relatie_Actor_Serial> Relatie_Actor_Serial { get; set; }
     }
 }

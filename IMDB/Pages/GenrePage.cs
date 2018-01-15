@@ -246,7 +246,103 @@ namespace IMDB
             Process.Start("https://twitter.com/imdb");
         }
 
+        private void bornTodayToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            UniversalPage form = new UniversalPage("BornToday", this);
+            form.Show();
+            this.Hide();
+        }
 
-        
+        private void allActorsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            UniversalPage form = new UniversalPage("AllActorsCelebs", this);
+            form.Show();
+            this.Hide();
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void SearchPictureBox_Click(object sender, EventArgs e)
+        {
+            if ( textBox1.Text.Equals(""))
+            {
+                MessageBox.Show("Please enter a keyword for search!", "InfoMessage");
+            }
+            else
+            {
+                using (var context = new IMDBEntities())
+                {
+                    var ResultMovies = (from rmov in context.Filmes
+                                        where rmov.Nume.Contains(textBox1.Text)
+                                        select rmov).FirstOrDefault();
+                    var ResultTVSeries = (from rtv in context.Seriales
+                                          where rtv.Nume.Contains(textBox1.Text)
+                                          select rtv).FirstOrDefault();
+                    var ResultActors = (from ra in context.Actoris
+                                        where ra.Nume.Contains(textBox1.Text) || ra.Prenume.Equals(textBox1.Text)
+                                        select ra).FirstOrDefault();
+                    var ResultDirectors = (from rd in context.Regizoris
+                                           where rd.Nume.Contains(textBox1.Text) || rd.Prenume.Equals(textBox1.Text)
+                                           select rd).FirstOrDefault();
+                    var ResultGender = (from rg in context.Genuris
+                                        where rg.Nume_Gen.Contains(textBox1.Text)
+                                        select rg).FirstOrDefault();
+                    if (SearchBy.Text.Equals("Movies"))
+                    {
+                        if (ResultMovies != null)
+                        {
+                            UniversalPage searchbymovies = new UniversalPage("SearchByMovies", textBox1.Text, this);
+                            searchbymovies.Show();
+                            this.Hide();
+                        }
+                        else { MessageBox.Show("Nu exista nici o inregistrare care sa corespunda textului introdus!"); }
+                    }
+                    else if (SearchBy.Text.Equals("TV Series"))
+                    {
+                        if (ResultTVSeries != null)
+                        {
+                            UniversalPage searchbytvseries = new UniversalPage("SearchByTVSeries", textBox1.Text, this);
+                            searchbytvseries.Show();
+                            this.Hide();
+                        }
+                        else { MessageBox.Show("Nu exista nici o inregistrare care sa corepunda textului introdus!"); }
+                    }
+                    else if (SearchBy.Text.Equals("Actors"))
+                    {
+                        if (ResultActors != null)
+                        {
+                            UniversalPage searchbyactors = new UniversalPage("SearchByActors", textBox1.Text, this);
+                            searchbyactors.Show();
+                            this.Hide();
+                        }
+                        else { MessageBox.Show("Nu exista nici o inregistrare care sa corepunda textului introdus!"); }
+                    }
+                    else if (SearchBy.Text.Equals("Directors"))
+                    {
+                        if (ResultDirectors != null)
+                        {
+                            UniversalPage searchbydirectors = new UniversalPage("SearchByDirectors", textBox1.Text, this);
+                            searchbydirectors.Show();
+                            this.Hide();
+                        }
+                        else { MessageBox.Show("Nu exista nici o inregistrare care sa corepunda textului introdus!"); }
+                    }
+                    else if (SearchBy.Text.Equals("Gender"))
+                    {
+                        if (ResultGender != null)
+                        {
+                            UniversalPage searchbygender = new UniversalPage("SearchByGender", textBox1.Text, this);
+                            searchbygender.Show();
+                            this.Hide();
+
+                        }
+                        else { MessageBox.Show("Nu exista nici o inregistrare care sa corepunda textului introdus!"); }
+                    }
+                }
+            }
+        }
     }
 }

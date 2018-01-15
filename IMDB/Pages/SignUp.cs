@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Diagnostics;
+using System.Security.Cryptography;
 
 namespace IMDB
 {
@@ -106,33 +107,106 @@ namespace IMDB
                 return "OK";
         }
 
-        private void button2_Click(object sender, EventArgs e) //pt creare cont
+        public string CalculateMD5Hash(string input)
+
         {
-            if (verify(textBoxUserName.Text, textBoxEmail.Text,textBoxPhoneNR.Text).Equals("OK"))
+
+            // step 1, calculate MD5 hash from input
+
+            MD5 md5 = System.Security.Cryptography.MD5.Create();
+
+            byte[] inputBytes = System.Text.Encoding.ASCII.GetBytes(input);
+
+            byte[] hash = md5.ComputeHash(inputBytes);
+
+
+            // step 2, convert byte array to hex string
+
+            StringBuilder sb = new StringBuilder();
+
+            for (int i = 0; i < hash.Length; i++)
+
             {
-                var context = new IMDBEntities();
-                var newUser = new User
-                {
-                    Username = textBoxUserName.Text,
-                    Password = textBoxPassword.Text,
-                    E_mail = textBoxEmail.Text,
-                    PhoneNumber = textBoxPhoneNR.Text,
-                    Rights = "user",
-                    DateofRegister = DateTime.Now
-                };
-                context.Users.Add(newUser);
-                context.SaveChanges();
-                MessageBox.Show("Welcome to our site!");
+
+                sb.Append(hash[i].ToString("x2"));
 
             }
-            else MessageBox.Show(verify(textBoxUserName.Text, textBoxEmail.Text, textBoxPhoneNR.Text));
+
+            return sb.ToString();
+
         }
 
-<<<<<<< HEAD
-        private void textBoxUserName_TextChanged(object sender, EventArgs e)
-        {
 
-=======
+
+        private void button2_Click(object sender, EventArgs e) //pt creare cont
+        {
+            //if (verify(textBoxUserName.Text, textBoxEmail.Text,textBoxPhoneNR.Text).Equals("OK"))
+            //{
+            //    var context = new IMDBEntities();
+            //    var newUser = new User
+            //    {
+            //        Username = textBoxUserName.Text,
+            //        Password = CalculateMD5Hash(textBoxPassword.Text),
+            //        E_mail = textBoxEmail.Text,
+            //        PhoneNumber = textBoxPhoneNR.Text,
+            //        Rights = "user",
+            //        DateofRegister = DateTime.Now
+            //    };
+            //    context.Users.Add(newUser);
+            //    context.SaveChanges();
+            //    MessageBox.Show("Welcome to our site!");
+
+            //}
+            //else MessageBox.Show(verify(textBoxUserName.Text, textBoxEmail.Text, textBoxPhoneNR.Text));
+            StartOwnTransactionWithinContext();
+        }
+
+        private void StartOwnTransactionWithinContext()
+        {
+            using (var context = new IMDBEntities())
+            {
+                using (var dbContextTransaction = context.Database.BeginTransaction())
+                {
+                    try
+                    {
+
+                        if (verify(textBoxUserName.Text, textBoxEmail.Text, textBoxPhoneNR.Text).Equals("OK"))
+                        {
+                          
+                            var newUser = new User
+                            {
+                                Username = textBoxUserName.Text,
+                                Password = CalculateMD5Hash(textBoxPassword.Text),
+                                E_mail = textBoxEmail.Text,
+                                PhoneNumber = textBoxPhoneNR.Text,
+                                Rights = "user",
+                                DateofRegister = DateTime.Now
+                            };
+                            context.Users.Add(newUser);
+                            
+                            
+                        }
+                        else MessageBox.Show(verify(textBoxUserName.Text, textBoxEmail.Text, textBoxPhoneNR.Text));
+
+
+
+
+
+                        context.SaveChanges();
+                        dbContextTransaction.Commit();
+                        MessageBox.Show("Welcome to our site!");
+
+                    }
+
+                    catch (Exception)
+                    {
+                        Console.WriteLine("Nu exista nume!!!");
+                        dbContextTransaction.Rollback();
+                    }
+                }
+            }
+        }
+
         private void buttonFacebook_Click(object sender, EventArgs e)
         {
             Process.Start("https://www.facebook.com/imdb");
@@ -148,7 +222,6 @@ namespace IMDB
         {
              Process.Start("https://twitter.com/imdb");
             
->>>>>>> 756d73a91e66ff22e659f497e4008191f3e8861c
         }
     }
 }

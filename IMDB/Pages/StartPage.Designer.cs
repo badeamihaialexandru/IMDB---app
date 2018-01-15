@@ -46,6 +46,7 @@
             this.bornTodayToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.celebrityNewsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mostPopularCelebsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.allActorsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pHOTOToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.eVENTSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -59,7 +60,7 @@
             this.Username = new System.Windows.Forms.Label();
             this.Password = new System.Windows.Forms.Label();
             this.ContinueAsGuest = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBoxSearch = new System.Windows.Forms.TextBox();
             this.SeacrhcontextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.cutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.copyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -190,6 +191,7 @@
             this.bornTodayToolStripMenuItem,
             this.celebrityNewsToolStripMenuItem,
             this.mostPopularCelebsToolStripMenuItem,
+            this.allActorsToolStripMenuItem,
             this.pHOTOToolStripMenuItem,
             this.eVENTSToolStripMenuItem});
             this.celebsEventPhotosToolStripMenuItem.Name = "celebsEventPhotosToolStripMenuItem";
@@ -228,6 +230,13 @@
             this.mostPopularCelebsToolStripMenuItem.Text = "Most Popular Celebs";
             this.mostPopularCelebsToolStripMenuItem.Click += new System.EventHandler(this.mostPopularCelebsToolStripMenuItem_Click);
             // 
+            // allActorsToolStripMenuItem
+            // 
+            this.allActorsToolStripMenuItem.Name = "allActorsToolStripMenuItem";
+            this.allActorsToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
+            this.allActorsToolStripMenuItem.Text = "All Actors";
+            this.allActorsToolStripMenuItem.Click += new System.EventHandler(this.allActorsToolStripMenuItem_Click);
+            // 
             // pHOTOToolStripMenuItem
             // 
             this.pHOTOToolStripMenuItem.Font = new System.Drawing.Font("Gill Sans Ultra Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -260,13 +269,13 @@
             this.nEWSToolStripMenuItem1.Font = new System.Drawing.Font("Gill Sans Ultra Bold", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.nEWSToolStripMenuItem1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(64)))), ((int)(((byte)(0)))));
             this.nEWSToolStripMenuItem1.Name = "nEWSToolStripMenuItem1";
-            this.nEWSToolStripMenuItem1.Size = new System.Drawing.Size(119, 22);
+            this.nEWSToolStripMenuItem1.Size = new System.Drawing.Size(152, 22);
             this.nEWSToolStripMenuItem1.Text = "NEWS";
             // 
             // newsToolStripMenuItem2
             // 
             this.newsToolStripMenuItem2.Name = "newsToolStripMenuItem2";
-            this.newsToolStripMenuItem2.Size = new System.Drawing.Size(119, 22);
+            this.newsToolStripMenuItem2.Size = new System.Drawing.Size(152, 22);
             this.newsToolStripMenuItem2.Text = "News";
             this.newsToolStripMenuItem2.Click += new System.EventHandler(this.newsToolStripMenuItem2_Click);
             // 
@@ -360,17 +369,17 @@
             this.ContinueAsGuest.Visible = false;
             this.ContinueAsGuest.Click += new System.EventHandler(this.label2_Click);
             // 
-            // textBox1
+            // textBoxSearch
             // 
-            this.textBox1.ContextMenuStrip = this.SeacrhcontextMenuStrip;
-            this.textBox1.ForeColor = System.Drawing.SystemColors.WindowFrame;
-            this.textBox1.Location = new System.Drawing.Point(12, 28);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(320, 20);
-            this.textBox1.TabIndex = 0;
-            this.textBox1.Click += new System.EventHandler(this.textBox1_Click);
-            this.textBox1.CursorChanged += new System.EventHandler(this.textBox1_CursorChanged_1);
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.textBoxSearch.ContextMenuStrip = this.SeacrhcontextMenuStrip;
+            this.textBoxSearch.ForeColor = System.Drawing.SystemColors.WindowFrame;
+            this.textBoxSearch.Location = new System.Drawing.Point(12, 28);
+            this.textBoxSearch.Name = "textBoxSearch";
+            this.textBoxSearch.Size = new System.Drawing.Size(320, 20);
+            this.textBoxSearch.TabIndex = 0;
+            this.textBoxSearch.Click += new System.EventHandler(this.textBox1_Click);
+            this.textBoxSearch.CursorChanged += new System.EventHandler(this.textBox1_CursorChanged_1);
+            this.textBoxSearch.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // SeacrhcontextMenuStrip
             // 
@@ -438,6 +447,7 @@
             this.SearchBy.Size = new System.Drawing.Size(121, 21);
             this.SearchBy.TabIndex = 13;
             this.SearchBy.Text = "All";
+            this.SearchBy.SelectedIndexChanged += new System.EventHandler(this.SearchBy_SelectedIndexChanged);
             // 
             // labelLog
             // 
@@ -488,7 +498,7 @@
             this.Controls.Add(this.labelLog);
             this.Controls.Add(this.SearchBy);
             this.Controls.Add(this.SearchPictureBox);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.textBoxSearch);
             this.Controls.Add(this.ContinueAsGuest);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.Password);
@@ -552,7 +562,7 @@
         private System.Windows.Forms.Label Password;
         private System.Windows.Forms.Label ContinueAsGuest;
         private System.Windows.Forms.ToolStripMenuItem ExitMenu;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBoxSearch;
         private System.Windows.Forms.PictureBox SearchPictureBox;
         private System.Windows.Forms.ContextMenuStrip SeacrhcontextMenuStrip;
         private System.Windows.Forms.ToolStripMenuItem cutToolStripMenuItem;
@@ -565,6 +575,7 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label labelJoinUs;
         private System.Windows.Forms.ToolStripMenuItem newsToolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem allActorsToolStripMenuItem;
     }
 }
 

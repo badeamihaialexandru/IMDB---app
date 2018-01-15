@@ -12,12 +12,24 @@ namespace IMDB
 {
     public partial class NewsPage : Form
     {
+        string MemberUserName;
 
         public NewsPage(string titlu, string continut)
         {
             InitializeComponent();
             labelNews.Text = continut;
             labelTitle.Text = titlu;
+            MemberUserName = "";
+        }
+
+        public NewsPage(string titlu, string continut,string UserName)
+        {
+            InitializeComponent();
+            labelNews.Text = continut;
+            labelTitle.Text = titlu;
+            NameOfUser.Visible = true;
+            NameOfUser.Text = UserName;
+            MemberUserName = UserName;
         }
 
         private void buttonPowerOffTop_Click(object sender, EventArgs e)
@@ -25,6 +37,9 @@ namespace IMDB
             this.Close();
         }
 
+        private void labelTitle_Click(object sender, EventArgs e)
+        {
 
+        }
     }
 }
